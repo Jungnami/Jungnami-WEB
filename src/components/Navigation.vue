@@ -1,26 +1,31 @@
 <template>
-<v-app>
-  <v-toolbar dark class="primary">
-    <v-toolbar-side-icon @click.native.stop="sideNav = !sideNav" class="hidden-sm-and-up"></v-toolbar-side-icon>
-    <v-layout row wrap>
+  <v-app id="inspire">
 
-    <v-flex offset-lg1 offset-md1 offset-sm1 >
-      <v-toolbar-title class="display-2">정나미</v-toolbar-title>
-    </v-flex>
 
-    <v-spacer></v-spacer>
-      <v-toolbar-items class="hidden-xs-only" offset-lg1 offset-md1 offset-sm1 offset-xs1>
-        <v-btn flat v-for="item in menuItems" :key="item.title" :to="item.path">
+      <v-toolbar
+        color="white"
+        style="padding-left: 60px; padding-right: 60px;"
+      >
+        <v-toolbar-title style="width: 300px" >
+          <span class="display-2 primary--text" >정나미</span>
+        </v-toolbar-title>
 
-          {{ item.title }}
+        <!-- <v-text-field
+          flat
+          solo-inverted
+          label="Search"
+          class="hidden-sm-and-down"
+        ></v-text-field> -->
+
+        <v-spacer></v-spacer>
+
+        <v-btn @click="$emit('textColor', 'primary')" :color="textColor" class="hidden-sm-and-down menu" flat depressed v-for="item in items" :key="item.text" :to="item.path">
+            {{ item.text }}
         </v-btn>
-      </v-toolbar-items>
-    </v-layout>
+      </v-toolbar>
 
-  </v-toolbar>
-  <!-- <router-view></router-view> -->
-</v-layout>
-</v-app>
+
+    </v-app>
 </template>
 
 
@@ -28,29 +33,20 @@
 export default {
   data() {
     return {
-      sideNav: false,
-      menuItems: [{
-          icon: 'supervisor_account',
-          title: '순위',
-          path: '/'
-        },
-        {
-          icon: 'room',
-          title: '정당/지역별',
-          path: '/produce'
-        },
-        {
-          icon: 'room',
-          title: '커뮤니티',
-          path: '/comunity'
-        },
-        {
-          icon: 'room',
-          title: '컨텐츠',
-          path: '/contents'
-        },
-
-      ]
+      dialog: false,
+      drawer: null,
+      textColor: 'text',
+      items: [
+        {icon: 'supervisor_account',text: '순위',path: '/'},
+        {icon: 'room',text: '정당/지역별',path: '/produce'},
+        {icon: 'room',text: '커뮤니티',path: '/comunity'},
+        {icon: 'room',text: '컨텐츠',path: '/contents'},
+      ],
+      methods: {
+        clickMenu: function (event) {
+          console.log(event);
+        }
+      }
 
     }
   }
@@ -58,4 +54,10 @@ export default {
 </script>
 
 <style lang="css">
+.menu
+{
+  height: 28px;
+
+}
+
 </style>
