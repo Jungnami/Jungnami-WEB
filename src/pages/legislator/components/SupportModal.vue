@@ -8,7 +8,7 @@
         <div class="my_coin_wrapper">
           <div class="my_coin">
             나의 코인
-            <span>100코인</span>
+            <span class="coin_amount">100코인</span>
           </div>
         </div>
 
@@ -56,6 +56,7 @@ export default {
   font-size: 33px;
   color: #6B6B6B;
   text-align: center;
+  font-family: NanumBarunGothic;
 }
 .my_coin
 {
@@ -67,9 +68,17 @@ export default {
   border: 0.25px solid #707070;
   
   padding-left: 17px;
+  padding-right: 11px;
   padding-top: 17px;
   font-size: 17px;
   text-align: left;
+  font-family: NanumBarunGothicLight;
+}
+.coin_amount
+{
+  color: #36C5F1;
+  float: right;
+  font-family: NanumBarunGothic;
 }
 
 .modal-enter {
