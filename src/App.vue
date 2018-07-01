@@ -1,13 +1,18 @@
 <template>
   <div id="app">
-    <img src="./assets/logo.png">
+    <support-modal></support-modal>
     <router-view/>
   </div>
 </template>
 
 <script>
+import supportModal from './pages/legislator/components/SupportModal'
+
 export default {
-  name: 'App'
+  name: 'App',
+  components: {
+    supportModal
+  }
 }
 </script>
 
