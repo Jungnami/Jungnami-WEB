@@ -20,6 +20,11 @@ export default {
 </script>
 
 <style>
+*
+{
+  box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+}
 @font-face {
   font-family: 'NanumBarunGothic';
   src: url('./assets/NanumBarunGothic.ttf') format('truetype');

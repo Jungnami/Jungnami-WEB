@@ -61,7 +61,7 @@ export default {
 {
   height: 28px;
   font-family: NanumBarunGothic
-},
+}
 .title
 {
   font-family: NanumBarunGothic
