@@ -5,7 +5,7 @@
     >
 
       <v-flex xs1>
-        <v-icon @click.native.stop="sideNav = !sideNav" class="hidden-sm-and-up">menu</v-icon>
+        <v-toolbar-side-icon @click.native.stop="sideNav = !sideNav" class="hidden-sm-and-up"></v-toolbar-side-icon>
       </v-flex>
 
         <v-toolbar-title style="width: 300px" >
@@ -14,7 +14,7 @@
 
         <v-spacer></v-spacer>
 
-        <v-btn @click="clickMenu" :color="textColor" class="hidden-xs-only menu" flat depressed v-for="item in items" :key="item.text" :to="item.path">
+        <v-btn :color="textColor" class="hidden-xs-only menu" flat depressed v-for="item in items" :key="item.text" :to="item.path">
             {{ item.text }}
         </v-btn>
         <v-flex xs1>
@@ -24,12 +24,8 @@
     </v-toolbar>
     <v-navigation-drawer v-model="sideNav" temporary absolute>
       <v-list>
-        <v-list-tile v-for="item in items" :key="item.title" :to="item.path">
-
-          <v-list-title-content>
+        <v-list-tile v-for="item in items" :key="item.text" :to="item.path">
             {{ item.text }}
-          </v-list-title-content>
-
         </v-list-tile>
       </v-list>
     </v-navigation-drawer>
@@ -40,6 +36,7 @@
 
 <script>
 export default {
+  name: 'Navigation',
   data() {
     return {
       sideNav: false,
@@ -48,7 +45,7 @@ export default {
         {icon: 'supervisor_account',text: '순위',path: '/'},
         {icon: 'room',text: '정당/지역별',path: '/produce'},
         {icon: 'room',text: '커뮤니티',path: '/comunity'},
-        {icon: 'room',text: '컨텐츠',path: '/contents'},
+        {icon: 'room',text: '컨텐츠',path: '/contents'}
       ]
 
     }
@@ -61,7 +58,7 @@ export default {
 {
   height: 28px;
   font-family: NanumBarunGothic
-},
+}
 .title
 {
   font-family: NanumBarunGothic
