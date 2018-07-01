@@ -1,29 +1,38 @@
 <template>
-  <v-app id="inspire">
+  <v-app>
+    <v-toolbar
+      color="white"
+    >
 
+      <v-flex xs1>
+        <v-icon @click.native.stop="sideNav = !sideNav" class="hidden-sm-and-up">menu</v-icon>
+      </v-flex>
 
-      <v-toolbar
-        color="white"
-        style="padding-left: 60px; padding-right: 60px;"
-      >
         <v-toolbar-title style="width: 300px" >
-          <span class="display-2 primary--text" >정나미</span>
+          <span class="display-2 primary--text title" >정나미</span>
         </v-toolbar-title>
-
-        <!-- <v-text-field
-          flat
-          solo-inverted
-          label="Search"
-          class="hidden-sm-and-down"
-        ></v-text-field> -->
 
         <v-spacer></v-spacer>
 
-        <v-btn @click="$emit('textColor', 'primary')" :color="textColor" class="hidden-sm-and-down menu" flat depressed v-for="item in items" :key="item.text" :to="item.path">
+        <v-btn @click="clickMenu" :color="textColor" class="hidden-xs-only menu" flat depressed v-for="item in items" :key="item.text" :to="item.path">
             {{ item.text }}
         </v-btn>
-      </v-toolbar>
+        <v-flex xs1>
+        </v-flex>
 
+
+    </v-toolbar>
+    <v-navigation-drawer v-model="sideNav" temporary absolute>
+      <v-list>
+        <v-list-tile v-for="item in items" :key="item.title" :to="item.path">
+
+          <v-list-title-content>
+            {{ item.text }}
+          </v-list-title-content>
+
+        </v-list-tile>
+      </v-list>
+    </v-navigation-drawer>
 
     </v-app>
 </template>
@@ -33,31 +42,29 @@
 export default {
   data() {
     return {
-      dialog: false,
-      drawer: null,
+      sideNav: false,
       textColor: 'text',
       items: [
         {icon: 'supervisor_account',text: '순위',path: '/'},
         {icon: 'room',text: '정당/지역별',path: '/produce'},
         {icon: 'room',text: '커뮤니티',path: '/comunity'},
         {icon: 'room',text: '컨텐츠',path: '/contents'},
-      ],
-      methods: {
-        clickMenu: function (event) {
-          console.log(event);
-        }
-      }
+      ]
 
     }
   }
 }
 </script>
 
-<style lang="css">
+<style scoped lang="css">
 .menu
 {
   height: 28px;
-
+  font-family: NanumBarunGothic
+},
+.title
+{
+  font-family: NanumBarunGothic
 }
 
 </style>
