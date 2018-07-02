@@ -1,8 +1,12 @@
 <template>
-  <div id="app">
-    <support-modal></support-modal>
+  <v-app>
+    <!-- <support-modal></support-modal> -->
     <navigation></navigation>
-  </div>
+    <div>
+      <router-view></router-view>
+    </div>
+  </v-app>
+
 </template>
 
 <script>
@@ -11,9 +15,9 @@ import Navigation from '@/components/Navigation'
 
 export default {
   name: 'App',
-  components: { 
+  components: {
     Navigation,
-    supportModal 
+    supportModal
   }
 }
 
