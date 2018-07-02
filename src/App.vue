@@ -2,9 +2,7 @@
   <v-app>
     <!-- <support-modal></support-modal> -->
     <navigation></navigation>
-    <div>
-      <router-view></router-view>
-    </div>
+    <router-view></router-view>
   </v-app>
 
 </template>
@@ -42,7 +40,7 @@ export default {
   src: url('./assets/NanumBarunGothicLight.ttf') format('truetype');
 }
 @font-face {
-  font-family: 'NanumBarunGothicLight';
-  src: url('./assets/NanumBarunGothicLight.ttf') format('truetype');
+  font-family: 'NanumBarunGothicUltraLight';
+  src: url('./assets/NanumBarunGothicUltraLight.ttf') format('truetype');
 }
 </style>
