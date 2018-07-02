@@ -1,13 +1,14 @@
 <template>
-<div>
+<div class="contents">
 
 
-  <div class="component_title">
-    관련 콘텐츠
-  </div>
+  
 
   <v-layout row wrap justify-space-around>
-    <v-flex xs6 sm3 class="content_card" v-for="item in items" :key="item.id" >
+    <v-flex xs12 class="component_title">
+      관련 콘텐츠
+    </v-flex>
+    <v-flex xs6 sm4 md3 class="content_card" v-for="item in items" :key="item.id" >
       <img :src="item.image" class="content_image">
       <div>
         <div>
@@ -86,8 +87,6 @@ export default {
   .component_title
   {
     font-size: 27px;
-    padding-left: 1.7vw;
-    padding-right: 1.7vw;
     margin-bottom: 31px;
     margin-top: 31px;
   }
@@ -111,8 +110,6 @@ export default {
   .component_title
   {
     font-size: 17px;
-    padding-left: 1.9vw;
-    padding-right: 1.9vw;
     margin-bottom: 22.54px;
     margin-top: 22.54px;
   }
@@ -135,8 +132,6 @@ export default {
 @media (max-width: 600px) {
   .component_title {
     font-size: 16px;
-    padding-left: 7vw;
-    padding-right: 7vw;
     margin-bottom: 13.86px;
     margin-top: 13.86px;
   }
@@ -154,8 +149,15 @@ export default {
   }
 }
 
-
-
+.contents
+{
+  padding-left: 1vw;
+  padding-right: 1vw;
+  margin-bottom: 8.33vh;
+  border: 1px solid #D3D3D3;
+  border-radius: 4px;
+  box-shadow: 3px 3px 8px  rgba(0,0,0,0.16); 
+}
 .component_title {
   font-weight: bold;
 }
