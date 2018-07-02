@@ -13,6 +13,7 @@
 </template>
 
 <script>
+
 export default {
 
 }
@@ -68,6 +69,6 @@ export default {
   padding-top: 0.3vw;
   padding-bottom: 0.3vw;
   margin-bottom: 1.7vh;
-  color: #36C5F1; 
+  color: #36C5F1;
 }
 </style>

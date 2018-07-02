@@ -46,7 +46,7 @@ export default {
 }
 </script>
 
-<style scoped lang="css">
+<style scoped>
 
 .nav_menu
 {
