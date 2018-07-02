@@ -1,7 +1,7 @@
 <template>
   <div>
     <v-toolbar
-      color="white"
+      color="white" 
     >
       <v-flex xs1>
         <v-toolbar-side-icon @click.native.stop="sideNav = !sideNav" class="hidden-sm-and-up"></v-toolbar-side-icon>

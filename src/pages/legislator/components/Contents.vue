@@ -1,4 +1,9 @@
 <template>
+  <div>
+
+  <div class="component_title">
+    관련 콘텐츠
+  </div>
   <v-layout row wrap xs12>
   <div flat class="content_card" v-for="item in items" :key="item.id">
         <img
@@ -18,6 +23,8 @@
         </div>
       </div>
     </v-layout>
+  </div>
+
 </template>
 
 <script>
@@ -37,12 +44,23 @@ export default {
 </script>
 
 <style scoped lang="css">
+.component_title
+{
+  padding-left: 7.665px;
+  padding-right: 7.665px;
+  font-size: 27px;
+  font-weight: bold;
+  margin-bottom: 31px;
+  margin-top: 31px;
+}
 
 .content_card{
   width: 295.95px;
   height: 311px;
   padding-left: 7.665px;
   padding-right: 7.665px;
+  margin-bottom: 55px;
+  /*padding-top: 33px;*/
 }
 .content_image{
   width: 100%;
@@ -51,16 +69,24 @@ export default {
 }
 .content_title{
   width: 100%;
-  height: 49px;
+  display: -webkit-box;
+  overflow: hidden;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 2;
+  line-height: 24.5px;
   padding-top: 13px;
-  padding-bottom: 13px;
   font-size: 17px;
   color: #000000;
   font-family: NanumBarunGothicOTF;
 }
 .content_desc{
   width: 100%;
-  height: 20px;
+  display: -webkit-box;
+  overflow: hidden;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 1;
+  line-height: 20px;
+  padding-top: 17px;
   color: #C6C6C6;
   font-family: NanumBarunGothicOTF;
 }
