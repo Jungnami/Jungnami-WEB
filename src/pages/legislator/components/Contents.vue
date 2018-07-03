@@ -1,13 +1,14 @@
 <template>
-<div>
+<div class="contents">
 
 
-  <div class="component_title">
-    관련 콘텐츠
-  </div>
+  
 
-<v-layout row wrap xs6 justify-space-around >
-    <div flat class="content_card" v-for="item in items" :key="item.id" >
+  <v-layout row wrap justify-space-around>
+    <v-flex xs12 class="component_title">
+      관련 콘텐츠
+    </v-flex>
+    <v-flex xs6 sm4 md3 class="content_card" v-for="item in items" :key="item.id" >
       <img :src="item.image" class="content_image">
       <div>
         <div>
@@ -17,7 +18,7 @@
       <div class="content_desc">
         {{ item.desc }}
       </div>
-    </div>
+    </v-flex>
   </v-layout>
 </div>
 </template>
@@ -82,12 +83,10 @@ export default {
 </script>
 
 <style scoped>
-@media all and (max-width: 1276px) and (min-width: 790px)  {
+@media (min-width: 1264px)  {
   .component_title
   {
     font-size: 27px;
-    padding-left: 1.7vw;
-    padding-right: 1.7vw;
     margin-bottom: 31px;
     margin-top: 31px;
   }
@@ -100,20 +99,17 @@ export default {
   .content_card
   {
     width: 23.2vw;
-    height: 24.4vw;
     padding-left: 0.6vw;
     padding-right: 0.6vw;
     margin-bottom: 4.3vw;
   }
 }
 
-@media all and (max-width: 1024px) and (min-width: 415px) {
+@media (max-width: 1264px) and (min-width: 600px) {
 
   .component_title
   {
     font-size: 17px;
-    padding-left: 1.9vw;
-    padding-right: 1.9vw;
     margin-bottom: 22.54px;
     margin-top: 22.54px;
   }
@@ -126,7 +122,6 @@ export default {
   .content_card
   {
     width: 21.7vw;
-    height: 24.6vw;
     padding-left: 0.6vw;
     padding-right: 0.6vw;
     margin-bottom: 5.42vw;
@@ -134,11 +129,9 @@ export default {
 
 }
 
-@media all and (max-width: 414px) and (min-width: 50px) {
+@media (max-width: 600px) {
   .component_title {
     font-size: 16px;
-    padding-left: 7vw;
-    padding-right: 7vw;
     margin-bottom: 13.86px;
     margin-top: 13.86px;
   }
@@ -150,15 +143,21 @@ export default {
   }
   .content_card {
     width: 180px;
-    height: 200px;
     padding-left: 13.3px;
     padding-right: 13.3px;
     margin-bottom: 20.25px;
   }
 }
 
-
-
+.contents
+{
+  padding-left: 1vw;
+  padding-right: 1vw;
+  margin-bottom: 8.33vh;
+  border: 1px solid #D3D3D3;
+  border-radius: 4px;
+  box-shadow: 3px 3px 8px  rgba(0,0,0,0.16); 
+}
 .component_title {
   font-weight: bold;
 }
