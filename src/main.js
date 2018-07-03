@@ -14,9 +14,6 @@ Vue.use(Vuetify, {
   theme: {
     primary: '#36C5F1',
     text: '#B4B4B4'
-    // secondary: '#b0bec5',
-    // accent: '#8c9eff',
-    // error: '#3f51b5'
   }
 })
 /* eslint-disable no-new */
