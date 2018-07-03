@@ -133,7 +133,7 @@ export default {
   }
 }
 
-@media all and (max-width: 1024px) and (min-width: 415px)
+@media all and (max-width: 789px) and (min-width: 415px)
 {
 
   .component_title
