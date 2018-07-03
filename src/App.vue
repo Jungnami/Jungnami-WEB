@@ -1,6 +1,5 @@
 <template>
   <v-app>
-    <!-- <support-modal></support-modal> -->
     <navigation></navigation>
     <router-view></router-view>
   </v-app>
