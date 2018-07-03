@@ -1,14 +1,14 @@
 <template>
+<div class="contents">
 
-<div>
 
 
-  <div class="component_title">
-    관련 콘텐츠
-  </div>
 
-<v-layout row wrap xs6 justify-space-around >
-    <div flat class="content_card" v-for="item in items" :key="item.id" >
+  <v-layout row wrap justify-space-around>
+    <v-flex xs12 class="component_title">
+      관련 콘텐츠
+    </v-flex>
+    <v-flex xs6 sm4 md3 class="content_card" v-for="item in items" :key="item.id" >
       <img :src="item.image" class="content_image">
       <div>
         <div>
@@ -18,17 +18,16 @@
       <div class="content_desc">
         {{ item.desc }}
       </div>
-    </div>
+    </v-flex>
   </v-layout>
 
-<div class="dot_box" align="center">
+  <div class="dot_box" align="center">
   <span class="dot"></span>
   <span class="dot"></span>
   <span class="dot"></span>
   <span class="dot"></span>
   <span class="dot"></span>
 </div>
-
 </div>
 </template>
 
@@ -92,13 +91,10 @@ export default {
 </script>
 
 <style scoped>
-@media all and (max-width: 2080px) and (min-width: 790px)
-{
+@media (min-width: 1264px)  {
   .component_title
   {
     font-size: 27px;
-    padding-left: 1.7vw;
-    padding-right: 1.7vw;
     margin-bottom: 31px;
     margin-top: 31px;
   }
@@ -111,7 +107,6 @@ export default {
   .content_card
   {
     width: 23.2vw;
-    height: 24.4vw;
     padding-left: 0.6vw;
     padding-right: 0.6vw;
     margin-bottom: 4.3vw;
@@ -128,19 +123,16 @@ export default {
   }
   .dot_box
   {
-    margin-top: 21.78px;
-    margin-bottom: 19.75px;
+    margin-top: 11.21px;
+    margin-bottom: 13.23px;
   }
 }
 
-@media all and (max-width: 789px) and (min-width: 415px)
-{
+@media (max-width: 1264px) and (min-width: 600px) {
 
   .component_title
   {
     font-size: 17px;
-    padding-left: 1.9vw;
-    padding-right: 1.9vw;
     margin-bottom: 22.54px;
     margin-top: 22.54px;
   }
@@ -153,7 +145,6 @@ export default {
   .content_card
   {
     width: 21.7vw;
-    height: 24.6vw;
     padding-left: 0.6vw;
     padding-right: 0.6vw;
     margin-bottom: 5.42vw;
@@ -168,14 +159,17 @@ export default {
     border-radius: 50%;
     display: inline-block;
   }
+  .dot_box
+  {
+    margin-top: 11.21px;
+    margin-bottom: 13.23px;
+  }
+
 }
 
-@media all and (max-width: 414px) and (min-width: 50px)
-{
+@media (max-width: 600px) {
   .component_title {
     font-size: 16px;
-    padding-left: 7vw;
-    padding-right: 7vw;
     margin-bottom: 13.86px;
     margin-top: 13.86px;
   }
@@ -185,10 +179,8 @@ export default {
     line-height: 11px;
     padding-top: 1.95px;
   }
-  .content_card
-  {
+  .content_card {
     width: 180px;
-    height: 200px;
     padding-left: 13.3px;
     padding-right: 13.3px;
     margin-bottom: 20.25px;
@@ -210,22 +202,26 @@ export default {
   }
 }
 
-
-
-.component_title
+.contents
 {
+  padding-left: 1vw;
+  padding-right: 1vw;
+  margin-bottom: 8.33vh;
+  border: 1px solid #D3D3D3;
+  border-radius: 4px;
+  box-shadow: 3px 3px 8px  rgba(0,0,0,0.16);
+}
+.component_title {
   font-weight: bold;
 }
 
 
-.content_image
-{
+.content_image {
   width: 100%;
   border-radius: 5%;
 }
 
-.content_title
-{
+.content_title {
   width: 100%;
   display: -webkit-box;
   overflow: hidden;
@@ -235,8 +231,7 @@ export default {
   font-family: NanumBarunGothicOTF;
 }
 
-.content_desc
-{
+.content_desc {
   width: 100%;
   display: -webkit-box;
   overflow: hidden;
@@ -245,11 +240,6 @@ export default {
   color: #C6C6C6;
   font-family: NanumBarunGothicOTF;
 }
-
-
-
-
-
 
 
 
