@@ -2,7 +2,7 @@
 <div class="contents">
 
 
-  
+
 
   <v-layout row wrap justify-space-around>
     <v-flex xs12 class="component_title">
@@ -20,6 +20,14 @@
       </div>
     </v-flex>
   </v-layout>
+
+  <div class="dot_box" align="center">
+  <span class="dot"></span>
+  <span class="dot"></span>
+  <span class="dot"></span>
+  <span class="dot"></span>
+  <span class="dot"></span>
+</div>
 </div>
 </template>
 
@@ -103,6 +111,21 @@ export default {
     padding-right: 0.6vw;
     margin-bottom: 4.3vw;
   }
+  .dot
+  {
+    height: 13px;
+    width: 13px;
+    margin-left: 7px;
+    margin-right: 7px;
+    background-color: #36C5F1;
+    border-radius: 50%;
+    display: inline-block;
+  }
+  .dot_box
+  {
+    margin-top: 11.21px;
+    margin-bottom: 13.23px;
+  }
 }
 
 @media (max-width: 1264px) and (min-width: 600px) {
@@ -126,6 +149,21 @@ export default {
     padding-right: 0.6vw;
     margin-bottom: 5.42vw;
   }
+  .dot
+  {
+    height: 7px;
+    width: 7px;
+    margin-left: 4.15px;
+    margin-right: 4.15px;
+    background-color: #36C5F1;
+    border-radius: 50%;
+    display: inline-block;
+  }
+  .dot_box
+  {
+    margin-top: 11.21px;
+    margin-bottom: 13.23px;
+  }
 
 }
 
@@ -147,6 +185,21 @@ export default {
     padding-right: 13.3px;
     margin-bottom: 20.25px;
   }
+  .dot
+  {
+    height: 7px;
+    width: 7px;
+    margin-left: 4.15px;
+    margin-right: 4.15px;
+    background-color: #36C5F1;
+    border-radius: 50%;
+    display: inline-block;
+  }
+  .dot_box
+  {
+    margin-top: 11.21px;
+    margin-bottom: 13.23px;
+  }
 }
 
 .contents
@@ -156,7 +209,7 @@ export default {
   margin-bottom: 8.33vh;
   border: 1px solid #D3D3D3;
   border-radius: 4px;
-  box-shadow: 3px 3px 8px  rgba(0,0,0,0.16); 
+  box-shadow: 3px 3px 8px  rgba(0,0,0,0.16);
 }
 .component_title {
   font-weight: bold;
@@ -187,5 +240,7 @@ export default {
   color: #C6C6C6;
   font-family: NanumBarunGothicOTF;
 }
+
+
 
 </style>

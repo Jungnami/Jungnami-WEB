@@ -4,7 +4,7 @@
   <v-layout row wrap>
     <profile></profile>
     <v-flex xs10 sm8 offset-xs1 offset-sm0>
-      <contents></contents>  
+      <contents></contents>
     </v-flex>
   </v-layout>
 </div>
