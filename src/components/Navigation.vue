@@ -26,7 +26,6 @@
         </template>
       </v-list>
     </v-menu>
-    <input type="text" class="search_list">
     <router-link to="/mypage">
       <img src="../../static/tab_icon_mypage.png" alt="mypage_logo" class="mypage_icon">
     </router-link>
