@@ -1,4 +1,5 @@
 <template>
+
 <div>
 
 
@@ -19,6 +20,15 @@
       </div>
     </div>
   </v-layout>
+
+<div class="dot_box" align="center">
+  <span class="dot"></span>
+  <span class="dot"></span>
+  <span class="dot"></span>
+  <span class="dot"></span>
+  <span class="dot"></span>
+</div>
+
 </div>
 </template>
 
@@ -82,7 +92,8 @@ export default {
 </script>
 
 <style scoped>
-@media all and (max-width: 1276px) and (min-width: 790px)  {
+@media all and (max-width: 2080px) and (min-width: 790px)
+{
   .component_title
   {
     font-size: 27px;
@@ -105,9 +116,25 @@ export default {
     padding-right: 0.6vw;
     margin-bottom: 4.3vw;
   }
+  .dot
+  {
+    height: 13px;
+    width: 13px;
+    margin-left: 7px;
+    margin-right: 7px;
+    background-color: #36C5F1;
+    border-radius: 50%;
+    display: inline-block;
+  }
+  .dot_box
+  {
+    margin-top: 21.78px;
+    margin-bottom: 19.75px;
+  }
 }
 
-@media all and (max-width: 1024px) and (min-width: 415px) {
+@media all and (max-width: 1024px) and (min-width: 415px)
+{
 
   .component_title
   {
@@ -131,10 +158,20 @@ export default {
     padding-right: 0.6vw;
     margin-bottom: 5.42vw;
   }
-
+  .dot
+  {
+    height: 7px;
+    width: 7px;
+    margin-left: 4.15px;
+    margin-right: 4.15px;
+    background-color: #36C5F1;
+    border-radius: 50%;
+    display: inline-block;
+  }
 }
 
-@media all and (max-width: 414px) and (min-width: 50px) {
+@media all and (max-width: 414px) and (min-width: 50px)
+{
   .component_title {
     font-size: 16px;
     padding-left: 7vw;
@@ -148,28 +185,47 @@ export default {
     line-height: 11px;
     padding-top: 1.95px;
   }
-  .content_card {
+  .content_card
+  {
     width: 180px;
     height: 200px;
     padding-left: 13.3px;
     padding-right: 13.3px;
     margin-bottom: 20.25px;
   }
+  .dot
+  {
+    height: 7px;
+    width: 7px;
+    margin-left: 4.15px;
+    margin-right: 4.15px;
+    background-color: #36C5F1;
+    border-radius: 50%;
+    display: inline-block;
+  }
+  .dot_box
+  {
+    margin-top: 11.21px;
+    margin-bottom: 13.23px;
+  }
 }
 
 
 
-.component_title {
+.component_title
+{
   font-weight: bold;
 }
 
 
-.content_image {
+.content_image
+{
   width: 100%;
   border-radius: 5%;
 }
 
-.content_title {
+.content_title
+{
   width: 100%;
   display: -webkit-box;
   overflow: hidden;
@@ -179,7 +235,8 @@ export default {
   font-family: NanumBarunGothicOTF;
 }
 
-.content_desc {
+.content_desc
+{
   width: 100%;
   display: -webkit-box;
   overflow: hidden;
@@ -188,5 +245,12 @@ export default {
   color: #C6C6C6;
   font-family: NanumBarunGothicOTF;
 }
+
+
+
+
+
+
+
 
 </style>
