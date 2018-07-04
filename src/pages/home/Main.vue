@@ -40,15 +40,12 @@
     </v-layout>
     <v-flex xs0 sm1></v-flex>
   </v-layout>
-  <home-footer></home-footer>
 </div>
 </template>
 
 <script>
-import HomeFooter from './components/HomeFooter'
 export default {
   name: 'Home',
-  components: { HomeFooter },
   data () {
     return {
       small_items: [

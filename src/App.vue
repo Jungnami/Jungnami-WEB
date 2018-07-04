@@ -2,6 +2,7 @@
   <v-app>
     <navigation></navigation>
     <router-view></router-view>
+    <home-footer></home-footer>
   </v-app>
 
 </template>
@@ -9,12 +10,14 @@
 <script>
 import supportModal from './pages/legislator/components/SupportModal'
 import Navigation from '@/components/Navigation'
+import HomeFooter from '@/components/HomeFooter'
 
 export default {
   name: 'App',
   components: {
     Navigation,
-    supportModal
+    supportModal,
+    HomeFooter
   }
 }
 
