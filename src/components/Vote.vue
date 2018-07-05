@@ -17,7 +17,7 @@
         </div>
         <div class="thumbnail_box">
           <div class="thumbnail_border">
-            <img src="../../static/img_avatar.png" alt="Avatar" class="thumbnail_content">
+            <img src="../../static/img_avatar.png" alt="Avatar" class="thumbnail_content" style="display: block;">
           </div>
         </div>
 
@@ -60,15 +60,24 @@ export default {
 <style scoped>
 /*root : 549px*/
 @media (max-width: 960px) {
+  .content {
+    font-size: 10px
+  }
 }
+
+/*@media ()*/
+
 .vote_list {
+  align-items: center;
+
   width: 100%;
 }
 
 
 .vote_container {
   width: 100%;
-  height: 4%;
+  /*height:90%;*/
+  /*height: 4%;*/
   /*height: auto;*/
   /*position: relative;*/
   background-color: rgba(0, 0, 0, 0.05);
@@ -102,11 +111,9 @@ export default {
   /*top: 200px;*/
 
   position: relative;
-  top: 25%;;
-  height: 60%;
+  top: 10%;
+  height: 80%;
   width: 50%;
-  /*align: middle;*/
-  /*vertical-align: super;*/
   margin: 0 auto;
   background-image: url('../../static/gold_medal.png');
   background-size: contain;
@@ -117,12 +124,10 @@ export default {
 
 .content {
   /* Centered text */
-  left: -2%;
+  left: -5%;
+  top: 10%;
   position: relative;
   text-align: center;
-  /*width: 50%;*/
-  /*height: 50%;*/
-  margin: 0 auto;
   font-size: 1.2vw;
   font-family: NanumBarunGothic;
   color: white;
@@ -134,22 +139,25 @@ export default {
 
 .thumbnail_box {
   width: 14%;
+  height: 100%;
   display: table-cell;
-  position: relative;
   vertical-align: top;
-  /*border: 1px solid #1783DC;*/
 
-  /*z-index: 1;*/
 }
 
 .thumbnail_border {
+  padding-top: 10%;
+  padding-bottom: 10%;
   position: relative;
-  padding-top: 12%;
-  padding-bottom: 12%;
+
 }
 
 .thumbnail_content {
-  width: 100%;
+  width: 80%;
+  height:auto;
+  border: 1px solid #000;
+
+  /*height: 10px*/
   border-radius: 50%;
   vertical-align: baseline;
   /*border: 0.35vw solid #1783DC;*/
@@ -169,17 +177,21 @@ export default {
 
 .progress_border {
   position: relative;
-  height: 100%;
+  height: 75%;
   width: 100%;
+  padding-top: 7.5%;
   left: -10%;
-  padding-top: 10%;
-  padding-bottom: 10%;
+
+  /*padding-top: 10%;
+  padding-bottom: 10%;*/
 }
 
 .progress_percent {
+  position: relative;
   height: 100%;
   background-color: #1783DC;
-  width: 100%;
+  width: 130;
+  padding-botton: 7.5%;
   border-top-right-radius: 25px;
   border-bottom-right-radius: 25px;
 
@@ -197,15 +209,16 @@ export default {
 
 
 
-.name 
+.name
 {
   z-index: 4;
   color: white;
   font-size: 1vw;
   font-family: NanumBarunGothic;
   position: absolute;
+  top: 15%;
   left: 12%;
-  top: 38%;
+  /*top: 38%;*/
 }
 .count
 {
@@ -213,9 +226,10 @@ export default {
   font-size: 1vw;
   font-family: NanumBarunGothicLight;
   color: white;
-  top: 19%;
+  position: absolute;
+  top: 15%;
   right: 10%;
-  position: relative;
+  /*position: relative;*/
 }
 
 

@@ -8,7 +8,7 @@
       </router-link>
     </v-flex>
     <v-spacer></v-spacer>
-    <v-btn color="text" class="hidden-xs-only nav_menu" flat depressed v-for="item in items" :key="item.text" :to="item.path">
+    <v-btn color="text" class="hidden-xs-only nav_menu" v-bind:class="{ on : $route.path === item.path}" flat depressed v-for="item in items" :key="item.text" :to="item.path">
         {{ item.text }}
     </v-btn>
     <v-menu offset-y class="search_menu">
@@ -60,7 +60,8 @@ export default {
         {img: '../../static/tab_search_icon_content.png', text: '컨텐츠 검색'}
       ]
     }
-  }
+  },
+  
 }
 </script>
 
@@ -123,5 +124,9 @@ div.search_list
 {
   margin-top: 1.5vh;
   font-family: NanumBarunGothic
+}
+.nav_menu.on
+{
+  color: #36C5F1 !important;
 }
 </style>
