@@ -1,7 +1,7 @@
 <template>
 <v-layout row wrap class="region_page">
   <v-flex xs7 md3 offset-xs1>
-    <img src="../../../../static/list_party_text.png" alt="list_party_text" class="party_text">
+    <img src="../../../../static/list_party_text.png" alt="list_region_text" class="region_text">
     <map-component class="hidden-sm-and-down map_component"></map-component>
   </v-flex>
   <v-flex xs10 md7 offset-xs1 offset-md0>
@@ -77,7 +77,7 @@ export default {
 
 <style scoped>
 @media (max-width: 960px) {
-  img.party_text {
+  img.region_text {
     margin-bottom: 3vh;
   }
   div.region_tab_bar {
@@ -97,7 +97,7 @@ export default {
 {
   margin-top: 4.63vh;
 }
-.party_text
+.region_text
 {
   width: 100%;
   margin-bottom: 10.74vh;
