@@ -37,11 +37,11 @@ export default new Router({
         component: Region
       },
       {
-        path: 'party',
+        path: '/',
         name: 'Party',
         component: Party
       }
-    ]
+      ]
     }
   ]
 })

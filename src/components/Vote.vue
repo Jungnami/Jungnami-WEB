@@ -1,10 +1,10 @@
 <template>
-<div>
+<div class="vote">
   <!--리스팅될 화면 pc: 1117.88, tablet: 648.71-->
 
   <v-list class="vote_list">
     <template v-for="index in 10">
-    <div class="vote_container">
+    <div class="vote_container" :key="index" :style="{backgroundColor: bg_color[index%2]}">
       <div class="vote_content">
         <div class="rank_box">
           <div class="rank_border">
@@ -17,14 +17,14 @@
         </div>
         <div class="thumbnail_box">
           <div class="thumbnail_border">
-            <img src="../../../../static/img_avatar.png" alt="Avatar" class="thumbnail_content">
+            <img src="../../static/img_avatar.png" alt="Avatar" class="thumbnail_content">
           </div>
         </div>
 
         <div class="progress_box">
           <div class="progress_border">
             <div class="progress_percent">
-              <div class="text"> 김병관 </div>
+              <div class="name"> 김병관 </div>
               <div class="count"> 270,000표 </div>
 
             </div>
@@ -49,7 +49,9 @@
 export default {
   name: 'Vote',
   data() {
-    return {}
+    return {
+      bg_color: ['background-color: rgba(0, 0, 0, 0.05)', 'white']
+    }
   }
 }
 </script>
@@ -57,27 +59,26 @@ export default {
 
 <style scoped>
 /*root : 549px*/
-
+@media (max-width: 960px) {
+  .content {
+    font-size: 
+  }
+}
 .vote_list {
-  width: 50vw;
-  height: 100vw;
-
+  width: 100%;
 }
 
 
 .vote_container {
   width: 100%;
+  height: 4%;
   /*height: auto;*/
-  height: 10%;
   /*position: relative;*/
   background-color: rgba(0, 0, 0, 0.05);
-  padding-top: 1%;
-  padding-bottom: 1%;
-
 }
 
 .vote_content {
-  height: 100%;
+  height: 80%;
   display: table;
 }
 
@@ -110,7 +111,7 @@ export default {
   /*align: middle;*/
   /*vertical-align: super;*/
   margin: 0 auto;
-  background-image: url('../../../../static/gold_medal.png');
+  background-image: url('../../static/gold_medal.png');
   background-size: contain;
   /*border: 2px solid #1783DC;*/
 }
@@ -125,7 +126,8 @@ export default {
   /*width: 50%;*/
   /*height: 50%;*/
   margin: 0 auto;
-  font-size: 2.7vw;
+  font-size: 1.2vw;
+  font-family: NanumBarunGothic;
   color: white;
   z-index: 2;
   /*border: 1px solid #1783DC;*/
@@ -162,9 +164,7 @@ export default {
 
 .progress_box {
   display: table-cell;
-
   width: 58%;
-  height: 100%;
   /*position: relative;*/
   /*right: +13px;*/
   z-index: 0;
@@ -185,20 +185,8 @@ export default {
   width: 100%;
   border-top-right-radius: 25px;
   border-bottom-right-radius: 25px;
-  align: middle;
 
 
-
-}
-
-.count
-{
-  text-align: right;
-  font-size: 1.5vw;
-  color: white;
-  top: 20%;
-  right: 10%;
-  position: relative;
 
 }
 
@@ -212,19 +200,26 @@ export default {
 
 
 
-.text {
+.name 
+{
   z-index: 4;
-  align: center;
   color: white;
-  font-size:2vw;
+  font-size: 1vw;
+  font-family: NanumBarunGothic;
   position: absolute;
-  background: none !important;
-  left: 10%;
-  top: 35%;
-  /*border: 2px solid #FFFFFF;*/
-
+  left: 12%;
+  top: 38%;
 }
-
+.count
+{
+  text-align: right;
+  font-size: 1vw;
+  font-family: NanumBarunGothicLight;
+  color: white;
+  top: 19%;
+  right: 10%;
+  position: relative;
+}
 
 
 

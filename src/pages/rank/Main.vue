@@ -3,7 +3,7 @@
 </template>
 
 <script>
-import Vote from './components/Vote'
+import Vote from '../../components/Vote'
 export default {
   name: 'Rank',
   components: { Vote },
