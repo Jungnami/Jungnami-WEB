@@ -59,13 +59,57 @@ export default {
 
 <style scoped>
 /*root : 549px*/
+
 @media (max-width: 960px) {
   .content {
-    font-size: 10px
+    left: -5%;
+    top: 20%;
+    position: relative;
+    text-align: center;
+    font-size: 1.2vw;
+    font-family: NanumBarunGothic;
+    color: white;
+    z-index: 2;
+  }
+
+}
+
+@media (min-width: 960px) {
+  .content {
+    /* Centered text */
+    left: -5%;
+    top: 10%;
+    position: relative;
+    text-align: center;
+    font-size: 1.2vw;
+    font-family: NanumBarunGothic;
+    color: white;
+    z-index: 2;
+    /*border: 1px solid #1783DC;*/
   }
 }
 
-/*@media ()*/
+.name {
+  z-index: 4;
+  color: white;
+  font-size: 1vw;
+  font-family: NanumBarunGothic;
+  position: absolute;
+  top: 15%;
+  left: 12%;
+  /*top: 38%;*/
+}
+
+.count {
+  text-align: right;
+  font-size: 1vw;
+  font-family: NanumBarunGothicLight;
+  color: white;
+  position: absolute;
+  top: 15%;
+  right: 10%;
+  /*position: relative;*/
+}
 
 .vote_list {
   align-items: center;
@@ -95,7 +139,6 @@ export default {
   vertical-align: top;
   z-index: 1;
   /*border: 1px solid #1783DC;*/
-
 }
 
 .rank_border {
@@ -109,7 +152,6 @@ export default {
 .img {
   /*top: 50%;*/
   /*top: 200px;*/
-
   position: relative;
   top: 10%;
   height: 80%;
@@ -122,19 +164,7 @@ export default {
 
 /* .rank를 기준으로 가운데에 텍스트가필요한 부분*/
 
-.content {
-  /* Centered text */
-  left: -5%;
-  top: 10%;
-  position: relative;
-  text-align: center;
-  font-size: 1.2vw;
-  font-family: NanumBarunGothic;
-  color: white;
-  z-index: 2;
-  /*border: 1px solid #1783DC;*/
 
-}
 
 
 .thumbnail_box {
@@ -154,7 +184,7 @@ export default {
 
 .thumbnail_content {
   width: 80%;
-  height:auto;
+  height: auto;
   border: 1px solid #000;
 
   /*height: 10px*/
@@ -209,28 +239,6 @@ export default {
 
 
 
-.name
-{
-  z-index: 4;
-  color: white;
-  font-size: 1vw;
-  font-family: NanumBarunGothic;
-  position: absolute;
-  top: 15%;
-  left: 12%;
-  /*top: 38%;*/
-}
-.count
-{
-  text-align: right;
-  font-size: 1vw;
-  font-family: NanumBarunGothicLight;
-  color: white;
-  position: absolute;
-  top: 15%;
-  right: 10%;
-  /*position: relative;*/
-}
 
 
 
