@@ -17,10 +17,8 @@
 </template>
 
 <script>
-import MapComponent from './components/Map'
 export default {
-  name: 'LegislatorList',
-  components: { MapComponent }
+  name: 'LegislatorList'
 }
 </script>
 
@@ -42,11 +40,5 @@ export default {
 {
   border-bottom: 0.26vw solid #36C5F1;
   color: #36C5F1;
-}
-.party_text
-{
-  width: 100%;
-  margin-top: 4.63vh;
-  margin-bottom: 10.74vh;
 }
 </style>
