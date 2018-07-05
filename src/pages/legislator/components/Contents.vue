@@ -8,7 +8,7 @@
     <v-flex xs12 class="component_title">
       관련 콘텐츠
     </v-flex>
-    <v-flex xs6 sm4 md3 class="content_card" v-for="item in pageItems" :key="item.id" >
+    <v-flex xs6 sm4 md3 class="content_card" v-for="item in pageItems" :key="item.id">
       <img :src="item.image" class="content_image">
       <div>
         <div>
@@ -21,16 +21,19 @@
     </v-flex>
   </v-layout>
 
-  <div class="dot_box" align="center" >
+  <div class="dot_box" align="center">
+
+    <a href="#">
     <span v-on:click="getPagingData($event)" class="dot" v-bind:class="{ on : currentPage == 1 }" id="1"></span>
-    <span v-on:click="getPagingData($event)" class="dot" v-bind:class="{ on : currentPage == index + 1 }" v-bind:id="index + 1" v-for="index in pageLength" :key="index"></span>
+    </a>
+    <a href="#" v-on:click="getPagingData($event)" v-bind:id="index + 1" v-for="index in pageLength" :key="index">
+    <span class="dot" v-bind:class="{ on : currentPage == index + 1 }"></span>
+    </a>
   </div>
 </div>
 </template>
 
 <script>
-
-
 export default {
   name: 'Contents',
   methods: {
@@ -43,16 +46,16 @@ export default {
     }
   },
   computed: {
-    pageLength: function(){
+    pageLength: function() {
       var itemLength = this.items.length > 48 ? 48 : this.items.length;
       var pageLength = Math.ceil((itemLength / this.PAGENUM)) - 1;
       return pageLength;
     },
     pageItems: {
-      get: function(){
+      get: function() {
         return this.items.slice(this.startItem, this.endItem);
       },
-      set: function(newValue){
+      set: function(newValue) {
         var item = newValue.split(' ');
         this.startItem = item[0];
         this.endItem = item[1];
@@ -65,7 +68,7 @@ export default {
       currentPage: 1,
       startItem: 0,
       endItem: 12,
-      PAGENUM : 12, //페이징 단위
+      PAGENUM: 12, //페이징 단위
       items: [{
           id: 1,
           image: '/static/card_image1.jpeg',
@@ -307,28 +310,24 @@ export default {
 </script>
 
 <style scoped>
-@media (min-width: 1264px)  {
-  .component_title
-  {
+@media (min-width: 1264px) {
+  .component_title {
     font-size: 27px;
     margin-bottom: 31px;
     margin-top: 31px;
   }
-  .component_desc
-  {
+  .component_desc {
     font-size: 15px;
     line-height: 20px;
     padding-top: 17px;
   }
-  .content_card
-  {
+  .content_card {
     width: 23.2vw;
     padding-left: 0.6vw;
     padding-right: 0.6vw;
     margin-bottom: 4.3vw;
   }
-  .dot
-  {
+  .dot {
     height: 13px;
     width: 13px;
     margin-left: 7px;
@@ -339,8 +338,7 @@ export default {
     border: 1px solid #36C5F1;
   }
 
-  .dot_box
-  {
+  .dot_box {
     margin-top: 11.21px;
     margin-bottom: 13.23px;
   }
@@ -348,27 +346,23 @@ export default {
 
 @media (max-width: 1264px) and (min-width: 600px) {
 
-  .component_title
-  {
+  .component_title {
     font-size: 17px;
     margin-bottom: 22.54px;
     margin-top: 22.54px;
   }
-  .component_desc
-  {
+  .component_desc {
     font-size: 10px;
     line-height: 14px;
     padding-top: 8px;
   }
-  .content_card
-  {
+  .content_card {
     width: 21.7vw;
     padding-left: 0.6vw;
     padding-right: 0.6vw;
     margin-bottom: 5.42vw;
   }
-  .dot
-  {
+  .dot {
     height: 7px;
     width: 7px;
     margin-left: 4.15px;
@@ -378,8 +372,7 @@ export default {
     display: inline-block;
     border: 1px solid #36C5F1;
   }
-  .dot_box
-  {
+  .dot_box {
     margin-top: 11.21px;
     margin-bottom: 13.23px;
   }
@@ -392,8 +385,7 @@ export default {
     margin-bottom: 13.86px;
     margin-top: 13.86px;
   }
-  .component_desc
-  {
+  .component_desc {
     font-size: 8px;
     line-height: 11px;
     padding-top: 1.95px;
@@ -404,8 +396,7 @@ export default {
     padding-right: 13.3px;
     margin-bottom: 20.25px;
   }
-  .dot
-  {
+  .dot {
     height: 7px;
     width: 7px;
     margin-left: 4.15px;
@@ -415,22 +406,21 @@ export default {
     display: inline-block;
     border: 1px solid #36C5F1;
   }
-  .dot_box
-  {
+  .dot_box {
     margin-top: 11.21px;
     margin-bottom: 13.23px;
   }
 }
 
-.contents
-{
+.contents {
   padding-left: 1vw;
   padding-right: 1vw;
   margin-bottom: 8.33vh;
   border: 1px solid #D3D3D3;
   border-radius: 4px;
-  box-shadow: 3px 3px 8px  rgba(0,0,0,0.16);
+  box-shadow: 3px 3px 8px rgba(0, 0, 0, 0.16);
 }
+
 .component_title {
   font-weight: bold;
 }
@@ -461,11 +451,7 @@ export default {
   font-family: NanumBarunGothicOTF;
 }
 
-.dot.on
-{
+.dot.on {
   background-color: #36C5F1;
 }
-
-
-
 </style>
