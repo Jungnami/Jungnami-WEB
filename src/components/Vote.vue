@@ -60,9 +60,6 @@ export default {
 <style scoped>
 /*root : 549px*/
 @media (max-width: 960px) {
-  .content {
-    font-size: 
-  }
 }
 .vote_list {
   width: 100%;
