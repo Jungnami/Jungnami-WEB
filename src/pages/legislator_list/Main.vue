@@ -23,12 +23,20 @@ export default {
 </script>
 
 <style scoped>
+@media (max-width: 600px) {
+  div.route_link {
+    font-size: 5vw;
+    width: 40vw;
+    margin-right: 0;
+  }
+}
 .route_link
 {
   width: 8.33vw;
-  height: 5.3vw;
-  padding-top: 1.7vw;
+  padding-top: 2.73vh;
+  padding-bottom: 2.27vh;
   margin-right: 8.33vw;
+  border-bottom: 0.46vh solid white;
   text-align: center;
   font-size: 1.46vw;
   font-family: NanumBarunGothic;
@@ -38,7 +46,7 @@ export default {
 }
 .route_link:hover
 {
-  border-bottom: 0.26vw solid #36C5F1;
+  border-bottom: 0.46vh solid #36C5F1;
   color: #36C5F1;
 }
 </style>
