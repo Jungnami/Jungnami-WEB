@@ -2,7 +2,7 @@
 <v-layout row wrap class="region_page">
   <v-flex xs7 md3 offset-xs1>
     <img src="../../../../static/list_party_text.png" alt="list_party_text" class="party_text">
-    <map-component class="hidden-sm-and-down"></map-component>
+    <map-component class="hidden-sm-and-down map_component"></map-component>
   </v-flex>
   <v-flex xs10 md7 offset-xs1 offset-md0>
     <v-layout row wrap justify-space-between class="hidden-md-and-up">
@@ -32,6 +32,14 @@
       <div class="member_count">국회의원 수 : 49명</div>
       <hr>
     </v-layout>
+    <v-layout row wrap justify-space-between>
+      <div class="voting_list">
+        <voting-list></voting-list>
+      </div>
+      <div class="voting_list">
+        <voting-list></voting-list>
+      </div>
+    </v-layout>
   </v-flex>
   <v-flex xs1></v-flex>
 </v-layout>
@@ -39,6 +47,7 @@
 
 <script>
 import MapComponent from './Map'
+import VotingList from '../../../components/Vote'
 
 export default {
   name: 'Region',
@@ -62,7 +71,7 @@ export default {
       active_region: {color: "#157ACE", name: "서울"}
     }
   },
-  components: { MapComponent }
+  components: { MapComponent, VotingList }
 }
 </script>
 
@@ -80,6 +89,9 @@ export default {
   div.region_tab {
     margin-top: 3vh;
   }
+  div.voting_list {
+    width: 83vw;
+  }
 }
 .region_page
 {
@@ -89,6 +101,10 @@ export default {
 {
   width: 100%;
   margin-bottom: 10.74vh;
+}
+.map_component
+{
+  padding-right: 3vw;
 }
 .region_btn
 {
@@ -155,5 +171,9 @@ hr
   border: 0;
   height: 3px;
   background: #1783DC;
+}
+.voting_list
+{
+  width: 28.64vw;
 }
 </style>

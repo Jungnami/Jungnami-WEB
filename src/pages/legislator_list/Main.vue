@@ -2,7 +2,7 @@
 <div>
   <v-layout row wrap>
     <v-flex xs10 offset-xs1>
-      <router-link to="/list/party">
+      <router-link to="/list">
         <div class="route_link party_link">정당</div>
       </router-link>
       <router-link to="/list/region">
