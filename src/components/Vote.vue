@@ -115,7 +115,7 @@ export default {
   height: 80%;
   width: 50%;
   margin: 0 auto;
-  background-image: url('../../static/gold_medal.png');
+  background-image: url('../../static/partylist_goldmedal.png');
   background-size: contain;
   /*border: 2px solid #1783DC;*/
 }
@@ -125,13 +125,12 @@ export default {
 .content {
   /* Centered text */
   left: -5%;
-  top: 10%;
+  top: 35%;
   position: relative;
   text-align: center;
-  font-size: 1.2vw;
+  font-size: 0.83vw;
   font-family: NanumBarunGothic;
-  color: white;
-  z-index: 2;
+  color: #36C5F1;
   /*border: 1px solid #1783DC;*/
 
 }
@@ -191,7 +190,7 @@ export default {
   height: 100%;
   background-color: #1783DC;
   width: 130;
-  padding-botton: 7.5%;
+  padding-bottom: 7.5%;
   border-top-right-radius: 25px;
   border-bottom-right-radius: 25px;
 
@@ -217,7 +216,7 @@ export default {
   font-family: NanumBarunGothic;
   position: absolute;
   top: 15%;
-  left: 12%;
+  left: 8%;
   /*top: 38%;*/
 }
 .count
@@ -228,7 +227,7 @@ export default {
   color: white;
   position: absolute;
   top: 15%;
-  right: 10%;
+  right: 7%;
   /*position: relative;*/
 }
 

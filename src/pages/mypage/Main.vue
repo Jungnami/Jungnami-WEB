@@ -7,7 +7,11 @@
         <img src="../../../static/mapage_image_profile.png" alt="image_profile" class="image_profile">
         <v-layout column justify-space-between class="profile_contents">
           <v-flex class="name">jonnacute_sungchan</v-flex>
-          
+          <v-flex>
+            <button class="setting_btn">
+              <!-- <img src="../../../static/mypage_button_setting.png" alt="setting_button" class="setting_img"> -->
+            </button>
+          </v-flex>
         </v-layout>
       </v-layout>
     </v-flex>
@@ -41,13 +45,22 @@ export default {
 }
 .profile_contents
 {
-  margin-top: 7vh;
-  margin-bottom: 7vh;
+  margin-top: 6vh;
+  margin-bottom: 4vh;
 }
 .name
 {
   font-family: NanumBarunGothic;
   font-size: 1.93vw;
   color: #707070;
+}
+.setting_btn
+{
+  width: 8.2vw;
+  height: 2.45vw;
+  border: 1px solid #B4B4B4;
+  border-radius: 5px;
+  background-image: url('../../../static/mypage_button_setting.png');
+  background-size: 100%;
 }
 </style>
