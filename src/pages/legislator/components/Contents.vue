@@ -44,7 +44,7 @@ export default {
   },
   computed: {
     pageLength: function(){
-      var itemLength = this.items.length > 40 ? 40 : this.items.length;
+      var itemLength = this.items.length > 48 ? 48 : this.items.length;
       var pageLength = Math.ceil((itemLength / this.PAGENUM)) - 1;
       return pageLength;
     },
@@ -64,8 +64,8 @@ export default {
     return {
       currentPage: 1,
       startItem: 0,
-      endItem: 8,
-      PAGENUM : 8, //페이징 단위
+      endItem: 12,
+      PAGENUM : 12, //페이징 단위
       items: [{
           id: 1,
           image: '/static/card_image1.jpeg',
