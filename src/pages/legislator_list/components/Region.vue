@@ -44,15 +44,13 @@
     <!--페이징-->
     <div class="dot_box" align="center">
       <a href="#" v-on:click="getPagingNum($event)" id="1" >
-      <span  class="dot" v-bind:class="{ on : currentPage == 1 }" ></span>
+      <span class="dot" v-bind:class="{ on : currentPage == 1 }" ></span>
       </a>
       <a href="#" v-on:click="getPagingNum($event)" v-bind:id="index + 1" v-for="index in getDotNum-1" :key="index">
       <span class="dot" v-bind:class="{ on : currentPage == index + 1 }"></span>
       </a>
     </div>
     <!--//페이징-->
-
-
   </v-flex>
   <v-flex xs1></v-flex>
 </v-layout>
@@ -224,6 +222,660 @@ export default {
             id: 3,
             thumbnail: '../../static/img_avatar.png',
             name: '바',
+            count: 1
+        },
+        {
+            id: 3,
+            thumbnail: '../../static/img_avatar.png',
+            name: '사',
+            count: 1
+        },
+        {
+            id: 3,
+            thumbnail: '../../static/img_avatar.png',
+            name: '사',
+            count: 1
+        },
+        {
+            id: 3,
+            thumbnail: '../../static/img_avatar.png',
+            name: '사',
+            count: 1
+        },
+        {
+            id: 3,
+            thumbnail: '../../static/img_avatar.png',
+            name: '사',
+            count: 1
+        },
+        {
+            id: 3,
+            thumbnail: '../../static/img_avatar.png',
+            name: '사',
+            count: 1
+        },
+        {
+            id: 3,
+            thumbnail: '../../static/img_avatar.png',
+            name: '사',
+            count: 1
+        },
+        {
+            id: 3,
+            thumbnail: '../../static/img_avatar.png',
+            name: '사',
+            count: 1
+        },
+        {
+            id: 3,
+            thumbnail: '../../static/img_avatar.png',
+            name: '사',
+            count: 1
+        },
+        {
+            id: 3,
+            thumbnail: '../../static/img_avatar.png',
+            name: '사',
+            count: 1
+        },
+        {
+            id: 3,
+            thumbnail: '../../static/img_avatar.png',
+            name: '사',
+            count: 1
+        },
+        {
+            id: 3,
+            thumbnail: '../../static/img_avatar.png',
+            name: '사',
+            count: 1
+        },
+        {
+            id: 3,
+            thumbnail: '../../static/img_avatar.png',
+            name: '사',
+            count: 1
+        },
+        {
+            id: 3,
+            thumbnail: '../../static/img_avatar.png',
+            name: '사',
+            count: 1
+        },
+        {
+            id: 3,
+            thumbnail: '../../static/img_avatar.png',
+            name: '사',
+            count: 1
+        },
+        {
+            id: 3,
+            thumbnail: '../../static/img_avatar.png',
+            name: '사',
+            count: 1
+        },
+        {
+            id: 3,
+            thumbnail: '../../static/img_avatar.png',
+            name: '사',
+            count: 1
+        },
+        {
+            id: 3,
+            thumbnail: '../../static/img_avatar.png',
+            name: '사',
+            count: 1
+        },
+        {
+            id: 3,
+            thumbnail: '../../static/img_avatar.png',
+            name: '사',
+            count: 1
+        },
+        {
+            id: 3,
+            thumbnail: '../../static/img_avatar.png',
+            name: '사',
+            count: 1
+        },
+        {
+            id: 3,
+            thumbnail: '../../static/img_avatar.png',
+            name: '사',
+            count: 1
+        },
+        {
+            id: 3,
+            thumbnail: '../../static/img_avatar.png',
+            name: '사',
+            count: 1
+        },
+        {
+            id: 3,
+            thumbnail: '../../static/img_avatar.png',
+            name: '사',
+            count: 1
+        },
+        {
+            id: 3,
+            thumbnail: '../../static/img_avatar.png',
+            name: '사',
+            count: 1
+        },
+        {
+            id: 3,
+            thumbnail: '../../static/img_avatar.png',
+            name: '사',
+            count: 1
+        },
+        {
+            id: 3,
+            thumbnail: '../../static/img_avatar.png',
+            name: '사',
+            count: 1
+        },
+        {
+            id: 3,
+            thumbnail: '../../static/img_avatar.png',
+            name: '사',
+            count: 1
+        },
+        {
+            id: 3,
+            thumbnail: '../../static/img_avatar.png',
+            name: '사',
+            count: 1
+        },
+        {
+            id: 3,
+            thumbnail: '../../static/img_avatar.png',
+            name: '사',
+            count: 1
+        },
+        {
+            id: 3,
+            thumbnail: '../../static/img_avatar.png',
+            name: '사',
+            count: 1
+        },
+        {
+            id: 3,
+            thumbnail: '../../static/img_avatar.png',
+            name: '사',
+            count: 1
+        },
+        {
+            id: 3,
+            thumbnail: '../../static/img_avatar.png',
+            name: '사',
+            count: 1
+        },
+        {
+            id: 3,
+            thumbnail: '../../static/img_avatar.png',
+            name: '사',
+            count: 1
+        },
+        {
+            id: 3,
+            thumbnail: '../../static/img_avatar.png',
+            name: '사',
+            count: 1
+        },
+        {
+            id: 3,
+            thumbnail: '../../static/img_avatar.png',
+            name: '사',
+            count: 1
+        },
+        {
+            id: 3,
+            thumbnail: '../../static/img_avatar.png',
+            name: '사',
+            count: 1
+        },
+        {
+            id: 3,
+            thumbnail: '../../static/img_avatar.png',
+            name: '사',
+            count: 1
+        },
+        {
+            id: 3,
+            thumbnail: '../../static/img_avatar.png',
+            name: '사',
+            count: 1
+        },
+        {
+            id: 3,
+            thumbnail: '../../static/img_avatar.png',
+            name: '사',
+            count: 1
+        },
+        {
+            id: 3,
+            thumbnail: '../../static/img_avatar.png',
+            name: '사',
+            count: 1
+        },
+        {
+            id: 3,
+            thumbnail: '../../static/img_avatar.png',
+            name: '사',
+            count: 1
+        },
+        {
+            id: 3,
+            thumbnail: '../../static/img_avatar.png',
+            name: '사',
+            count: 1
+        },
+        {
+            id: 3,
+            thumbnail: '../../static/img_avatar.png',
+            name: '사',
+            count: 1
+        },
+        {
+            id: 3,
+            thumbnail: '../../static/img_avatar.png',
+            name: '사',
+            count: 1
+        },
+        {
+            id: 3,
+            thumbnail: '../../static/img_avatar.png',
+            name: '사',
+            count: 1
+        },
+        {
+            id: 3,
+            thumbnail: '../../static/img_avatar.png',
+            name: '사',
+            count: 1
+        },
+        {
+            id: 3,
+            thumbnail: '../../static/img_avatar.png',
+            name: '사',
+            count: 1
+        },
+        {
+            id: 3,
+            thumbnail: '../../static/img_avatar.png',
+            name: '사',
+            count: 1
+        },
+        {
+            id: 3,
+            thumbnail: '../../static/img_avatar.png',
+            name: '사',
+            count: 1
+        },
+        {
+            id: 3,
+            thumbnail: '../../static/img_avatar.png',
+            name: '사',
+            count: 1
+        },
+        {
+            id: 3,
+            thumbnail: '../../static/img_avatar.png',
+            name: '사',
+            count: 1
+        },
+        {
+            id: 3,
+            thumbnail: '../../static/img_avatar.png',
+            name: '사',
+            count: 1
+        },
+        {
+            id: 3,
+            thumbnail: '../../static/img_avatar.png',
+            name: '사',
+            count: 1
+        },
+        {
+            id: 3,
+            thumbnail: '../../static/img_avatar.png',
+            name: '사',
+            count: 1
+        },
+        {
+            id: 3,
+            thumbnail: '../../static/img_avatar.png',
+            name: '사',
+            count: 1
+        },
+        {
+            id: 3,
+            thumbnail: '../../static/img_avatar.png',
+            name: '사',
+            count: 1
+        },
+        {
+            id: 3,
+            thumbnail: '../../static/img_avatar.png',
+            name: '사',
+            count: 1
+        },
+        {
+            id: 3,
+            thumbnail: '../../static/img_avatar.png',
+            name: '사',
+            count: 1
+        },
+        {
+            id: 3,
+            thumbnail: '../../static/img_avatar.png',
+            name: '사',
+            count: 1
+        },
+        {
+            id: 3,
+            thumbnail: '../../static/img_avatar.png',
+            name: '사',
+            count: 1
+        },
+        {
+            id: 3,
+            thumbnail: '../../static/img_avatar.png',
+            name: '사',
+            count: 1
+        },
+        {
+            id: 3,
+            thumbnail: '../../static/img_avatar.png',
+            name: '사',
+            count: 1
+        },
+        {
+            id: 3,
+            thumbnail: '../../static/img_avatar.png',
+            name: '사',
+            count: 1
+        },
+        {
+            id: 3,
+            thumbnail: '../../static/img_avatar.png',
+            name: '사',
+            count: 1
+        },
+        {
+            id: 3,
+            thumbnail: '../../static/img_avatar.png',
+            name: '사',
+            count: 1
+        },
+        {
+            id: 3,
+            thumbnail: '../../static/img_avatar.png',
+            name: '사',
+            count: 1
+        },
+        {
+            id: 3,
+            thumbnail: '../../static/img_avatar.png',
+            name: '사',
+            count: 1
+        },
+        {
+            id: 3,
+            thumbnail: '../../static/img_avatar.png',
+            name: '사',
+            count: 1
+        },
+        {
+            id: 3,
+            thumbnail: '../../static/img_avatar.png',
+            name: '사',
+            count: 1
+        },
+        {
+            id: 3,
+            thumbnail: '../../static/img_avatar.png',
+            name: '사',
+            count: 1
+        },
+        {
+            id: 3,
+            thumbnail: '../../static/img_avatar.png',
+            name: '사',
+            count: 1
+        },
+        {
+            id: 3,
+            thumbnail: '../../static/img_avatar.png',
+            name: '사',
+            count: 1
+        },
+        {
+            id: 3,
+            thumbnail: '../../static/img_avatar.png',
+            name: '사',
+            count: 1
+        },
+        {
+            id: 3,
+            thumbnail: '../../static/img_avatar.png',
+            name: '사',
+            count: 1
+        },
+        {
+            id: 3,
+            thumbnail: '../../static/img_avatar.png',
+            name: '사',
+            count: 1
+        },
+        {
+            id: 3,
+            thumbnail: '../../static/img_avatar.png',
+            name: '사',
+            count: 1
+        },
+        {
+            id: 3,
+            thumbnail: '../../static/img_avatar.png',
+            name: '사',
+            count: 1
+        },
+        {
+            id: 3,
+            thumbnail: '../../static/img_avatar.png',
+            name: '사',
+            count: 1
+        },
+        {
+            id: 3,
+            thumbnail: '../../static/img_avatar.png',
+            name: '사',
+            count: 1
+        },
+        {
+            id: 3,
+            thumbnail: '../../static/img_avatar.png',
+            name: '사',
+            count: 1
+        },
+        {
+            id: 3,
+            thumbnail: '../../static/img_avatar.png',
+            name: '사',
+            count: 1
+        },
+        {
+            id: 3,
+            thumbnail: '../../static/img_avatar.png',
+            name: '사',
+            count: 1
+        },
+        {
+            id: 3,
+            thumbnail: '../../static/img_avatar.png',
+            name: '사',
+            count: 1
+        },
+        {
+            id: 3,
+            thumbnail: '../../static/img_avatar.png',
+            name: '사',
+            count: 1
+        },
+        {
+            id: 3,
+            thumbnail: '../../static/img_avatar.png',
+            name: '사',
+            count: 1
+        },
+        {
+            id: 3,
+            thumbnail: '../../static/img_avatar.png',
+            name: '사',
+            count: 1
+        },
+        {
+            id: 3,
+            thumbnail: '../../static/img_avatar.png',
+            name: '사',
+            count: 1
+        },
+        {
+            id: 3,
+            thumbnail: '../../static/img_avatar.png',
+            name: '사',
+            count: 1
+        },
+        {
+            id: 3,
+            thumbnail: '../../static/img_avatar.png',
+            name: '사',
+            count: 1
+        },
+        {
+            id: 3,
+            thumbnail: '../../static/img_avatar.png',
+            name: '사',
+            count: 1
+        },
+        {
+            id: 3,
+            thumbnail: '../../static/img_avatar.png',
+            name: '사',
+            count: 1
+        },
+        {
+            id: 3,
+            thumbnail: '../../static/img_avatar.png',
+            name: '사',
+            count: 1
+        },
+        {
+            id: 3,
+            thumbnail: '../../static/img_avatar.png',
+            name: '사',
+            count: 1
+        },
+        {
+            id: 3,
+            thumbnail: '../../static/img_avatar.png',
+            name: '사',
+            count: 1
+        },
+        {
+            id: 3,
+            thumbnail: '../../static/img_avatar.png',
+            name: '사',
+            count: 1
+        },
+        {
+            id: 3,
+            thumbnail: '../../static/img_avatar.png',
+            name: '사',
+            count: 1
+        },
+        {
+            id: 3,
+            thumbnail: '../../static/img_avatar.png',
+            name: '사',
+            count: 1
+        },
+        {
+            id: 3,
+            thumbnail: '../../static/img_avatar.png',
+            name: '사',
+            count: 1
+        },
+        {
+            id: 3,
+            thumbnail: '../../static/img_avatar.png',
+            name: '사',
+            count: 1
+        },
+        {
+            id: 3,
+            thumbnail: '../../static/img_avatar.png',
+            name: '사',
+            count: 1
+        },
+        {
+            id: 3,
+            thumbnail: '../../static/img_avatar.png',
+            name: '사',
+            count: 1
+        },
+        {
+            id: 3,
+            thumbnail: '../../static/img_avatar.png',
+            name: '사',
+            count: 1
+        },
+        {
+            id: 3,
+            thumbnail: '../../static/img_avatar.png',
+            name: '사',
+            count: 1
+        },
+        {
+            id: 3,
+            thumbnail: '../../static/img_avatar.png',
+            name: '사',
+            count: 1
+        },
+        {
+            id: 3,
+            thumbnail: '../../static/img_avatar.png',
+            name: '사',
+            count: 1
+        },
+        {
+            id: 3,
+            thumbnail: '../../static/img_avatar.png',
+            name: '사',
+            count: 1
+        },
+        {
+            id: 3,
+            thumbnail: '../../static/img_avatar.png',
+            name: '사',
+            count: 1
+        },
+        {
+            id: 3,
+            thumbnail: '../../static/img_avatar.png',
+            name: '사',
+            count: 1
+        },
+        {
+            id: 3,
+            thumbnail: '../../static/img_avatar.png',
+            name: '사',
+            count: 1
+        },
+        {
+            id: 3,
+            thumbnail: '../../static/img_avatar.png',
+            name: '사',
             count: 1
         },
         {

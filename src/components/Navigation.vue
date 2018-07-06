@@ -8,7 +8,7 @@
       </router-link>
     </v-flex>
     <v-spacer></v-spacer>
-    <v-btn color="text" class="hidden-xs-only nav_menu" v-bind:class="{ on : $route.path === item.path}" flat depressed v-for="item in items" :key="item.text" :to="item.path">
+    <v-btn color="text" class="hidden-xs-only nav_menu" v-bind:class="{ on : $route.path.includes(item.path)}" flat depressed v-for="item in items" :key="item.text" :to="item.path">
         {{ item.text }}
     </v-btn>
     <v-menu offset-y class="search_menu">

@@ -16,7 +16,7 @@
         </div>
       </div>
       <div class="content_desc">
-        {{ item.desc }}
+        <!-- {{ item.desc }} -->
       </div>
     </v-flex>
   </v-layout>
@@ -42,11 +42,14 @@ export default {
       this.currentPage = curPageNum;
       var startItem = (curPageNum - 1) * this.PAGENUM;
       var endItem = this.PAGENUM * curPageNum;
+      console.log(this.startItem);
+      console.log(this.endItem);
 
-      this.pageItems = {
-        start: this.startItem,
-        end: this.endItem
-      }
+      // this.pageItems = {
+      //   start: this.startItem,
+      //   end: this.endItem
+      // }
+      this.pageItems = startItem + ' ' + endItem;
     }
   },
   computed: {
@@ -60,8 +63,11 @@ export default {
         return this.items.slice(this.startItem, this.endItem);
       },
       set: function(newValue) {
-        this.startItem = newValue.start;
-        this.endItem = newValue.end;
+        var pagingSlot = newValue.split(' ');
+        this.startItem = pagingSlot[0];
+        this.endItem = pagingSlot[1];
+        // this.startItem = newValue.start;
+        // this.endItem = newValue.end;
       }
     }
 
@@ -76,85 +82,85 @@ export default {
       items: [{
           id: 1,
           image: '/static/card_image1.jpeg',
-          title: '문재인 대통령의 살아온 일대기와 운명',
+          title: '가',
           desc: '테스트1'
         },
         {
           id: 2,
           image: '/static/card_image1.jpeg',
-          title: '문재인 대통령의 살아온 일대기와 운명',
+          title: '나',
           desc: '테스트2'
         },
         {
           id: 3,
           image: '/static/card_image1.jpeg',
-          title: '문재인 대통령의 살아온 일대기와 운명',
+          title: '다',
           desc: '테스트3'
         },
         {
           id: 4,
           image: '/static/card_image1.jpeg',
-          title: '문재인 대통령의 살아온 일대기와 운명',
+          title: '라',
           desc: '테스트4'
         },
         {
           id: 5,
           image: '/static/card_image1.jpeg',
-          title: '문재인 대통령의 살아온 일대기와 운명',
+          title: '마',
           desc: '테스트4'
         },
         {
           id: 6,
           image: '/static/card_image1.jpeg',
-          title: '문재인 대통령의 살아온 일대기와 운명',
+          title: '바',
           desc: '테스트4'
         },
         {
           id: 7,
           image: '/static/card_image1.jpeg',
-          title: '문재인 대통령의 살아온 일대기와 운명',
+          title: '사',
           desc: '테스트4'
         },
         {
           id: 8,
           image: '/static/card_image1.jpeg',
-          title: '문재인 대통령의 살아온 일대기와 운명',
+          title: '아',
           desc: '테스트4'
         },
         {
           id: 9,
           image: '/static/card_image1.jpeg',
-          title: '문재인 대통령의 살아온 일대기와 운명',
+          title: '자',
           desc: '테스트4'
         },
         {
           id: 10,
           image: '/static/card_image1.jpeg',
-          title: '문재인 대통령의 살아온 일대기와 운명',
+          title: '차',
           desc: '테스트4'
         },
         {
           id: 11,
           image: '/static/card_image1.jpeg',
-          title: '문재인 대통령의 살아온 일대기와 운명',
+          title: '카',
           desc: '테스트4'
         },
         {
           id: 12,
           image: '/static/card_image1.jpeg',
-          title: '문재인 대통령의 살아온 일대기와 운명',
-          desc: '테스트4'
+          title: '타',
+          desc: '테스트4ㄴ'
         },
         {
           id: 13,
           image: '/static/card_image1.jpeg',
-          title: '문재인 대통령의 살아온 일대기와 운명',
+          title: '파',
           desc: '테스트4'
         },
         {
           id: 14,
           image: '/static/card_image1.jpeg',
-          title: '문재인 대통령의 살아온 일대기와 운명',
+          title: '하',
           desc: '테스트4'
         },
         {
