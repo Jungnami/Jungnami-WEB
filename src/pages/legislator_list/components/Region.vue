@@ -1,7 +1,7 @@
 <template>
 <v-layout row wrap class="region_page">
   <v-flex xs7 md3 offset-xs1>
-    <img src="../../../../static/list_party_text.png" alt="list_region_text" class="region_text">
+    <img src="../../../../static/region_main_text.png" alt="list_region_text" class="region_text">
     <map-component class="hidden-sm-and-down map_component"></map-component>
   </v-flex>
   <v-flex xs10 md7 offset-xs1 offset-md0>
@@ -161,9 +161,9 @@ export default {
 .member_count
 {
   font-family: NanumBarunGothic;
-  font-size: 1.7vw;
+  font-size: 1.4vw;
   color: #A1A1A1;
-  padding-top: 1.3vh;
+  padding-top: 2.3vh;
 }
 hr
 {

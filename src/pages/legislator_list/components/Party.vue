@@ -1,7 +1,7 @@
 <template>
 <v-layout row wrap class="party_page">
   <v-flex xs10 md3 offset-xs1>
-    <img src="../../../../static/list_party_text.png" alt="list_party_text" class="party_text">
+    <img src="../../../../static/party_main_text.png" alt="list_party_text" class="party_text">
     <v-layout row wrap justify-space-between class="btn_layout">
       <button v-for="(btn, i) in party_btns1" :key="i" 
             :style="{backgroundColor: btn.color}" class="party_btn">
