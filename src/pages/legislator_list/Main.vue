@@ -49,4 +49,9 @@ export default {
   border-bottom: 0.46vh solid #36C5F1;
   color: #36C5F1;
 }
+.router-link-exact-active div
+{
+  border-bottom: 0.46vh solid #36C5F1;
+  color: #36C5F1;
+}
 </style>

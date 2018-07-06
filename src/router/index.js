@@ -6,6 +6,10 @@ import Legislator from '@/pages/legislator/Main'
 import LegislatorList from '@/pages/legislator_list/Main'
 import Region from '@/pages/legislator_list/components/Region'
 import Party from '@/pages/legislator_list/components/Party'
+import MyPage from '@/pages/mypage/Main'
+import MyCoin from '@/pages/mypage/components/MyCoin'
+import MyVote from '@/pages/mypage/components/MyVote'
+import Scrap from '@/pages/mypage/components/Scrap'
 
 Vue.use(Router)
 
@@ -28,6 +32,26 @@ export default new Router({
       component: Rank
     },
     {
+      path: '/mypage',
+      name: 'MyPage',
+      component: MyPage,
+      children: [{
+        path: '/',
+        name: 'MyCoin',
+        component: MyCoin
+      },
+      {
+        path: 'myvote',
+        name: 'MyVote',
+        component: MyVote
+      },
+      {
+        path: 'scrap',
+        name: 'Scrap',
+        component: Scrap
+      }]
+    },
+    {
       path: '/list',
       name: 'LegislatorList',
       component: LegislatorList,
@@ -40,8 +64,7 @@ export default new Router({
         path: '/',
         name: 'Party',
         component: Party
-      }
-      ]
+      }]
     }
   ]
 })
