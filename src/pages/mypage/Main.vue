@@ -130,6 +130,7 @@ hr
 {
   margin-left: 8.33vw;
   margin-right: 8.33vw;
+  margin-bottom: 4.68vh;
 }
 .link_box
 {

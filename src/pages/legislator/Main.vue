@@ -11,7 +11,7 @@
 </template>
 
 <script>
-import Contents from './components/Contents'
+import Contents from '../../components/Contents'
 import Profile from './components/Profile'
 export default {
   name: 'Legislator',
