@@ -22,7 +22,6 @@
   </v-layout>
 
   <div class="dot_box" align="center">
-
     <a href="#">
     <span v-on:click="getPagingData($event)" class="dot" v-bind:class="{ on : currentPage == 1 }" id="1"></span>
     </a>
@@ -30,6 +29,7 @@
     <span class="dot" v-bind:class="{ on : currentPage == index + 1 }"></span>
     </a>
   </div>
+
 </div>
 </template>
 
@@ -42,12 +42,16 @@ export default {
       this.currentPage = curPageNum;
       var startItem = (curPageNum - 1) * this.PAGENUM;
       var endItem = this.PAGENUM * curPageNum;
-      this.pageItems = startItem + ' ' + endItem;
+
+      this.pageItems = {
+        start: this.startItem,
+        end: this.endItem
+      }
     }
   },
   computed: {
     pageLength: function() {
-      var itemLength = this.items.length > 48 ? 48 : this.items.length;
+      var itemLength = this.items.length > this.PAGENUM * this.DOTNUM ? this.PAGENUM * this.DOTNUM   : this.items.length;
       var pageLength = Math.ceil((itemLength / this.PAGENUM)) - 1;
       return pageLength;
     },
@@ -56,9 +60,8 @@ export default {
         return this.items.slice(this.startItem, this.endItem);
       },
       set: function(newValue) {
-        var item = newValue.split(' ');
-        this.startItem = item[0];
-        this.endItem = item[1];
+        this.startItem = newValue.start;
+        this.endItem = newValue.end;
       }
     }
 
@@ -69,6 +72,7 @@ export default {
       startItem: 0,
       endItem: 12,
       PAGENUM: 12, //페이징 단위
+      DOTNUM: 4, //버튼개수
       items: [{
           id: 1,
           image: '/static/card_image1.jpeg',

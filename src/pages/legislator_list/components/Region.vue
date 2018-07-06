@@ -24,7 +24,7 @@
         <div class="party_name">{{ party.name }}</div>
       </div>
     </v-layout>
-    
+
     <v-layout row wrap justify-space-between class="region_tab">
       <v-flex xs4 md2 :style="{backgroundColor: active_region.color}" class="region_tab_bar">
         {{ active_region.name }}
@@ -34,12 +34,25 @@
     </v-layout>
     <v-layout row wrap justify-space-between>
       <div class="voting_list">
-        <voting-list></voting-list>
+        <voting-list v-bind:list_info="sendListInfo(1)"></voting-list>
       </div>
-      <div class="voting_list">
-        <voting-list></voting-list>
+        <div class="voting_list" v-if="!isMobile()">
+        <voting-list v-bind:list_info="sendListInfo(2)"></voting-list>
       </div>
     </v-layout>
+
+    <!--페이징-->
+    <div class="dot_box" align="center">
+      <a href="#" v-on:click="getPagingNum($event)" id="1" >
+      <span  class="dot" v-bind:class="{ on : currentPage == 1 }" ></span>
+      </a>
+      <a href="#" v-on:click="getPagingNum($event)" v-bind:id="index + 1" v-for="index in getDotNum-1" :key="index">
+      <span class="dot" v-bind:class="{ on : currentPage == index + 1 }"></span>
+      </a>
+    </div>
+    <!--//페이징-->
+
+
   </v-flex>
   <v-flex xs1></v-flex>
 </v-layout>
@@ -50,9 +63,21 @@ import MapComponent from './Map'
 import VotingList from '../../../components/Vote'
 
 export default {
+
   name: 'Region',
+  components: {
+    MapComponent, VotingList
+  },
   data () {
-    return {
+    return{
+      mobileCheck: this.windowWidth < 960 ? true : false,
+      currentPage: 1,
+      MOBILE_PAGE_UNIT: 10, //한 리스트에 보여줄 데이터 수 - 닷 버튼 개수를 구하기위해 사용
+      PC_PAGE_UNIT: 20,
+      LIST_DATA_UNIT: 10, //하나의 리스트에 솨줄 데이터 갯수 단위
+      DOTNUM: 1,
+      startIndex: 0,
+      windowWidth: window.innerWidth,
       regions1: ["서울", "인천", "경기", "강원", "경북"],
       regions2: ["충남", "세종", "대전", "경남", "울산"],
       regions3: ["전남", "전북", "대구", "부산", "충북"],
@@ -68,15 +93,249 @@ export default {
         {color: "#F37B7C", name: "더불어민주당 / 자유한국당"},
         {color: "#00A1A0", name: "더불어민주당 / 바른미래당"}
       ],
-      active_region: {color: "#157ACE", name: "서울"}
+      active_region: {color: "#157ACE", name: "서울"},
+      items: [{
+          id: 1,
+          thumbnail: '../../static/img_avatar.png',
+          name: '문재인',
+          count: 1000
+        },
+        {
+            id: 2,
+            thumbnail: '../../static/img_avatar.png',
+            name: '안철수',
+            count: 702
+        },
+        {
+            id: 3,
+            thumbnail: '../../static/img_avatar.png',
+            name: '가',
+            count: 1
+        },
+        {
+            id: 3,
+            thumbnail: '../../static/img_avatar.png',
+            name: '나',
+            count: 1
+        },
+        {
+            id: 3,
+            thumbnail: '../../static/img_avatar.png',
+            name: '다',
+            count: 1
+        },
+        {
+            id: 3,
+            thumbnail: '../../static/img_avatar.png',
+            name: '라',
+            count: 1
+        },
+        {
+            id: 3,
+            thumbnail: '../../static/img_avatar.png',
+            name: '마',
+            count: 1
+        },
+        {
+            id: 3,
+            thumbnail: '../../static/img_avatar.png',
+            name: '바',
+            count: 1
+        },
+        {
+            id: 3,
+            thumbnail: '../../static/img_avatar.png',
+            name: '사',
+            count: 1
+        },
+        {
+            id: 3,
+            thumbnail: '../../static/img_avatar.png',
+            name: '아',
+            count: 1
+        },
+        {
+            id: 3,
+            thumbnail: '../../static/img_avatar.png',
+            name: '자',
+            count: 1
+        },
+        {
+            id: 3,
+            thumbnail: '../../static/img_avatar.png',
+            name: '차',
+            count: 1
+        },
+        {
+            id: 3,
+            thumbnail: '../../static/img_avatar.png',
+            name: '카',
+            count: 1
+        },
+        {
+            id: 3,
+            thumbnail: '../../static/img_avatar.png',
+            name: '타',
+            count: 1
+        },
+        {
+            id: 3,
+            thumbnail: '../../static/img_avatar.png',
+            name: '파',
+            count: 1
+        },
+        {
+            id: 3,
+            thumbnail: '../../static/img_avatar.png',
+            name: '하',
+            count: 1
+        },
+        {
+            id: 3,
+            thumbnail: '../../static/img_avatar.png',
+            name: '가',
+            count: 1
+        },
+        {
+            id: 3,
+            thumbnail: '../../static/img_avatar.png',
+            name: '나',
+            count: 1
+        },
+        {
+            id: 3,
+            thumbnail: '../../static/img_avatar.png',
+            name: '다',
+            count: 1
+        },
+        {
+            id: 3,
+            thumbnail: '../../static/img_avatar.png',
+            name: '라',
+            count: 1
+        },
+        {
+            id: 3,
+            thumbnail: '../../static/img_avatar.png',
+            name: '마',
+            count: 1
+        },
+        {
+            id: 3,
+            thumbnail: '../../static/img_avatar.png',
+            name: '바',
+            count: 1
+        },
+        {
+            id: 3,
+            thumbnail: '../../static/img_avatar.png',
+            name: '사',
+            count: 1
+        },
+        {
+            id: 3,
+            thumbnail: '../../static/img_avatar.png',
+            name: '사',
+            count: 1
+        },
+        {
+            id: 3,
+            thumbnail: '../../static/img_avatar.png',
+            name: '사',
+            count: 1
+        }
+      ]
+
+  }
+},
+  methods: {
+    getPagingNum(event) {
+      var curPageNum = event.currentTarget.id;
+      this.currentPage = curPageNum;
+    },
+    //화면별 분기 테이블 관련
+    sendListInfo(listNum) {
+      return {
+        windowWidth: this.windowWidth,
+        isMobile: this.isMobile(),
+        listNum: listNum,
+        listUnit: this.LIST_DATA_UNIT,
+        pageNum: this.currentPage,
+        pageUnit: this.isMobile() ? this.MOBILE_PAGE_UNIT : this.PC_PAGE_UNIT,
+        items: this.sliceItems(listNum)
+      }
+    },
+    sliceItems(listNum) {
+      if(!this.isMobile()){
+        if(listNum == 1){ // 첫번째 리스트상자
+          return this.items.slice(this.getStartIndex, this.getStartIndex + this.LIST_DATA_UNIT);
+        } else{ // 두번째 리스트 상자
+          return this.items.slice(this.getStartIndex + this.LIST_DATA_UNIT, this.getStartIndex + 2 * this.LIST_DATA_UNIT);
+        }
+      } else {
+        return this.items.slice(this.getStartIndex, this.getStartIndex + this.LIST_DATA_UNIT);
+      }
+    },
+    handleWindowResize(event) { this.windowWidth = event.currentTarget.innerWidth; },
+    isMobile() {
+      return (this.windowWidth < 960) ? true : false;
+    }
+
+  },
+  computed:{
+    getDotNum: function(){
+      if(this.isMobile()){
+        // this.currentPage = Math.ceil(this.currentPage/2);
+        return this.DOTNUM = Math.ceil(this.items.length / this.MOBILE_PAGE_UNIT);
+      } else{
+        return this.DOTNUM = Math.ceil(this.items.length / this.PC_PAGE_UNIT);//버튼개수 item.length / 10 or 20, item갯수는 axios통신으로 가져올것..
+      }
+    },
+    getStartIndex: function() {
+      var dotNum = this.DOTNUM;
+      var dot = this.currentPage;
+      if(this.isMobile()) {
+
+        // console.log("here MOBILE ::: " + dotnum);
+        this.startIndex = 10 * (dot - 1);
+      } else {
+        // console.log("here PC ::: " + dotnum);
+        this.startIndex = 20 * (dot - 1);
+      }
+      return this.startIndex;
     }
   },
-  components: { MapComponent, VotingList }
+  watch: {
+    windowWidth: function() {
+      if(!this.mobileCheck && this.windowWidth < 960){
+        console.log("960>>>>>");
+        // this.DOTNUM = this.DOTNUM * 2 -1;
+        this.currentPage = this.currentPage * 2 -1;
+
+        this.mobileCheck = true;
+      } else if(this.mobileCheck && this.windowWidth >=960){
+        console.log("960<<<");
+
+        this.currentPage = Math.ceil(this.currentPage / 2);
+        this.mobileCheck = false;
+      }
+    }
+    // windowWidth: function() {
+      // console.log(this.isMobile());
+    // }
+  },
+  beforeDestroy: function () {
+    window.removeEventListener('resize', this.handleWindowResize)
+  },
+  mounted() {
+    window.addEventListener('resize', this.handleWindowResize);
+  }
+
 }
 </script>
 
 <style scoped>
-@media (max-width: 960px) {
+@media (max-width: 959px) {
   img.region_text {
     margin-bottom: 3vh;
   }
@@ -175,5 +434,24 @@ hr
 .voting_list
 {
   width: 28.64vw;
+}
+
+.dot {
+  height: 7px;
+  width: 7px;
+  margin-left: 4.15px;
+  margin-right: 4.15px;
+  background-color: #FFF;
+  border-radius: 50%;
+  display: inline-block;
+  border: 1px solid #36C5F1;
+}
+.dot_box {
+  margin-top: 11.21px;
+  margin-bottom: 13.23px;
+}
+
+.dot.on {
+  background-color: #36C5F1;
 }
 </style>

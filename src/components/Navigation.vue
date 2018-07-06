@@ -22,7 +22,7 @@
             <img :src="item.img" alt="item_img">
             <v-list-tile-title class="item_title">{{ item.text }}</v-list-tile-title>
           </v-list-tile>
-          <v-divider v-if="index + 1 < search_items.length" :key="index"></v-divider>
+          <v-divider v-if="index + 1 < search_items.length" ></v-divider>
         </template>
       </v-list>
     </v-menu>
@@ -61,7 +61,7 @@ export default {
       ]
     }
   },
-  
+
 }
 </script>
 
