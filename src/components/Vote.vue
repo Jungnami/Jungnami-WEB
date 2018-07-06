@@ -101,7 +101,7 @@ export default {
 /*root : 549px*/
 
 @media (max-width: 960px) {
-  .content {
+  div.content {
     left: -5%;
     top: 20%;
     position: relative;
@@ -197,7 +197,7 @@ export default {
   height: 80%;
   width: 50%;
   margin: 0 auto;
-  /*background-image: url('../../static/gold_medal.png');*/
+  /*background-image: url('../../static/partylist_goldmedal.png');*/
   background-size: contain;
   /*border: 2px solid #1783DC;*/
 }
@@ -231,6 +231,17 @@ export default {
 
 /* .rank를 기준으로 가운데에 텍스트가필요한 부분*/
 
+.content {
+  /* Centered text */
+  left: -5%;
+  top: 35%;
+  position: relative;
+  text-align: center;
+  font-size: 0.83vw;
+  font-family: NanumBarunGothic;
+  color: #36C5F1;
+  /*border: 1px solid #1783DC;*/
+}
 
 
 
@@ -288,7 +299,7 @@ export default {
   height: 100%;
   background-color: #1783DC;
   width: 130;
-  padding-botton: 7.5%;
+  padding-bottom: 7.5%;
   border-top-right-radius: 25px;
   border-bottom-right-radius: 25px;
 
@@ -306,6 +317,28 @@ export default {
 
 
 
+.name
+{
+  z-index: 4;
+  color: white;
+  font-size: 1vw;
+  font-family: NanumBarunGothic;
+  position: absolute;
+  top: 15%;
+  left: 8%;
+  /*top: 38%;*/
+}
+.count
+{
+  text-align: right;
+  font-size: 1vw;
+  font-family: NanumBarunGothicLight;
+  color: white;
+  position: absolute;
+  top: 15%;
+  right: 7%;
+  /*position: relative;*/
+}
 
 
 
