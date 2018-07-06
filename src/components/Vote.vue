@@ -59,13 +59,20 @@ export default {
 
 <style scoped>
 /*root : 549px*/
-@media (max-width: 960px) {
-  .content {
-    font-size: 10px
-  }
-}
 
-/*@media ()*/
+@media (max-width: 960px) {
+  div.content {
+    left: -5%;
+    top: 20%;
+    position: relative;
+    text-align: center;
+    font-size: 1.2vw;
+    font-family: NanumBarunGothic;
+    color: white;
+    z-index: 2;
+  }
+
+}
 
 .vote_list {
   align-items: center;
@@ -95,7 +102,6 @@ export default {
   vertical-align: top;
   z-index: 1;
   /*border: 1px solid #1783DC;*/
-
 }
 
 .rank_border {
@@ -109,7 +115,6 @@ export default {
 .img {
   /*top: 50%;*/
   /*top: 200px;*/
-
   position: relative;
   top: 10%;
   height: 80%;
@@ -132,8 +137,8 @@ export default {
   font-family: NanumBarunGothic;
   color: #36C5F1;
   /*border: 1px solid #1783DC;*/
-
 }
+
 
 
 .thumbnail_box {
@@ -153,7 +158,7 @@ export default {
 
 .thumbnail_content {
   width: 80%;
-  height:auto;
+  height: auto;
   border: 1px solid #000;
 
   /*height: 10px*/
