@@ -15,6 +15,7 @@
         </v-layout>
       </v-layout>
     </v-flex>
+    <v-flex xs1></v-flex>
   </v-layout>
 </div> 
 </template>
@@ -26,6 +27,24 @@ export default {
 </script>
 
 <style scoped>
+@media (max-width: 600px) {
+  div.profile_box {
+    margin-top: 11.47vw;
+    margin-bottom: 11.47vw;
+    height: 29.87vw;
+  }
+  div.name {
+    font-size: 3.5vw;
+  }
+  button.setting_btn {
+    width: 18.6vw;
+    height: 5.56vw;
+  }
+  div.profile_contents {
+    margin-top: 5vh;
+    margin-bottom: 3vh;
+  }
+}
 .profile_box_wrapper
 {
   margin-top: 4.63vh;
