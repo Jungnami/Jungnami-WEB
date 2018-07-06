@@ -71,9 +71,8 @@ export default {
   }
   div.link_box {
     width: 26vw;
-    border-bottom: 1vw solid white;
   }
-  div.link_box:hover {
+  .router-link-exact-active {
     border-bottom: 1vw solid #36C5F1;
   }
   img.link_img {
@@ -137,11 +136,6 @@ hr
   width: 19.79vw;
   padding-bottom: 0.76vw;
   text-align: center;
-  border-bottom: 0.41vw solid white;
-}
-.link_box:hover
-{
-  border-bottom: 0.41vw solid #36C5F1;
 }
 .link_img
 {
@@ -153,5 +147,14 @@ hr
   font-family: NanumBarunGothicBold;
   color: #6C6C6C;
   margin-top: 0.8vw;
+}
+.router-link-exact-active
+{
+  color: #36C5F1;
+  border-bottom: 0.41vw solid #36C5F1;
+}
+.router-link-exact-active div
+{
+  color: #36C5F1;
 }
 </style>
