@@ -29,6 +29,10 @@ export default {
   box-sizing: border-box;
   -webkit-box-sizing: border-box;
 }
+a
+{
+  text-decoration: none;
+}
 @font-face {
   font-family: 'NanumBarunGothic';
   src: url('./assets/NanumBarunGothic.ttf') format('truetype');

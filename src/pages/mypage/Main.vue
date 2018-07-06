@@ -17,6 +17,28 @@
     </v-flex>
     <v-flex xs1></v-flex>
   </v-layout>
+  <v-layout row wrap justify-space-between class="mypage_tab_bar">
+    <router-link to="/mypage">
+      <div class="link_box">
+        <img src="../../../static/mypage_button_mycoin_off.png" alt="mycoin_btn" class="link_img mycoin_img">
+        <div class="mycoin link_name">나의 코인</div>
+      </div>
+    </router-link>
+    <router-link to="/mypage/myvote">
+      <div class="link_box">
+        <img src="../../../static/mypage_button_myvote_off.png" alt="myvote_btn" class="link_img myvote_img">
+        <div class="myvote link_name">나의 투표권</div>
+      </div>
+    </router-link>
+    <router-link to="/mypage/scrap">
+      <div class="link_box">
+        <img src="../../../static/mypage_button_scrap_off.png" alt="scrap_btn" class="link_img scrap_img">
+        <div class="scrap link_name">스크랩</div>
+      </div>
+    </router-link>
+  </v-layout>
+  <hr>
+  <router-view></router-view>
 </div> 
 </template>
 
@@ -43,6 +65,22 @@ export default {
   div.profile_contents {
     margin-top: 5vh;
     margin-bottom: 3vh;
+  }
+  div.mypage_tab_bar {
+    margin-top: 5.6vw;
+  }
+  div.link_box {
+    width: 26vw;
+    border-bottom: 1vw solid white;
+  }
+  div.link_box:hover {
+    border-bottom: 1vw solid #36C5F1;
+  }
+  img.link_img {
+    width: 8.78vw;
+  }
+  div.link_name {
+    font-size: 3.2vw;
   }
 }
 .profile_box_wrapper
@@ -81,5 +119,38 @@ export default {
   border-radius: 5px;
   background-image: url('../../../static/mypage_button_setting.png');
   background-size: 100%;
+}
+.mypage_tab_bar
+{
+  margin-left: 8.33vw;
+  margin-right: 8.33vw;
+  margin-top: 2.4vw;
+}
+hr
+{
+  margin-left: 8.33vw;
+  margin-right: 8.33vw;
+}
+.link_box
+{
+  width: 19.79vw;
+  padding-bottom: 0.76vw;
+  text-align: center;
+  border-bottom: 0.41vw solid white;
+}
+.link_box:hover
+{
+  border-bottom: 0.41vw solid #36C5F1;
+}
+.link_img
+{
+  width: 2.96vw;
+}
+.link_name
+{
+  font-size: 1.32vw;
+  font-family: NanumBarunGothicBold;
+  color: #6C6C6C;
+  margin-top: 0.8vw;
 }
 </style>
