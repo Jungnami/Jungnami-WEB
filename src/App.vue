@@ -1,8 +1,8 @@
 <template>
   <v-app>
     <navigation></navigation>
-    <router-view></router-view>
-    <home-footer></home-footer>
+    <router-view class="app_router_view"></router-view>
+    <home-footer v-if="!$route.path.includes('/contents')"></home-footer>
   </v-app>
 
 </template>
@@ -32,6 +32,10 @@ export default {
 a
 {
   text-decoration: none;
+}
+.app_router_view
+{
+  margin-top: 7.5vh; 
 }
 @font-face {
   font-family: 'NanumBarunGothic';
