@@ -9,7 +9,7 @@
     </router-link>
     <div class="recent_scrap">
       <div class="scrap_title">
-        최근 스크랩 글 
+        최근 스크랩 글
         <img src="../../../static/contents_scrap_icon.png" alt="contents_scrap_icon" class="scrap_icon">
       </div>
       <div v-for="item in recent_items" :key="item.id" class="scrap_card">
@@ -19,7 +19,7 @@
       </div>
     </div>
   </v-flex>
-  <v-flex md8 offset-md-3>
+  <v-flex md8 offset-md3>
     <router-view></router-view>
   </v-flex>
 </v-layout>
@@ -31,7 +31,7 @@ export default {
   data () {
     return {
       link_items: [
-        {text: '추천', path: '/contents'},
+        {text: '추천', path: '/contents/'},
         {text: 'TMI', path: '/contents/TMI'},
         {text: '스토리', path: '/contents/story'}
       ],
