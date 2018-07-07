@@ -1,38 +1,41 @@
 <template>
-<v-layout row nowrap>
-  <v-flex sm2 class="hidden-sm-and-down drawer">
-    <router-link v-for="(item, i) in link_items" :key=i :to="item.path">
-      <v-layout row wrap justify-space-between class="link_box">
-        <div>{{ item.text }}</div>
-        <div><img src="/static/contents_rightarrow_btn.png" alt="right_arrow" class="right_icon"></div>
+<div>
+  <v-layout row wrap class="mobile_tab">
+    <v-flex xs8 offset-xs2 class="hidden-md-and-up">
+      <v-layout row wrap justify-space-between>
+        <router-link v-for="(item, i) in link_items" :key=i :to="item.path" class="mobile_router">
+          <div class="mobile_item">{{ item.text }}</div>
+        </router-link>
       </v-layout>
-    </router-link>
-    <div class="recent_scrap">
-      <div class="scrap_title">최근 스크랩 글 
-        <img src="../../../static/contents_scrap_icon.png" alt="contents_scrap_icon" class="scrap_icon">
-      </div>
-      <div v-for="item in recent_items" :key="item.id" class="scrap_card">
-        <img :src="item.image" alt="scrap_card_img" class="card_img">
-        <div class="card_title">{{ item.title }}</div>
-        <div class="card_info">{{ item.category }} · {{ item.recent }}</div>
-      </div>
-      <router-link to="/mypage/scrap">
-        <button class="view_more"></button>
+    </v-flex>
+  </v-layout>
+  <v-layout row wrap>
+    <v-flex sm2 class="hidden-sm-and-down drawer">
+        <v-layout row wrap justify-space-between class="link_box">
+          <div>{{ item.text }}</div>
+          <div><img src="/static/contents_rightarrow_btn.png" alt="right_arrow" class="right_icon"></div>
+        </v-layout>
       </router-link>
-    </div>
-  </v-flex>
-  <v-flex xs8 offset-xs2 class="hidden-md-and-up">
-    <v-layout row wrap justify-space-between>
-      <router-link v-for="(item, i) in link_items" :key=i :to="item.path">
-        <div class="mobile_item">{{ item.text }}</div>
-      </router-link>
-    </v-layout>
-  </v-flex>
-  <v-flex xs10 md8 offset-xs1 offset-md3>
-    <router-view></router-view>
-    <router-view class="contents_router_view"></router-view>
-  </v-flex>
-</v-layout>
+      <div class="recent_scrap">
+        <div class="scrap_title">최근 스크랩 글 
+          <img src="../../../static/contents_scrap_icon.png" alt="contents_scrap_icon" class="scrap_icon">
+        </div>
+        <div v-for="item in recent_items" :key="item.id" class="scrap_card">
+          <img :src="item.image" alt="scrap_card_img" class="card_img">
+          <div class="card_title">{{ item.title }}</div>
+          <div class="card_info">{{ item.category }} · {{ item.recent }}</div>
+        </div>
+        <router-link to="/mypage/scrap">
+          <button class="view_more"></button>
+        </router-link>
+      </div>
+    </v-flex>
+    <v-flex xs10 md8 offset-xs1 offset-md3>
+      <router-view></router-view>
+      <router-view class="contents_router_view"></router-view>
+    </v-flex>
+  </v-layout>
+</div>
 </template>
 
 <script>
@@ -93,7 +96,7 @@ export default {
   width: 0;
   /* margin-left: 10vw; */
 }
-.router-link-exact-active > div
+.left_router.router-link-exact-active > div
 {
   color: #36C5F1;
   background: rgba(54, 197, 241, 0.2);
@@ -165,10 +168,29 @@ export default {
 {
   margin-left: 29.63vh;
 }
+.mobile_tab
+{
+  box-shadow: 0px 0px 4px rgba(0, 0, 0, 0.16);
+}
 .mobile_item
 {
+  display: inline-block;
   color: #D8D8D8;
   font-family: NanumBarunGothic;
   font-size: 3.73vw;
+  width: 12.27vw;
+  text-align: center;
+  padding-top: 3.47vw;
+  padding-bottom: 3.47vw;
+}
+.mobile_item:hover
+{
+  border-bottom: 0.46vh solid #36C5F1;
+  color: #36C5F1;
+}
+.mobile_router.router-link-exact-active > div
+{
+  border-bottom: 0.46vh solid #36C5F1;
+  color: #36C5F1;
 }
 </style>
