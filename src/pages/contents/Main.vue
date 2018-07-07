@@ -8,8 +8,7 @@
       </v-layout>
     </router-link>
     <div class="recent_scrap">
-      <div class="scrap_title">
-        최근 스크랩 글 
+      <div class="scrap_title">최근 스크랩 글 
         <img src="../../../static/contents_scrap_icon.png" alt="contents_scrap_icon" class="scrap_icon">
       </div>
       <div v-for="item in recent_items" :key="item.id" class="scrap_card">
@@ -17,10 +16,13 @@
         <div class="card_title">{{ item.title }}</div>
         <div class="card_info">{{ item.category }} · {{ item.recent }}</div>
       </div>
+      <router-link to="/mypage/scrap">
+        <button class="view_more"></button>
+      </router-link>
     </div>
   </v-flex>
-  <v-flex md8 offset-md-3>
-    <router-view></router-view>
+  <v-flex md8 offset-md3>
+    <router-view class="contents_router_view"></router-view>
   </v-flex>
 </v-layout>
 </template>
@@ -59,22 +61,23 @@ export default {
 <style scoped>
 .drawer
 {
-  height: 90vh;
+  /* height: 90vh; */
   position: fixed;
   /* background: gray; */
+  box-shadow: 0px 0px 4px rgba(0, 0, 0, 0.16);
 }
 .link_box
 {
-  width: 14.58vw;
+  width: 29.63vh;
   color: #2B2B2B;
   font-family: NanumBarunGothic;
-  font-size: 1.09vw;
-  margin-left: 1.04vw;
-  margin-right: 1.04vw;
-  padding-left: 0.52vw;
-  padding-right: 1.56vw;
-  padding-top: 1.2vw;
-  padding-bottom: 1.2vw;
+  font-size: 1.94vh;
+  margin-left: 1.85vh;
+  margin-right: 1.85vh;
+  padding-left: 0.92vh;
+  padding-right: 2.77vh;
+  padding-top: 2vh;
+  padding-bottom: 2vh;
   border-bottom: 1px solid #E1E1E1;
 }
 .right_icon
@@ -89,7 +92,7 @@ export default {
   margin-left: 0;
   margin-right: 0;
   padding-left: 1.56vw;
-  width: 16.66vw;
+  width: 16.5vw;
 }
 .router-link-exact-active img.right_icon
 {
@@ -104,26 +107,54 @@ export default {
 }
 .scrap_title
 {
-  font-size: 1.09vw;
+  font-size: 1.94vh;
   font-family: NanumBarunGothic;
   columns: #2B2B2B;
-  margin-top: 1.2vw;
+  margin-top: 1.6vh;
 }
 .scrap_icon
 {
   width: 1.04vw;
-  vertical-align: text-top;
+  vertical-align: middle;
 }
 .card_img
 {
   width: 100%;
+  border-radius: 5%;
+  margin-top: 1.6vh;
 }
 .card_title
 {
   font-family: NanumBarunGothic;
   font-size: 0.94vw;
-  margin-top: 0.79vw;
+  margin-top: 1vh;
   margin-left: 0.78vw;
   margin-right: 0.78vw;
+}
+.card_info
+{
+  margin-top: 0.5vh;
+  margin-left: 0.78vw;
+  margin-right: 0.78vw;
+  
+  color: #C6C6C6;
+  font-family: NanumBarunGothic;
+  font-size: 0.83vw;
+}
+.view_more
+{
+  margin-left: 1.41vw;
+  margin-top: 1.5vh;
+  margin-bottom: 1.5vh;
+  width: 10.69vw;
+  height: 2.76vw;
+  background-image: url('/static/contents_viewmore_btn.png');
+  background-size: 100%;
+  border: 1px solid #A2A2A2;
+  border-radius: 1.41vw;
+}
+.contents_router_view
+{
+  margin-left: 29.63vh;
 }
 </style>
