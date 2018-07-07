@@ -33,7 +33,6 @@
     </v-flex>
     <v-flex xs10 md8 offset-xs1 offset-md3>
       <router-view></router-view>
-      <!-- <router-view class="contents_router_view"></router-view> -->
     </v-flex>
   </v-layout>
 </div>
@@ -68,6 +67,7 @@ export default {
     }
   }
 }
+
 </script>
 
 <style scoped>

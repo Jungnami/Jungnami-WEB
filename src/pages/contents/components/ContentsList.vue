@@ -5,7 +5,7 @@
 
     <v-layout row wrap class="content_box" justify-space-between>
       <v-flex md1 class="content_category">
-          TOP 20
+          {{ title }}
       </v-flex>
       <v-flex md1 class="content_more" v-if="seeMore">
           더보기
@@ -30,12 +30,8 @@
   <!-- </v-layout> -->
 
     <div class="dot_box" align="center">
-      <a href="#">
       <span v-on:click="getPagingData($event)" class="dot" v-bind:class="{ on : currentPage == 1 }" id="1"></span>
-      </a>
-      <a href="#" v-on:click="getPagingData($event)" v-bind:id="index + 1" v-for="index in pageLength" :key="index">
-      <span class="dot" v-bind:class="{ on : currentPage == index + 1 }"></span>
-      </a>
+      <span class="dot" v-on:click="getPagingData($event)" v-bind:id="index + 1" v-for="index in pageLength" :key="index" v-bind:class="{ on : currentPage == index + 1 }"></span>
     </div>
 
 </div>
@@ -77,6 +73,7 @@ export default {
       //고정된 데이터 받는거 전용.. PAGENUM * DOTNUM 만큼의 데이터를 불러옴
       currentPage: 1,
       startItem: 0,
+      title: this.contents_list_info.title,
       seeMore: this.contents_list_info.seeContentsMore,
       endItem: this.contents_list_info.endItem,
       PAGENUM: this.contents_list_info.PAGENUM, //페이징 단위
