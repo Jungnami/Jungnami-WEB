@@ -1,5 +1,5 @@
 <template>
-<div>
+<div class="nav">
   <v-layout row nowrap class="nav_bar">
     <v-icon @click="sideNav = !sideNav" class="hidden-sm-and-up menu_icon">menu</v-icon>
     <v-flex offset-xs1>
@@ -53,7 +53,7 @@ export default {
       items: [
         {icon: 'supervisor_account', text: '순위', path: '/rank'},
         {icon: 'room', text: '의원목록', path: '/list'},
-        {icon: 'room', text: '컨텐츠', path: '/legislator'}
+        {icon: 'room', text: '컨텐츠', path: '/contents'}
       ],
       search_items: [
         {img: '../../static/tab_search_icon_legislator.png', text: '국회의원 검색'},
@@ -66,6 +66,10 @@ export default {
 </script>
 
 <style scoped>
+.nav
+{
+  box-shadow: 0px 0px 4px rgba(0, 0, 0, 0.16);
+}
 .nav_bar
 {
   height: 7.41vh;
