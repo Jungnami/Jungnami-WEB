@@ -2,7 +2,7 @@
 <div class="nav">
   <v-layout row nowrap class="nav_bar">
     <v-icon @click="sideNav = !sideNav" class="hidden-sm-and-up menu_icon">menu</v-icon>
-    <v-flex offset-xs1>
+    <v-flex offset-sm1 class="logo_box">
       <router-link to="/" class="logo">
         <img src="../../static/tab_image_title.png" alt="logo_title">
       </router-link>
@@ -29,7 +29,7 @@
     <router-link to="/mypage">
       <img src="../../static/tab_icon_mypage.png" alt="mypage_logo" class="mypage_icon">
     </router-link>
-    <v-flex xs1>
+    <v-flex sm1 class="mypage_margin">
     </v-flex>
   </v-layout>
 
@@ -66,6 +66,14 @@ export default {
 </script>
 
 <style scoped>
+@media (max-width: 600px) {
+  .logo_box {
+    margin-left: 4vw;
+  }
+  img.mypage_icon {
+    margin-left: 3vw;
+  }
+}
 .nav
 {
   position: fixed;
