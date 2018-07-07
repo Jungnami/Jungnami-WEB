@@ -80,12 +80,12 @@ export default {
 }
 .link_box
 {
-  width: 29.63vh;
+  width: 14.42vw;
   color: #2B2B2B;
   font-family: NanumBarunGothic;
   font-size: 1.94vh;
-  margin-left: 1.85vh;
-  margin-right: 1.85vh;
+  margin-left: 1.04vw;
+  margin-right: 1.04vw;
   padding-left: 0.92vh;
   padding-right: 2.77vh;
   padding-top: 2vh;
