@@ -1,12 +1,26 @@
 <template>
-  <vote></vote>
+  <!-- <v-layout row wrap md7> -->
+  <v-layout row wrap>
+
+
+    <!-- <v-flex xs1></v-flex> -->
+    <v-layout row wrap>
+      <v-flex xs10 offset-xs1>
+        <rank-box></rank-box>
+      </v-flex>
+      <v-flex xs1></v-flex>
+    </v-layout>
+
+
+  </v-layout>
+  <!-- </v-layout> -->
 </template>
 
 <script>
-import Vote from '../../components/Vote'
+import RankBox from './components/RankBox'
 export default {
   name: 'Rank',
-  components: { Vote },
+  components: { RankBox },
   data () {
     return {}
   }

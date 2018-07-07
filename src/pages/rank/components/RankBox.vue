@@ -1,87 +1,55 @@
 <template>
-<v-layout row wrap class="region_page">
-  <v-flex xs7 md3 offset-xs1>
-    <img src="../../../../static/region_main_text.png" alt="list_region_text" class="region_text">
-    <map-component class="hidden-sm-and-down map_component"></map-component>
-  </v-flex>
-  <v-flex xs10 md7 offset-xs1 offset-md0>
-    <v-layout row wrap justify-space-between class="hidden-md-and-up">
-      <button v-for="(region, i) in regions1" :key="i" class="region_btn">{{ region }}</button>
-    </v-layout>
-    <v-layout row wrap justify-space-between class="hidden-md-and-up btns">
-      <button v-for="(region, i) in regions2" :key="i" class="region_btn">{{ region }}</button>
-    </v-layout>
-    <v-layout row wrap justify-space-between class="hidden-md-and-up btns">
-      <button v-for="(region, i) in regions3" :key="i" class="region_btn">{{ region }}</button>
-    </v-layout>
-    <v-layout row wrap class="hidden-md-and-up btns">
-      <button v-for="(region, i) in regions4" :key="i" class="region_btn btns_last">{{ region }}</button>
-    </v-layout>
 
-    <v-layout row nowrap justify-space-between class="hidden-sm-and-down">
-      <div v-for="(party, i) in partys" :key="i" class="party_color">
-        <div :style="{backgroundColor: party.color}" class="color_circle"></div>
-        <div class="party_name">{{ party.name }}</div>
-      </div>
-    </v-layout>
+  <v-layout row wrap class="rank_box">
 
-    <v-layout row wrap justify-space-between class="region_tab">
-      <v-flex xs4 md2 :style="{backgroundColor: active_region.color}" class="region_tab_bar">
-        {{ active_region.name }}
-      </v-flex>
-      <div class="member_count">국회의원 수 : 49명</div>
-      <hr>
-    </v-layout>
-    <v-layout row wrap justify-space-between>
-      <div class="voting_list">
-        <voting-list v-bind:list_info="sendListInfo(1)"></voting-list>
-      </div>
+    <v-flex xs10 md12 offset-xs1 offset-md0>
+      <v-layout row wrap justify-space-between>
+        <div class="voting_list">
+          <voting-list v-bind:list_info="sendListInfo(1)"></voting-list>
+        </div>
         <div class="voting_list" v-if="!isMobile()">
-        <voting-list v-bind:list_info="sendListInfo(2)"></voting-list>
-      </div>
-    </v-layout>
+          <voting-list v-bind:list_info="sendListInfo(2)"></voting-list>
+        </div>
+        <div class="voting_list" v-if="!isMobile()">
+          <voting-list v-bind:list_info="sendListInfo(3)"></voting-list>
+        </div>
+      </v-layout>
 
-    <!--페이징-->
-    <div class="dot_box" align="center">
-      <a href="#" v-on:click="getPagingNum($event)" id="1" >
-      <span class="dot" v-bind:class="{ on : currentPage == 1 }" ></span>
-      </a>
-      <a href="#" v-on:click="getPagingNum($event)" v-bind:id="index + 1" v-for="index in getDotNum-1" :key="index">
-      <span class="dot" v-bind:class="{ on : currentPage == index + 1 }"></span>
-      </a>
-    </div>
-    <!--//페이징-->
-  </v-flex>
-  <v-flex xs1></v-flex>
-</v-layout>
+      <!--페이징-->
+      <div class="dot_box" align="center">
+        <a href="#" v-on:click="getPagingNum($event)" id="1" >
+        <span class="dot" v-bind:class="{ on : currentPage == 1 }" ></span>
+        </a>
+        <a href="#" v-on:click="getPagingNum($event)" v-bind:id="index + 1" v-for="index in getDotNum-1" :key="index">
+        <span class="dot" v-bind:class="{ on : currentPage == index + 1 }"></span>
+        </a>
+      </div>
+      <!--//페이징-->
+    </v-flex>
+  </v-layout>
+</v-flex>
+
 </template>
 
 <script>
-import MapComponent from './Map'
 import VotingList from '../../../components/Vote'
-
 export default {
-
-  name: 'Region',
+  name: 'RankBox',
   components: {
-    MapComponent, VotingList
+    VotingList
   },
   data () {
     return{
       MOBILE_LIST_BOX_UNIT: 1,
-      PC_LIST_BOX_UNIT: 2,
+      PC_LIST_BOX_UNIT: 3,
       mobileCheck: this.windowWidth < 960 ? true : false,
       currentPage: 1,
       MOBILE_PAGE_UNIT: 10, //한 리스트에 보여줄 데이터 수 - 닷 버튼 개수를 구하기위해 사용
-      PC_PAGE_UNIT: 20,
+      PC_PAGE_UNIT: 30,
       LIST_DATA_UNIT: 10, //하나의 리스트에 솨줄 데이터 갯수 단위
       DOTNUM: 1,
       startIndex: 0,
       windowWidth: window.innerWidth,
-      regions1: ["서울", "인천", "경기", "강원", "경북"],
-      regions2: ["충남", "세종", "대전", "경남", "울산"],
-      regions3: ["전남", "전북", "대구", "부산", "충북"],
-      regions4: ["제주", "광주"],
       partys: [
         {color: "#1783DC", name: "더불어민주당"},
         {color: "#E1241A", name: "자유한국당"},
@@ -379,7 +347,7 @@ export default {
         {
             id: 3,
             thumbnail: '../../static/img_avatar.png',
-            name: '사',
+            name: '사asdasdasd',
             count: 1
         },
         {
@@ -397,7 +365,7 @@ export default {
         {
             id: 3,
             thumbnail: '../../static/img_avatar.png',
-            name: '사',
+            name: '사asdas',
             count: 1
         },
         {
@@ -921,13 +889,14 @@ export default {
       }
     },
     sliceItems(listNum) {
-      if(!this.isMobile()){
+      if(!this.isMobile()){ // PC일때
         return this.items.slice(this.getStartIndex + (listNum-1) * this.LIST_DATA_UNIT, this.getStartIndex + this.LIST_DATA_UNIT * listNum);
       } else {
         return this.items.slice(this.getStartIndex, this.getStartIndex + this.LIST_DATA_UNIT);
       }
     },
     handleWindowResize(event) { this.windowWidth = event.currentTarget.innerWidth; },
+
     isMobile() {
       return (this.windowWidth < 960) ? true : false;
     }
@@ -950,32 +919,31 @@ export default {
       }
     },
     getStartIndex: function() {
+      console.log(this.getListBoxUnit);
       var dotNum = this.DOTNUM;
       var dot = this.currentPage;
       if(this.isMobile()) {
-
-        // console.log("here MOBILE ::: " + dotnum);
         this.startIndex = 10 * (dot - 1);
       } else {
-        // console.log("here PC ::: " + dotnum);
         this.startIndex = this.PC_LIST_BOX_UNIT * 10 * (dot - 1);
+
       }
       return this.startIndex;
     }
   },
   watch: {
     windowWidth: function() {
-      if(!this.mobileCheck && this.windowWidth < 960){ // PC일때
-        // this.DOTNUM = this.DOTNUM * 2 -1;
+      if(!this.mobileCheck && this.windowWidth < 960){
         this.currentPage = this.currentPage * this.PC_LIST_BOX_UNIT -1;
-
         this.mobileCheck = true;
       } else if(this.mobileCheck && this.windowWidth >=960){
-
         this.currentPage = Math.ceil(this.currentPage / this.PC_LIST_BOX_UNIT);
         this.mobileCheck = false;
       }
     }
+    // windowWidth: function() {
+      // console.log(this.isMobile());
+    // }
   },
   beforeDestroy: function () {
     window.removeEventListener('resize', this.handleWindowResize)
@@ -985,6 +953,7 @@ export default {
   }
 
 }
+
 </script>
 
 <style scoped>
@@ -1005,7 +974,7 @@ export default {
     width: 83vw;
   }
 }
-.region_page
+.rank_box
 {
   margin-top: 4.63vh;
 }
@@ -1086,7 +1055,7 @@ hr
 }
 .voting_list
 {
-  width: 28.64vw;
+  width: 25.64vw;
 }
 
 .dot {

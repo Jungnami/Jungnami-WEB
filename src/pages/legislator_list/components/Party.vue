@@ -50,6 +50,8 @@ export default {
   name: 'Party',
   data() {
     return {
+      MOBILE_LIST_BOX_UNIT: 1,
+      PC_LIST_BOX_UNIT: 2,
       mobileCheck: this.windowWidth < 960 ? true : false,
       currentPage: 1,
       MOBILE_PAGE_UNIT: 10, //한 리스트에 보여줄 데이터 수 - 닷 버튼 개수를 구하기위해 사용
@@ -271,11 +273,8 @@ export default {
     },
     sliceItems(listNum) {
       if (!this.isMobile()) {
-        if (listNum == 1) { // 첫번째 리스트상자
-          return this.items.slice(this.getStartIndex, this.getStartIndex + this.LIST_DATA_UNIT);
-        } else { // 두번째 리스트 상자
-          return this.items.slice(this.getStartIndex + this.LIST_DATA_UNIT, this.getStartIndex + 2 * this.LIST_DATA_UNIT);
-        }
+        return this.items.slice(this.getStartIndex + (listNum-1) * this.LIST_DATA_UNIT, this.getStartIndex + this.LIST_DATA_UNIT * listNum);
+
       } else {
         return this.items.slice(this.getStartIndex, this.getStartIndex + this.LIST_DATA_UNIT);
       }
@@ -289,6 +288,13 @@ export default {
 
   },
   computed: {
+    getListBoxUnit: function(){
+      if(this.isMobile()){
+        return this.MOBILE_LIST_BOX_UNIT;
+      } else{
+        return this.PC_LIST_BOX_UNIT;
+      }
+    },
     getDotNum: function() {
       if (this.isMobile()) {
         // this.currentPage = Math.ceil(this.currentPage/2);
@@ -305,7 +311,8 @@ export default {
         this.startIndex = 10 * (dot - 1);
       } else {
         // console.log("here PC ::: " + dotnum);
-        this.startIndex = 20 * (dot - 1);
+        // this.startIndex = 20 * (dot - 1);
+        this.startIndex = this.PC_LIST_BOX_UNIT * 10 * (dot - 1);
       }
       return this.startIndex;
     }
@@ -313,15 +320,14 @@ export default {
   watch: {
     windowWidth: function() {
       if (!this.mobileCheck && this.windowWidth < 960) {
-        // console.log("960>>>>>");
-        // this.DOTNUM = this.DOTNUM * 2 -1;
-        this.currentPage = this.currentPage * 2 - 1;
+        this.currentPage = this.currentPage * this.PC_LIST_BOX_UNIT -1;
+
 
         this.mobileCheck = true;
       } else if (this.mobileCheck && this.windowWidth >= 960) {
         // console.log("960<<<");
 
-        this.currentPage = Math.ceil(this.currentPage / 2);
+        this.currentPage = Math.ceil(this.currentPage / this.PC_LIST_BOX_UNIT);
         this.mobileCheck = false;
       }
     }
