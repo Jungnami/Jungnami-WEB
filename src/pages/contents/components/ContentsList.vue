@@ -14,7 +14,7 @@
     </v-layout>
 
     <v-layout row wrap justify-space-between>
-      <div class="content_card" v-for="item in pageItems" :key="item.id" md3>
+      <div class="content_card" v-for="item in pageItems" :key="item.id">
         <img :src="item.image" class="content_image">
         <div>
           <div>
@@ -228,7 +228,7 @@ export default {
 
 .dot_box {
   margin-top: 2.05vw;
-  /*margin-bottom: 13.23px;*/
+  margin-bottom: 2.67vw;
 }
 
 .dot.on {
