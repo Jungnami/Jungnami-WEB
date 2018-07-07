@@ -11,6 +11,7 @@
   </v-layout>
   <v-layout row wrap>
     <v-flex sm2 class="hidden-sm-and-down drawer">
+      <router-link v-for="(item, i) in link_items" :key=i :to="item.path" class="left_router">
         <v-layout row wrap justify-space-between class="link_box">
           <div>{{ item.text }}</div>
           <div><img src="/static/contents_rightarrow_btn.png" alt="right_arrow" class="right_icon"></div>
