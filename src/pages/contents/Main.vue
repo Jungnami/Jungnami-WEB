@@ -19,7 +19,14 @@
       </div>
     </div>
   </v-flex>
-  <v-flex md8 offset-md-3>
+  <v-flex xs8 offset-xs2 class="hidden-md-and-up">
+    <v-layout row wrap justify-space-between>
+      <router-link v-for="(item, i) in link_items" :key=i :to="item.path">
+        <div class="mobile_item">{{ item.text }}</div>
+      </router-link>
+    </v-layout>
+  </v-flex>
+  <v-flex xs10 md8 offset-xs1 offset-md3>
     <router-view></router-view>
   </v-flex>
 </v-layout>
@@ -125,5 +132,11 @@ export default {
   margin-top: 0.79vw;
   margin-left: 0.78vw;
   margin-right: 0.78vw;
+}
+.mobile_item
+{
+  color: #D8D8D8;
+  font-family: NanumBarunGothic;
+  font-size: 3.73vw;
 }
 </style>
