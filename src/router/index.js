@@ -3,6 +3,10 @@ import Router from 'vue-router'
 import Home from '@/pages/home/Main'
 import Rank from '@/pages/rank/Main'
 import Legislator from '@/pages/legislator/Main'
+import Contents from '@/pages/contents/Main'
+import Recommend from '@/pages/contents/components/Recommend'
+import TMI from '@/pages/contents/components/TMI'
+import Story from '@/pages/contents/components/Story'
 import LegislatorList from '@/pages/legislator_list/Main'
 import Region from '@/pages/legislator_list/components/Region'
 import Party from '@/pages/legislator_list/components/Party'
@@ -30,6 +34,26 @@ export default new Router({
       path: '/rank',
       name: 'Rank',
       component: Rank
+    },
+    {
+      path: '/contents',
+      name: 'Contents',
+      component: Contents,
+      children: [{
+        path: '/',
+        name: 'Recommend',
+        component: Recommend
+      },
+      {
+        path: 'TMI',
+        name: 'TMI',
+        component: TMI
+      },
+      {
+        path: 'story',
+        name: 'Story',
+        component: Story
+      }]
     },
     {
       path: '/mypage',
