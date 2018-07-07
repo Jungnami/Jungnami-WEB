@@ -10,7 +10,7 @@
           <div class="rank_border">
             <div class="img" v-bind:class="[checkGold(index) ? 'gold_medal' : '', checkSilver(index) ? 'silver_medal' : '', checkBronze(index) ? 'bronze_medal' : '']">
               <div class="content" >
-                {{(index + LISTUNIT*(listInfo.listNum-1) + 1) + ((listInfo.pageNum-1) * LISTUNIT * indexCountVar())}}
+                {{(index + LISTUNIT*(listInfo.listNum-1) + 1) + ((listInfo.pageNum-1) * LISTUNIT * list_info.listBoxUnit)}}
               </div>
             </div>
           </div>
