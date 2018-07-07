@@ -1,5 +1,5 @@
 <template>
-<v-flex xs4 sm2 offset-xs4 offset-sm1>
+<v-flex xs6 sm2 offset-xs3 offset-sm1>
   <div class="legislator_img_wrapper">
     <img src="../../../../static/legislator_image_profile.png" alt="legislator_image_profile" class="legislator_img">
     <img src="../../../../static/legislator_icon_goldmedal.png" alt="legislator_medal" class="medal">
@@ -24,6 +24,28 @@ export default {
   * {
     text-align: center;
   }
+  img.medal {
+    bottom: 7vw;
+  }
+  div.legislator_img_wrapper {
+    width: 60%;
+    margin-left: 20%;
+  }
+  div.legislator_name {
+    margin-top: -5vh;
+    font-size: 5.87vw;
+  }
+  div.party, div.region {
+    font-size: 4.53vw;
+    margin-top: 0;
+  }
+  div.region {
+    margin-bottom: 3.15vh;
+  }
+  button.button {
+    width: 70%;
+    font-size: 5.33vw;
+  }
 }
 .legislator_img_wrapper
 {
@@ -37,7 +59,7 @@ export default {
 {
   position: relative;
   width: 25%;
-  left: 8vw;
+  left: 7.5vw;
   bottom: 3vw;
 }
 .legislator_name
