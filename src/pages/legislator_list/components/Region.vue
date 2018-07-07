@@ -94,813 +94,678 @@ export default {
         {color: "#00A1A0", name: "더불어민주당 / 바른미래당"}
       ],
       active_region: {color: "#157ACE", name: "서울"},
-      items: [{
+      items: [
+        {
           id: 1,
           thumbnail: '../../static/img_avatar.png',
           name: '문재인',
+          party: '더불어민주당',
           count: 1000
         },
         {
             id: 2,
             thumbnail: '../../static/img_avatar.png',
             name: '안철수',
-            count: 702
+            party: '정의당',
+            count: 1000
         },
         {
             id: 3,
             thumbnail: '../../static/img_avatar.png',
-            name: '가',
-            count: 1
+            name: '홍준표',
+            party: '자유한국당',
+            count: 1000
         },
         {
-            id: 3,
-            thumbnail: '../../static/img_avatar.png',
-            name: '나',
-            count: 1
-        },
-        {
-            id: 3,
-            thumbnail: '../../static/img_avatar.png',
-            name: '다',
-            count: 1
-        },
-        {
-            id: 3,
-            thumbnail: '../../static/img_avatar.png',
-            name: '라',
-            count: 1
-        },
-        {
-            id: 3,
-            thumbnail: '../../static/img_avatar.png',
-            name: '마',
-            count: 1
-        },
-        {
-            id: 3,
-            thumbnail: '../../static/img_avatar.png',
-            name: '바',
-            count: 1
-        },
-        {
-            id: 3,
-            thumbnail: '../../static/img_avatar.png',
-            name: '사',
-            count: 1
-        },
-        {
-            id: 3,
-            thumbnail: '../../static/img_avatar.png',
-            name: '아',
-            count: 1
-        },
-        {
-            id: 3,
-            thumbnail: '../../static/img_avatar.png',
-            name: '자',
-            count: 1
-        },
-        {
-            id: 3,
-            thumbnail: '../../static/img_avatar.png',
-            name: '차',
-            count: 1
-        },
-        {
-            id: 3,
-            thumbnail: '../../static/img_avatar.png',
-            name: '카',
-            count: 1
-        },
-        {
-            id: 3,
-            thumbnail: '../../static/img_avatar.png',
-            name: '타',
-            count: 1
-        },
-        {
-            id: 3,
-            thumbnail: '../../static/img_avatar.png',
-            name: '파',
-            count: 1
-        },
-        {
-            id: 3,
-            thumbnail: '../../static/img_avatar.png',
-            name: '하',
-            count: 1
-        },
-        {
-            id: 3,
-            thumbnail: '../../static/img_avatar.png',
-            name: '가',
-            count: 1
-        },
-        {
-            id: 3,
-            thumbnail: '../../static/img_avatar.png',
-            name: '나',
-            count: 1
-        },
-        {
-            id: 3,
-            thumbnail: '../../static/img_avatar.png',
-            name: '다',
-            count: 1
-        },
-        {
-            id: 3,
-            thumbnail: '../../static/img_avatar.png',
-            name: '라',
-            count: 1
-        },
-        {
-            id: 3,
-            thumbnail: '../../static/img_avatar.png',
-            name: '마',
-            count: 1
-        },
-        {
-            id: 3,
-            thumbnail: '../../static/img_avatar.png',
-            name: '바',
-            count: 1
-        },
-        {
-            id: 3,
-            thumbnail: '../../static/img_avatar.png',
-            name: '사',
-            count: 1
-        },
-        {
-            id: 3,
-            thumbnail: '../../static/img_avatar.png',
-            name: '사',
-            count: 1
-        },
-        {
-            id: 3,
-            thumbnail: '../../static/img_avatar.png',
-            name: '사',
-            count: 1
-        },
-        {
-            id: 3,
-            thumbnail: '../../static/img_avatar.png',
-            name: '사',
-            count: 1
-        },
-        {
-            id: 3,
-            thumbnail: '../../static/img_avatar.png',
-            name: '사',
-            count: 1
-        },
-        {
-            id: 3,
-            thumbnail: '../../static/img_avatar.png',
-            name: '사',
-            count: 1
-        },
-        {
-            id: 3,
-            thumbnail: '../../static/img_avatar.png',
-            name: '사',
-            count: 1
-        },
-        {
-            id: 3,
-            thumbnail: '../../static/img_avatar.png',
-            name: '사',
-            count: 1
-        },
-        {
-            id: 3,
-            thumbnail: '../../static/img_avatar.png',
-            name: '사',
-            count: 1
-        },
-        {
-            id: 3,
-            thumbnail: '../../static/img_avatar.png',
-            name: '사',
-            count: 1
-        },
-        {
-            id: 3,
-            thumbnail: '../../static/img_avatar.png',
-            name: '사',
-            count: 1
-        },
-        {
-            id: 3,
-            thumbnail: '../../static/img_avatar.png',
-            name: '사',
-            count: 1
-        },
-        {
-            id: 3,
-            thumbnail: '../../static/img_avatar.png',
-            name: '사',
-            count: 1
-        },
-        {
-            id: 3,
-            thumbnail: '../../static/img_avatar.png',
-            name: '사',
-            count: 1
-        },
-        {
-            id: 3,
-            thumbnail: '../../static/img_avatar.png',
-            name: '사',
-            count: 1
-        },
-        {
-            id: 3,
-            thumbnail: '../../static/img_avatar.png',
-            name: '사',
-            count: 1
-        },
-        {
-            id: 3,
-            thumbnail: '../../static/img_avatar.png',
-            name: '사',
-            count: 1
-        },
-        {
-            id: 3,
-            thumbnail: '../../static/img_avatar.png',
-            name: '사',
-            count: 1
-        },
-        {
-            id: 3,
-            thumbnail: '../../static/img_avatar.png',
-            name: '사',
-            count: 1
-        },
-        {
-            id: 3,
-            thumbnail: '../../static/img_avatar.png',
-            name: '사',
-            count: 1
-        },
-        {
-            id: 3,
+            id: 4,
             thumbnail: '../../static/img_avatar.png',
-            name: '사',
-            count: 1
+            name: '명선',
+            party: '더불어민주당',
+            count: 1000
         },
         {
-            id: 3,
+            id: 5,
             thumbnail: '../../static/img_avatar.png',
-            name: '사',
-            count: 1
+            name: '탁형민',
+            party: '자유한국당',
+            count: 1000
         },
         {
-            id: 3,
-            thumbnail: '../../static/img_avatar.png',
-            name: '사',
-            count: 1
+          id: 1,
+          thumbnail: '../../static/img_avatar.png',
+          name: '문재인',
+          party: '더불어민주당',
+          count: 1000
         },
         {
-            id: 3,
+            id: 2,
             thumbnail: '../../static/img_avatar.png',
-            name: '사',
-            count: 1
+            name: '안철수',
+            party: '정의당',
+            count: 1000
         },
         {
             id: 3,
             thumbnail: '../../static/img_avatar.png',
-            name: '사',
-            count: 1
+            name: '홍준표',
+            party: '자유한국당',
+            count: 1000
         },
         {
-            id: 3,
+            id: 4,
             thumbnail: '../../static/img_avatar.png',
-            name: '사',
-            count: 1
+            name: '명선',
+            party: '더불어민주당',
+            count: 1000
         },
         {
-            id: 3,
+            id: 5,
             thumbnail: '../../static/img_avatar.png',
-            name: '사',
-            count: 1
+            name: '탁형민',
+            party: '자유한국당',
+            count: 1000
         },
         {
-            id: 3,
-            thumbnail: '../../static/img_avatar.png',
-            name: '사',
-            count: 1
+          id: 1,
+          thumbnail: '../../static/img_avatar.png',
+          name: '문재인',
+          party: '더불어민주당',
+          count: 1000
         },
         {
-            id: 3,
+            id: 2,
             thumbnail: '../../static/img_avatar.png',
-            name: '사',
-            count: 1
+            name: '안철수',
+            party: '정의당',
+            count: 1000
         },
         {
             id: 3,
             thumbnail: '../../static/img_avatar.png',
-            name: '사',
-            count: 1
+            name: '홍준표',
+            party: '자유한국당',
+            count: 1000
         },
         {
-            id: 3,
+            id: 4,
             thumbnail: '../../static/img_avatar.png',
-            name: '사',
-            count: 1
+            name: '명선',
+            party: '더불어민주당',
+            count: 1000
         },
         {
-            id: 3,
+            id: 5,
             thumbnail: '../../static/img_avatar.png',
-            name: '사',
-            count: 1
+            name: '탁형민',
+            party: '자유한국당',
+            count: 1000
         },
         {
-            id: 3,
-            thumbnail: '../../static/img_avatar.png',
-            name: '사',
-            count: 1
+          id: 1,
+          thumbnail: '../../static/img_avatar.png',
+          name: '문재인',
+          party: '더불어민주당',
+          count: 1000
         },
         {
-            id: 3,
+            id: 2,
             thumbnail: '../../static/img_avatar.png',
-            name: '사',
-            count: 1
+            name: '안철수',
+            party: '정의당',
+            count: 1000
         },
         {
             id: 3,
             thumbnail: '../../static/img_avatar.png',
-            name: '사',
-            count: 1
+            name: '홍준표',
+            party: '자유한국당',
+            count: 1000
         },
         {
-            id: 3,
+            id: 4,
             thumbnail: '../../static/img_avatar.png',
-            name: '사',
-            count: 1
+            name: '명선',
+            party: '더불어민주당',
+            count: 1000
         },
         {
-            id: 3,
+            id: 5,
             thumbnail: '../../static/img_avatar.png',
-            name: '사',
-            count: 1
+            name: '탁형민',
+            party: '자유한국당',
+            count: 1000
         },
         {
-            id: 3,
-            thumbnail: '../../static/img_avatar.png',
-            name: '사',
-            count: 1
+          id: 1,
+          thumbnail: '../../static/img_avatar.png',
+          name: '문재인',
+          party: '더불어민주당',
+          count: 1000
         },
         {
-            id: 3,
+            id: 2,
             thumbnail: '../../static/img_avatar.png',
-            name: '사',
-            count: 1
+            name: '안철수',
+            party: '정의당',
+            count: 1000
         },
         {
             id: 3,
             thumbnail: '../../static/img_avatar.png',
-            name: '사',
-            count: 1
+            name: '홍준표',
+            party: '자유한국당',
+            count: 1000
         },
         {
-            id: 3,
+            id: 4,
             thumbnail: '../../static/img_avatar.png',
-            name: '사',
-            count: 1
+            name: '명선',
+            party: '더불어민주당',
+            count: 1000
         },
         {
-            id: 3,
+            id: 5,
             thumbnail: '../../static/img_avatar.png',
-            name: '사',
-            count: 1
+            name: '탁형민',
+            party: '자유한국당',
+            count: 1000
         },
         {
-            id: 3,
-            thumbnail: '../../static/img_avatar.png',
-            name: '사',
-            count: 1
+          id: 1,
+          thumbnail: '../../static/img_avatar.png',
+          name: '문재인',
+          party: '더불어민주당',
+          count: 1000
         },
         {
-            id: 3,
+            id: 2,
             thumbnail: '../../static/img_avatar.png',
-            name: '사',
-            count: 1
+            name: '안철수',
+            party: '정의당',
+            count: 1000
         },
         {
             id: 3,
             thumbnail: '../../static/img_avatar.png',
-            name: '사',
-            count: 1
+            name: '홍준표',
+            party: '자유한국당',
+            count: 1000
         },
         {
-            id: 3,
+            id: 4,
             thumbnail: '../../static/img_avatar.png',
-            name: '사',
-            count: 1
+            name: '명선',
+            party: '더불어민주당',
+            count: 1000
         },
         {
-            id: 3,
+            id: 5,
             thumbnail: '../../static/img_avatar.png',
-            name: '사',
-            count: 1
+            name: '탁형민',
+            party: '자유한국당',
+            count: 1000
         },
         {
-            id: 3,
-            thumbnail: '../../static/img_avatar.png',
-            name: '사',
-            count: 1
+          id: 1,
+          thumbnail: '../../static/img_avatar.png',
+          name: '문재인',
+          party: '더불어민주당',
+          count: 1000
         },
         {
-            id: 3,
+            id: 2,
             thumbnail: '../../static/img_avatar.png',
-            name: '사',
-            count: 1
+            name: '안철수',
+            party: '정의당',
+            count: 1000
         },
         {
             id: 3,
             thumbnail: '../../static/img_avatar.png',
-            name: '사',
-            count: 1
+            name: '홍준표',
+            party: '자유한국당',
+            count: 1000
         },
         {
-            id: 3,
+            id: 4,
             thumbnail: '../../static/img_avatar.png',
-            name: '사',
-            count: 1
+            name: '명선',
+            party: '더불어민주당',
+            count: 1000
         },
         {
-            id: 3,
+            id: 5,
             thumbnail: '../../static/img_avatar.png',
-            name: '사',
-            count: 1
+            name: '탁형민',
+            party: '자유한국당',
+            count: 1000
         },
         {
-            id: 3,
-            thumbnail: '../../static/img_avatar.png',
-            name: '사',
-            count: 1
+          id: 1,
+          thumbnail: '../../static/img_avatar.png',
+          name: '문재인',
+          party: '더불어민주당',
+          count: 1000
         },
         {
-            id: 3,
+            id: 2,
             thumbnail: '../../static/img_avatar.png',
-            name: '사',
-            count: 1
+            name: '안철수',
+            party: '정의당',
+            count: 1000
         },
         {
             id: 3,
             thumbnail: '../../static/img_avatar.png',
-            name: '사',
-            count: 1
+            name: '홍준표',
+            party: '자유한국당',
+            count: 1000
         },
         {
-            id: 3,
+            id: 4,
             thumbnail: '../../static/img_avatar.png',
-            name: '사',
-            count: 1
+            name: '명선',
+            party: '더불어민주당',
+            count: 1000
         },
         {
-            id: 3,
+            id: 5,
             thumbnail: '../../static/img_avatar.png',
-            name: '사',
-            count: 1
+            name: '탁형민',
+            party: '자유한국당',
+            count: 1000
         },
         {
-            id: 3,
-            thumbnail: '../../static/img_avatar.png',
-            name: '사',
-            count: 1
+          id: 1,
+          thumbnail: '../../static/img_avatar.png',
+          name: '문재인',
+          party: '더불어민주당',
+          count: 1000
         },
         {
-            id: 3,
+            id: 2,
             thumbnail: '../../static/img_avatar.png',
-            name: '사',
-            count: 1
+            name: '안철수',
+            party: '정의당',
+            count: 1000
         },
         {
             id: 3,
             thumbnail: '../../static/img_avatar.png',
-            name: '사',
-            count: 1
+            name: '홍준표',
+            party: '자유한국당',
+            count: 1000
         },
         {
-            id: 3,
+            id: 4,
             thumbnail: '../../static/img_avatar.png',
-            name: '사',
-            count: 1
+            name: '명선',
+            party: '더불어민주당',
+            count: 1000
         },
         {
-            id: 3,
+            id: 5,
             thumbnail: '../../static/img_avatar.png',
-            name: '사',
-            count: 1
+            name: '탁형민',
+            party: '자유한국당',
+            count: 1000
         },
         {
-            id: 3,
-            thumbnail: '../../static/img_avatar.png',
-            name: '사',
-            count: 1
+          id: 1,
+          thumbnail: '../../static/img_avatar.png',
+          name: '문재인',
+          party: '더불어민주당',
+          count: 1000
         },
         {
-            id: 3,
+            id: 2,
             thumbnail: '../../static/img_avatar.png',
-            name: '사',
-            count: 1
+            name: '안철수',
+            party: '정의당',
+            count: 1000
         },
         {
             id: 3,
             thumbnail: '../../static/img_avatar.png',
-            name: '사',
-            count: 1
+            name: '홍준표',
+            party: '자유한국당',
+            count: 1000
         },
         {
-            id: 3,
+            id: 4,
             thumbnail: '../../static/img_avatar.png',
-            name: '사',
-            count: 1
+            name: '명선',
+            party: '더불어민주당',
+            count: 1000
         },
         {
-            id: 3,
+            id: 5,
             thumbnail: '../../static/img_avatar.png',
-            name: '사',
-            count: 1
+            name: '탁형민',
+            party: '자유한국당',
+            count: 1000
         },
         {
-            id: 3,
-            thumbnail: '../../static/img_avatar.png',
-            name: '사',
-            count: 1
+          id: 1,
+          thumbnail: '../../static/img_avatar.png',
+          name: '문재인',
+          party: '더불어민주당',
+          count: 1000
         },
         {
-            id: 3,
+            id: 2,
             thumbnail: '../../static/img_avatar.png',
-            name: '사',
-            count: 1
+            name: '안철수',
+            party: '정의당',
+            count: 1000
         },
         {
             id: 3,
             thumbnail: '../../static/img_avatar.png',
-            name: '사',
-            count: 1
+            name: '홍준표',
+            party: '자유한국당',
+            count: 1000
         },
         {
-            id: 3,
+            id: 4,
             thumbnail: '../../static/img_avatar.png',
-            name: '사',
-            count: 1
+            name: '명선',
+            party: '더불어민주당',
+            count: 1000
         },
         {
-            id: 3,
+            id: 5,
             thumbnail: '../../static/img_avatar.png',
-            name: '사',
-            count: 1
+            name: '탁형민',
+            party: '자유한국당',
+            count: 1000
         },
         {
-            id: 3,
-            thumbnail: '../../static/img_avatar.png',
-            name: '사',
-            count: 1
+          id: 1,
+          thumbnail: '../../static/img_avatar.png',
+          name: '문재인',
+          party: '더불어민주당',
+          count: 1000
         },
         {
-            id: 3,
+            id: 2,
             thumbnail: '../../static/img_avatar.png',
-            name: '사',
-            count: 1
+            name: '안철수',
+            party: '정의당',
+            count: 1000
         },
         {
             id: 3,
             thumbnail: '../../static/img_avatar.png',
-            name: '사',
-            count: 1
+            name: '홍준표',
+            party: '자유한국당',
+            count: 1000
         },
         {
-            id: 3,
+            id: 4,
             thumbnail: '../../static/img_avatar.png',
-            name: '사',
-            count: 1
+            name: '명선',
+            party: '더불어민주당',
+            count: 1000
         },
         {
-            id: 3,
+            id: 5,
             thumbnail: '../../static/img_avatar.png',
-            name: '사',
-            count: 1
+            name: '탁형민',
+            party: '자유한국당',
+            count: 1000
         },
         {
-            id: 3,
-            thumbnail: '../../static/img_avatar.png',
-            name: '사',
-            count: 1
+          id: 1,
+          thumbnail: '../../static/img_avatar.png',
+          name: '문재인',
+          party: '더불어민주당',
+          count: 1000
         },
         {
-            id: 3,
+            id: 2,
             thumbnail: '../../static/img_avatar.png',
-            name: '사',
-            count: 1
+            name: '안철수',
+            party: '정의당',
+            count: 1000
         },
         {
             id: 3,
             thumbnail: '../../static/img_avatar.png',
-            name: '사',
-            count: 1
+            name: '홍준표',
+            party: '자유한국당',
+            count: 1000
         },
         {
-            id: 3,
+            id: 4,
             thumbnail: '../../static/img_avatar.png',
-            name: '사',
-            count: 1
+            name: '명선',
+            party: '더불어민주당',
+            count: 1000
         },
         {
-            id: 3,
+            id: 5,
             thumbnail: '../../static/img_avatar.png',
-            name: '사',
-            count: 1
+            name: '탁형민',
+            party: '자유한국당',
+            count: 1000
         },
         {
-            id: 3,
-            thumbnail: '../../static/img_avatar.png',
-            name: '사',
-            count: 1
+          id: 1,
+          thumbnail: '../../static/img_avatar.png',
+          name: '문재인',
+          party: '더불어민주당',
+          count: 1000
         },
         {
-            id: 3,
+            id: 2,
             thumbnail: '../../static/img_avatar.png',
-            name: '사',
-            count: 1
+            name: '안철수',
+            party: '정의당',
+            count: 1000
         },
         {
             id: 3,
             thumbnail: '../../static/img_avatar.png',
-            name: '사',
-            count: 1
+            name: '홍준표',
+            party: '자유한국당',
+            count: 1000
         },
         {
-            id: 3,
+            id: 4,
             thumbnail: '../../static/img_avatar.png',
-            name: '사',
-            count: 1
+            name: '명선',
+            party: '더불어민주당',
+            count: 1000
         },
         {
-            id: 3,
+            id: 5,
             thumbnail: '../../static/img_avatar.png',
-            name: '사',
-            count: 1
+            name: '탁형민',
+            party: '자유한국당',
+            count: 1000
         },
         {
-            id: 3,
-            thumbnail: '../../static/img_avatar.png',
-            name: '사',
-            count: 1
+          id: 1,
+          thumbnail: '../../static/img_avatar.png',
+          name: '문재인',
+          party: '더불어민주당',
+          count: 1000
         },
         {
-            id: 3,
+            id: 2,
             thumbnail: '../../static/img_avatar.png',
-            name: '사',
-            count: 1
+            name: '안철수',
+            party: '정의당',
+            count: 1000
         },
         {
             id: 3,
             thumbnail: '../../static/img_avatar.png',
-            name: '사',
-            count: 1
+            name: '홍준표',
+            party: '자유한국당',
+            count: 1000
         },
         {
-            id: 3,
+            id: 4,
             thumbnail: '../../static/img_avatar.png',
-            name: '사',
-            count: 1
+            name: '명선',
+            party: '더불어민주당',
+            count: 1000
         },
         {
-            id: 3,
+            id: 5,
             thumbnail: '../../static/img_avatar.png',
-            name: '사',
-            count: 1
+            name: '탁형민',
+            party: '자유한국당',
+            count: 1000
         },
         {
-            id: 3,
-            thumbnail: '../../static/img_avatar.png',
-            name: '사',
-            count: 1
+          id: 1,
+          thumbnail: '../../static/img_avatar.png',
+          name: '문재인',
+          party: '더불어민주당',
+          count: 1000
         },
         {
-            id: 3,
+            id: 2,
             thumbnail: '../../static/img_avatar.png',
-            name: '사',
-            count: 1
+            name: '안철수',
+            party: '정의당',
+            count: 1000
         },
         {
             id: 3,
             thumbnail: '../../static/img_avatar.png',
-            name: '사',
-            count: 1
+            name: '홍준표',
+            party: '자유한국당',
+            count: 1000
         },
         {
-            id: 3,
+            id: 4,
             thumbnail: '../../static/img_avatar.png',
-            name: '사',
-            count: 1
+            name: '명선',
+            party: '더불어민주당',
+            count: 1000
         },
         {
-            id: 3,
+            id: 5,
             thumbnail: '../../static/img_avatar.png',
-            name: '사',
-            count: 1
+            name: '탁형민',
+            party: '자유한국당',
+            count: 1000
         },
         {
-            id: 3,
-            thumbnail: '../../static/img_avatar.png',
-            name: '사',
-            count: 1
+          id: 1,
+          thumbnail: '../../static/img_avatar.png',
+          name: '문재인',
+          party: '더불어민주당',
+          count: 1000
         },
         {
-            id: 3,
+            id: 2,
             thumbnail: '../../static/img_avatar.png',
-            name: '사',
-            count: 1
+            name: '안철수',
+            party: '정의당',
+            count: 1000
         },
         {
             id: 3,
             thumbnail: '../../static/img_avatar.png',
-            name: '사',
-            count: 1
+            name: '홍준표',
+            party: '자유한국당',
+            count: 1000
         },
         {
-            id: 3,
+            id: 4,
             thumbnail: '../../static/img_avatar.png',
-            name: '사',
-            count: 1
+            name: '명선',
+            party: '더불어민주당',
+            count: 1000
         },
         {
-            id: 3,
+            id: 5,
             thumbnail: '../../static/img_avatar.png',
-            name: '사',
-            count: 1
+            name: '탁형민',
+            party: '자유한국당',
+            count: 1000
         },
         {
-            id: 3,
-            thumbnail: '../../static/img_avatar.png',
-            name: '사',
-            count: 1
+          id: 1,
+          thumbnail: '../../static/img_avatar.png',
+          name: '문재인',
+          party: '더불어민주당',
+          count: 1000
         },
         {
-            id: 3,
+            id: 2,
             thumbnail: '../../static/img_avatar.png',
-            name: '사',
-            count: 1
+            name: '안철수',
+            party: '정의당',
+            count: 1000
         },
         {
             id: 3,
             thumbnail: '../../static/img_avatar.png',
-            name: '사',
-            count: 1
+            name: '홍준표',
+            party: '자유한국당',
+            count: 1000
         },
         {
-            id: 3,
+            id: 4,
             thumbnail: '../../static/img_avatar.png',
-            name: '사',
-            count: 1
+            name: '명선',
+            party: '더불어민주당',
+            count: 1000
         },
         {
-            id: 3,
+            id: 5,
             thumbnail: '../../static/img_avatar.png',
-            name: '사',
-            count: 1
+            name: '탁형민',
+            party: '자유한국당',
+            count: 1000
         },
         {
-            id: 3,
-            thumbnail: '../../static/img_avatar.png',
-            name: '사',
-            count: 1
+          id: 1,
+          thumbnail: '../../static/img_avatar.png',
+          name: '문재인',
+          party: '더불어민주당',
+          count: 1000
         },
         {
-            id: 3,
+            id: 2,
             thumbnail: '../../static/img_avatar.png',
-            name: '사',
-            count: 1
+            name: '안철수',
+            party: '정의당',
+            count: 1000
         },
         {
             id: 3,
             thumbnail: '../../static/img_avatar.png',
-            name: '사',
-            count: 1
+            name: '홍준표',
+            party: '자유한국당',
+            count: 1000
         },
         {
-            id: 3,
+            id: 4,
             thumbnail: '../../static/img_avatar.png',
-            name: '사',
-            count: 1
+            name: '명선',
+            party: '더불어민주당',
+            count: 1000
         },
         {
-            id: 3,
+            id: 5,
             thumbnail: '../../static/img_avatar.png',
-            name: '사',
-            count: 1
+            name: '탁형민',
+            party: '자유한국당',
+            count: 1000
         }
-      ]
 
-  }
+
+      ]
+    }
+
+  
 },
   methods: {
     getPagingNum(event) {

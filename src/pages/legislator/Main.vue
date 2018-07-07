@@ -4,10 +4,10 @@
   <v-layout row wrap>
     <profile v-on:showSupportModal="showModal = true"></profile>
     <v-flex xs10 sm8 offset-xs1 offset-sm0>
-      <contents></contents>
+      <contents v-bind:content_info="sendContentInfo()"></contents>
     </v-flex>
   </v-layout>
-  <support-modal v-if="showModal"></support-modal>  
+  <support-modal v-if="showModal"></support-modal>
 </div>
 </template>
 
@@ -22,6 +22,16 @@ export default {
   data () {
     return {
       showModal: false,
+
+    }
+  },
+  methods: {
+    sendContentInfo() {
+      return {
+        endItem: 12,
+        PAGENUM: 12, //페이징 단위
+        DOTNUM: 4, //버튼개수
+      }
     }
   }
 }

@@ -10,7 +10,7 @@
           <div class="rank_border">
             <div class="img" v-bind:class="[checkGold(index) ? 'gold_medal' : '', checkSilver(index) ? 'silver_medal' : '', checkBronze(index) ? 'bronze_medal' : '']">
               <div class="content" >
-                {{(index + LISTUNIT*(listInfo.listNum-1) + 1) + ((listInfo.pageNum-1) * LISTUNIT * list_info.listBoxUnit)}}
+                {{((index + LISTUNIT* (listInfo.listNum-1) + 1) + ((listInfo.pageNum-1) * LISTUNIT * list_info.listBoxUnit))}}
               </div>
             </div>
           </div>
@@ -24,10 +24,13 @@
         <div class="progress_box">
           <div class="progress_border">
             <div class="progress_percent">
-              <div class="name"> {{item.name}} </div>
-              <div class="count"> {{item.count}} </div>
-
             </div>
+            <div class="progress_info">
+              <div>
+                <span class="name">{{item.name}}</span><span class="party">&nbsp;_{{item.party}}</span><span class="count">{{item.count}}표</span>
+              </div>
+            </div>
+
 
           </div>
         </div>
@@ -59,13 +62,6 @@ export default {
     checkBronze(index){
       if(this.list_info.listNum == 1 && this.list_info.pageNum == 1 && index == 2){
         return true;
-      }
-    },
-    indexCountVar(){
-      if(!this.list_info.isMobile){
-        return 2; // 피씨일경우 인덱스 증가분이 2배 (페이지당)
-      } else{
-        return 1; // 모바일일경우 인덱스 증가분이 1배 (페이지당)
       }
     }
 
@@ -129,27 +125,22 @@ export default {
   }
 }
 
-.name {
+.progress_info div{
   z-index: 4;
-  color: white;
-  font-size: 1vw;
+  font-size: 0.885vw;
   font-family: NanumBarunGothic;
   position: absolute;
+  width: 100%;
+  color: #666666;
   top: 15%;
-  left: 12%;
-  /*top: 38%;*/
+  left: 9%;
 }
 
-.count {
-  text-align: right;
-  font-size: 1vw;
+/*.count {
   font-family: NanumBarunGothicLight;
-  color: white;
-  position: absolute;
   top: 15%;
   right: 10%;
-  /*position: relative;*/
-}
+}*/
 
 .vote_list {
   align-items: center;
@@ -287,7 +278,7 @@ export default {
   position: relative;
   height: 75%;
   width: 100%;
-  padding-top: 7.5%;
+  padding-top: 10%;
   left: -10%;
 
   /*padding-top: 10%;
@@ -302,10 +293,26 @@ export default {
   padding-bottom: 7.5%;
   border-top-right-radius: 25px;
   border-bottom-right-radius: 25px;
-
-
-
 }
+.progress_info div{
+  z-index: 4;
+  font-size: 0.885vw;
+  font-family: NanumBarunGothic;
+  /*position: absolute;*/
+  color: #666666;
+  top: 15%;
+}
+
+.progress_info .name {
+  font-family: NanumBarunGothicBold;
+}
+
+
+.progress_info .count {
+  font-family: NanumBarunGothicBold;
+  padding-left: 0.52vw;
+}
+
 
 .emotion {
   width: 11%;
@@ -317,7 +324,7 @@ export default {
 
 
 
-.name
+/*.name
 {
   z-index: 4;
   color: white;
@@ -327,8 +334,8 @@ export default {
   top: 15%;
   left: 8%;
   /*top: 38%;*/
-}
-.count
+/*}*/
+/*.count
 {
   text-align: right;
   font-size: 1vw;
@@ -336,9 +343,9 @@ export default {
   color: white;
   position: absolute;
   top: 15%;
-  right: 7%;
+  right: 7%;*/
   /*position: relative;*/
-}
+/*}*/
 
 
 

@@ -36,19 +36,13 @@
 <script>
 export default {
   name: 'Contents',
+  props: ['content_info'],
   methods: {
     getPagingData(event) {
       var curPageNum = event.currentTarget.id;
       this.currentPage = curPageNum;
       var startItem = (curPageNum - 1) * this.PAGENUM;
       var endItem = this.PAGENUM * curPageNum;
-      console.log(this.startItem);
-      console.log(this.endItem);
-
-      // this.pageItems = {
-      //   start: this.startItem,
-      //   end: this.endItem
-      // }
       this.pageItems = startItem + ' ' + endItem;
     }
   },
@@ -66,19 +60,18 @@ export default {
         var pagingSlot = newValue.split(' ');
         this.startItem = pagingSlot[0];
         this.endItem = pagingSlot[1];
-        // this.startItem = newValue.start;
-        // this.endItem = newValue.end;
       }
     }
 
   },
   data() {
     return {
+      //고정된 데이터 받는거 전용.. PAGENUM * DOTNUM 만큼의 데이터를 불러옴
       currentPage: 1,
       startItem: 0,
-      endItem: 12,
-      PAGENUM: 12, //페이징 단위
-      DOTNUM: 4, //버튼개수
+      endItem: this.content_info.endItem,
+      PAGENUM: this.content_info.PAGENUM, //페이징 단위
+      DOTNUM: this.content_info.DOTNUM, //버튼개수
       items: [{
           id: 1,
           image: '/static/card_image1.jpeg',
@@ -107,25 +100,25 @@ export default {
           id: 5,
           image: '/static/card_image1.jpeg',
           title: '마',
-          desc: '테스트4'
+          desc: '테스트5'
         },
         {
           id: 6,
           image: '/static/card_image1.jpeg',
           title: '바',
-          desc: '테스트4'
+          desc: '테스트6'
         },
         {
           id: 7,
           image: '/static/card_image1.jpeg',
           title: '사',
-          desc: '테스트4'
+          desc: '테스트7'
         },
         {
           id: 8,
           image: '/static/card_image1.jpeg',
           title: '아',
-          desc: '테스트4'
+          desc: '테스트8'
         },
         {
           id: 9,
