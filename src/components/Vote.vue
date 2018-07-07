@@ -1,31 +1,31 @@
 <template>
 <div class="vote">
   <!--리스팅될 화면 pc: 1117.88, tablet: 648.71-->
-
   <v-list class="vote_list">
-    <template v-for="index in 10">
+
+    <template v-for="(item, index) in listInfo.items">
     <div class="vote_container" :key="index" :style="{backgroundColor: bg_color[index%2]}">
       <div class="vote_content">
         <div class="rank_box">
           <div class="rank_border">
-            <div class="img">
-              <div class="content">
-                1
+            <div class="img" v-bind:class="[checkGold(index) ? 'gold_medal' : '', checkSilver(index) ? 'silver_medal' : '', checkBronze(index) ? 'bronze_medal' : '']">
+              <div class="content" >
+                {{(index + LISTUNIT*(listInfo.listNum-1) + 1) + ((listInfo.pageNum-1) * LISTUNIT * indexCountVar())}}
               </div>
             </div>
           </div>
         </div>
         <div class="thumbnail_box">
           <div class="thumbnail_border">
-            <img src="../../static/img_avatar.png" alt="Avatar" class="thumbnail_content" style="display: block;">
+            <img :src="item.thumbnail" alt="Avatar" class="thumbnail_content" style="display: block;">
           </div>
         </div>
 
         <div class="progress_box">
           <div class="progress_border">
             <div class="progress_percent">
-              <div class="name"> 김병관 </div>
-              <div class="count"> 270,000표 </div>
+              <div class="name"> {{item.name}} </div>
+              <div class="count"> {{item.count}} </div>
 
             </div>
 
@@ -33,24 +33,64 @@
         </div>
 
         <div class="emotion">
-
         </div>
       </div>
-
     </div>
     </template>
   </v-list>
-
-
 
 </div>
 </template>
 <script>
 export default {
   name: 'Vote',
-  data() {
-    return {
-      bg_color: ['background-color: rgba(0, 0, 0, 0.05)', 'white']
+  props: ['list_info'],
+  methods: {
+    checkGold(index){
+      if(this.list_info.listNum == 1 && this.list_info.pageNum == 1 && index == 0){
+        return true;
+      }
+    },
+    checkSilver(index){
+      if(this.list_info.listNum == 1 && this.list_info.pageNum == 1 && index == 1){
+        return true;
+      }
+    },
+    checkBronze(index){
+      if(this.list_info.listNum == 1 && this.list_info.pageNum == 1 && index == 2){
+        return true;
+      }
+    },
+    indexCountVar(){
+      if(!this.list_info.isMobile){
+        return 2; // 피씨일경우 인덱스 증가분이 2배 (페이지당)
+      } else{
+        return 1; // 모바일일경우 인덱스 증가분이 1배 (페이지당)
+      }
+    }
+
+    // 페이징 관련 끝
+  },
+  computed: {
+    listInfo: function(){
+      return {
+        windowWidth: this.list_info.windowWidth,
+        listNum: this.list_info.listNum,
+        listUnit: this.list_info.listUnit,
+        pageNum: this.list_info.pageNum,
+        isMobile: this.list_info.isMobile,
+        items: this.list_info.items,
+        pageUnit: this.list_info.pageUnit
+      }
+    },
+  },
+  data () {
+    return{
+      currentPage: 1,
+      PAGEUNIT: this.list_info.pageUnit, // 한화면에 보여줄 데이터 갯수, 즉 PC갯수 = MOBILE*2
+      LISTUNIT: this.list_info.listUnit, // 하나의 리스트에 보여줄 데이터 갯수
+      bg_color: ['background-color: rgba(0, 0, 0, 0.05)', 'white'],
+
     }
   }
 }
@@ -68,10 +108,47 @@ export default {
     text-align: center;
     font-size: 1.2vw;
     font-family: NanumBarunGothic;
-    color: white;
+    color: #36C5F1;
     z-index: 2;
   }
 
+}
+
+@media (min-width: 960px) {
+  .content {
+    /* Centered text */
+    left: -5%;
+    top: 10%;
+    position: relative;
+    text-align: center;
+    font-size: 1.2vw;
+    font-family: NanumBarunGothic;
+    color: #36C5F1;
+    z-index: 2;
+    /*border: 1px solid #1783DC;*/
+  }
+}
+
+.name {
+  z-index: 4;
+  color: white;
+  font-size: 1vw;
+  font-family: NanumBarunGothic;
+  position: absolute;
+  top: 15%;
+  left: 12%;
+  /*top: 38%;*/
+}
+
+.count {
+  text-align: right;
+  font-size: 1vw;
+  font-family: NanumBarunGothicLight;
+  color: white;
+  position: absolute;
+  top: 15%;
+  right: 10%;
+  /*position: relative;*/
 }
 
 .vote_list {
@@ -120,9 +197,36 @@ export default {
   height: 80%;
   width: 50%;
   margin: 0 auto;
-  background-image: url('../../static/partylist_goldmedal.png');
+  /*background-image: url('../../static/partylist_goldmedal.png');*/
   background-size: contain;
   /*border: 2px solid #1783DC;*/
+}
+
+.img.gold_medal {
+  background-image: url('../../static/partylist_goldmedal.png');
+}
+
+.img.silver_medal {
+  background-image: url('../../static/partylist_silvermedal.png');
+}
+
+.img.bronze_medal {
+  background-image: url('../../static/partylist_bronzemedal.png');
+}
+
+.img.gold_medal .content{
+  font-size: 0px;
+  /*color: white;*/
+}
+
+.img.silver_medal .content{
+  font-size: 0px;
+  /*color: white;*/
+}
+
+.img.bronze_medal .content{
+  font-size: 0px;
+  /*color: white;*/
 }
 
 /* .rank를 기준으로 가운데에 텍스트가필요한 부분*/

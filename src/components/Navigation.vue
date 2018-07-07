@@ -8,7 +8,7 @@
       </router-link>
     </v-flex>
     <v-spacer></v-spacer>
-    <v-btn color="text" class="hidden-xs-only nav_menu" v-bind:class="{ on : $route.path === item.path}" flat depressed v-for="item in items" :key="item.text" :to="item.path">
+    <v-btn color="text" class="hidden-xs-only nav_menu" v-bind:class="{ on : $route.path.includes(item.path)}" flat depressed v-for="item in items" :key="item.text" :to="item.path">
         {{ item.text }}
     </v-btn>
     <v-menu offset-y class="search_menu">
@@ -22,7 +22,7 @@
             <img :src="item.img" alt="item_img">
             <v-list-tile-title class="item_title">{{ item.text }}</v-list-tile-title>
           </v-list-tile>
-          <v-divider v-if="index + 1 < search_items.length" :key="index"></v-divider>
+          <v-divider v-if="index + 1 < search_items.length" ></v-divider>
         </template>
       </v-list>
     </v-menu>
@@ -61,7 +61,7 @@ export default {
       ]
     }
   },
-  
+
 }
 </script>
 
