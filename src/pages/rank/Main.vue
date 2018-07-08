@@ -81,7 +81,74 @@ export default {
     width: 40vw;
     margin-right: 0;
   }
-
+  div.main_legislator_wrapper {
+    height: 53.3vw;
+    margin-top: 5.3vw;
+  }
+  div.main_legislator_left {
+    background-size: auto 100%;
+  }
+  div.main_legislator_right {
+    background-size: auto 100%;
+  }
+  img.rank_tag {
+    width: 10.9vw;
+    margin-top: 3.2vw;
+    border-radius: 0px 3px 3px 0px;
+  }
+  img.rank_second_tag.rank_tag {
+    border-radius: 3px 0 0 3px;
+  }
+  img.vs_icon {
+    width: 8vw;
+    height: 8vw;
+    left: 45vw;
+    top: 53vw;
+  }
+  img.character_one {
+    height: 10.42vw;
+    left: 30vw;
+    top: 73.5vw;
+  }
+  img.character_two {
+    height: 10.42vw;
+    left: 49vw;
+    top: 73.5vw;
+  }
+  div.name {
+    font-size: 3.73vw;
+    margin-top: 29.3vw;
+  }
+  div.party {
+    font-size: 2.4vw;
+  }
+  div.vote_count {
+    font-size: 1.87vw;
+    margin-top: 0.5vw;
+  }
+  img.mainchart_text {
+    margin-top: 3.36vw;
+  }
+  div.rank_tab_bar {
+    font-size: 3.73vw;
+  }
+  div.rank_tab {
+    margin-top: 5.87vw;
+  }
+}
+@media (min-width: 600px) and (max-width: 1264px) {
+  img.vs_icon {
+    left: 46vw;
+    top: 28vw;
+  }
+  img.character_one {
+    left: 30vw;
+    top: 39vw;
+  }
+  img.character_two {
+    left: 49vw;
+    top: 39vw;
+  }
 }
 .route_link
 {
@@ -110,11 +177,13 @@ export default {
 {
   background-image: url('/static/rank_image_1.png');
   background-size: 100%;
+  margin-right: 0.1vw;
 }
 .main_legislator_right
 {
   background-image: url('/static/rank_image_2.png');
   background-size: 100%;
+  margin-left: 0.1vw;
 }
 .rank_tag
 {
@@ -189,7 +258,6 @@ img.rank_second_tag
 .vote_count_right
 {
   border-radius: 200px 0 0 200px;
-  widows: 22vw;
   margin-left: 19.1vw;
 }
 .mainchart_text
