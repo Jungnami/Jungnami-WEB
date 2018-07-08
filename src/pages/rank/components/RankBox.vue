@@ -7,18 +7,18 @@
         <div class="voting_list">
           <voting-list v-bind:list_info="sendListInfo(1)"></voting-list>
         </div>
-        <div class="voting_list" v-if="!isMobile()">
+        <div class="voting_list">
           <voting-list v-bind:list_info="sendListInfo(2)"></voting-list>
         </div>
-        <div class="voting_list" v-if="!isMobile()">
+        <div class="voting_list">
           <voting-list v-bind:list_info="sendListInfo(3)"></voting-list>
         </div>
       </v-layout>
 
       <!--페이징-->
       <div class="dot_box" align="center">
-        <span class="dot" v-on:click="getPagingNum($event)" id="1" v-bind:class="{ on : currentPage == 1 }" ></span>
-        <span class="dot" v-on:click="getPagingNum($event)" v-bind:id="index + 1" v-for="index in getDotNum-1" :key="index" v-bind:class="{ on : currentPage == index + 1 }"></span>
+        <span class="dot" v-on:click="getPagingNum($event)" @click="showPageInfo" id="1" v-bind:class="{ on : currentPage == 1 }" ></span>
+        <span class="dot" v-on:click="getPagingNum($event)" @click="showPageInfo" v-bind:id="index + 1" v-for="index in getDotNum-1" :key="index" v-bind:class="{ on : currentPage == index + 1 }"></span>
       </div>
       <!--//페이징-->
     </v-flex>
@@ -60,28 +60,28 @@ export default {
         {
           id: 1,
           thumbnail: '../../static/img_avatar.png',
-          name: '문재인',
+          name: '문재인1',
           party: '더불어민주당',
           count: 1000
         },
         {
             id: 2,
             thumbnail: '../../static/img_avatar.png',
-            name: '안철수',
+            name: '안철수2',
             party: '정의당',
             count: 1000
         },
         {
             id: 3,
             thumbnail: '../../static/img_avatar.png',
-            name: '홍준표',
+            name: '홍준표3',
             party: '자유한국당',
             count: 1000
         },
         {
             id: 4,
             thumbnail: '../../static/img_avatar.png',
-            name: '명선',
+            name: '명선4',
             party: '더불어민주당',
             count: 1000
         },
@@ -683,42 +683,42 @@ export default {
         {
             id: 5,
             thumbnail: '../../static/img_avatar.png',
-            name: '탁형민',
+            name: '탁형민-5',
             party: '자유한국당',
             count: 1000
         },
         {
           id: 1,
           thumbnail: '../../static/img_avatar.png',
-          name: '문재인',
+          name: '문재인-4',
           party: '더불어민주당',
           count: 1000
         },
         {
             id: 2,
             thumbnail: '../../static/img_avatar.png',
-            name: '안철수',
+            name: '안철수-3',
             party: '정의당',
             count: 1000
         },
         {
             id: 3,
             thumbnail: '../../static/img_avatar.png',
-            name: '홍준표',
+            name: '홍준표-2',
             party: '자유한국당',
             count: 1000
         },
         {
             id: 4,
             thumbnail: '../../static/img_avatar.png',
-            name: '명선',
+            name: '명선-1',
             party: '더불어민주당',
             count: 1000
         },
         {
             id: 5,
             thumbnail: '../../static/img_avatar.png',
-            name: '탁형민',
+            name: '탁형민last',
             party: '자유한국당',
             count: 1000
         }
@@ -728,6 +728,9 @@ export default {
     }
 },
   methods: {
+    showPageInfo: function() {
+      this.$emit('rankPageInfo', { num: this.currentPage });
+    },
     getPagingNum(event) {
       var curPageNum = event.currentTarget.id;
       this.currentPage = curPageNum;
@@ -737,77 +740,36 @@ export default {
       return {
         listBoxUnit: this.getListBoxUnit,
         windowWidth: this.windowWidth,
-        isMobile: this.isMobile(),
+        // isMobile: this.isMobile(),
         listNum: listNum,
         listUnit: this.LIST_DATA_UNIT,
         pageNum: this.currentPage,
-        pageUnit: this.isMobile() ? this.MOBILE_PAGE_UNIT : this.PC_PAGE_UNIT,
+        pageUnit: this.PC_PAGE_UNIT,
         items: this.sliceItems(listNum)
       }
     },
     sliceItems(listNum) {
-      if(!this.isMobile()){ // PC일때
         return this.items.slice(this.getStartIndex + (listNum-1) * this.LIST_DATA_UNIT, this.getStartIndex + this.LIST_DATA_UNIT * listNum);
-      } else {
-        return this.items.slice(this.getStartIndex, this.getStartIndex + this.LIST_DATA_UNIT);
-      }
-    },
-    handleWindowResize(event) { this.windowWidth = event.currentTarget.innerWidth; },
-
-    isMobile() {
-      return (this.windowWidth < 960) ? true : false;
     }
 
   },
   computed:{
     getListBoxUnit: function(){
-      if(this.isMobile()){
-        return this.MOBILE_LIST_BOX_UNIT;
-      } else{
         return this.PC_LIST_BOX_UNIT;
-      }
     },
     getDotNum: function(){
-      if(this.isMobile()){
-        // this.currentPage = Math.ceil(this.currentPage/2);
-        return this.DOTNUM = Math.ceil(this.items.length / this.MOBILE_PAGE_UNIT);
-      } else{
         return this.DOTNUM = Math.ceil(this.items.length / this.PC_PAGE_UNIT);//버튼개수 item.length / 10 or 20, item갯수는 axios통신으로 가져올것..
-      }
     },
     getStartIndex: function() {
-      console.log(this.getListBoxUnit);
-      var dotNum = this.DOTNUM;
+      // console.log(this.getListBoxUnit);
       var dot = this.currentPage;
-      if(this.isMobile()) {
-        this.startIndex = 10 * (dot - 1);
-      } else {
-        this.startIndex = this.PC_LIST_BOX_UNIT * 10 * (dot - 1);
-
-      }
+      this.startIndex = this.PC_LIST_BOX_UNIT * 10 * (dot - 1);
+      console.log(this.startIndex);
       return this.startIndex;
     }
-  },
-  watch: {
-    windowWidth: function() {
-      if(!this.mobileCheck && this.windowWidth < 960){
-        this.currentPage = this.currentPage * this.PC_LIST_BOX_UNIT - (this.PC_LIST_BOX_UNIT - 1);
-        this.mobileCheck = true;
-      } else if(this.mobileCheck && this.windowWidth >=960){
-        this.currentPage = Math.ceil(this.currentPage / this.PC_LIST_BOX_UNIT);
-        this.mobileCheck = false;
-      }
-    }
-    // windowWidth: function() {
-      // console.log(this.isMobile());
-    // }
-  },
-  beforeDestroy: function () {
-    window.removeEventListener('resize', this.handleWindowResize)
-  },
-  mounted() {
-    window.addEventListener('resize', this.handleWindowResize);
   }
+
+
 
 }
 

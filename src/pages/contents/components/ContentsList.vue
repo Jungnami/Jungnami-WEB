@@ -7,8 +7,8 @@
       <v-flex md1 class="content_category">
           {{ title }}
       </v-flex>
-      <v-flex md1 class="content_more" v-if="seeMore">
-          더보기
+      <v-flex md1 v-if="seeMore" class="content_more" >
+        <router-link :to="seeMorePath" class="content_more_btn">더보기</router-link>
       </v-flex>
       </v-flex>
     </v-layout>
@@ -75,6 +75,7 @@ export default {
       //고정된 데이터 받는거 전용.. PAGENUM * DOTNUM 만큼의 데이터를 불러옴
       currentPage: 1,
       startItem: 0,
+      seeMorePath: this.contents_list_info.path,
       title: this.contents_list_info.title,
       seeMore: this.contents_list_info.seeContentsMore,
       endItem: this.contents_list_info.endItem,
@@ -448,7 +449,12 @@ export default {
   .dot.on {
     background-color: #36C5F1;
   }
-
+  a{
+      color: #BDBDBD;
+    }
+  a:hover{
+      color: #BDBDBD;
+    }
 }
 
 @media (max-width: 959px) {
@@ -526,6 +532,12 @@ export default {
     background-color: #36C5F1;
   }
 
+  a{
+      color: #BDBDBD;
+    }
+  a:hover{
+      color: #BDBDBD;
+    }
 }
 
 @media (max-width: 599px) {
@@ -601,6 +613,13 @@ export default {
   .dot.on {
     background-color: #36C5F1;
   }
+
+  a{
+      color: #BDBDBD;
+    }
+  a:hover{
+      color: #BDBDBD;
+    }
 
 }
 

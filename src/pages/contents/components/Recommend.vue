@@ -36,7 +36,6 @@ export default {
       }
     },
     sendReconmendInfoMobile(){
-      this.mobileCheck
       return {
         title: 'TOP 20',
         seeContentsMore: false,
@@ -48,6 +47,7 @@ export default {
     sendTMIInfo() {
       return {
         title: 'TMI',
+        path: '/contents/TMI',
         seeContentsMore: true,
         endItem: 4, //이거 페이징 단위랑 맞춰줘야함.. 좀 잘못짬 ㅠ
         PAGENUM: 4, //페이징 단위
@@ -57,6 +57,7 @@ export default {
     sendContentInfo() {
       return {
         title: '스토리',
+        path: '/contents/story',
         seeContentsMore: true,
         endItem: 4, //이거 페이징 단위랑 맞춰줘야함.. 좀 잘못짬 ㅠ
         PAGENUM: 4, //페이징 단위
