@@ -7,14 +7,15 @@
       <v-flex md1 class="content_category">
           {{ title }}
       </v-flex>
-      <v-flex md1 class="content_more" v-if="seeMore">
-          더보기
+      <v-flex md1 v-if="seeMore" class="content_more" >
+        <router-link :to="seeMorePath" class="content_more_btn">더보기</router-link>
       </v-flex>
       </v-flex>
     </v-layout>
 
-    <v-layout row wrap justify-space-between>
-      <div class="content_card" v-for="item in pageItems" :key="item.id">
+    <v-layout row wrap >
+      <v-flex xs6 sm4 md3 v-for="item in pageItems" :key="item.id">
+      <div class="content_card">
         <img :src="item.image" class="content_image">
         <div>
           <div>
@@ -25,6 +26,7 @@
           {{ item.desc }}
         </div>
       </div>
+      </v-flex>
     </v-layout>
 
   <!-- </v-layout> -->
@@ -73,6 +75,7 @@ export default {
       //고정된 데이터 받는거 전용.. PAGENUM * DOTNUM 만큼의 데이터를 불러옴
       currentPage: 1,
       startItem: 0,
+      seeMorePath: this.contents_list_info.path,
       title: this.contents_list_info.title,
       seeMore: this.contents_list_info.seeContentsMore,
       endItem: this.contents_list_info.endItem,
@@ -155,6 +158,210 @@ export default {
           image: '/static/card_image1.jpeg',
           title: '문재인 대통령의 살아온 일대기와 운명',
           desc: '테스트4'
+        },
+        {
+          id: 39,
+          image: '/static/card_image1.jpeg',
+          title: '문재인 대통령의 살아온 일대기와 운명',
+          desc: '테스트4'
+        },
+        {
+          id: 39,
+          image: '/static/card_image1.jpeg',
+          title: '문재인 대통령의 살아온 일대기와 운명',
+          desc: '테스트4'
+        },
+        {
+          id: 39,
+          image: '/static/card_image1.jpeg',
+          title: '문재인 대통령의 살아온 일대기와 운명',
+          desc: '테스트4'
+        },
+        {
+          id: 39,
+          image: '/static/card_image1.jpeg',
+          title: '문재인 대통령의 살아온 일대기와 운명',
+          desc: '테스트4'
+        },
+        {
+          id: 39,
+          image: '/static/card_image1.jpeg',
+          title: '문재인 대통령의 살아온 일대기와 운명',
+          desc: '테스트4'
+        },
+        {
+          id: 39,
+          image: '/static/card_image1.jpeg',
+          title: '문재인 대통령의 살아온 일대기와 운명',
+          desc: '테스트4'
+        },
+        {
+          id: 39,
+          image: '/static/card_image1.jpeg',
+          title: '문재인 대통령의 살아온 일대기와 운명',
+          desc: '테스트4'
+        },
+        {
+          id: 39,
+          image: '/static/card_image1.jpeg',
+          title: '문재인 대통령의 살아온 일대기와 운명',
+          desc: '테스트4'
+        },
+        {
+          id: 39,
+          image: '/static/card_image1.jpeg',
+          title: '문재인 대통령의 살아온 일대기와 운명',
+          desc: '테스트4'
+        },
+        {
+          id: 39,
+          image: '/static/card_image1.jpeg',
+          title: '문재인 대통령의 살아온 일대기와 운명',
+          desc: '테스트4'
+        },
+        {
+          id: 39,
+          image: '/static/card_image1.jpeg',
+          title: '문재인 대통령의 살아온 일대기와 운명',
+          desc: '테스트4'
+        },
+        {
+          id: 39,
+          image: '/static/card_image1.jpeg',
+          title: '문재인 대통령의 살아온 일대기와 운명',
+          desc: '테스트4'
+        },
+        {
+          id: 39,
+          image: '/static/card_image1.jpeg',
+          title: '문재인 대통령의 살아온 일대기와 운명',
+          desc: '테스트4'
+        },
+        {
+          id: 39,
+          image: '/static/card_image1.jpeg',
+          title: '문재인 대통령의 살아온 일대기와 운명',
+          desc: '테스트4'
+        },
+        {
+          id: 39,
+          image: '/static/card_image1.jpeg',
+          title: '문재인 대통령의 살아온 일대기와 운명',
+          desc: '테스트4'
+        },
+        {
+          id: 39,
+          image: '/static/card_image1.jpeg',
+          title: '문재인 대통령의 살아온 일대기와 운명',
+          desc: '테스트4'
+        },
+        {
+          id: 39,
+          image: '/static/card_image1.jpeg',
+          title: '문재인 대통령의 살아온 일대기와 운명',
+          desc: '테스트4'
+        },
+        {
+          id: 39,
+          image: '/static/card_image1.jpeg',
+          title: '문재인 대통령의 살아온 일대기와 운명',
+          desc: '테스트4'
+        },
+        {
+          id: 39,
+          image: '/static/card_image1.jpeg',
+          title: '문재인 대통령의 살아온 일대기와 운명',
+          desc: '테스트4'
+        },
+        {
+          id: 39,
+          image: '/static/card_image1.jpeg',
+          title: '문재인 대통령의 살아온 일대기와 운명',
+          desc: '테스트4'
+        },
+        {
+          id: 39,
+          image: '/static/card_image1.jpeg',
+          title: '문재인 대통령의 살아온 일대기와 운명',
+          desc: '테스트4'
+        },
+        {
+          id: 39,
+          image: '/static/card_image1.jpeg',
+          title: '문재인 대통령의 살아온 일대기와 운명',
+          desc: '테스트4'
+        },
+        {
+          id: 39,
+          image: '/static/card_image1.jpeg',
+          title: '문재인 대통령의 살아온 일대기와 운명',
+          desc: '테스트4'
+        },
+        {
+          id: 39,
+          image: '/static/card_image1.jpeg',
+          title: '문재인 대통령의 살아온 일대기와 운명',
+          desc: '테스트4'
+        },
+        {
+          id: 39,
+          image: '/static/card_image1.jpeg',
+          title: '문재인 대통령의 살아온 일대기와 운명',
+          desc: '테스트4'
+        },
+        {
+          id: 39,
+          image: '/static/card_image1.jpeg',
+          title: '문재인 대통령의 살아온 일대기와 운명',
+          desc: '테스트4'
+        },
+        {
+          id: 39,
+          image: '/static/card_image1.jpeg',
+          title: '문재인 대통령의 살아온 일대기와 운명',
+          desc: '테스트4'
+        },
+        {
+          id: 39,
+          image: '/static/card_image1.jpeg',
+          title: '문재인 대통령의 살아온 일대기와 운명',
+          desc: '테스트4'
+        },
+        {
+          id: 39,
+          image: '/static/card_image1.jpeg',
+          title: '문재인 대통령의 살아온 일대기와 운명',
+          desc: '테스트4'
+        },
+        {
+          id: 39,
+          image: '/static/card_image1.jpeg',
+          title: '문재인 대통령의 살아온 일대기와 운명',
+          desc: '테스트4'
+        },
+        {
+          id: 39,
+          image: '/static/card_image1.jpeg',
+          title: '문재인 대통령의 살아온 일대기와 운명',
+          desc: '테스트4'
+        },
+        {
+          id: 39,
+          image: '/static/card_image1.jpeg',
+          title: '문재인 대통령의 살아온 일대기와 운명',
+          desc: '테스트4'
+        },
+        {
+          id: 39,
+          image: '/static/card_image1.jpeg',
+          title: '문재인 대통령의 살아온 일대기와 운명',
+          desc: '테스트4'
+        },
+        {
+          id: 39,
+          image: '/static/card_image1.jpeg',
+          title: '문재인 대통령의 살아온 일대기와 운명',
+          desc: '테스트4'
         }
       ]
     }
@@ -163,74 +370,259 @@ export default {
 }
 </script>
 
+
+
 <style scoped>
-.content_box {
-  margin-top: 1.64vw;
-  margin-bottom: 1.64vw;
+
+@media (min-width: 960px) {
+  .content_box {
+    margin-top: 1.64vw;
+    margin-bottom: 1.64vw;
+  }
+
+  .content_image {
+    width: 16.04vw;
+    border-radius: 5%;
+    margin-bottom: 1.318vw;
+  }
+
+  .content_category{
+    font-size: 1.3vw;
+    color: #000;
+    font-family: NanumBarunGothicBold
+  }
+
+  .content_more{
+    font-size: 1.04vw;
+    color: #BDBDBD;
+    font-family: NanumBarunGothic
+
+  }
+
+  .content_more{
+    text-align: right;
+  }
+
+  .content_desc {
+    width: 100%;
+    display: -webkit-box;
+    overflow: hidden;
+    margin-bottom: 2.05vw;
+    font-size: 1.04vw;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 1;
+    color: #C6C6C6;
+    font-family: NanumBarunGothicOTF;
+  }
+
+  .content_title{
+    margin-bottom: 1.29vw;
+    display: -webkit-box;
+    overflow: hidden;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 1;
+    font-size: 1.145vw;
+  }
+
+  .content_card {
+    width: 16.04vw;
+    /*margin-bottom: 4.3vw;*/
+  }
+
+  .dot {
+    height: 13px;
+    width: 13px;
+    margin-left: 7px;
+    margin-right: 7px;
+    background-color: #FFF;
+    border-radius: 50%;
+    display: inline-block;
+    border: 1px solid #36C5F1;
+  }
+
+
+  .dot_box {
+    /*margin-top: 2.05vw;*/
+    margin-bottom: 2.67vw;
+  }
+
+  .dot.on {
+    background-color: #36C5F1;
+  }
+  a{
+      color: #BDBDBD;
+    }
+  a:hover{
+      color: #BDBDBD;
+    }
 }
 
-.content_image {
-  width: 16.04vw;
-  border-radius: 5%;
-  margin-bottom: 1.318vw;
+@media (max-width: 959px) {
+  .content_box {
+    margin-top: 3.73vw;
+    margin-bottom: 3.73vw;
+  }
+
+  .content_image {
+    width: 27vw;
+    border-radius: 5%;
+    margin-bottom: 3.73vw;
+  }
+
+  .content_category{
+    font-size: 3.733vw;
+    color: #000;
+    font-family: NanumBarunGothicBold
+  }
+
+  .content_more{
+    font-size: 1.3vw;
+    color: #BDBDBD;
+    font-family: NanumBarunGothic
+
+  }
+
+  .content_more{
+    text-align: right;
+  }
+
+  .content_desc {
+    width: 100%;
+    display: -webkit-box;
+    overflow: hidden;
+    font-size: 1.04vw;
+    -webkit-box-orient: vertical;
+    margin-bottom: 2.05vw;
+    -webkit-line-clamp: 1;
+    color: #C6C6C6;
+    font-family: NanumBarunGothicOTF;
+  }
+
+  .content_title{
+    margin-bottom: 1.29vw;
+    display: -webkit-box;
+    overflow: hidden;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 1;
+  }
+
+  .content_card {
+    width: 27.39vw;
+    /*margin-bottom: 4.3vw;*/
+  }
+
+  .dot {
+    height: 13px;
+    width: 13px;
+    margin-left: 7px;
+    margin-right: 7px;
+    background-color: #FFF;
+    border-radius: 50%;
+    display: inline-block;
+    border: 1px solid #36C5F1;
+  }
+
+
+  .dot_box {
+    /*margin-top: 2.05vw;*/
+    margin-bottom: 2.67vw;
+  }
+
+  .dot.on {
+    background-color: #36C5F1;
+  }
+
+  a{
+      color: #BDBDBD;
+    }
+  a:hover{
+      color: #BDBDBD;
+    }
 }
 
-.content_category{
-  font-size: 1.3vw;
-  color: #000;
-  font-family: NanumBarunGothicBold
+@media (max-width: 599px) {
+  .content_box {
+    margin-top: 3.73vw;
+    margin-bottom: 3.73vw;
+  }
+
+  .content_image {
+    width: 40vw;
+    border-radius: 5%;
+    margin-bottom: 1.318vw;
+  }
+
+  .content_category{
+    font-size: 3.733vw;
+    color: #000;
+    font-family: NanumBarunGothicBold
+  }
+
+  .content_more{
+    font-size: 1.3vw;
+    color: #BDBDBD;
+    font-family: NanumBarunGothic
+  }
+
+  .content_more{
+    text-align: right;
+  }
+
+  .content_desc {
+    width: 100%;
+    margin-bottom: 2.05vw;
+    font-size: 1.04vw;
+    display: -webkit-box;
+    overflow: hidden;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 1;
+    color: #C6C6C6;
+    font-family: NanumBarunGothicOTF;
+  }
+
+  .content_title{
+    margin-bottom: 1.29vw;
+    display: -webkit-box;
+    overflow: hidden;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 1;
+  }
+
+  .content_card {
+    width: 41.5vw;
+    /*margin-bottom: 4.3vw;*/
+  }
+
+  .dot {
+    height: 13px;
+    width: 13px;
+    margin-left: 7px;
+    margin-right: 7px;
+    background-color: #FFF;
+    border-radius: 50%;
+    display: inline-block;
+    border: 1px solid #36C5F1;
+  }
+
+
+  .dot_box {
+    margin-top: 2.05vw;
+    margin-bottom: 2.67vw;
+  }
+
+  .dot.on {
+    background-color: #36C5F1;
+  }
+
+  a{
+      color: #BDBDBD;
+    }
+  a:hover{
+      color: #BDBDBD;
+    }
+
 }
 
-.content_more{
-  font-size: 1.3vw;
-  color: #BDBDBD;
-  font-family: NanumBarunGothic
-
-}
-
-.content_more{
-  text-align: right;
-}
-
-.content_desc {
-  width: 100%;
-  display: -webkit-box;
-  overflow: hidden;
-  -webkit-box-orient: vertical;
-  -webkit-line-clamp: 1;
-  color: #C6C6C6;
-  font-family: NanumBarunGothicOTF;
-}
-
-.content_title{
-  padding-bottom: 1.29vw;
-}
-
-.content_card {
-  width: 16.04vw;
-  /*margin-bottom: 4.3vw;*/
-}
-
-.dot {
-  height: 13px;
-  width: 13px;
-  margin-left: 7px;
-  margin-right: 7px;
-  background-color: #FFF;
-  border-radius: 50%;
-  display: inline-block;
-  border: 1px solid #36C5F1;
-}
-
-
-.dot_box {
-  margin-top: 2.05vw;
-  margin-bottom: 2.67vw;
-}
-
-.dot.on {
-  background-color: #36C5F1;
-}
 
 /*@media (min-width: 1264px) {
 

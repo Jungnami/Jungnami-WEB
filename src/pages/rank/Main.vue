@@ -47,15 +47,15 @@
 
   <v-layout row wrap class="rank_tab">
     <v-flex xs3 md1 offset-xs1 class="rank_tab_bar">
-      1위 - 50위 
+      {{rank_1}}위 - {{rank_2}}위
     </v-flex>
     <v-flex xs10 offset-xs1><hr class="tab"></v-flex>
     </v-layout>
 
-  <login></login>
+  <!-- <login></login> -->
   <v-layout row wrap>
     <v-flex xs10 offset-xs1>
-      <rank-box></rank-box>
+      <rank-box v-on:rankPageInfo="changeShowRank"></rank-box>
     </v-flex>
     <v-flex xs1></v-flex>
   </v-layout>
@@ -71,7 +71,17 @@ export default {
   name: 'Rank',
   components: { RankBox, Login },
   data () {
-    return {}
+    return {
+      rank_1: 1,
+      rank_2: 30
+    }
+  },
+  methods: {
+    changeShowRank: function(payload) {
+      var num = payload.num;
+      this.rank_1 = 30 * (num-1) + 1;
+      this.rank_2 = 30 * num;
+    }
   }
 }
 //그림 3개 position fixed 한 다음 위치잡아서 해결
