@@ -795,7 +795,7 @@ export default {
   watch: {
     windowWidth: function() {
       if(!this.mobileCheck && this.windowWidth < 960){
-        this.currentPage = this.currentPage * this.PC_LIST_BOX_UNIT -1;
+        this.currentPage = this.currentPage * this.PC_LIST_BOX_UNIT - (this.PC_LIST_BOX_UNIT - 1);
         this.mobileCheck = true;
       } else if(this.mobileCheck && this.windowWidth >=960){
         this.currentPage = Math.ceil(this.currentPage / this.PC_LIST_BOX_UNIT);

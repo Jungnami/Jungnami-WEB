@@ -28,6 +28,7 @@ export default {
   methods: {
     sendContentInfo() {
       return {
+        linkNone: true, // false: href 없앰 ,
         endItem: 12,
         PAGENUM: 12, //페이징 단위
         DOTNUM: 4, //버튼개수

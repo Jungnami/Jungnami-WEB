@@ -52,6 +52,7 @@
     <v-flex xs10 offset-xs1><hr class="tab"></v-flex>
     </v-layout>
 
+  <login></login>
   <v-layout row wrap>
     <v-flex xs10 offset-xs1>
       <rank-box></rank-box>
@@ -63,9 +64,12 @@
 
 <script>
 import RankBox from './components/RankBox'
+// import Modal from '@/pages/legislator/components/SupportModal'
+import Login from '@/components/Login'
+
 export default {
   name: 'Rank',
-  components: { RankBox },
+  components: { RankBox, Login },
   data () {
     return {}
   }
