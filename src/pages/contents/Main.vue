@@ -18,7 +18,7 @@
         </v-layout>
       </router-link>
       <div class="recent_scrap">
-        <div class="scrap_title">최근 스크랩 글 
+        <div class="scrap_title">최근 스크랩 글
           <img src="../../../static/contents_scrap_icon.png" alt="contents_scrap_icon" class="scrap_icon">
         </div>
         <div v-for="item in recent_items" :key="item.id" class="scrap_card">
@@ -33,7 +33,6 @@
     </v-flex>
     <v-flex xs10 md8 offset-xs1 offset-md3>
       <router-view></router-view>
-      <router-view class="contents_router_view"></router-view>
     </v-flex>
   </v-layout>
 </div>
@@ -45,7 +44,7 @@ export default {
   data () {
     return {
       link_items: [
-        {text: '추천', path: '/contents'},
+        {text: '추천', path: '/contents/'},
         {text: 'TMI', path: '/contents/TMI'},
         {text: '스토리', path: '/contents/story'}
       ],
@@ -68,6 +67,7 @@ export default {
     }
   }
 }
+
 </script>
 
 <style scoped>
@@ -148,7 +148,7 @@ export default {
   margin-top: 0.5vh;
   margin-left: 0.78vw;
   margin-right: 0.78vw;
-  
+
   color: #C6C6C6;
   font-family: NanumBarunGothic;
   font-size: 0.83vw;
