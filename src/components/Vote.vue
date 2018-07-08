@@ -36,6 +36,8 @@
         </div>
 
         <div class="emotion">
+          <!-- <img src="" style="display: block;"/> -->
+
         </div>
       </div>
     </div>
@@ -102,10 +104,48 @@ export default {
     top: 20%;
     position: relative;
     text-align: center;
-    font-size: 1.2vw;
+    /*font-size: 3.6vw;*/
     font-family: NanumBarunGothic;
     color: #36C5F1;
     z-index: 2;
+  }
+  .emotion {
+    width: 11%;
+    display: table-cell;
+    background-position: center;
+    background-image: url('../../static/mypage_button_myvote.png');
+    background-size: 5.4vw 5.4vw;
+    position: relative;
+    left: -2.5%;
+  }
+  .progress_info div{
+    z-index: 4;
+    font-size: 2.655vw;
+    font-family: NanumBarunGothic;
+    position: absolute;
+    width: 100%;
+    color: #666666;
+    top: 7%;
+    left: 9%;
+  }
+
+
+  .progress_info .name {
+    font-family: NanumBarunGothicBold;
+    font-size: 2.76vw;
+
+  }
+
+  .progress_info .party {
+    font-family: NanumBarunGothic;
+    font-size: 2.76vw;
+  }
+
+
+  .progress_info .count {
+    font-family: NanumBarunGothicBold;
+    font-size: 0.92vw;
+    font-size: 2.76vw;
   }
 
 }
@@ -117,24 +157,53 @@ export default {
     top: 10%;
     position: relative;
     text-align: center;
-    font-size: 1.2vw;
+    /*font-size: 1.2vw;*/
     font-family: NanumBarunGothic;
     color: #36C5F1;
     z-index: 2;
     /*border: 1px solid #1783DC;*/
   }
+  .emotion {
+    width: 11%;
+    display: table-cell;
+    background-position: center;
+    background-image: url('../../static/mypage_button_myvote.png');
+    background-size: 1.8vw 1.8vw;
+    position: relative;
+    left: -2.5%;
+  }
+  .progress_info div{
+    z-index: 4;
+    font-size: 0.885vw;
+    font-family: NanumBarunGothic;
+    position: absolute;
+    width: 100%;
+    color: #666666;
+    top: 7%;
+    left: 9%;
+  }
+
+  .progress_info .name {
+    font-family: NanumBarunGothicBold;
+    font-size: 0.92vw;
+
+  }
+
+  .progress_info .party {
+    font-family: NanumBarunGothic;
+    font-size: 0.92vw;
+  }
+
+
+  .progress_info .count {
+    font-family: NanumBarunGothicBold;
+    font-size: 0.92vw;
+    padding-left: 0.52vw;
+  }
+
 }
 
-.progress_info div{
-  z-index: 4;
-  font-size: 0.885vw;
-  font-family: NanumBarunGothic;
-  position: absolute;
-  width: 100%;
-  color: #666666;
-  top: 15%;
-  left: 9%;
-}
+
 
 /*.count {
   font-family: NanumBarunGothicLight;
@@ -296,28 +365,15 @@ export default {
 }
 .progress_info div{
   z-index: 4;
-  font-size: 0.885vw;
+  font-size: 0.5vw;
   font-family: NanumBarunGothic;
   /*position: absolute;*/
   color: #666666;
-  top: 15%;
-}
-
-.progress_info .name {
-  font-family: NanumBarunGothicBold;
+  top: 7%;
 }
 
 
-.progress_info .count {
-  font-family: NanumBarunGothicBold;
-  padding-left: 0.52vw;
-}
 
-
-.emotion {
-  width: 11%;
-  display: table-cell;
-}
 
 
 
