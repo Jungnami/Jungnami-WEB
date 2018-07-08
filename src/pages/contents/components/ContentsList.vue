@@ -392,7 +392,7 @@ export default {
   }
 
   .content_more{
-    font-size: 1.3vw;
+    font-size: 1.04vw;
     color: #BDBDBD;
     font-family: NanumBarunGothic
 
@@ -406,6 +406,8 @@ export default {
     width: 100%;
     display: -webkit-box;
     overflow: hidden;
+    margin-bottom: 2.05vw;
+    font-size: 1.04vw;
     -webkit-box-orient: vertical;
     -webkit-line-clamp: 1;
     color: #C6C6C6;
@@ -418,6 +420,7 @@ export default {
     overflow: hidden;
     -webkit-box-orient: vertical;
     -webkit-line-clamp: 1;
+    font-size: 1.145vw;
   }
 
   .content_card {
@@ -438,7 +441,7 @@ export default {
 
 
   .dot_box {
-    margin-top: 2.05vw;
+    /*margin-top: 2.05vw;*/
     margin-bottom: 2.67vw;
   }
 
@@ -450,18 +453,18 @@ export default {
 
 @media (max-width: 959px) {
   .content_box {
-    margin-top: 1.64vw;
-    margin-bottom: 1.64vw;
+    margin-top: 3.73vw;
+    margin-bottom: 3.73vw;
   }
 
   .content_image {
     width: 27vw;
     border-radius: 5%;
-    margin-bottom: 1.318vw;
+    margin-bottom: 3.73vw;
   }
 
   .content_category{
-    font-size: 1.3vw;
+    font-size: 3.733vw;
     color: #000;
     font-family: NanumBarunGothicBold
   }
@@ -481,7 +484,9 @@ export default {
     width: 100%;
     display: -webkit-box;
     overflow: hidden;
+    font-size: 1.04vw;
     -webkit-box-orient: vertical;
+    margin-bottom: 2.05vw;
     -webkit-line-clamp: 1;
     color: #C6C6C6;
     font-family: NanumBarunGothicOTF;
@@ -513,7 +518,7 @@ export default {
 
 
   .dot_box {
-    margin-top: 2.05vw;
+    /*margin-top: 2.05vw;*/
     margin-bottom: 2.67vw;
   }
 
@@ -525,8 +530,8 @@ export default {
 
 @media (max-width: 599px) {
   .content_box {
-    margin-top: 1.64vw;
-    margin-bottom: 1.64vw;
+    margin-top: 3.73vw;
+    margin-bottom: 3.73vw;
   }
 
   .content_image {
@@ -536,7 +541,7 @@ export default {
   }
 
   .content_category{
-    font-size: 1.3vw;
+    font-size: 3.733vw;
     color: #000;
     font-family: NanumBarunGothicBold
   }
@@ -545,7 +550,6 @@ export default {
     font-size: 1.3vw;
     color: #BDBDBD;
     font-family: NanumBarunGothic
-
   }
 
   .content_more{
@@ -555,6 +559,7 @@ export default {
   .content_desc {
     width: 100%;
     margin-bottom: 2.05vw;
+    font-size: 1.04vw;
     display: -webkit-box;
     overflow: hidden;
     -webkit-box-orient: vertical;
