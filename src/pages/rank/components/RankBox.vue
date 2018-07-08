@@ -17,12 +17,8 @@
 
       <!--페이징-->
       <div class="dot_box" align="center">
-        <a href="#" v-on:click="getPagingNum($event)" id="1" >
-        <span class="dot" v-bind:class="{ on : currentPage == 1 }" ></span>
-        </a>
-        <a href="#" v-on:click="getPagingNum($event)" v-bind:id="index + 1" v-for="index in getDotNum-1" :key="index">
-        <span class="dot" v-bind:class="{ on : currentPage == index + 1 }"></span>
-        </a>
+        <span class="dot" v-on:click="getPagingNum($event)" id="1" v-bind:class="{ on : currentPage == 1 }" ></span>
+        <span class="dot" v-on:click="getPagingNum($event)" v-bind:id="index + 1" v-for="index in getDotNum-1" :key="index" v-bind:class="{ on : currentPage == index + 1 }"></span>
       </div>
       <!--//페이징-->
     </v-flex>

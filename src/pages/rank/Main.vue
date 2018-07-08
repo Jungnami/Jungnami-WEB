@@ -47,12 +47,12 @@
 
   <v-layout row wrap class="rank_tab">
     <v-flex xs3 md1 offset-xs1 class="rank_tab_bar">
-      1위 - 50위 
+      1위 - 50위
     </v-flex>
     <v-flex xs10 offset-xs1><hr class="tab"></v-flex>
     </v-layout>
 
-  <login></login>
+  <!-- <login></login> -->
   <v-layout row wrap>
     <v-flex xs10 offset-xs1>
       <rank-box></rank-box>

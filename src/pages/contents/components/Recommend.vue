@@ -1,12 +1,12 @@
 <template>
-  <div>
+<div>
 
-  <contents v-bind:contents_list_info="sendReconmendInfo()"></contents>
-  <div class="adventisor"></div>
-  <contents v-bind:contents_list_info="sendTMIInfo()"></contents>
-  <contents v-bind:contents_list_info="sendContentInfo()"></contents>
+  <contents class="hidden-md-and-up" v-bind:contents_list_info="sendReconmendInfoMobile()"></contents>
+  <contents class="hidden-sm-and-down" v-bind:contents_list_info="sendReconmendInfoPC()"></contents>
+  <div class="adventisor hidden-sm-and-down"></div>
+  <contents v-bind:contents_list_info="sendTMIInfo()" class="hidden-sm-and-down"></contents>
+  <contents v-bind:contents_list_info="sendContentInfo()" class="hidden-sm-and-down"></contents>
 </div>
-
 </template>
 
 <script>
@@ -17,14 +17,32 @@ export default {
   components: {
     Contents
   },
+  data() {
+    return {
+      showModal: false,
+      windowWidth: window.innerWidth,
+      mobileCheck: this.isMobile()
+    }
+  },
   methods: {
-    sendReconmendInfo() { // 여기서 통신의 키가되는 파라미터를 전달해주고(ContentsList에다가), ContentsList에서 해당 파라미터로 통신을 한 값을 가져오면 된다
+    sendReconmendInfoPC(){
+      this.mobileCheck
       return {
         title: 'TOP 20',
         seeContentsMore: false,
         endItem: 4, //이거 페이징 단위랑 맞춰줘야함.. 좀 잘못짬 ㅠ
         PAGENUM: 4, //페이징 단위
-        DOTNUM: 4, //버튼개수
+        DOTNUM: 5, //버튼개수
+      }
+    },
+    sendReconmendInfoMobile(){
+      this.mobileCheck
+      return {
+        title: 'TOP 20',
+        seeContentsMore: false,
+        endItem: 10, //이거 페이징 단위랑 맞춰줘야함.. 좀 잘못짬 ㅠ
+        PAGENUM: 10, //페이징 단위
+        DOTNUM: 2, //버튼개수
       }
     },
     sendTMIInfo() {
@@ -33,7 +51,7 @@ export default {
         seeContentsMore: true,
         endItem: 4, //이거 페이징 단위랑 맞춰줘야함.. 좀 잘못짬 ㅠ
         PAGENUM: 4, //페이징 단위
-        DOTNUM: 4, //버튼개수
+        DOTNUM: 5, //버튼개수
       }
     },
     sendContentInfo() {
@@ -42,22 +60,38 @@ export default {
         seeContentsMore: true,
         endItem: 4, //이거 페이징 단위랑 맞춰줘야함.. 좀 잘못짬 ㅠ
         PAGENUM: 4, //페이징 단위
-        DOTNUM: 4, //버튼개수
+        DOTNUM: 5, //버튼개수
+      }
+    },
+    handleWindowResize(event) {
+      this.windowWidth = event.currentTarget.innerWidth;
+    },
+    isMobile(){
+      this.windowWidth = 600 ? true : false
+    }
+  },
+  beforeDestroy: function() {
+    window.removeEventListener('resize', this.handleWindowResize)
+  },
+  mounted() {
+    window.addEventListener('resize', this.handleWindowResize);
+  },
+  watch: {
+    windowWidth: function() {
+      if(this.windowWidth < 600){
+        this.mobileCheck = true;
+      } else{
+        this.mobileCheck = false;
       }
     }
-  },data () {
-      return {
-        showModal: false,
-
-      }
-    }
-
+  }
 }
+
 </script>
 
 <style>
-.adventisor{
-  width:100%;
+.adventisor {
+  width: 100%;
   height: 12.968vw;
   background-size: cover;
   background-image: url('/static/bannerdesigning.jpg');
