@@ -27,8 +27,6 @@
       <!--//페이징-->
     </v-flex>
   </v-layout>
-</v-flex>
-
 </template>
 
 <script>
