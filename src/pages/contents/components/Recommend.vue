@@ -59,6 +59,7 @@ export default {
 .adventisor{
   width:100%;
   height: 12.968vw;
-  background-image: url('/static/sopt.jpeg');
+  background-size: cover;
+  background-image: url('/static/bannerdesigning.jpg');
 }
 </style>
