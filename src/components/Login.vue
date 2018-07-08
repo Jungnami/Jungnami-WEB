@@ -32,12 +32,18 @@ export default {
         success: function(authObj) {
           this.kakaoAccessToken = JSON.stringify(authObj);
           store.state.kakaoAccessToken = JSON.stringify(authObj);
-          alert(JSON.stringify(authObj));
+          // this.setCookie('login', store.state.kakaoAccessToken, 1);
+          alert(JSON.stringify(authObj).access_token);
         },
         fail: function(err) {
           alert(JSON.stringify(err));
         }
       });
+    },
+    setCookie(name, value, exp) {
+      var date = new Date();
+      date.setTime(date.getTime() + exp*60*60*1000); //1 : 1시간
+      // document.cookie = namae + '=' + value + ';expires=' + date.toUTCString() + ';path=/';
     },
     test(){
       console.log(store.state.kakaoAccessToken);
