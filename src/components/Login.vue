@@ -3,11 +3,11 @@
   <div class="modal_mask">
     <div class="modal_wrapper">
       <div class="modal_container">
-
+        <button @click="close" large class="close_btn"><v-icon>close</v-icon></button>
         <div class="image_wrapper">
           <div class="login_image"></div>
         </div>
-        <div class="kakao_login" @click="loginWithKakao()">
+        <div class="kakao_login" @click="loginWithKakao">
         </div>
         <v-btn color="primary" @click="test()">text</v-btn>
       </div>
@@ -19,6 +19,7 @@
 
 <script>
 import { store } from '../store/store'
+
 export default {
   name: 'Login',
   data() {
@@ -30,23 +31,23 @@ export default {
     loginWithKakao() {
       Kakao.Auth.login({
         success: function(authObj) {
-          this.kakaoAccessToken = JSON.stringify(authObj);
-          store.state.kakaoAccessToken = JSON.stringify(authObj);
-          // this.setCookie('login', store.state.kakaoAccessToken, 1);
-          alert(JSON.stringify(authObj).access_token);
+          const object = {
+            accessToken: authObj.access_token
+          }
+          store.dispatch('postAccessToken', object)
+          console.log(authObj.access_token)
         },
         fail: function(err) {
           alert(JSON.stringify(err));
         }
       });
     },
-    setCookie(name, value, exp) {
-      var date = new Date();
-      date.setTime(date.getTime() + exp*60*60*1000); //1 : 1시간
-      // document.cookie = namae + '=' + value + ';expires=' + date.toUTCString() + ';path=/';
-    },
     test(){
       console.log(store.state.kakaoAccessToken);
+    },
+    close () {
+      this.$store.commit('openLoginComponent')
+      this.$router.push('/')
     }
   }
 
@@ -73,7 +74,7 @@ export default {
 }
 .modal_container
 {
-  padding-top: 62.06px;
+  padding-top: 32px;
   width: 374.99px;
   height: 641px;
   margin: 0px auto;
@@ -82,7 +83,10 @@ export default {
   border-radius: 2.5%;
   box-shadow: 3px 3px 8px rgba(0, 0, 0, 0.16);
 }
-
+.close_btn
+{
+  margin-left: 322.15px;
+}
 .image_wrapper{
   height: 248px;
   width: 248px;
@@ -114,6 +118,7 @@ export default {
   font-family: NanumBarunGothicLight;
   background-image: url('../../static/kakao_login.png');
   background-size: cover;
+  cursor: pointer;
 }
 
 .modal-enter {

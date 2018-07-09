@@ -22,13 +22,14 @@
             <img :src="item.img" alt="item_img">
             <v-list-tile-title class="item_title">{{ item.text }}</v-list-tile-title>
           </v-list-tile>
-          <v-divider v-if="index + 1 < search_items.length" ></v-divider>
+          <v-divider v-if="index + 1 < search_items.length"></v-divider>
         </template>
       </v-list>
     </v-menu>
-    <router-link to="/mypage">
+    <router-link to="/mypage" v-if="kakaoToken">
       <img src="../../static/tab_icon_mypage.png" alt="mypage_logo" class="mypage_icon">
     </router-link>
+    <button class="mypage_icon login_icon" v-if="!kakaoToken" @click="openLogin">로그인</button>
     <v-flex sm1 class="mypage_margin">
     </v-flex>
   </v-layout>
@@ -44,6 +45,8 @@
 </template>
 
 <script>
+import { mapGetters } from 'vuex'
+
 export default {
   name: 'Navigation',
   data () {
@@ -56,12 +59,21 @@ export default {
         {icon: 'room', text: '컨텐츠', path: '/contents'}
       ],
       search_items: [
-        {img: '../../static/tab_search_icon_legislator.png', text: '국회의원 검색'},
-        {img: '../../static/tab_search_icon_content.png', text: '컨텐츠 검색'}
+        {img: '/static/tab_search_icon_legislator.png', text: '국회의원 검색'},
+        {img: '/static/tab_search_icon_content.png', text: '컨텐츠 검색'}
       ]
     }
   },
-
+  computed: {
+    ...mapGetters({
+      kakaoToken: 'getKakaoAccessToken'
+    })
+  },
+  methods: {
+    openLogin () {
+      this.$store.commit('openLoginComponent')
+    }
+  }
 }
 </script>
 
@@ -134,6 +146,11 @@ div.search_list
 {
   height: 100%;
   margin-left: 1.15vw;
+}
+.login_icon
+{
+  color: #36C5F1;
+  font-family: NanumBarunGothic;
 }
 .nav_menu
 {

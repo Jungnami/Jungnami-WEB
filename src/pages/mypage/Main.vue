@@ -11,6 +11,7 @@
             <button class="setting_btn">
               <!-- <img src="../../../static/mypage_button_setting.png" alt="setting_button" class="setting_img"> -->
             </button>
+            <button @click="logout">로그아웃</button>  
           </v-flex>
         </v-layout>
       </v-layout>
@@ -43,8 +44,17 @@
 </template>
 
 <script>
+import * as Cookies from 'js-cookie'
+
 export default {
-  name: 'MyPage'
+  name: 'MyPage',
+  methods: {
+    logout () {
+      Cookies.remove('kakaoAccessToken')
+      Cookies.remove('openLoginPopUp')
+      this.$store.commit('logout')
+    }
+  }
 }
 </script>
 

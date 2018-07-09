@@ -10,7 +10,6 @@
       <v-flex md1 v-if="seeMore" class="content_more" >
         <router-link :to="seeMorePath" class="content_more_btn">더보기</router-link>
       </v-flex>
-      </v-flex>
     </v-layout>
 
     <v-layout row wrap >

@@ -47,7 +47,7 @@
       <span v-on:click="getPagingNum($event)" id="1" class="dot" v-bind:class="{ on : currentPage == 1 }" ></span>
       <!-- </a> -->
       <!-- <a href="#" v-on:click="getPagingNum($event)" v-bind:id="index + 1" v-for="index in getDotNum-1" :key="index"> -->
-      <span v-on:click="getPagingNum($event)" v-bind:id="index + 1" v-for="index in getDotNum-1" :key="index"class="dot" v-bind:class="{ on : currentPage == index + 1 }"></span>
+      <span v-on:click="getPagingNum($event)" v-bind:id="index + 1" v-for="index in getDotNum-1" :key="index" class="dot" v-bind:class="{ on : currentPage == index + 1 }"></span>
       <!-- </a> -->
     </div>
     <!--//페이징-->
