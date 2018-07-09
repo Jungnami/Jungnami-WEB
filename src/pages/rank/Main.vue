@@ -14,7 +14,7 @@
   </v-layout>
 
   <v-layout row wrap class="main_legislator_wrapper">
-    <v-flex xs5 offset-xs1 class="main_legislator_left" :style="{backgroundImage: items[0].mainimg}" justify-end>
+    <v-flex xs5 offset-xs1 class="main_legislator_left" :style="{backgroundImage: `url(${items[0].mainimg})`}" justify-end>
       <div class="rank_tag_box">
         <img src="/static/rank_first_tag.png" alt="first_tag" class="rank_tag">
       </div>
@@ -24,7 +24,7 @@
         <div class="vote_count text-align-right vote_count_left" :style="{ width: items[0].width * 28 + 'vw' }">{{ items[0].score }}표</div>
       </div>
     </v-flex>
-    <v-flex xs5 class="main_legislator_right" :style="{backgroundImage: items[1].mainimg}" justify-end>
+    <v-flex xs5 class="main_legislator_right" :style="{backgroundImage: `url(${items[1].mainimg})`}" justify-end>
       <div class="rank_tag_box text-align-right">
         <img src="/static/rank_second_tag.png" alt="second_tag" class="rank_tag rank_second_tag">
       </div>
@@ -213,13 +213,11 @@ export default {
 }
 .main_legislator_left
 {
-  background-image: url('/static/rank_image_1.png');
   background-size: 100%;
   margin-right: 0.1vw;
 }
 .main_legislator_right
 {
-  background-image: url('/static/rank_image_2.png');
   background-size: 100%;
   margin-left: 0.1vw;
 }
