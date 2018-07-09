@@ -2,6 +2,7 @@
   <v-app>
     <navigation></navigation>
     <router-view class="app_router_view"></router-view>
+    <login v-if="loginPopUp"></login>
     <home-footer v-if="!$route.path.includes('/contents')"></home-footer>
   </v-app>
 
@@ -11,14 +12,22 @@
 import supportModal from './pages/legislator/components/SupportModal'
 import Navigation from '@/components/Navigation'
 import HomeFooter from '@/components/HomeFooter'
+import Login from '@/components/Login'
+import { mapGetters } from 'vuex'
 
 export default {
   name: 'App',
   components: {
     Navigation,
     supportModal,
-    HomeFooter
-  }
+    HomeFooter,
+    Login
+  },
+  computed: {
+    ...mapGetters({
+      loginPopUp: 'getOpenLoginPopUp'
+    })
+  },
 }
 
 </script>

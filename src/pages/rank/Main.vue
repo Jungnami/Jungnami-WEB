@@ -50,9 +50,8 @@
       {{rank_1}}위 - {{rank_2}}위
     </v-flex>
     <v-flex xs10 offset-xs1><hr class="tab"></v-flex>
-    </v-layout>
+  </v-layout>
 
-  <!-- <login></login> -->
   <v-layout row wrap>
     <v-flex xs10 offset-xs1>
       <rank-box v-on:rankPageInfo="changeShowRank"></rank-box>
@@ -64,12 +63,10 @@
 
 <script>
 import RankBox from './components/RankBox'
-// import Modal from '@/pages/legislator/components/SupportModal'
-import Login from '@/components/Login'
 
 export default {
   name: 'Rank',
-  components: { RankBox, Login },
+  components: { RankBox },
   data () {
     return {
       rank_1: 1,
