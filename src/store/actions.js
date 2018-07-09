@@ -8,14 +8,14 @@ const instance = axios.create({
 export const loginActions = {
   postAccessToken ({ commit }, payload) {
     instance.post('/user/kakaologin', payload).then(response => {
-      if (response.result.message === 'success') {
-        commit('signInSuccess', response.result.data)
+      if (response.data.message === 'success') {
+        commit('signInSuccess', response.data.data)
         console.log('login success!!!')
-        axios.defaults.headers.common['authorization'] = response.result.data.token
+        axios.defaults.headers.common['authorization'] = response.data.data.token
       }
       console.log(response.data)
     }).catch(error => {
-      alert(error.result.message)
+      alert(error.data.message)
     })
   }
 }

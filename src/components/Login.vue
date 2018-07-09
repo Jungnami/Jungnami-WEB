@@ -9,7 +9,6 @@
         </div>
         <div class="kakao_login" @click="loginWithKakao">
         </div>
-        <v-btn color="primary" @click="test()">text</v-btn>
       </div>
     </div>
   </div>
@@ -41,9 +40,6 @@ export default {
           alert(JSON.stringify(err));
         }
       });
-    },
-    test(){
-      console.log(store.state.kakaoAccessToken);
     },
     close () {
       this.$store.commit('openLoginComponent')
@@ -92,15 +88,14 @@ export default {
   width: 248px;
   margin-left: 63.5px;
   margin-right: 63.5px;
-  margin-bottom: 60.87px;
-
+  margin-top: 16px;
+  margin-bottom: 16px;
 }
 .login_image
 {
   background-size: contain;
   height: 100%;
   width: 100%;
-  margin: auto;
   margin-bottom: 60px;
   vertical-align: middle;
   background-image: url('../../static/main_character.png');

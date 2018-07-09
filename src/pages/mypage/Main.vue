@@ -2,6 +2,9 @@
 <div>
   <v-layout row wrap>
     <v-flex xs10 offset-xs1 class="profile_box_wrapper">
+      <button @click="logout" class="right">
+        <img src="/static/mypage_button_logout.png" alt="logout_button" class="logout_img">
+      </button>
       <v-layout row wrap class="profile_box">
         <v-flex xs1></v-flex>
         <img src="../../../static/mapage_image_profile.png" alt="image_profile" class="image_profile">
@@ -10,8 +13,7 @@
           <v-flex>
             <button class="setting_btn">
               <!-- <img src="../../../static/mypage_button_setting.png" alt="setting_button" class="setting_img"> -->
-            </button>
-            <button @click="logout">로그아웃</button>  
+            </button>  
           </v-flex>
         </v-layout>
       </v-layout>
@@ -60,6 +62,11 @@ export default {
 
 <style scoped>
 @media (max-width: 600px) {
+  img.logout_img {
+    width: 5.87vw;
+    margin-top: 3.47vw;
+    margin-right: 3.47vw;
+  }
   div.profile_box {
     margin-top: 11.47vw;
     margin-bottom: 11.47vw;
@@ -97,6 +104,12 @@ export default {
   margin-top: 4.63vh;
   background: #FCFCFC;
   box-shadow: 0px 3px 6px rgba(0, 0, 0, 0.16);
+}
+.logout_img
+{
+  width: 2.08vw;
+  margin-top: 1.77vw;
+  margin-right: 1.77vw;
 }
 .profile_box
 {

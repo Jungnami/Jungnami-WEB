@@ -7,6 +7,7 @@ export const loginMutations = {
   },
   signInSuccess (state, payload) {
     state.kakaoAccessToken = payload.token
+    state.user_id = payload.id
     state.openLoginPopUp = !state.openLoginPopUp
   },
   logout (state) {

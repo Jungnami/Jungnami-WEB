@@ -11,6 +11,7 @@ Vue.use(Vuex)
 export const store = new Vuex.Store({
   state: {
     kakaoAccessToken: null,
+    user_id: null,
     openLoginPopUp: false
   },
   getters: Object.assign({}, userGetters),
@@ -26,7 +27,8 @@ export const store = new Vuex.Store({
         removeItem: key => Cookies.remove(key)
       },
       reducer: state => ({
-        kakaoAccessToken: state.kakaoAccessToken
+        kakaoAccessToken: state.kakaoAccessToken,
+        user_id: state.user_id
       })
     })
   ]
