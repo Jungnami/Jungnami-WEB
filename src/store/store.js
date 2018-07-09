@@ -2,9 +2,9 @@ import Vue from 'vue'
 import Vuex from 'vuex'
 import createPersistedState from 'vuex-persistedstate'
 import * as Cookies from 'js-cookie'
-import { userGetters } from './getters'
-import { loginMutations } from './mutations'
-import { loginActions } from './actions'
+import { userGetters, rankGetters } from './getters'
+import { loginMutations, rankMutations } from './mutations'
+import { loginActions, rankActions } from './actions'
 
 Vue.use(Vuex)
 
@@ -12,11 +12,13 @@ export const store = new Vuex.Store({
   state: {
     kakaoAccessToken: null,
     user_id: null,
-    openLoginPopUp: false
+    openLoginPopUp: false,
+    likeRankingList: [],
+    isLike: null
   },
-  getters: Object.assign({}, userGetters),
-  mutations: Object.assign({}, loginMutations),
-  actions: Object.assign({}, loginActions),
+  getters: Object.assign({}, userGetters, rankGetters),
+  mutations: Object.assign({}, loginMutations, rankMutations),
+  actions: Object.assign({}, loginActions, rankActions),
   plugins: [
     createPersistedState({
       storage: {

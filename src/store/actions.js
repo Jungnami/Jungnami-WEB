@@ -19,3 +19,18 @@ export const loginActions = {
     })
   }
 }
+
+export const rankActions = {
+  getLikeRanking ({ commit }, isLike) {
+    instance.get(`/ranking/list/${isLike}`).then(response => {
+      if (response.data.message === 'Select Data Success') {
+        commit('likeRankingSuccess', response.data.data)
+        commit('putIsLike', isLike)
+      }
+      console.log(response.data)
+    }).catch(error => {
+      alert(error.data.message)
+      this.$router.push('/')
+    })
+  }
+}

@@ -16,3 +16,14 @@ export const loginMutations = {
     router.push('/')
   }
 }
+
+export const rankMutations = {
+  likeRankingSuccess (state, payload) {
+    state.likeRankingList = payload
+    console.log('get like ranking success')
+  },
+  putIsLike (state, payload) {
+    state.isLike = payload
+    console.log('put IsLike success')
+  }
+}

@@ -8,26 +8,31 @@
       <div class="vote_content">
         <div class="rank_box">
           <div class="rank_border">
-            <div class="img" v-bind:class="[checkGold(index) ? 'gold_medal' : '', checkSilver(index) ? 'silver_medal' : '', checkBronze(index) ? 'bronze_medal' : '']">
+            <div class="img" v-if="isLike === 1" v-bind:class="[checkGold(index) ? 'gold_medal' : '', checkSilver(index) ? 'silver_medal' : '', checkBronze(index) ? 'bronze_medal' : '']">
               <div class="content" >
-                {{((index + LISTUNIT* (listInfo.listNum-1) + 1) + ((listInfo.pageNum-1) * LISTUNIT * list_info.listBoxUnit))}}
+                {{ item.ranking }}
+              </div>
+            </div>
+            <div class="img" v-if="isLike === 0" v-bind:class="[checkGold(index) ? 'gold_bomb' : '', checkSilver(index) ? 'silver_bomb' : '', checkBronze(index) ? 'bronze_bomb' : '']">
+              <div class="content" >
+                {{ item.ranking }}
               </div>
             </div>
           </div>
         </div>
         <div class="thumbnail_box">
           <div class="thumbnail_border">
-            <img :src="item.thumbnail" alt="Avatar" class="thumbnail_content" style="display: block;">
+            <img :src="item.profileimg" alt="Avatar" class="thumbnail_content" style="display: block;">
           </div>
         </div>
 
         <div class="progress_box">
           <div class="progress_border">
-            <div class="progress_percent">
+            <div class="progress_percent" :style="{ width: (item.width * 100) + '%'}">
             </div>
             <div class="progress_info">
               <div>
-                <span class="name">{{item.name}}</span><span class="party">&nbsp;_{{item.party}}</span><span class="count">{{item.count}}표</span>
+                <span class="name">{{item.l_name}}</span><span class="party">&nbsp;_{{item.party_name}}</span><span class="count">{{item.score}}표</span>
               </div>
             </div>
 
@@ -35,7 +40,7 @@
           </div>
         </div>
 
-        <div class="emotion">
+        <div class="emotion" :style="{backgroundImage: emotion[isLike]}">
           <!-- <img src="" style="display: block;"/> -->
 
         </div>
@@ -47,6 +52,8 @@
 </div>
 </template>
 <script>
+import { mapGetters } from 'vuex'
+
 export default {
   name: 'Vote',
   props: ['list_info'],
@@ -70,6 +77,9 @@ export default {
     // 페이징 관련 끝
   },
   computed: {
+    ...mapGetters ({
+      isLike: 'getIsLike'
+    }),
     listInfo: function(){
       return {
         windowWidth: this.list_info.windowWidth,
@@ -88,7 +98,7 @@ export default {
       PAGEUNIT: this.list_info.pageUnit, // 한화면에 보여줄 데이터 갯수, 즉 PC갯수 = MOBILE*2
       LISTUNIT: this.list_info.listUnit, // 하나의 리스트에 보여줄 데이터 갯수
       bg_color: ['background-color: rgba(0, 0, 0, 0.05)', 'white'],
-
+      emotion: ['url("/static/vote_bad_icon_red.png")', 'url("/static/mypage_button_myvote.png")']
     }
   }
 }
@@ -104,7 +114,7 @@ export default {
     top: 20%;
     position: relative;
     text-align: center;
-    /*font-size: 3.6vw;*/
+    font-size: 2.5vw;
     font-family: NanumBarunGothic;
     color: #36C5F1;
     z-index: 2;
@@ -113,10 +123,10 @@ export default {
     width: 11%;
     display: table-cell;
     background-position: center;
-    background-image: url('../../static/mypage_button_myvote.png');
     background-size: 5.4vw 5.4vw;
     position: relative;
     left: -2.5%;
+    cursor: pointer;
   }
   .progress_info div{
     z-index: 4;
@@ -144,7 +154,7 @@ export default {
 
   .progress_info .count {
     font-family: NanumBarunGothicBold;
-    font-size: 0.92vw;
+    padding-left: 0.92vw;
     font-size: 2.76vw;
   }
 
@@ -167,10 +177,10 @@ export default {
     width: 11%;
     display: table-cell;
     background-position: center;
-    background-image: url('../../static/mypage_button_myvote.png');
     background-size: 1.8vw 1.8vw;
     position: relative;
     left: -2.5%;
+    cursor: pointer;
   }
   .progress_info div{
     z-index: 4;
@@ -263,28 +273,26 @@ export default {
 }
 
 .img.gold_medal {
-  background-image: url('../../static/partylist_goldmedal.png');
+  background-image: url('/static/partylist_goldmedal.png');
 }
-
+.img.gold_bomb {
+  background-image: url('/static/partylist_goldbomb.png');
+}
 .img.silver_medal {
-  background-image: url('../../static/partylist_silvermedal.png');
+  background-image: url('/static/partylist_silvermedal.png');
 }
-
+.img.silver_bomb {
+  background-image: url('/static/partylist_silverbomb.png');
+}
 .img.bronze_medal {
-  background-image: url('../../static/partylist_bronzemedal.png');
+  background-image: url('/static/partylist_bronzemedal.png');
 }
-
-.img.gold_medal .content{
-  font-size: 0px;
-  /*color: white;*/
+.img.bronze_bomb {
+  background-image: url('/static/partylist_bronzebomb.png');
 }
-
-.img.silver_medal .content{
-  font-size: 0px;
-  /*color: white;*/
-}
-
-.img.bronze_medal .content{
+.img.gold_medal .content, .img.silver_medal .content, .img.bronze_medal .content,
+.img.gold_bomb .content, .img.silver_bomb .content, .img.bronze_bomb .content
+{
   font-size: 0px;
   /*color: white;*/
 }
@@ -357,8 +365,7 @@ export default {
 .progress_percent {
   position: relative;
   height: 100%;
-  background-color: #1783DC;
-  width: 130;
+  background-color: #36C5F1;
   padding-bottom: 7.5%;
   border-top-right-radius: 25px;
   border-bottom-right-radius: 25px;

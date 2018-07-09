@@ -2,10 +2,10 @@
 <div>
   <v-layout row wrap>
     <v-flex xs10 offset-xs1>
-      <button class="route_link party_link">
+      <button class="route_link party_link" :id="booleanLike? 'activeTab' : ''" @click="getLikeRanking(1)">
         호감
       </button>
-      <button class="route_link region_link">
+      <button class="route_link region_link" :id="!booleanLike? 'activeTab' : ''" @click="getLikeRanking(0)">
         비호감
       </button>
       <hr>
@@ -14,31 +14,31 @@
   </v-layout>
 
   <v-layout row wrap class="main_legislator_wrapper">
-    <img src="/static/rank_vs_icon.png" alt="vs_icon" class="vs_icon">
-    <img src="/static/rank_1_character.png" alt="1_character" class="character_one">
-    <img src="/static/rank_2_character.png" alt="2_character" class="character_two">
-    <v-flex xs5 offset-xs1 class="main_legislator_left" justify-end>
+    <v-flex xs5 offset-xs1 class="main_legislator_left" :style="{backgroundImage: items[0].mainimg}" justify-end>
       <div class="rank_tag_box">
         <img src="/static/rank_first_tag.png" alt="first_tag" class="rank_tag">
       </div>
-      <div class="name">김병관</div>
-      <div class="party">더불어민주당</div>
+      <div class="name">{{ items[0].l_name }}</div>
+      <div class="party">{{ items[0].party_name }}</div>
       <div class="vote_box">
-        <div class="vote_count text-align-right vote_count_left">270,000표</div>
+        <div class="vote_count text-align-right vote_count_left" :style="{ width: items[0].width * 28 + 'vw' }">{{ items[0].score }}표</div>
       </div>
     </v-flex>
-    <v-flex xs5 class="main_legislator_right" justify-end>
+    <v-flex xs5 class="main_legislator_right" :style="{backgroundImage: items[1].mainimg}" justify-end>
       <div class="rank_tag_box text-align-right">
         <img src="/static/rank_second_tag.png" alt="second_tag" class="rank_tag rank_second_tag">
       </div>
-      <div class="name text-align-right">김병욱</div>
-      <div class="party text-align-right">더불어민주당</div>
+      <div class="name text-align-right">{{ items[1].l_name }}</div>
+      <div class="party text-align-right">{{ items[1].party_name }}</div>
       <div class="vote_box">
-        <div class="vote_count vote_count_right">220,000표</div>
+        <div class="vote_count vote_count_right" :style="{ marginLeft: (1-items[1].width + 13.66/28) * 28 + 'vw' }">{{ items[1].score }}표</div>
       </div>
     </v-flex>
   </v-layout>
-
+  <img src="/static/rank_vs_icon.png" alt="vs_icon" class="vs_icon">
+  <img src="/static/rank_1_character.png" alt="1_character" class="character_one">
+  <img src="/static/rank_2_character.png" alt="2_character" class="character_two">
+  
   <v-layout row wrap justify-center>
     <v-flex xs6 md4>
       <img src="/static/rank_mainchart_text.png" alt="mainchart_text" class="mainchart_text">
@@ -46,7 +46,7 @@
   </v-layout>
 
   <v-layout row wrap class="rank_tab">
-    <v-flex xs3 md1 offset-xs1 class="rank_tab_bar">
+    <v-flex xs3 md2 offset-xs1 class="rank_tab_bar">
       {{rank_1}}위 - {{rank_2}}위
     </v-flex>
     <v-flex xs10 offset-xs1><hr class="tab"></v-flex>
@@ -70,7 +70,13 @@ export default {
   data () {
     return {
       rank_1: 1,
-      rank_2: 30
+      rank_2: 30,
+      booleanLike: true
+    }
+  },
+  computed: {
+    items: function () {
+        return this.$store.getters.getLikeRankingList
     }
   },
   methods: {
@@ -78,7 +84,14 @@ export default {
       var num = payload.num;
       this.rank_1 = 30 * (num-1) + 1;
       this.rank_2 = 30 * num;
+    },
+    getLikeRanking (isLike) {
+      this.booleanLike = !this.booleanLike
+      this.$store.dispatch('getLikeRanking', isLike)
     }
+  },
+  created () {
+    this.$store.dispatch('getLikeRanking', 1)
   }
 }
 //그림 3개 position fixed 한 다음 위치잡아서 해결
@@ -113,18 +126,18 @@ export default {
   img.vs_icon {
     width: 8vw;
     height: 8vw;
-    left: 45vw;
-    top: 53vw;
+    left: 46vw;
+    top: 58vw;
   }
   img.character_one {
     height: 10.42vw;
     left: 30vw;
-    top: 73.5vw;
+    top: 78.5vw;
   }
   img.character_two {
     height: 10.42vw;
     left: 49vw;
-    top: 73.5vw;
+    top: 78.5vw;
   }
   div.name {
     font-size: 3.73vw;
@@ -141,24 +154,38 @@ export default {
     margin-top: 3.36vw;
   }
   div.rank_tab_bar {
-    font-size: 3.73vw;
+    font-size: 3.3vw;
   }
   div.rank_tab {
     margin-top: 5.87vw;
   }
 }
-@media (min-width: 600px) and (max-width: 1264px) {
+@media (min-width: 600px) and (max-width: 960px) {
+  img.vs_icon {
+    left: 46vw;
+    top: 31vw;
+  }
+  img.character_one {
+    left: 30vw;
+    top: 42.5vw;
+  }
+  img.character_two {
+    left: 49vw;
+    top: 42.5vw;
+  }
+}
+@media (min-width: 960px) and (max-width: 1264px) {
   img.vs_icon {
     left: 46vw;
     top: 28vw;
   }
   img.character_one {
     left: 30vw;
-    top: 39vw;
+    top: 39.5vw;
   }
   img.character_two {
     left: 49vw;
-    top: 39vw;
+    top: 39.5vw;
   }
 }
 .route_link
@@ -264,12 +291,10 @@ img.rank_second_tag
 .vote_count_left
 {
   border-radius: 0px 200px 200px 0;
-  width: 28vw;
 }
 .vote_count_right
 {
   border-radius: 200px 0 0 200px;
-  margin-left: 19.1vw;
 }
 .mainchart_text
 {
@@ -286,7 +311,7 @@ img.rank_second_tag
   text-align: center;
   padding-top: 1.45vh;
   padding-bottom: 0.91vh;
-  background: #1783DC;
+  background: #36C5F1;
   font-family: NanumBarunGothic;
   font-size: 1.3vw;
   color: white;
@@ -296,6 +321,11 @@ hr.tab
   width: 100%;
   border: 0;
   height: 3px;
-  background: #1783DC;
+  background: #36C5F1;
+}
+#activeTab
+{
+  border-bottom: 0.46vh solid #36C5F1;
+  color: #36C5F1;
 }
 </style>

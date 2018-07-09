@@ -8,3 +8,14 @@ export const userGetters = {
     return state.openLoginPopUp
   }
 }
+
+export const rankGetters = {
+  getLikeRankingList (state) {
+    console.log('호감 순위 넘겨줌')
+    return state.likeRankingList
+  },
+  getIsLike (state) {
+    console.log('isLike 값 넘겨줌')
+    return state.isLike
+  }
+}
