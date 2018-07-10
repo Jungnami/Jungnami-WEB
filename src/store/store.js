@@ -20,7 +20,9 @@ export const store = new Vuex.Store({
     isLike: null,
     voting_cnt: null,
     //추천 페이지 시작
-    recommendContentList: []
+    recommendTop20: [],
+    recommendTMI: [],
+    recommendStory: []
     //추천 페이지 끝
   },
   getters: Object.assign({}, userGetters, rankGetters, recommendGetters),

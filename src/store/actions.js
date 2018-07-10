@@ -2,7 +2,10 @@ import axios from 'axios'
 
 const instance = axios.create({
   baseURL: 'http://13.124.216.2:3000',
-  timeout: 3000
+  timeout: 3000,
+  headers: {
+    'authorization': 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6ODA3NDY1MjM5LCJpYXQiOjE1MzA3NzU1MDQsImV4cCI6MTUzMzM2NzUwNH0.DAXcgbHm4gOaJMTFyQW0KCvs64lUZai6Cc_pi5pKu4Q'
+  }
 })
 
 const tokenKey = 'JUNGNAMI_ACCESS_TOKEN'
@@ -66,10 +69,11 @@ export const rankActions = {
 //추천페이지 액션
 export const recommendActions = {
   getRecommendContents ({ commit }) {
-    axios.default.headers['authorization'] = localStorage.getItem(tokenKey) //추천페이지에 이게 필요?
-    instance.get('/contents/recommend').then(response => {
-      if(response.data.message === 'Select Data Success') {
-        console.log("recommendData actions come here ::: " + response.data.data);
+    // axios.default.headers['authorization'] = localStorage.getItem(tokenKey) //추천페이지에 이게 필요?
+    // axios.default.headers['authorization'] = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6ODA3NDY1MjM5LCJpYXQiOjE1MzA3NzU1MDQsImV4cCI6MTUzMzM2NzUwNH0.DAXcgbHm4gOaJMTFyQW0KCvs64lUZai6Cc_pi5pKu4Q'
+    instance.get('/contents/recommendforweb').then(response => {
+      if(response.data.message === 'Successfully get posting view') {
+        // console.log("recommendData actions come here ::: " + JSON.stringify(response.data.data));
         commit('setRecommendContentList', response.data.data)
       }
     }).catch(error => {

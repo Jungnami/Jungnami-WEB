@@ -81,6 +81,9 @@ export default {
         this.mobileCheck = false;
       }
     }
+  },
+  created() {
+    this.$store.dispatch('getRecommendContents')
   }
 }
 

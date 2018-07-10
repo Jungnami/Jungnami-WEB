@@ -13,16 +13,16 @@
     </v-layout>
 
     <v-layout row wrap >
-      <v-flex xs6 sm4 md3 v-for="item in pageItems" :key="item.id">
+      <v-flex xs6 sm4 md3 v-for="item in pageItems" :key="item.contentsid">
       <div class="content_card">
-        <img :src="item.image" class="content_image">
+        <img :src="item.thumbnail" class="content_image">
         <div>
           <div>
             <div class="content_title"> {{ item.title }}</div>
           </div>
         </div>
         <div class="content_desc">
-          {{ item.desc }}
+          {{ item.text }}
         </div>
       </div>
       </v-flex>
@@ -59,6 +59,9 @@ export default {
     },
     pageItems: {
       get: function() {
+        // return this.items
+        // console.log("pageItems :::;; " + this.items);
+        // console.log(this.items.slice(0,5));
         return this.items.slice(this.startItem, this.endItem);
       },
       set: function(newValue) {
@@ -66,8 +69,10 @@ export default {
         this.startItem = pagingSlot[0];
         this.endItem = pagingSlot[1];
       }
+    },
+    items: function() {
+      return this.contents_list_info.items
     }
-
   },
   data() {
     return {
@@ -80,21 +85,8 @@ export default {
       endItem: this.contents_list_info.endItem,
       PAGENUM: this.contents_list_info.PAGENUM, //페이징 단위
       DOTNUM: this.contents_list_info.DOTNUM, //버튼개수
-      items: [],
 
-      // items: [{
-      //     id: 1,
-      //     image: '/static/card_image1.jpeg',
-      //     title: '가',
-      //     desc: '테스트1'
-      //   }]
     }
-
-  },
-
-  created() {
-    this.items = this.$store.getters.getRecommendContents
-    console.log(this.items);
   }
 }
 </script>

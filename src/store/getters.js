@@ -39,8 +39,15 @@ export const rankGetters = {
 
 //추천 페이지 게터
 export const recommendGetters = {
-  getRecommendContents (state) {
-    console.log('recommend content 값 넘겨줌')
-    return state.recommendContentList
+  getRecommendTop20 (state) {
+    // console.log('recommend content 값 넘겨줌')
+    // console.log(state.recommendContentList)
+    return state.recommendTop20
+  },
+  getRecommendTMI (state) {
+    return state.recommendTMI
+  },
+  getRecommendStory (state) {
+    return state.recommendStory
   }
 }

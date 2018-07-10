@@ -53,7 +53,10 @@ export const rankMutations = {
 export const recommendMutations = {
 
   setRecommendContentList (state, payload){
-    state.recommendContentList = payload
-    console.log('set recommendContents success')
+    state.recommendTop20 = payload.recommend
+    state.recommendTMI = payload.tmi
+    state.recommendStory = payload.story
+    // console.log("payload:::" + JSON.stringify(payload));
+    // console.log('set recommendContents success')
   }
 }
