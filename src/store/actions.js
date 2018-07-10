@@ -92,10 +92,12 @@ export const recommendActions = {
       if(response.data.message === 'Successfully get posting view') {
         // console.log("recommendData actions come here ::: " + JSON.stringify(response.data.data));
         console.log("!!!!!!!!!!!!!!!" + JSON.stringify(response.data.data.content));
+        console.log("safasdfsadf " + payload.name)
         if(payload.name === 'TMI') {
-          commit('setRecommendContentList', response.data.data.content)
+          console.log("TMI here!!");
+          commit('setTMIContentsData', response.data.data.content)
         }
-        if(payload.name === '스토리') {
+        else if(payload.name === '스토리') {
           commit('setStoryContentsData', response.data.data.content)
         }
         else{
