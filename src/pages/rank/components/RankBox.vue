@@ -1,7 +1,8 @@
 <template>
 
   <v-layout row wrap class="rank_box">
-    <vote-modal></vote-modal>
+    <vote-splash v-if="this.$store.getters.getOpenVoteSplash"></vote-splash>
+    <vote-modal v-if="this.$store.getters.getOpenVotePopUp"></vote-modal>
     <v-flex xs10 md12 offset-xs1 offset-md0>
       <v-layout row wrap justify-space-between>
         <div class="voting_list">
@@ -28,10 +29,11 @@
 <script>
 import VotingList from '../../../components/Vote'
 import VoteModal from '../../../components/VoteModal'
+import VoteSplash from '../../../components/VoteSplash'
 export default {
   name: 'RankBox',
   components: {
-    VotingList, VoteModal
+    VotingList, VoteModal, VoteSplash
   },
   data () {
     return{
@@ -61,11 +63,11 @@ export default {
   },
   methods: {
     showPageInfo: function() {
-      this.$emit('rankPageInfo', { num: this.currentPage });
+      this.$emit('rankPageInfo', { num: this.currentPage })
     },
     getPagingNum(event) {
-      var curPageNum = event.currentTarget.id;
-      this.currentPage = curPageNum;
+      var curPageNum = event.currentTarget.id
+      this.currentPage = curPageNum
     },
     //화면별 분기 테이블 관련
     sendListInfo(listNum) {
