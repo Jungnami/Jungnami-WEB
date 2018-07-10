@@ -49,5 +49,13 @@ export const recommendGetters = {
   },
   getRecommendStory (state) {
     return state.recommendStory
+  },
+  getTMIContents (state) {
+    // console.log(state);
+    return state.contentsTMI
+  },
+  getStoryContents (state) {
+    return state.contentsStory
   }
+
 }

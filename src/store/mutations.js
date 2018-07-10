@@ -58,5 +58,14 @@ export const recommendMutations = {
     state.recommendStory = payload.story
     // console.log("payload:::" + JSON.stringify(payload));
     // console.log('set recommendContents success')
+  },
+  setTMIContentsData (state, payload){
+    console.log(payload);
+    state.contentsTMI = payload
+  },
+  setStoryContentsData (state, payload){
+    console.log(payload);
+    state.contentsStory = payload
   }
+
 }
