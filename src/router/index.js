@@ -14,6 +14,7 @@ import MyPage from '@/pages/mypage/Main'
 import MyCoin from '@/pages/mypage/components/MyCoin'
 import MyVote from '@/pages/mypage/components/MyVote'
 import Scrap from '@/pages/mypage/components/Scrap'
+import ContentsDetail from '@/pages/contents_detail/Main'
 
 Vue.use(Router)
 
@@ -89,6 +90,11 @@ export default new Router({
         name: 'Party',
         component: Party
       }]
+    },
+    {
+      path: '/contentsDetail',
+      name: 'ContentsDetail',
+      component: ContentsDetail
     }
   ]
 })
