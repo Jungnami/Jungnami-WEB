@@ -31,6 +31,21 @@ export const rankMutations = {
   votingCountSuccess (state, payload) {
     state.voting_cnt = payload.voting_cnt
     console.log('get voting count success')
+  },
+  changeOpenVotePopUp (state) {
+    state.openVotePopUp = !state.openVotePopUp
+  },
+  enrollLegislatorId (state, payload) {
+    state.voteTarget = payload
+    console.log('국회의원 아이디 등록')
+  },
+  voteSuccess (state) {
+    console.log('vote success')
+    state.openVotePopUp = false
+    state.openVoteSplash = true
+  },
+  changeOpenVoteSplash (state) {
+    state.openVoteSplash = !state.openVoteSplash
   }
 }
 

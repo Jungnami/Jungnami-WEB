@@ -2,7 +2,7 @@ import axios from 'axios'
 
 const instance = axios.create({
   baseURL: 'http://13.124.216.2:3000',
-  timeout: 1000
+  timeout: 3000
 })
 
 const tokenKey = 'JUNGNAMI_ACCESS_TOKEN'
@@ -45,6 +45,21 @@ export const rankActions = {
       console.log(response.data)
     }).catch(error => {
       alert(error.message)
+    })
+  },
+  postVoting ({ commit }, payload) {
+    axios.defaults.headers['authorization'] = localStorage.getItem(tokenKey)
+    instance.post('/legislator/voting', payload).then(response => {
+      if (response.data.message === 'Insert and Update Data Success') {
+        commit('voteSuccess')
+      }
+      console.log(response.data)
+    }).catch(error => {
+      if (error.message === `I don't have enough voting_cnt`) {
+        alert('투표권이 부족하여 투표를 할 수가 없습니다')
+      } else {
+        alert(error.message)
+      }
     })
   }
 }
