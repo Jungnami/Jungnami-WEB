@@ -92,7 +92,7 @@ export default new Router({
       }]
     },
     {
-      path: '/contentsDetail',
+      path: '/contentsDetail/:id',
       name: 'ContentsDetail',
       component: ContentsDetail
     }
