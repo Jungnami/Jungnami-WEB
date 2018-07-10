@@ -4,12 +4,9 @@
     <div class="modal_wrapper">
       <div class="modal_container">
         <button @click="close" large class="close_btn"><v-icon>close</v-icon></button>
-        <div class="image_wrapper">
-          <div class="login_image"></div>
-        </div>
+        <img src="/static/main_character.png" alt="login_main_character" class="login_image">
         <div class="kakao_login" @click="loginWithKakao">
         </div>
-        <v-btn color="primary" @click="test()">text</v-btn>
       </div>
     </div>
   </div>
@@ -42,9 +39,6 @@ export default {
         }
       });
     },
-    test(){
-      console.log(store.state.kakaoAccessToken);
-    },
     close () {
       this.$store.commit('openLoginComponent')
       this.$router.push('/')
@@ -75,38 +69,23 @@ export default {
 .modal_container
 {
   padding-top: 32px;
-  width: 374.99px;
-  height: 641px;
+  width: 305px;
+  height: 521px;
+  text-align: center;
   margin: 0px auto;
   background-color: white;
   transition: all .3s ease;
-  border-radius: 2.5%;
-  box-shadow: 3px 3px 8px rgba(0, 0, 0, 0.16);
+  border-radius: 6px;
+  box-shadow: 0px 3px 6px rgba(0, 0, 0, 0.16);
 }
 .close_btn
 {
-  margin-left: 322.15px;
-}
-.image_wrapper{
-  height: 248px;
-  width: 248px;
-  margin-left: 63.5px;
-  margin-right: 63.5px;
-  margin-bottom: 60.87px;
-
+  margin-left: 230px;
 }
 .login_image
 {
-  background-size: contain;
-  height: 100%;
-  width: 100%;
-  margin: auto;
+  width: 226px;
   margin-bottom: 60px;
-  vertical-align: middle;
-  background-image: url('../../static/main_character.png');
-  color: #6B6B6B;
-  text-align: center;
-  font-family: NanumBarunGothic;
 }
 .kakao_login
 {
@@ -114,10 +93,8 @@ export default {
   width: auto;
   margin-left: 31.84px;
   margin-right: 31.84px;
-  background-color: #F7F7F7;
-  font-family: NanumBarunGothicLight;
   background-image: url('../../static/kakao_login.png');
-  background-size: cover;
+  background-size: 100%;
   cursor: pointer;
 }
 

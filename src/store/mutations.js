@@ -7,11 +7,29 @@ export const loginMutations = {
   },
   signInSuccess (state, payload) {
     state.kakaoAccessToken = payload.token
+    state.user_id = payload.id
     state.openLoginPopUp = !state.openLoginPopUp
+    const JUNGNAMI_ACCESS_TOKEN = payload.token
+    localStorage.setItem('JUNGNAMI_ACCESS_TOKEN', JUNGNAMI_ACCESS_TOKEN)
   },
   logout (state) {
     state.kakaoAccessToken = null
     state.openLoginPopUp = false
     router.push('/')
+  }
+}
+
+export const rankMutations = {
+  likeRankingSuccess (state, payload) {
+    state.likeRankingList = payload
+    console.log('get like ranking success')
+  },
+  putIsLike (state, payload) {
+    state.isLike = payload
+    console.log('put IsLike success')
+  },
+  votingCountSuccess (state, payload) {
+    state.voting_cnt = payload.voting_cnt
+    console.log('get voting count success')
   }
 }
