@@ -18,8 +18,20 @@ export const rankGetters = {
     console.log('isLike 값 넘겨줌')
     return state.isLike
   },
+  // 투표하기 관련
   getVotingCount (state) {
     console.log('voting count 값 넘겨줌')
     return state.voting_cnt
-  }
+  },
+  getOpenVotePopUp (state) {
+    console.log('vote pop up 값 넘겨줌')
+    return state.openVotePopUp
+  },
+  getLegisterID (state) {
+    console.log('국회의원 아이디 값 넘겨줌')
+    return state.voteTarget
+  },
+  getOpenVoteSplash (state) {
+    return state.openVoteSplash
+  },
 }

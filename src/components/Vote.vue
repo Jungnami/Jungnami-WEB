@@ -40,7 +40,7 @@
           </div>
         </div>
 
-        <div class="emotion" :style="{backgroundImage: emotion[isLike]}">
+        <div class="emotion" :style="{backgroundImage: emotion[isLike]}" @click="vote(item.l_id)">
           <!-- <img src="" style="display: block;"/> -->
 
         </div>
@@ -72,6 +72,10 @@ export default {
       if(this.list_info.listNum == 1 && this.list_info.pageNum == 1 && index == 2){
         return true;
       }
+    },
+    vote (l_id) {
+      this.$store.commit('changeOpenVotePopUp')
+      this.$store.commit('enrollLegislatorId', l_id)
     }
 
     // 페이징 관련 끝
