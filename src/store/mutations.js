@@ -33,3 +33,12 @@ export const rankMutations = {
     console.log('get voting count success')
   }
 }
+
+//추천페이지 뮤테이션
+export const recommendMutations = {
+
+  setRecommendContentList (state, payload){
+    state.recommendContentList = payload
+    console.log('set recommendContents success')
+  }
+}

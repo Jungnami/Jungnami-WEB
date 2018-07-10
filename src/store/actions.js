@@ -48,3 +48,17 @@ export const rankActions = {
     })
   }
 }
+//추천페이지 액션
+export const recommendActions = {
+  getRecommendContents ({ commit }) {
+    axios.default.headers['authorization'] = localStorage.getItem(tokenKey) //추천페이지에 이게 필요?
+    instance.get('/contents/recommend').then(response => {
+      if(response.data.message === 'Select Data Success') {
+        console.log("recommendData actions come here ::: " + response.data.data);
+        commit('setRecommendContentList', response.data.data)
+      }
+    }).catch(error => {
+      console.log("recommendActions error ::: " + error.message);
+    })
+  }
+}

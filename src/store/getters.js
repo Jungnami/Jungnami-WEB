@@ -23,3 +23,12 @@ export const rankGetters = {
     return state.voting_cnt
   }
 }
+
+
+//추천 페이지 게터
+export const recommendGetters = {
+  getRecommendContents (state) {
+    console.log('recommend content 값 넘겨줌')
+    return state.recommendContentList
+  }
+}
