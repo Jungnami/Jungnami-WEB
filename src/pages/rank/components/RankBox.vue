@@ -1,7 +1,7 @@
 <template>
 
   <v-layout row wrap class="rank_box">
-
+    <vote-modal></vote-modal>
     <v-flex xs10 md12 offset-xs1 offset-md0>
       <v-layout row wrap justify-space-between>
         <div class="voting_list">
@@ -27,10 +27,11 @@
 
 <script>
 import VotingList from '../../../components/Vote'
+import VoteModal from '../../../components/VoteModal'
 export default {
   name: 'RankBox',
   components: {
-    VotingList
+    VotingList, VoteModal
   },
   data () {
     return{

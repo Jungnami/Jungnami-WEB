@@ -9,6 +9,8 @@ export const loginMutations = {
     state.kakaoAccessToken = payload.token
     state.user_id = payload.id
     state.openLoginPopUp = !state.openLoginPopUp
+    const JUNGNAMI_ACCESS_TOKEN = payload.token
+    localStorage.setItem('JUNGNAMI_ACCESS_TOKEN', JUNGNAMI_ACCESS_TOKEN)
   },
   logout (state) {
     state.kakaoAccessToken = null
@@ -25,5 +27,9 @@ export const rankMutations = {
   putIsLike (state, payload) {
     state.isLike = payload
     console.log('put IsLike success')
+  },
+  votingCountSuccess (state, payload) {
+    state.voting_cnt = payload.voting_cnt
+    console.log('get voting count success')
   }
 }

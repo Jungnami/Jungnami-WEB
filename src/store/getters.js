@@ -17,5 +17,9 @@ export const rankGetters = {
   getIsLike (state) {
     console.log('isLike 값 넘겨줌')
     return state.isLike
+  },
+  getVotingCount (state) {
+    console.log('voting count 값 넘겨줌')
+    return state.voting_cnt
   }
 }

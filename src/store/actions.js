@@ -5,23 +5,26 @@ const instance = axios.create({
   timeout: 1000
 })
 
+const tokenKey = 'JUNGNAMI_ACCESS_TOKEN'
+
 export const loginActions = {
   postAccessToken ({ commit }, payload) {
     instance.post('/user/kakaologin', payload).then(response => {
       if (response.data.message === 'success') {
         commit('signInSuccess', response.data.data)
         console.log('login success!!!')
-        axios.defaults.headers.common['authorization'] = response.data.data.token
+        axios.defaults.headers['authorization'] = response.data.data.token
       }
       console.log(response.data)
     }).catch(error => {
-      alert(error.data.message)
+      alert(error.message)
     })
   }
 }
 
 export const rankActions = {
   getLikeRanking ({ commit }, isLike) {
+    axios.defaults.headers['authorization'] = localStorage.getItem(tokenKey)
     instance.get(`/ranking/list/${isLike}`).then(response => {
       if (response.data.message === 'Select Data Success') {
         commit('likeRankingSuccess', response.data.data)
@@ -29,8 +32,19 @@ export const rankActions = {
       }
       console.log(response.data)
     }).catch(error => {
-      alert(error.data.message)
+      alert(error.message)
       this.$router.push('/')
+    })
+  },
+  getVotingCount ({ commit }) {
+    axios.defaults.headers['authorization'] = localStorage.getItem(tokenKey)
+    instance.get('/legislator/voting').then(response => {
+      if (response.data.message === 'Select Data Success') {
+        commit('votingCountSuccess', response.data.data)
+      }
+      console.log(response.data)
+    }).catch(error => {
+      alert(error.message)
     })
   }
 }

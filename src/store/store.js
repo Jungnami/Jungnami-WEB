@@ -14,7 +14,8 @@ export const store = new Vuex.Store({
     user_id: null,
     openLoginPopUp: false,
     likeRankingList: [],
-    isLike: null
+    isLike: null,
+    voting_cnt: null
   },
   getters: Object.assign({}, userGetters, rankGetters),
   mutations: Object.assign({}, loginMutations, rankMutations),

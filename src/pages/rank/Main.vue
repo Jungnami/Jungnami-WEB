@@ -14,24 +14,24 @@
   </v-layout>
 
   <v-layout row wrap class="main_legislator_wrapper">
-    <v-flex xs5 offset-xs1 class="main_legislator_left" :style="{backgroundImage: `url(${items[0].mainimg})`}" justify-end>
+    <v-flex xs5 offset-xs1 class="main_legislator_left" :style="{backgroundImage: `url(${item1.mainimg})`}" justify-end>
       <div class="rank_tag_box">
         <img src="/static/rank_first_tag.png" alt="first_tag" class="rank_tag">
       </div>
-      <div class="name">{{ items[0].l_name }}</div>
-      <div class="party">{{ items[0].party_name }}</div>
+      <div class="name">{{ item1.l_name }}</div>
+      <div class="party">{{ item1.party_name }}</div>
       <div class="vote_box">
-        <div class="vote_count text-align-right vote_count_left" :style="{ width: items[0].width * 28 + 'vw' }">{{ items[0].score }}표</div>
+        <div class="vote_count text-align-right vote_count_left" :style="{ width: item1.width * 28 + 'vw' }">{{ item1.score }}표</div>
       </div>
     </v-flex>
-    <v-flex xs5 class="main_legislator_right" :style="{backgroundImage: `url(${items[1].mainimg})`}" justify-end>
+    <v-flex xs5 class="main_legislator_right" :style="{backgroundImage: `url(${item2.mainimg})`}" justify-end>
       <div class="rank_tag_box text-align-right">
         <img src="/static/rank_second_tag.png" alt="second_tag" class="rank_tag rank_second_tag">
       </div>
-      <div class="name text-align-right">{{ items[1].l_name }}</div>
-      <div class="party text-align-right">{{ items[1].party_name }}</div>
+      <div class="name text-align-right">{{ item2.l_name }}</div>
+      <div class="party text-align-right">{{ item2.party_name }}</div>
       <div class="vote_box">
-        <div class="vote_count vote_count_right" :style="{ marginLeft: (1-items[1].width + 13.66/28) * 28 + 'vw' }">{{ items[1].score }}표</div>
+        <div class="vote_count vote_count_right" :style="{ marginLeft: (1-item2.width + 13.66/28) * 28 + 'vw' }">{{ item2.score }}표</div>
       </div>
     </v-flex>
   </v-layout>
@@ -63,7 +63,7 @@
 
 <script>
 import RankBox from './components/RankBox'
-
+import { mapGetters } from 'vuex'
 export default {
   name: 'Rank',
   components: { RankBox },
@@ -71,13 +71,17 @@ export default {
     return {
       rank_1: 1,
       rank_2: 30,
-      booleanLike: true
+      booleanLike: true,
+      items: this.$store.getters.getLikeRankingList
     }
   },
   computed: {
-    items: function () {
-        return this.$store.getters.getLikeRankingList
-    }
+    item1: function () {
+      return this.items[0]
+    },
+    item2: function () {
+      return this.items[1]
+    } 
   },
   methods: {
     changeShowRank: function(payload) {
@@ -92,6 +96,12 @@ export default {
   },
   created () {
     this.$store.dispatch('getLikeRanking', 1)
+  },
+  watch: {
+    items: function () {
+      item1 = items[0]
+      item2 = items[1]
+    }
   }
 }
 //그림 3개 position fixed 한 다음 위치잡아서 해결

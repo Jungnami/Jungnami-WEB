@@ -47,7 +47,7 @@ export default {
   width: 457px;
   height: 616px;
   margin: 0px auto;
-  background-image: url('../../../../static/support_modal_bg.png');
+  background-image: url('/static/support_modal_bg.png');
   transition: all .3s ease;
 }
 .support_title
