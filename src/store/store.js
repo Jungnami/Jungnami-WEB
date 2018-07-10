@@ -24,7 +24,8 @@ export const store = new Vuex.Store({
     recommendTMI: [],
     recommendStory: [],
     contentsTMI: [],
-    contentsStory: []
+    contentsStory: [],
+    contentsRecommend: []
     //추천 페이지 끝
   },
   getters: Object.assign({}, userGetters, rankGetters, recommendGetters),

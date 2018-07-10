@@ -60,12 +60,15 @@ export const recommendMutations = {
     // console.log('set recommendContents success')
   },
   setTMIContentsData (state, payload){
-    console.log("mutations :::: " + payload);
+    // console.log("mutations :::: " + payload);
     state.contentsTMI = payload
   },
   setStoryContentsData (state, payload){
-    console.log(payload);
+    // console.log(payload);
     state.contentsStory = payload
+  },
+  setRecommendContentsData (state, payload){
+    state.contentsRecommend = payload
   }
 
 }

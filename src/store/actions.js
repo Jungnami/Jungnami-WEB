@@ -81,20 +81,12 @@ export const recommendActions = {
     })
   },
   getContentsData ({ commit }, payload) {
-    console.log(payload);
     let routeName = '/contents/main/' + payload.name;
-    console.log(routeName);
-    // console.log(routeName);
     // axios.default.headers['authorization'] = localStorage.getItem(tokenKey) //추천페이지에 이게 필요?
     // axios.default.headers['authorization'] = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6ODA3NDY1MjM5LCJpYXQiOjE1MzA3NzU1MDQsImV4cCI6MTUzMzM2NzUwNH0.DAXcgbHm4gOaJMTFyQW0KCvs64lUZai6Cc_pi5pKu4Q'
     instance.get(routeName).then(response => {
-      // console.log("response::::" + JSON.stringify(response));
       if(response.data.message === 'Successfully get posting view') {
-        // console.log("recommendData actions come here ::: " + JSON.stringify(response.data.data));
-        console.log("!!!!!!!!!!!!!!!" + JSON.stringify(response.data.data.content));
-        console.log("safasdfsadf " + payload.name)
         if(payload.name === 'TMI') {
-          console.log("TMI here!!");
           commit('setTMIContentsData', response.data.data.content)
         }
         else if(payload.name === '스토리') {
@@ -104,6 +96,15 @@ export const recommendActions = {
           console.log("error");
           return;
         }
+      }
+    }).catch(error => {
+      console.log("recommendActions error ::: " + error.message);
+    })
+  },
+  getRecommendData ({ commit }, payload) {
+    instance.get('/contents/recommend').then(response => {
+      if(response.data.message === 'Successfully get posting view') {
+        commit('setRecommendContentsData', response.data.data.content)
       }
     }).catch(error => {
       console.log("recommendActions error ::: " + error.message);

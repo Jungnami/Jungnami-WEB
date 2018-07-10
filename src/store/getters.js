@@ -56,6 +56,9 @@ export const recommendGetters = {
   },
   getStoryContents (state) {
     return state.contentsStory
+  },
+  getRecommendContents (state) {
+    return state.contentsRecommend
   }
 
 }

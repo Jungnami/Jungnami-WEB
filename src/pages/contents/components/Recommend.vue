@@ -37,7 +37,7 @@ export default {
     },
     sendReconmendInfoMobile(){
       return {
-        // items: this.tmi,
+        items: this.recommend,
         title: 'TOP 20',
         seeContentsMore: false,
         endItem: 10, //이거 페이징 단위랑 맞춰줘야함.. 좀 잘못짬 ㅠ
@@ -94,16 +94,15 @@ export default {
     // }
     top20: function(){ return this.$store.getters.getRecommendTop20 },
     tmi: function(){ return this.$store.getters.getRecommendTMI },
-    story: function(){ return this.$store.getters.getRecommendStory }
+    story: function(){ return this.$store.getters.getRecommendStory },
+    recommend: function() { return this.$store.getters.getRecommendContents }
   },
   mounted() {
     window.addEventListener('resize', this.handleWindowResize)
   },
   created() {
     this.$store.dispatch('getRecommendContents')
-  },
-  update() {
-
+    this.$store.dispatch('getRecommendData')
   }
 }
 
