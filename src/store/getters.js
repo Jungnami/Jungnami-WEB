@@ -34,6 +34,9 @@ export const rankGetters = {
   getOpenVoteSplash (state) {
     return state.openVoteSplash
   },
+  getMyInfo (state) {
+    return state.myInfomation
+  }
 }
 
 
@@ -59,6 +62,9 @@ export const recommendGetters = {
   },
   getRecommendContents (state) {
     return state.contentsRecommend
+  },
+  getMyInfo (state) {
+    return state.myInfomation
   }
 
 }

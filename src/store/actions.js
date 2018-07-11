@@ -109,7 +109,38 @@ export const recommendActions = {
     }).catch(error => {
       console.log("recommendActions error ::: " + error.message);
     })
+  },
+  getMyInfoData ({ commit }, payload) {
+    let routeNames = "/user/mypage/" + payload.userId;
+    // let routeName = "/user/mypage/809994856" + '809994856'
+
+    // console.log("routeName :::: " + routeName);
+    instance.get(routeNames).then(response => {
+      // console.log("message :::" + response);
+      if(response.data.message === 'Select Data Success') {
+        // console.log("myinfo data ::::: " + JSON.stringify(response.data));
+        let scrapData = []
+        let infoData = response.data.data.scrap
+        // console.log("infoData :::" + JSON.stringify(infoData));
+        // console.log(infoData.length);
+        for(var i = 0;i<infoData.length;i++){
+          var obj = {};
+          obj.c_id = infoData[i].c_id;
+          obj.c_title = infoData[i].c_title;
+          obj.thumbnail = infoData[i].thumbnail;
+          obj.text = infoData[i].text;
+          scrapData.push(obj);
+        }
+        // console.log("come here!!!" + JSON.stringify(scrapData));
+
+        commit('setMyInforData', scrapData)
+      }
+    }).catch(error => {
+      // console.log("myinfo data error");
+      console.log("MYINFO recommendActions error ::: " + error.message);
+    })
   }
+
 
 
 }

@@ -69,6 +69,9 @@ export const recommendMutations = {
   },
   setRecommendContentsData (state, payload){
     state.contentsRecommend = payload
+  },
+  setMyInforData (state, payload){
+    state.myInfomation = payload
   }
 
 }

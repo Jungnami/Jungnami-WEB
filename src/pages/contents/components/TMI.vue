@@ -22,9 +22,6 @@ export default {
     }
   },
   methods: {
-    getTMIInfo() {
-      this.$store.getters.getTMIContents
-    },
     sendReconmendInfoPC() {
       return {
         items: this.TMIData,
