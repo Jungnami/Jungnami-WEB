@@ -21,13 +21,13 @@ export default {
     return {
       showModal: false,
       windowWidth: window.innerWidth,
-      mobileCheck: this.isMobile()
+      mobileCheck: this.isMobile(),
     }
   },
   methods: {
     sendReconmendInfoPC(){
-      this.mobileCheck
       return {
+        items: this.top20,
         title: 'TOP 20',
         seeContentsMore: false,
         endItem: 4, //이거 페이징 단위랑 맞춰줘야함.. 좀 잘못짬 ㅠ
@@ -37,6 +37,7 @@ export default {
     },
     sendReconmendInfoMobile(){
       return {
+        items: this.recommend,
         title: 'TOP 20',
         seeContentsMore: false,
         endItem: 10, //이거 페이징 단위랑 맞춰줘야함.. 좀 잘못짬 ㅠ
@@ -46,6 +47,7 @@ export default {
     },
     sendTMIInfo() {
       return {
+        items: this.tmi,
         title: 'TMI',
         path: '/contents/TMI',
         seeContentsMore: true,
@@ -56,6 +58,7 @@ export default {
     },
     sendContentInfo() {
       return {
+        items: this.story,
         title: '스토리',
         path: '/contents/story',
         seeContentsMore: true,
@@ -74,9 +77,7 @@ export default {
   beforeDestroy: function() {
     window.removeEventListener('resize', this.handleWindowResize)
   },
-  mounted() {
-    window.addEventListener('resize', this.handleWindowResize);
-  },
+
   watch: {
     windowWidth: function() {
       if(this.windowWidth < 600){
@@ -85,6 +86,23 @@ export default {
         this.mobileCheck = false;
       }
     }
+  },
+  computed: {
+    // getTop20 : function(){
+    //   this.top20 = this.items.recommend;
+    //   console.log("here computed:::" + JSON.stringify(this.items.recommend))
+    // }
+    top20: function(){ return this.$store.getters.getRecommendTop20 },
+    tmi: function(){ return this.$store.getters.getRecommendTMI },
+    story: function(){ return this.$store.getters.getRecommendStory },
+    recommend: function() { return this.$store.getters.getRecommendContents }
+  },
+  mounted() {
+    window.addEventListener('resize', this.handleWindowResize)
+  },
+  created() {
+    this.$store.dispatch('getRecommendContents')
+    this.$store.dispatch('getRecommendData')
   }
 }
 

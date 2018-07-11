@@ -19,7 +19,7 @@
       <!--페이징-->
       <div class="dot_box" align="center">
         <span class="dot" v-on:click="getPagingNum($event)" @click="showPageInfo" id="1" v-bind:class="{ on : currentPage == 1 }" ></span>
-        <span class="dot" v-on:click="getPagingNum($event)" @click="showPageInfo" v-bind:id="index + 1" v-for="index in getDotNum-1" :key="index" v-bind:class="{ on : currentPage == index + 1 }"></span>
+        <span class="dot" v-on:click="getPagingNum($event)" @click="showPageInfo" v-bind:id="index" v-for="index in getDotNum" v-if="index >= 2" v-bind:class="{ on : currentPage == index }"></span>
       </div>
       <!--//페이징-->
     </v-flex>
