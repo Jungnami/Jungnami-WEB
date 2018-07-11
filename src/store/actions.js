@@ -1,7 +1,7 @@
 import axios from 'axios'
 
 const instance = axios.create({
-  baseURL: 'http://13.124.216.2:3000',
+  baseURL: 'https://jungnami.ml/',
   timeout: 3000
 })
 
@@ -60,6 +60,21 @@ export const rankActions = {
       } else {
         alert(error.message)
       }
+    })
+  }
+}
+
+export const contentsDeetailActions = {
+  getPostingView ({ commit }, contentsID) {
+    axios.defaults.headers['authorization'] = localStorage.getItem(tokenKey)
+    instance.get(`/contents/cardnews/${contentsID}`).then(response => {
+      if (response.data.message === 'Successfully get posting view') {
+        commit('postingViewSuccess', response.data.data)
+        console.log(response.data.data.imagearray.data)
+      }
+      console.log(response.data)
+    }).catch(error => {
+      alert(error.message)
     })
   }
 }

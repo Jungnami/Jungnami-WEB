@@ -48,3 +48,16 @@ export const rankMutations = {
     state.openVoteSplash = !state.openVoteSplash
   }
 }
+
+export const contentsDetailMutations = {
+  plusActiveImgIndex (state) {
+    state.activeImgIndex++
+  },
+  minusActiveImgIndex (state) {
+    state.activeImgIndex--
+  },
+  postingViewSuccess (state, payload) {
+    state.contentsDetail = payload
+    state.imageArray = payload.imagearray
+  }
+}
