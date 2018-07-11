@@ -13,16 +13,16 @@
     </v-layout>
 
     <v-layout row wrap >
-      <v-flex xs6 sm4 md3 v-for="item in pageItems" :key="item.id">
+      <v-flex xs6 sm4 md3 v-for="item in pageItems" :key="item.contentsid">
       <div class="content_card">
-        <img :src="item.image" class="content_image">
+        <img :src="item.thumbnail" class="content_image">
         <div>
           <div>
             <div class="content_title"> {{ item.title }}</div>
           </div>
         </div>
         <div class="content_desc">
-          {{ item.desc }}
+          {{ item.text }}
         </div>
       </div>
       </v-flex>
@@ -59,6 +59,9 @@ export default {
     },
     pageItems: {
       get: function() {
+        // return this.items
+        // console.log("pageItems :::;; " + this.items);
+        // console.log(this.items.slice(0,5));
         return this.items.slice(this.startItem, this.endItem);
       },
       set: function(newValue) {
@@ -66,8 +69,10 @@ export default {
         this.startItem = pagingSlot[0];
         this.endItem = pagingSlot[1];
       }
+    },
+    items: function() {
+      return this.contents_list_info.items
     }
-
   },
   data() {
     return {
@@ -80,291 +85,8 @@ export default {
       endItem: this.contents_list_info.endItem,
       PAGENUM: this.contents_list_info.PAGENUM, //페이징 단위
       DOTNUM: this.contents_list_info.DOTNUM, //버튼개수
-      items: [{
-          id: 1,
-          image: '/static/card_image1.jpeg',
-          title: '가',
-          desc: '테스트1'
-        },
-        {
-          id: 2,
-          image: '/static/card_image1.jpeg',
-          title: '나',
-          desc: '테스트2'
-        },
-        {
-          id: 3,
-          image: '/static/card_image1.jpeg',
-          title: '다',
-          desc: '테스트3'
-        },
-        {
-          id: 4,
-          image: '/static/card_image1.jpeg',
-          title: '라',
-          desc: '테스트4'
-        },
-        {
-          id: 5,
-          image: '/static/card_image1.jpeg',
-          title: '마',
-          desc: '테스트5'
-        },
-        {
-          id: 6,
-          image: '/static/card_image1.jpeg',
-          title: '바',
-          desc: '테스트6'
-        },
-        {
-          id: 7,
-          image: '/static/card_image1.jpeg',
-          title: '사',
-          desc: '테스트7'
-        },
-        {
-          id: 8,
-          image: '/static/card_image1.jpeg',
-          title: '아',
-          desc: '테스트8'
-        },
-        {
-          id: 35,
-          image: '/static/card_image1.jpeg',
-          title: '문재인 대통령의 살아온 일대기와 운명',
-          desc: '테스트4'
-        },
-        {
-          id: 36,
-          image: '/static/card_image1.jpeg',
-          title: '문재인 대통령의 살아온 일대기와 운명',
-          desc: '테스트4'
-        },
-        {
-          id: 37,
-          image: '/static/card_image1.jpeg',
-          title: '문재인 대통령의 살아온 일대기와 운명',
-          desc: '테스트4'
-        },
-        {
-          id: 38,
-          image: '/static/card_image1.jpeg',
-          title: '문재인 대통령의 살아온 일대기와 운명',
-          desc: '테스트4'
-        },
-        {
-          id: 39,
-          image: '/static/card_image1.jpeg',
-          title: '문재인 대통령의 살아온 일대기와 운명',
-          desc: '테스트4'
-        },
-        {
-          id: 39,
-          image: '/static/card_image1.jpeg',
-          title: '문재인 대통령의 살아온 일대기와 운명',
-          desc: '테스트4'
-        },
-        {
-          id: 39,
-          image: '/static/card_image1.jpeg',
-          title: '문재인 대통령의 살아온 일대기와 운명',
-          desc: '테스트4'
-        },
-        {
-          id: 39,
-          image: '/static/card_image1.jpeg',
-          title: '문재인 대통령의 살아온 일대기와 운명',
-          desc: '테스트4'
-        },
-        {
-          id: 39,
-          image: '/static/card_image1.jpeg',
-          title: '문재인 대통령의 살아온 일대기와 운명',
-          desc: '테스트4'
-        },
-        {
-          id: 39,
-          image: '/static/card_image1.jpeg',
-          title: '문재인 대통령의 살아온 일대기와 운명',
-          desc: '테스트4'
-        },
-        {
-          id: 39,
-          image: '/static/card_image1.jpeg',
-          title: '문재인 대통령의 살아온 일대기와 운명',
-          desc: '테스트4'
-        },
-        {
-          id: 39,
-          image: '/static/card_image1.jpeg',
-          title: '문재인 대통령의 살아온 일대기와 운명',
-          desc: '테스트4'
-        },
-        {
-          id: 39,
-          image: '/static/card_image1.jpeg',
-          title: '문재인 대통령의 살아온 일대기와 운명',
-          desc: '테스트4'
-        },
-        {
-          id: 39,
-          image: '/static/card_image1.jpeg',
-          title: '문재인 대통령의 살아온 일대기와 운명',
-          desc: '테스트4'
-        },
-        {
-          id: 39,
-          image: '/static/card_image1.jpeg',
-          title: '문재인 대통령의 살아온 일대기와 운명',
-          desc: '테스트4'
-        },
-        {
-          id: 39,
-          image: '/static/card_image1.jpeg',
-          title: '문재인 대통령의 살아온 일대기와 운명',
-          desc: '테스트4'
-        },
-        {
-          id: 39,
-          image: '/static/card_image1.jpeg',
-          title: '문재인 대통령의 살아온 일대기와 운명',
-          desc: '테스트4'
-        },
-        {
-          id: 39,
-          image: '/static/card_image1.jpeg',
-          title: '문재인 대통령의 살아온 일대기와 운명',
-          desc: '테스트4'
-        },
-        {
-          id: 39,
-          image: '/static/card_image1.jpeg',
-          title: '문재인 대통령의 살아온 일대기와 운명',
-          desc: '테스트4'
-        },
-        {
-          id: 39,
-          image: '/static/card_image1.jpeg',
-          title: '문재인 대통령의 살아온 일대기와 운명',
-          desc: '테스트4'
-        },
-        {
-          id: 39,
-          image: '/static/card_image1.jpeg',
-          title: '문재인 대통령의 살아온 일대기와 운명',
-          desc: '테스트4'
-        },
-        {
-          id: 39,
-          image: '/static/card_image1.jpeg',
-          title: '문재인 대통령의 살아온 일대기와 운명',
-          desc: '테스트4'
-        },
-        {
-          id: 39,
-          image: '/static/card_image1.jpeg',
-          title: '문재인 대통령의 살아온 일대기와 운명',
-          desc: '테스트4'
-        },
-        {
-          id: 39,
-          image: '/static/card_image1.jpeg',
-          title: '문재인 대통령의 살아온 일대기와 운명',
-          desc: '테스트4'
-        },
-        {
-          id: 39,
-          image: '/static/card_image1.jpeg',
-          title: '문재인 대통령의 살아온 일대기와 운명',
-          desc: '테스트4'
-        },
-        {
-          id: 39,
-          image: '/static/card_image1.jpeg',
-          title: '문재인 대통령의 살아온 일대기와 운명',
-          desc: '테스트4'
-        },
-        {
-          id: 39,
-          image: '/static/card_image1.jpeg',
-          title: '문재인 대통령의 살아온 일대기와 운명',
-          desc: '테스트4'
-        },
-        {
-          id: 39,
-          image: '/static/card_image1.jpeg',
-          title: '문재인 대통령의 살아온 일대기와 운명',
-          desc: '테스트4'
-        },
-        {
-          id: 39,
-          image: '/static/card_image1.jpeg',
-          title: '문재인 대통령의 살아온 일대기와 운명',
-          desc: '테스트4'
-        },
-        {
-          id: 39,
-          image: '/static/card_image1.jpeg',
-          title: '문재인 대통령의 살아온 일대기와 운명',
-          desc: '테스트4'
-        },
-        {
-          id: 39,
-          image: '/static/card_image1.jpeg',
-          title: '문재인 대통령의 살아온 일대기와 운명',
-          desc: '테스트4'
-        },
-        {
-          id: 39,
-          image: '/static/card_image1.jpeg',
-          title: '문재인 대통령의 살아온 일대기와 운명',
-          desc: '테스트4'
-        },
-        {
-          id: 39,
-          image: '/static/card_image1.jpeg',
-          title: '문재인 대통령의 살아온 일대기와 운명',
-          desc: '테스트4'
-        },
-        {
-          id: 39,
-          image: '/static/card_image1.jpeg',
-          title: '문재인 대통령의 살아온 일대기와 운명',
-          desc: '테스트4'
-        },
-        {
-          id: 39,
-          image: '/static/card_image1.jpeg',
-          title: '문재인 대통령의 살아온 일대기와 운명',
-          desc: '테스트4'
-        },
-        {
-          id: 39,
-          image: '/static/card_image1.jpeg',
-          title: '문재인 대통령의 살아온 일대기와 운명',
-          desc: '테스트4'
-        },
-        {
-          id: 39,
-          image: '/static/card_image1.jpeg',
-          title: '문재인 대통령의 살아온 일대기와 운명',
-          desc: '테스트4'
-        },
-        {
-          id: 39,
-          image: '/static/card_image1.jpeg',
-          title: '문재인 대통령의 살아온 일대기와 운명',
-          desc: '테스트4'
-        },
-        {
-          id: 39,
-          image: '/static/card_image1.jpeg',
-          title: '문재인 대통령의 살아온 일대기와 운명',
-          desc: '테스트4'
-        }
-      ]
-    }
 
+    }
   }
 }
 </script>

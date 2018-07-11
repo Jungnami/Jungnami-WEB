@@ -2,9 +2,9 @@ import Vue from 'vue'
 import Vuex from 'vuex'
 import createPersistedState from 'vuex-persistedstate'
 import * as Cookies from 'js-cookie'
-import { userGetters, rankGetters } from './getters'
-import { loginMutations, rankMutations } from './mutations'
-import { loginActions, rankActions } from './actions'
+import { userGetters, rankGetters, recommendGetters } from './getters'
+import { loginMutations, rankMutations, recommendMutations } from './mutations'
+import { loginActions, rankActions, recommendActions } from './actions'
 
 Vue.use(Vuex)
 
@@ -18,11 +18,20 @@ export const store = new Vuex.Store({
     voteTarget: null,
     likeRankingList: [],
     isLike: null,
-    voting_cnt: null
+    voting_cnt: null,
+    //추천 페이지 시작
+    recommendTop20: [],
+    recommendTMI: [],
+    recommendStory: [],
+    contentsTMI: [],
+    contentsStory: [],
+    contentsRecommend: [],
+    myInfomation: []
+    //추천 페이지 끝
   },
-  getters: Object.assign({}, userGetters, rankGetters),
-  mutations: Object.assign({}, loginMutations, rankMutations),
-  actions: Object.assign({}, loginActions, rankActions),
+  getters: Object.assign({}, userGetters, rankGetters, recommendGetters),
+  mutations: Object.assign({}, loginMutations, rankMutations, recommendMutations),
+  actions: Object.assign({}, loginActions, rankActions, recommendActions),
   plugins: [
     createPersistedState({
       storage: {

@@ -23,8 +23,8 @@ export default {
   },
   methods: {
     sendReconmendInfoPC(){
-      this.mobileCheck
       return {
+        items: this.StoryData,
         title: '스토리',
         seeContentsMore: false,
         endItem: 12, //이거 페이징 단위랑 맞춰줘야함.. 좀 잘못짬 ㅠ
@@ -33,8 +33,8 @@ export default {
       }//최근 PAGENUM * DOTNUM 갯수만 받아오게끔 되어있음
     },
     sendReconmendInfoMobile(){
-      this.mobileCheck
       return {
+        items: this.StoryData,
         title: '스토리',
         seeContentsMore: false,
         endItem: 10, //이거 페이징 단위랑 맞춰줘야함.. 좀 잘못짬 ㅠ
@@ -47,6 +47,11 @@ export default {
     },
     isMobile(){
       this.windowWidth = 600 ? true : false
+    }
+  },
+  computed : {
+    StoryData: function() {
+      return this.$store.getters.getStoryContents
     }
   },
   beforeDestroy: function() {
@@ -63,6 +68,10 @@ export default {
         this.mobileCheck = false;
       }
     }
+  },
+  created() {
+    // console.log("!!");
+    this.$store.dispatch('getContentsData', {name : '스토리'});
   }
 }
 
