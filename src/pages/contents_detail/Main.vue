@@ -16,8 +16,8 @@
         </v-layout>
       </v-layout>
     </v-flex>
-    <v-flex xs12 md5 class="comment">
-      s
+    <v-flex xs12 md5>
+      <comment :contentsInfo="contents" class="comment_box"></comment>
     </v-flex>
   </v-layout>
 </v-flex>
@@ -25,11 +25,12 @@
 
 <script>
 import ImagePreview from './components/ImagePreview'
+import Comment from './components/Comment'
 import { mapGetters } from 'vuex'
 
 export default {
   name: 'ContentsDetail',
-  components: { ImagePreview },
+  components: { ImagePreview, Comment },
   data () {
     return {
       MOBILE_LIST_LENGTH: 5,
@@ -149,5 +150,10 @@ span.active_idx
 .right_btn
 {
   background-image: url('/static/contents_detail_right_arrow.png');
+}
+.comment_box
+{
+  margin-left: 0.63vw;
+  border: 1px solid #DDDDDD;
 }
 </style>
