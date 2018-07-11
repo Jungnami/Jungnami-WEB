@@ -33,9 +33,18 @@ export const rankGetters = {
   },
   getOpenVoteSplash (state) {
     return state.openVoteSplash
+  }
+}
+
+export const contentsDetailGetters = {
+  getActiveImgIndex (state) {
+    return state.activeImgIndex
   },
-  getMyInfo (state) {
-    return state.myInfomation
+  getContentsDetail (state) {
+    return state.contentsDetail
+  },
+  getImageArray (state) {
+    return state.imageArray
   }
 }
 
@@ -66,5 +75,4 @@ export const recommendGetters = {
   getMyInfo (state) {
     return state.myInfomation
   }
-
 }

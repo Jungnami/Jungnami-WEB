@@ -54,7 +54,7 @@ export default {
       sideNav: false,
       textColor: 'text',
       items: [
-        {icon: 'supervisor_account', text: '순위', path: '/rank'},
+        {icon: 'supervisor_account', text: '순위', path: '/contentsDetail/20'},
         {icon: 'room', text: '의원목록', path: '/list'},
         {icon: 'room', text: '컨텐츠', path: '/contents'}
       ],
