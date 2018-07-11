@@ -21,10 +21,10 @@
         <div class="scrap_title">최근 스크랩 글
           <img src="../../../static/contents_scrap_icon.png" alt="contents_scrap_icon" class="scrap_icon">
         </div>
-        <div v-for="item in recent_items" :key="item.id" class="scrap_card">
-          <img :src="item.image" alt="scrap_card_img" class="card_img">
-          <div class="card_title">{{ item.title }}</div>
-          <div class="card_info">{{ item.category }} · {{ item.recent }}</div>
+        <div v-for="item in recent_items" :key="item.c_id" class="scrap_card">
+          <img :src="item.thumbnail" alt="scrap_card_img" class="card_img">
+          <div class="card_title">{{ item.c_title }}</div>
+          <div class="card_info">{{ item.text }}</div>
         </div>
         <router-link to="/mypage/scrap">
           <button class="view_more"></button>
@@ -47,24 +47,25 @@ export default {
         {text: '추천', path: '/contents/'},
         {text: 'TMI', path: '/contents/TMI'},
         {text: '스토리', path: '/contents/story'}
-      ],
-      recent_items: [
-        {
-          id: 17,
-          image: '/static/card_image1.jpeg',
-          title: '문재인 대통령의 살아온 운명',
-          category: '스토리',
-          recent: '11분'
-        },
-        {
-          id: 15,
-          image: '/static/card_image1.jpeg',
-          title: '문재인 대통령의 살아온 일대기와 운명',
-          category: 'TMI',
-          recent: '30분'
-        },
       ]
+      // recent_items : this.myInfo
     }
+  },
+  created() {
+    console.log("main created!!!");
+    this.$store.dispatch('getMyInfoData', {
+      userId: '407144669799202'// userId가 들어가야함 현재 임시값 넣어줌.
+    });
+    console.log("computed test " + JSON.stringify(this.$store.getters.getMyInfo));
+
+  },
+  computed : {
+    recent_items: function() {
+      return this.$store.getters.getMyInfo.slice(0,2); //최근2개만
+     }
+  },
+  methods: {
+
   }
 }
 

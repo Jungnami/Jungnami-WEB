@@ -47,3 +47,32 @@ export const contentsDetailGetters = {
     return state.imageArray
   }
 }
+
+
+//추천 페이지 게터
+export const recommendGetters = {
+  getRecommendTop20 (state) {
+    // console.log('recommend content 값 넘겨줌')
+    // console.log(state.recommendContentList)
+    return state.recommendTop20
+  },
+  getRecommendTMI (state) {
+    return state.recommendTMI
+  },
+  getRecommendStory (state) {
+    return state.recommendStory
+  },
+  getTMIContents (state) {
+    // console.log(state);
+    return state.contentsTMI
+  },
+  getStoryContents (state) {
+    return state.contentsStory
+  },
+  getRecommendContents (state) {
+    return state.contentsRecommend
+  },
+  getMyInfo (state) {
+    return state.myInfomation
+  }
+}
