@@ -32,7 +32,7 @@
 
     <div class="dot_box" align="center">
       <span v-on:click="getPagingData($event)" class="dot" v-bind:class="{ on : currentPage == 1 }" id="1"></span>
-      <span class="dot" v-on:click="getPagingData($event)" v-bind:id="index + 1" v-for="index in pageLength" :key="index" v-bind:class="{ on : currentPage == index + 1 }"></span>
+      <span class="dot" v-on:click="getPagingData($event)" v-for="index in pageLength" v-if="index >= 2" v-bind:id="index"  v-bind:class="{ on : currentPage == index }"></span>
     </div>
 
 </div>
@@ -54,7 +54,7 @@ export default {
   computed: {
     pageLength: function() {
       var itemLength = this.items.length > this.PAGENUM * this.DOTNUM ? this.PAGENUM * this.DOTNUM : this.items.length;
-      var pageLength = Math.ceil((itemLength / this.PAGENUM)) - 1;
+      var pageLength = Math.ceil((itemLength / this.PAGENUM));
       return pageLength;
     },
     pageItems: {
