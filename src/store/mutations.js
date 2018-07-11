@@ -58,7 +58,6 @@ export const contentsDetailMutations = {
   },
   postingViewSuccess (state, payload) {
     state.contentsDetail = payload
-    state.imageArray = payload.imagearray
   }
 }
 // 추천페이지 뮤테이션

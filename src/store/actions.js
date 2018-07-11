@@ -53,7 +53,7 @@ export const rankActions = {
       if (response.data.message === 'Insert and Update Data Success') {
         commit('voteSuccess')
       }
-      console.log(response.data)
+      // console.log(response.data)
     }).catch(error => {
       if (error.message === `I don't have enough voting_cnt`) {
         alert('투표권이 부족하여 투표를 할 수가 없습니다')
@@ -70,7 +70,7 @@ export const contentsDeetailActions = {
     instance.get(`/contents/cardnews/${contentsID}`).then(response => {
       if (response.data.message === 'Successfully get posting view') {
         commit('postingViewSuccess', response.data.data)
-        console.log(response.data.data.imagearray.data)
+        console.log(response.data.data.imagearray.length)
       }
       console.log(response.data)
     }).catch(error => {
