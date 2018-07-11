@@ -22,19 +22,19 @@ export default {
     }
   },
   methods: {
-    sendReconmendInfoPC(){
-      this.mobileCheck
+    sendReconmendInfoPC() {
       return {
+        items: this.TMIData,
         title: 'TMI',
         seeContentsMore: false,
         endItem: 12, //이거 페이징 단위랑 맞춰줘야함.. 좀 잘못짬 ㅠ
         PAGENUM: 12, //페이징 단위
         DOTNUM: 5, //버튼개수
-      }//최근 PAGENUM * DOTNUM 갯수만 받아오게끔 되어있음
+      } //최근 PAGENUM * DOTNUM 갯수만 받아오게끔 되어있음
     },
-    sendReconmendInfoMobile(){
-      this.mobileCheck
+    sendReconmendInfoMobile() {
       return {
+        items: this.TMIData,
         title: 'TMI',
         seeContentsMore: false,
         endItem: 10, //이거 페이징 단위랑 맞춰줘야함.. 좀 잘못짬 ㅠ
@@ -44,16 +44,8 @@ export default {
     },
     sendTMIInfo() {
       return {
+        // items: this.TMIData,
         title: 'TMI',
-        seeContentsMore: true,
-        endItem: 4, //이거 페이징 단위랑 맞춰줘야함.. 좀 잘못짬 ㅠ
-        PAGENUM: 4, //페이징 단위
-        DOTNUM: 5, //버튼개수
-      }
-    },
-    sendContentInfo() {
-      return {
-        title: '스토리',
         seeContentsMore: true,
         endItem: 4, //이거 페이징 단위랑 맞춰줘야함.. 좀 잘못짬 ㅠ
         PAGENUM: 4, //페이징 단위
@@ -63,7 +55,7 @@ export default {
     handleWindowResize(event) {
       this.windowWidth = event.currentTarget.innerWidth;
     },
-    isMobile(){
+    isMobile() {
       this.windowWidth = 600 ? true : false
     }
   },
@@ -75,15 +67,24 @@ export default {
   },
   watch: {
     windowWidth: function() {
-      if(this.windowWidth < 600){
+      if (this.windowWidth < 600) {
         this.mobileCheck = true;
-      } else{
+      } else {
         this.mobileCheck = false;
       }
     }
+  },
+  computed: {
+    TMIData: function() {
+      return this.$store.getters.getTMIContents
+    }
+  },
+  created() {
+    this.$store.dispatch('getContentsData', {
+      name: 'TMI'
+    });
   }
 }
-
 </script>
 
 <style>

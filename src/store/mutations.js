@@ -48,3 +48,30 @@ export const rankMutations = {
     state.openVoteSplash = !state.openVoteSplash
   }
 }
+
+//추천페이지 뮤테이션
+export const recommendMutations = {
+
+  setRecommendContentList (state, payload){
+    state.recommendTop20 = payload.recommend
+    state.recommendTMI = payload.tmi
+    state.recommendStory = payload.story
+    // console.log("payload:::" + JSON.stringify(payload));
+    // console.log('set recommendContents success')
+  },
+  setTMIContentsData (state, payload){
+    // console.log("mutations :::: " + payload);
+    state.contentsTMI = payload
+  },
+  setStoryContentsData (state, payload){
+    // console.log(payload);
+    state.contentsStory = payload
+  },
+  setRecommendContentsData (state, payload){
+    state.contentsRecommend = payload
+  },
+  setMyInforData (state, payload){
+    state.myInfomation = payload
+  }
+
+}
