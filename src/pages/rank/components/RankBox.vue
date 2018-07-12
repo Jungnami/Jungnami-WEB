@@ -212,6 +212,7 @@ hr
 .voting_list
 {
   width: 25.64vw;
+  box-shadow: 0px 3px 6px rgba(0, 0, 0, 0.16);
 }
 
 .dot {

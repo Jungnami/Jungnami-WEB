@@ -70,7 +70,7 @@ export default {
 {
   padding-top: 32px;
   width: 305px;
-  height: 521px;
+  height: 387px;
   text-align: center;
   margin: 0px auto;
   background-color: white;
@@ -85,11 +85,11 @@ export default {
 .login_image
 {
   width: 226px;
-  margin-bottom: 60px;
+  margin-bottom: 35px;
 }
 .kakao_login
 {
-  height: 46px;
+  height: 48px;
   width: auto;
   margin-left: 31.84px;
   margin-right: 31.84px;
