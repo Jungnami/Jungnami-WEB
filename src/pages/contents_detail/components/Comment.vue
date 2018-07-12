@@ -79,9 +79,8 @@ export default {
     },
     likeComment: function (commentID, index) {
       const object = {
-          comment_id: commentID
-        }
-      console.log(this.commentList[index].islike)
+        comment_id: commentID
+      }
       if(this.commentList[index].islike === 1) {
         this.$store.dispatch('postLikeCancelComment', commentID)
         this.commentList[index].islike = 0
@@ -93,7 +92,7 @@ export default {
     makeComment () {
       if (this.commentContents !== '') {
         const object = {
-          contents_id: Number(this.contentsID),
+          contents_id: this.contentsID,
           content: this.commentContents
         }
         this.$store.dispatch('postMakeComment', object)

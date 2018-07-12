@@ -95,7 +95,8 @@ export const contentsDeetailActions = {
       alert(error.message)
     })
   },
-  postLikeComment (payload) {
+  postLikeComment ({ commit }, payload) {
+    console.log(payload)
     axios.defaults.headers['authorization'] = localStorage.getItem(tokenKey)
     instance.post('/contents/likecomment', payload).then(response => {
       console.log(response.data)

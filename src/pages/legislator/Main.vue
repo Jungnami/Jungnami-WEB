@@ -7,7 +7,7 @@
       <contents v-bind:content_info="sendContentInfo()"></contents>
     </v-flex>
   </v-layout>
-  <support-modal v-if="showModal"></support-modal>
+  <support-modal v-if="showModal" @closeSupportModal="showModal = false"></support-modal>
 </div>
 </template>
 

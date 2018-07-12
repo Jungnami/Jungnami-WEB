@@ -6,19 +6,19 @@
         
         <div class="support_title">후원하기</div>
         <div class="my_coin_wrapper">
-          <div class="my_coin">
-            나의 코인
+          <div class="my_coin">나의 코인
             <span class="coin_amount">100코인</span>
           </div>
         </div>
         <v-layout row wrap justify-space-between class="support_wrapper">
-          <div class="my_coin">후원 코인</div>
-          <input type="text" placeholder="입력" class="coin_input">
+          <div class="support_coin">후원 코인</div>
+          <input type="text" v-model="supportCoin" placeholder="입력" @keypress="isNumber($event)" class="coin_input">
         </v-layout>
 
-        <v-layout justify-space-between="support_wrapper">
-          <button class="check_btn">확인</button>
-          <button class="check_btn">취소</button>
+        <v-layout justify-space-between class="support_wrapper btn_wrapper">
+          <button class="check_btn" v-if="!supportCoin">확인</button>
+          <button class="check_btn active_btn" v-if="supportCoin">확인</button>
+          <button class="check_btn" @click="this.$emit('closeSupportModal')">취소</button>
         </v-layout>
       </div>
     </div>
@@ -28,7 +28,23 @@
 
 <script>
 export default {
-
+  name: 'SupportModal',
+  data () {
+    return {
+      supportCoin: null
+    }
+  },
+  methods: {
+    isNumber: function(evt) {
+      evt = (evt) ? evt : window.event
+      var charCode = (evt.which) ? evt.which : evt.keyCode
+      if ((charCode > 31 && (charCode < 48 || charCode > 57)) && charCode !== 46) {
+        evt.preventDefault()
+      } else {
+        return true
+      }
+    }
+  }
 }
 </script>
 
@@ -52,10 +68,11 @@ export default {
 }
 .modal_container 
 {
-  width: 555px;
-  height: 640px;
+  width: 640px;
+  height: 580px;
   margin: 0px auto;
-  background-image: url('/static/support_modal_bg.png');
+  background-image: url('/static/popup_coin_people.png');
+  background-size: 100% 100%;
   transition: all .3s ease;
 }
 .support_title
@@ -87,7 +104,14 @@ export default {
 .support_wrapper
 {
   margin-left: 57px;
-  margin-right: 57px; 
+  margin-right: 57px;
+  padding-top: 21px; 
+}
+.support_coin
+{
+  font-size: 25px;
+  text-align: left;
+  font-family: NanumBarunGothicLight;
 }
 .coin_input
 {
@@ -97,12 +121,17 @@ export default {
   border-radius: 2px;
   background: #F7F7F7;
   padding-top: 3.2px;
-  padding-left: 27px;
+  padding-left: 30px;
   padding-bottom: 10px;
 
   font-family: NanumBarunGothicLight;
   font-size: 25px;
   color: #757575;
+}
+.support_wrapper.btn_wrapper
+{
+  padding-top: 32px;
+  margin-bottom: 37.5px;
 }
 .check_btn
 {
@@ -118,7 +147,10 @@ export default {
   font-size: 23px;
   color: white;
 }
-
+.active_btn
+{
+  background: #36C5F1;
+}
 .modal-enter {
   opacity: 0;
 }
