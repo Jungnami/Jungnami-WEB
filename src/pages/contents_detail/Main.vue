@@ -1,6 +1,6 @@
 <template>
 <v-flex xs10 md8 offset-xs1 offset-md2 v-if="contents">
-  <div class="contents_title">{{ contents.title }}</div>
+  <div class="contents_title">{{ contents.subtitle }}</div>
   <v-layout row nowrap justify-space-between class="contents_info">
     <div class="detail_info">{{ contents.text }}</div>
     <div class="img_info"><span class="active_idx">{{ imgIndex + 1}}</span>/{{ contents.imagearray.length }}</div>
@@ -16,8 +16,8 @@
         </v-layout>
       </v-layout>
     </v-flex>
-    <v-flex xs12 md5 class="comment">
-      s
+    <v-flex xs12 md5>
+      <comment :contentsInfo="contents" :commentList="comments" :contentsID="$route.params.id" class="comment_box"></comment>
     </v-flex>
   </v-layout>
 </v-flex>
@@ -25,11 +25,12 @@
 
 <script>
 import ImagePreview from './components/ImagePreview'
+import Comment from './components/Comment'
 import { mapGetters } from 'vuex'
 
 export default {
   name: 'ContentsDetail',
-  components: { ImagePreview },
+  components: { ImagePreview, Comment },
   data () {
     return {
       MOBILE_LIST_LENGTH: 5,
@@ -39,7 +40,8 @@ export default {
   computed: {
     ...mapGetters ({
       imgIndex : 'getActiveImgIndex',
-      contents: 'getContentsDetail'
+      contents: 'getContentsDetail',
+      comments: 'getCommentList'
     })
   },
   methods: {
@@ -67,6 +69,7 @@ export default {
   },
   created () {
     this.$store.dispatch('getPostingView', this.$route.params.id)
+    this.$store.dispatch('getCommentList', this.$route.params.id)
   }
 }
 </script>
@@ -149,5 +152,10 @@ span.active_idx
 .right_btn
 {
   background-image: url('/static/contents_detail_right_arrow.png');
+}
+.comment_box
+{
+  margin-left: 0.63vw;
+  border: 1px solid #DDDDDD;
 }
 </style>
