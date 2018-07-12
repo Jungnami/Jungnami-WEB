@@ -11,7 +11,15 @@
             <span class="coin_amount">100코인</span>
           </div>
         </div>
+        <v-layout row wrap justify-space-between class="support_wrapper">
+          <div class="my_coin">후원 코인</div>
+          <input type="text" placeholder="입력" class="coin_input">
+        </v-layout>
 
+        <v-layout justify-space-between="support_wrapper">
+          <button class="check_btn">확인</button>
+          <button class="check_btn">취소</button>
+        </v-layout>
       </div>
     </div>
   </div>
@@ -44,16 +52,16 @@ export default {
 }
 .modal_container 
 {
-  width: 457px;
-  height: 616px;
+  width: 555px;
+  height: 640px;
   margin: 0px auto;
   background-image: url('/static/support_modal_bg.png');
   transition: all .3s ease;
 }
 .support_title
 {
-  padding-top: 267px;
-  font-size: 33px;
+  padding-top: 228px;
+  font-size: 38px;
   color: #6B6B6B;
   text-align: center;
   font-family: NanumBarunGothic;
@@ -61,17 +69,12 @@ export default {
 .my_coin
 {
   height: 55px;
-  margin-top: 28px;
-  margin-left: 32px;
-  margin-right: 32px; 
-  background-color: #F7F7F7;
-  border-radius: 2px;
-  border: 1px solid #DDDDDD;
-  
-  padding-left: 17px;
-  padding-right: 11px;
-  padding-top: 17px;
-  font-size: 17px;
+  margin-top: 31.5px;
+  margin-left: 57px;
+  margin-right: 57px; 
+  padding-bottom: 27px;
+  border-bottom: 1px solid #D8D8D8;
+  font-size: 25px;
   text-align: left;
   font-family: NanumBarunGothicLight;
 }
@@ -80,6 +83,40 @@ export default {
   color: #36C5F1;
   float: right;
   font-family: NanumBarunGothic;
+}
+.support_wrapper
+{
+  margin-left: 57px;
+  margin-right: 57px; 
+}
+.coin_input
+{
+  width: 106px;
+  height: 47px;
+  border: 1px solid #D8D8D8;
+  border-radius: 2px;
+  background: #F7F7F7;
+  padding-top: 3.2px;
+  padding-left: 27px;
+  padding-bottom: 10px;
+
+  font-family: NanumBarunGothicLight;
+  font-size: 25px;
+  color: #757575;
+}
+.check_btn
+{
+  width: 255px;
+  height: 58px;
+  border-radius: 29px;
+  background: #E2E2E2;
+  text-align: center;
+  padding-top: 12px;
+  padding-bottom: 12px;
+
+  font-family: NanumBarunGothic;
+  font-size: 23px;
+  color: white;
 }
 
 .modal-enter {
