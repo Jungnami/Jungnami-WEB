@@ -224,6 +224,9 @@ export default {
   top: 15%;
   right: 10%;
 }*/
+div.vote_list {
+  padding: 0;
+}
 
 .vote_list {
   align-items: center;

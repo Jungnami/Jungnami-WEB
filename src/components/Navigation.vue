@@ -11,26 +11,11 @@
     <v-btn color="text" class="hidden-xs-only nav_menu" v-bind:class="{ on : $route.path.includes(item.path)}" flat depressed v-for="item in items" :key="item.text" :to="item.path">
         {{ item.text }}
     </v-btn>
-    <v-menu offset-y class="search_menu">
-      <button slot="activator" color="white" class="search_btn">
-        <v-icon id="search_icon">search</v-icon>
-        <div class="search_text">검색</div>
-      </button>
-      <v-list class="search_list">
-        <template v-for="(item, index) in search_items">
-          <v-list-tile :key="index">
-            <img :src="item.img" alt="item_img">
-            <v-list-tile-title class="item_title">{{ item.text }}</v-list-tile-title>
-          </v-list-tile>
-          <v-divider v-if="index + 1 < search_items.length"></v-divider>
-        </template>
-      </v-list>
-    </v-menu>
     <router-link to="/mypage" v-if="kakaoToken">
       <img src="../../static/tab_icon_mypage.png" alt="mypage_logo" class="mypage_icon">
     </router-link>
     <button class="mypage_icon login_icon" v-if="!kakaoToken" @click="openLogin">로그인</button>
-    <v-flex sm1 class="mypage_margin">
+    <v-flex xs1 class="mypage_margin">
     </v-flex>
   </v-layout>
 
@@ -145,7 +130,7 @@ div.search_list
 .mypage_icon
 {
   height: 100%;
-  margin-left: 1.15vw;
+  margin-left: 5.5vw;
 }
 .login_icon
 {

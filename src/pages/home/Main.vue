@@ -85,7 +85,7 @@ export default {
 }
 .main
 {
-  margin-top: 4.8vh;
+  margin-top: 11.8vh;
 }
 .img_bigbox, .img_smallbox, .item_link, img
 {
