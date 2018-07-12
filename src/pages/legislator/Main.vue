@@ -1,13 +1,14 @@
 <template>
-<div>
-  <img src="../../../static/legislator_image_banner.png" alt="legislator_image_banner" class="legislator_banner">
+<div v-if="legislatorInfo">
+  <img src="/static/legislator_image_banner.png" alt="legislator_image_banner" class="legislator_banner">
   <v-layout row wrap>
-    <profile v-on:showSupportModal="showModal = true"></profile>
+    <profile @showSupportModal="showModal = true" :profileInfo="legislatorInfo"></profile>
     <v-flex xs10 sm8 offset-xs1 offset-sm0>
-      <contents v-bind:content_info="sendContentInfo()"></contents>
+      <contents :content_info="sendContentInfo()" :contentData="legislatorInfo.contents"></contents>
     </v-flex>
   </v-layout>
-  <support-modal v-if="showModal" @closeSupportModal="showModal = false"></support-modal>
+  <support-modal v-if="showModal" @openSuccessModal="showSuccessModal = true"
+    @closeSupportModal="showModal = false" :legislatorID="$route.params.l_id"></support-modal>
 </div>
 </template>
 
@@ -15,6 +16,8 @@
 import Contents from '../../components/Contents'
 import Profile from './components/Profile'
 import SupportModal from './components/SupportModal'
+import { mapGetters } from 'vuex'
+
 
 export default {
   name: 'Legislator',
@@ -24,6 +27,11 @@ export default {
       showModal: false,
 
     }
+  },
+  computed: {
+    ...mapGetters ({
+      legislatorInfo: 'getLegislatorInfo'
+    })
   },
   methods: {
     sendContentInfo() {
@@ -36,7 +44,7 @@ export default {
     }
   },
   created () {
-    // this.$store.dispatch('getLegislatorData', this.$route.params.l_id)
+    this.$store.dispatch('getLegislatorData', this.$route.params.l_id)
   }
 }
 </script>
