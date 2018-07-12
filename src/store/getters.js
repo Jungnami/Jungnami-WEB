@@ -80,10 +80,19 @@ export const partyGetters = {
   getPartyContents (state) {
     return state.partyInfo
   },
-  getRegionContents (state){
+  getRegionContents (state) {
     return state.regionInfo
   },
-  getRegion (state){
+  getRegion (state) {
     return state.region
+  }
+}
+
+export const legislatorGetters = {
+  getLegislatorInfo (state) {
+    return state.legislatorInfo
+  },
+  getUserCoin (state) {
+    return state.userCoin
   }
 }
