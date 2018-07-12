@@ -18,8 +18,12 @@
 
 <script>
 export default {
-  name: 'LegislatorList'
+  name: 'LegislatorList',
+  created() {
+    this.$store.commit('putIsLike', 1);
+  }
 }
+
 </script>
 
 <style scoped>
