@@ -4,7 +4,7 @@ import createPersistedState from 'vuex-persistedstate'
 import * as Cookies from 'js-cookie'
 import { userGetters, rankGetters, contentsDetailGetters, recommendGetters, partyGetters } from './getters'
 import { loginMutations, rankMutations, contentsDetailMutations, recommendMutations, partyMutations } from './mutations'
-import { loginActions, rankActions, contentsDeetailActions, recommendActions, partyActions } from './actions'
+import { loginActions, rankActions, contentsDetailActions, recommendActions, partyActions } from './actions'
 
 Vue.use(Vuex)
 
@@ -41,7 +41,7 @@ export const store = new Vuex.Store({
   },
   getters: Object.assign({}, userGetters, rankGetters, contentsDetailGetters, recommendGetters, partyGetters),
   mutations: Object.assign({}, loginMutations, rankMutations, contentsDetailMutations, recommendMutations, partyMutations),
-  actions: Object.assign({}, loginActions, rankActions, contentsDeetailActions, recommendActions, partyActions),
+  actions: Object.assign({}, loginActions, rankActions, contentsDetailActions, recommendActions, partyActions),
   plugins: [
     createPersistedState({
       storage: {

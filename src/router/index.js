@@ -27,7 +27,7 @@ export default new Router({
       component: Home
     },
     {
-      path: '/legislator',
+      path: '/legislator/:l_id',
       name: 'Legislator',
       component: Legislator
     },

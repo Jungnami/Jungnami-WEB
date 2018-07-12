@@ -34,6 +34,9 @@ export default {
         DOTNUM: 4, //버튼개수
       }
     }
+  },
+  created () {
+    // this.$store.dispatch('getLegislatorData', this.$route.params.l_id)
   }
 }
 </script>

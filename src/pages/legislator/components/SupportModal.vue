@@ -16,8 +16,8 @@
         </v-layout>
 
         <v-layout justify-space-between class="support_wrapper btn_wrapper">
-          <button class="check_btn" v-if="!supportCoin">확인</button>
-          <button class="check_btn active_btn" v-if="supportCoin">확인</button>
+          <button class="check_btn" v-if="!supportCoin || supportCoin > 100">확인</button>
+          <button class="check_btn active_btn" v-if="supportCoin && supportCoin <= 100">확인</button>
           <button class="check_btn" @click="$emit('closeSupportModal')">취소</button>
         </v-layout>
       </div>
@@ -49,6 +49,9 @@ export default {
 </script>
 
 <style scoped>
+@media (max-width: 960px) {
+  
+}
 .modal_mask
 {
   position: fixed;

@@ -64,7 +64,7 @@ export const rankActions = {
   }
 }
 
-export const contentsDeetailActions = {
+export const contentsDetailActions = {
   getPostingView ({ commit }, contentsID) {
     axios.defaults.headers['authorization'] = localStorage.getItem(tokenKey)
     instance.get(`/contents/cardnews/${contentsID}`).then(response => {
