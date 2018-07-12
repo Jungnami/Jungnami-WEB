@@ -71,13 +71,13 @@ export default {
         },
         {
           src: '../../../../static/party_red_character.png',
-          bannerSrc: '../../../../static/legislatorlist_party_tag_free.png',
+          bannerSrc: '../../../../static/partylist_tab_red_character.png',
           color: '#E1241A',
           party_name: '자유한국당'
         },
         {
           src: '../../../../static/party_yellow_character.png',
-          bannerSrc: '../../../../static/legislatorlist_party_tag_definition.png',
+          bannerSrc: '../../../../static/partylist_tab_yellow_character.png',
           color: '#FCDC00',
           party_name: '정의당'
         },
@@ -90,24 +90,24 @@ export default {
       ],
       party_btns2: [{
           src: '../../../../static/party_mint_character.png',
-          bannerSrc: '../../../../static/legislatorlist_party_tag_future.png',
+          bannerSrc: '../../../../static/partylist_tab_mint_character.png',
           color: '#14CDCC',
           party_name: '바른미래당'
         },
         {
-          src: '../../../../static/party_blue_character.png',
+          src: '../../../../static/party_button_indigo.png',
           bannerSrc: '../../../../static/partylist_tab_indigo_character.png',
           color: '#123167',
           party_name: '대한애국당'
         },
         {
-          src: '../../../../static/party_blue_character.png',
+          src: '../../../../static/party_button_green.png',
           bannerSrc: '../../../../static/partylist_tab_green_character.png',
           color: '#3EA437',
           party_name: '민주평화당'
         },
         {
-          src: '../../../../static/party_blue_character.png',
+          src: '../../../../static/party_button_gray.png',
           bannerSrc: '../../../../static/partylist_tab_gray_character.png',
           color: '#C6C6C6',
           party_name: '무소속'
