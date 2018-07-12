@@ -96,19 +96,8 @@ export default {
           content: this.commentContents
         }
         this.$store.dispatch('postMakeComment', object)
-        // const comment = {
-        //   commentid: 0,
-        //   timeset: '1초전',
-        //   content: this.commentContents,
-        //   user_nick: '본인',
-        //   user_img: '0',
-        //   recommentCnt: 0,
-        //   commentlikeCnt: 0,
-        //   islike: 0
-        // }
-        // this.commentList.push(comment)
         this.commentContents = ''
-        // location.reload(true)
+        location.reload(true)
       }
     }
   },

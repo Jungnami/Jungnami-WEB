@@ -100,3 +100,13 @@ export const partyMutations = {
     state.region = payload
   }
 }
+
+// 국회의원 페이지 mutations
+export const legislatorMutations = {
+  setLegislatorData (state, payload) {
+    state.legislatorInfo = payload
+  },
+  setUserCoin (state, payload) {
+    state.userCoin = payload
+  }
+}
