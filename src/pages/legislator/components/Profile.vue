@@ -8,7 +8,6 @@
   <div class="party">더불어민주당</div>
   <div class="region">경기도 성남시 분당구 갑</div>
   <button class="button" @click="show">후원하기</button>
-  <button class="button">항의하기</button>
 </v-flex>
 </template>
 
