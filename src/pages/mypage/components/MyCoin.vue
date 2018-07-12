@@ -137,7 +137,8 @@ export default {
   font-size: 1.3vw;
   color: #707070;
   padding-top: 1.25vw;
-  border: 1px solid #D3D3D3;
+  border-bottom: 1px solid #D3D3D3;
+  border-top: 1px solid #D3D3D3;;
 }
 .coin_explain .explain_text
 {
