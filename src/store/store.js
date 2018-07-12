@@ -37,7 +37,8 @@ export const store = new Vuex.Store({
     //정당 페이지 시작
     partyInfo: [],
     regionInfo: [],
-    region: '서울'
+    region: '서울',
+    regionColor: '#157ACE'
   },
   getters: Object.assign({}, userGetters, rankGetters, contentsDetailGetters, recommendGetters, partyGetters),
   mutations: Object.assign({}, loginMutations, rankMutations, contentsDetailMutations, recommendMutations, partyMutations),

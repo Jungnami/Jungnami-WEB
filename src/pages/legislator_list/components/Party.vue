@@ -14,12 +14,20 @@
     </v-layout>
   </v-flex>
 
-  <v-flex xs10 md7 offset-xs1 offset-md0>
-    <v-layout row wrap justify-space-between class="party_tab">
-      <v-flex xs4 md2 class="party_tab_bar">
+  <v-flex xs10 md7 offset-xs1 offset-md0 >
+    <v-layout row wrap class="party_tab" justify-space-between>
+      <v-layout class="party_tab_bar" justify-space-between>
         <img :src="bannerImg" alt="active_party" class="active_party">
-      </v-flex>
-      <div class="member_count">국회의석 : 130석</div>
+        <!-- <v-flex xs4 class="like_layout"> -->
+            <button class="like" @click="changeLike(1)">호감</button>
+        <!-- </v-flex> -->
+        <!-- <v-flex xs4 class="like_layout"> -->
+            <button class="noLike" @click="changeLike(0)">비호감</button>
+        <!-- </v-flex> -->
+      </v-layout>
+
+
+      <div class="member_count">국회의석 : {{ items.length }} 석</div>
       <hr :style="{background: partyColor}">
     </v-layout>
 
@@ -52,7 +60,7 @@ export default {
     return {
       bannerImg: '../../../../static/partylist_tab_blue_character.png',
       partyColor: '#1783DC',
-      party: null,
+      party: '더불어민주당',
       MOBILE_LIST_BOX_UNIT: 1,
       PC_LIST_BOX_UNIT: 2,
       mobileCheck: this.windowWidth < 960 ? true : false,
@@ -103,7 +111,7 @@ export default {
         {
           src: '../../../../static/party_button_green.png',
           bannerSrc: '../../../../static/partylist_tab_green_character.png',
-          color: '#3EA437',
+          color: '#3FC335',
           party_name: '민주평화당'
         },
         {
@@ -121,6 +129,13 @@ export default {
   },
 
   methods: {
+    changeLike(num){
+      this.$store.commit('putIsLike', num);
+      this.$store.dispatch('getLegislatorListByParty', {
+        isLike: num,
+        party_name: this.party
+      });
+    },
     setPartyInfo(partyName, partyColor, bannerSrc) {
 
       this.currentPage = 1;
@@ -249,6 +264,28 @@ export default {
     font-size: 3vw;
     padding-top: 15vw;
   }
+  .like {
+    /*background-color:white;*/
+    padding-left: 2.5vw;
+    padding-right: 2.5vw;
+    padding-top: 1vw;
+    padding-bottom: 1vw;
+    display: inline;
+  }
+
+  .unLike {
+    /*background-color:red;*/
+    padding-left: 2.5vw;
+    padding-right: 2.5vw;
+    padding-top: 1vw;
+    padding-bottom: 1vw;
+    display: inline;
+  }
+
+  /*.like_layout{*/
+    /*padding-top: 15vw;*/
+  /*}*/
+
   div.voting_list {
     width: 83vw;
   }
@@ -283,11 +320,12 @@ export default {
 }
 
 .party_tab_bar {
-  height: 7.4vw;
+  /*height: 7.4vw;*/
+  width: 22vw;
 }
 
 .active_party {
-  width: 100%;
+  width: 8.33vw;
 }
 
 .member_count {
@@ -296,6 +334,40 @@ export default {
   color: #A1A1A1;
   padding-top: 5vw;
 }
+.like {
+  width: 4.668vw;
+  height: 1.95vw;
+  border-radius: 1.56vw;
+  padding-left: 1.4vw;
+  padding-right: 1.4vw;
+  padding-top: 0.41vw;
+  padding-bottom: 0.41vw;
+  /*left: 20%;
+  top: 60%;
+  margin-left: auto;
+  margin-right: auto;*/
+  border: 2px solid #36C5F1;
+  /*position: relative;*/
+  display: inline;
+}
+
+.noLike {
+  width: 4.668vw;
+  height: 1.95vw;
+  border-radius: 1.56vw;
+  padding-left: 1.4vw;
+  padding-right: 1.4vw;
+  padding-top: 0.41vw;
+  padding-bottom: 0.41vw;
+  /*left: 20%;
+  top: 60%;
+  margin-left: auto;
+  margin-right: auto;*/
+  border: 2px solid #36C5F1;
+  /*position: relative;*/
+  display: inline;
+}
+
 
 hr {
   width: 100%;

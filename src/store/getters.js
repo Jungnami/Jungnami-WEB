@@ -80,10 +80,13 @@ export const partyGetters = {
   getPartyContents (state) {
     return state.partyInfo
   },
-  getRegionContents (state){
+  getRegionContents (state) {
     return state.regionInfo
   },
-  getRegion (state){
+  getRegion (state) {
     return state.region
+  },
+  getRegionColor (state) {
+    return state.regionColor
   }
 }
