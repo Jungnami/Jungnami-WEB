@@ -2,20 +2,20 @@
 <v-layout row wrap class="region_page">
   <v-flex xs7 md3 offset-xs1>
     <img src="../../../../static/region_main_text.png" alt="list_region_text" class="region_text">
-    <map-component class="hidden-sm-and-down map_component"></map-component>
+    <map-component @click-map="setRegionData(region)" class="hidden-sm-and-down map_component"></map-component>
   </v-flex>
   <v-flex xs10 md7 offset-xs1 offset-md0>
     <v-layout row wrap justify-space-between class="hidden-md-and-up">
-      <button v-for="(region, i) in regions1" :key="i" class="region_btn">{{ region }}</button>
+      <button @click="setRegionData(regionName)" v-for="(regionName, i) in regions1" :key="i" class="region_btn">{{ regionName }}</button>
     </v-layout>
     <v-layout row wrap justify-space-between class="hidden-md-and-up btns">
-      <button v-for="(region, i) in regions2" :key="i" class="region_btn">{{ region }}</button>
+      <button @click="setRegionData(regionName)" v-for="(regionName, i) in regions2" :key="i" class="region_btn">{{ regionName }}</button>
     </v-layout>
     <v-layout row wrap justify-space-between class="hidden-md-and-up btns">
-      <button v-for="(region, i) in regions3" :key="i" class="region_btn">{{ region }}</button>
+      <button @click="setRegionData(regionName)" v-for="(regionName, i) in regions3" :key="i" class="region_btn">{{ regionName }}</button>
     </v-layout>
     <v-layout row wrap class="hidden-md-and-up btns">
-      <button v-for="(region, i) in regions4" :key="i" class="region_btn btns_last">{{ region }}</button>
+      <button @click="setRegionData(regionName)" v-for="(regionName, i) in regions4" :key="i" class="region_btn btns_last">{{ regionName }}</button>
     </v-layout>
 
     <v-layout row nowrap justify-space-between class="hidden-sm-and-down">
@@ -27,7 +27,7 @@
 
     <v-layout row wrap justify-space-between class="region_tab">
       <v-flex xs4 md2 :style="{backgroundColor: active_region.color}" class="region_tab_bar">
-        {{ active_region.name }}
+        {{ region }}
       </v-flex>
       <div class="member_count">국회의원 수 : 49명</div>
       <hr>
@@ -93,28 +93,22 @@ export default {
         {color: "#F37B7C", name: "더불어민주당 / 자유한국당"},
         {color: "#00A1A0", name: "더불어민주당 / 바른미래당"}
       ],
-      active_region: {color: "#157ACE", name: "서울"},
-      items: [
-        {
-          id: 1,
-          thumbnail: '../../static/img_avatar.png',
-          name: '문재인',
-          party: '더불어민주당',
-          count: 1000
-        },
-        {
-            id: 2,
-            thumbnail: '../../static/img_avatar.png',
-            name: '안철수',
-            party: '정의당',
-            count: 1000
-        }
-      ]
+      active_region: {color: "#157ACE", name: "서울"}
     }
 
 
 },
   methods: {
+    setRegionData(regionParam) {
+      this.$store.commit('setRegion', regionParam)
+
+      this.currentPage = 1;
+      this.$store.dispatch('getLegislatorListByRegion', {
+        isLike: this.getLike,
+        region: regionParam
+      });
+    },
+
     getPagingNum(event) {
       var curPageNum = event.currentTarget.id;
       this.currentPage = curPageNum;
@@ -146,6 +140,16 @@ export default {
 
   },
   computed:{
+    region: function() {
+      return this.$store.getters.getRegion
+    },
+    getLike: function() {
+      return this.$store.getters.getIsLike
+    },
+    items: function() {
+
+        return this.$store.getters.getRegionContents;
+    },
     getListBoxUnit: function(){
       if(this.isMobile()){
         return this.MOBILE_LIST_BOX_UNIT;
@@ -173,6 +177,9 @@ export default {
         this.startIndex = this.PC_LIST_BOX_UNIT * 10 * (dot - 1);
       }
       return this.startIndex;
+    },
+    getLike: function() {
+      return this.$store.getters.getIsLike;
     }
   },
   watch: {
@@ -194,7 +201,16 @@ export default {
   },
   mounted() {
     window.addEventListener('resize', this.handleWindowResize);
-  }
+  },
+  created() {
+    this.$store.commit('setRegion', '서울')
+    this.$store.commit('putIsLike', 1);
+
+    this.$store.dispatch('getLegislatorListByRegion', {
+      isLike: 1,
+      region: '서울'
+    });
+  },
 
 }
 </script>

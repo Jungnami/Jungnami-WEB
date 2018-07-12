@@ -10,7 +10,7 @@
           <div class="rank_border">
             <div class="img" v-if="isLike === 1" v-bind:class="[checkGold(index) ? 'gold_medal' : '', checkSilver(index) ? 'silver_medal' : '', checkBronze(index) ? 'bronze_medal' : '']">
               <div class="content" >
-                {{ item.ranking }}
+                  {{ item.ranking }}
               </div>
             </div>
             <div class="img" v-if="isLike === 0" v-bind:class="[checkGold(index) ? 'gold_bomb' : '', checkSilver(index) ? 'silver_bomb' : '', checkBronze(index) ? 'bronze_bomb' : '']">
@@ -28,7 +28,7 @@
 
         <div class="progress_box">
           <div class="progress_border">
-            <div class="progress_percent" :style="{ width: (item.width * 100) + '%'}">
+            <div class="progress_percent" :style="{ backgroundColor: getPartyColor, width: (item.width * 100) + '%' }">
             </div>
             <div class="progress_info">
               <div>
@@ -95,6 +95,12 @@ export default {
         pageUnit: this.list_info.pageUnit
       }
     },
+    getPartyColor: function() {
+      if(this.list_info.partyColor !== undefined){
+        return this.list_info.partyColor
+      }
+      return "primary"
+    }
   },
   data () {
     return{

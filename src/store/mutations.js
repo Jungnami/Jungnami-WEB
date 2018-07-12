@@ -87,3 +87,16 @@ export const recommendMutations = {
     state.myInfomation = payload
   }
 }
+
+export const partyMutations = {
+  setPartyData (state, payload) {
+    state.partyInfo = payload
+  },
+  setRegionData (state, payload) {
+    state.regionInfo = payload
+  },
+  setRegion (state, payload) {
+    console.log("State region :::" + payload);
+    state.region = payload
+  }
+}
