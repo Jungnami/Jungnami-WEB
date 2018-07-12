@@ -7,7 +7,7 @@
       <contents v-bind:content_info="sendContentInfo()"></contents>
     </v-flex>
   </v-layout>
-  <support-modal v-if="showModal"></support-modal>
+  <support-modal v-if="showModal" @closeSupportModal="showModal = false"></support-modal>
 </div>
 </template>
 
@@ -34,6 +34,9 @@ export default {
         DOTNUM: 4, //버튼개수
       }
     }
+  },
+  created () {
+    // this.$store.dispatch('getLegislatorData', this.$route.params.l_id)
   }
 }
 </script>
