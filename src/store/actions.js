@@ -70,14 +70,49 @@ export const contentsDeetailActions = {
     instance.get(`/contents/cardnews/${contentsID}`).then(response => {
       if (response.data.message === 'Successfully get posting view') {
         commit('postingViewSuccess', response.data.data)
-        console.log(response.data.data.imagearray.length)
       }
+      console.log(response.data)
+    }).catch(error => {
+      alert(error.message)
+    })
+  },
+  getCommentList ({ commit }, contentsID) {
+    axios.defaults.headers['authorization'] = localStorage.getItem(tokenKey)
+    instance.get(`/contents/commentlist/${contentsID}`).then(response => {
+      if (response.data.message === 'Successfully get contents comment list') {
+        commit('commentListSuccess', response.data.data)
+      }
+      console.log(response.data)
+    }).catch(error => {
+      alert(error.message)
+    })
+  },
+  postMakeComment (payload) {
+    axios.defaults.headers['authorization'] = localStorage.getItem(tokenKey)
+    instance.post('/contents/makecomment', payload).then(response => {
+      console.log(response.data)
+    }).catch(error => {
+      alert(error.message)
+    })
+  },
+  postLikeComment (payload) {
+    axios.defaults.headers['authorization'] = localStorage.getItem(tokenKey)
+    instance.post('/contents/likecomment', payload).then(response => {
+      console.log(response.data)
+    }).catch(error => {
+      alert(error.message)
+    })
+  },
+  postLikeCancelComment (commentID) {
+    axios.defaults.headers['authorization'] = localStorage.getItem(tokenKey)
+    instance.delete(`/delete/contentscommentlike/${commentID}`).then(response => {
       console.log(response.data)
     }).catch(error => {
       alert(error.message)
     })
   }
 }
+
 // 추천페이지 액션
 export const recommendActions = {
   getRecommendContents ({ commit }) {
@@ -93,14 +128,13 @@ export const recommendActions = {
   },
   getContentsData ({ commit }, payload) {
     let routeName = '/contents/main/' + payload.name
-    axios.default.headers['authorization'] = localStorage.getItem(tokenKey) //추천페이지에 이게 필요?
+    axios.default.headers['authorization'] = localStorage.getItem(tokenKey) // 추천페이지에 이게 필요?
     // axios.default.headers['authorization'] = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6ODA3NDY1MjM5LCJpYXQiOjE1MzA3NzU1MDQsImV4cCI6MTUzMzM2NzUwNH0.DAXcgbHm4gOaJMTFyQW0KCvs64lUZai6Cc_pi5pKu4Q'
     instance.get(routeName).then(response => {
       if (response.data.message === 'Successfully get posting view') {
         if (payload.name === 'TMI') {
           commit('setTMIContentsData', response.data.data.content)
-        }
-        else if (payload.name === '스토리') {
+        } else if (payload.name === '스토리') {
           commit('setStoryContentsData', response.data.data.content)
         } else {
           console.log('error')

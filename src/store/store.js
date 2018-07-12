@@ -19,9 +19,11 @@ export const store = new Vuex.Store({
     likeRankingList: [],
     isLike: null,
     voting_cnt: null,
+    // 컨텐츠 상세 페이지 시작
     activeImgIndex: 0, // 컨텐츠 상세 페이지에서 큰 이미지의 인덱스
     contentsDetail: null,
-    imageArray: [],
+    commentList: [],
+    // 컨텐츠 상세 페이지 끝
     // 추천 페이지 시작
     recommendTop20: [],
     recommendTMI: [],
