@@ -2,9 +2,9 @@ import Vue from 'vue'
 import Vuex from 'vuex'
 import createPersistedState from 'vuex-persistedstate'
 import * as Cookies from 'js-cookie'
-import { userGetters, rankGetters, contentsDetailGetters, recommendGetters, partyGetters } from './getters'
-import { loginMutations, rankMutations, contentsDetailMutations, recommendMutations, partyMutations } from './mutations'
-import { loginActions, rankActions, contentsDetailActions, recommendActions, partyActions } from './actions'
+import { userGetters, rankGetters, contentsDetailGetters, recommendGetters, partyGetters, legislatorGetters } from './getters'
+import { loginMutations, rankMutations, contentsDetailMutations, recommendMutations, partyMutations, legislatorMutations } from './mutations'
+import { loginActions, rankActions, contentsDetailActions, recommendActions, partyActions, legislatorActions } from './actions'
 
 Vue.use(Vuex)
 
@@ -34,15 +34,18 @@ export const store = new Vuex.Store({
     myInfomation: [],
     // 추천 페이지 끝,
 
-    //정당 페이지 시작
+    // 국회의원 페이지 시작
+    legislatorInfo: null,
+    userCoin: null,
+    // 정당 페이지 시작
     partyInfo: [],
     regionInfo: [],
     region: '서울',
     regionColor: '#157ACE'
   },
-  getters: Object.assign({}, userGetters, rankGetters, contentsDetailGetters, recommendGetters, partyGetters),
-  mutations: Object.assign({}, loginMutations, rankMutations, contentsDetailMutations, recommendMutations, partyMutations),
-  actions: Object.assign({}, loginActions, rankActions, contentsDetailActions, recommendActions, partyActions),
+  getters: Object.assign({}, userGetters, rankGetters, contentsDetailGetters, recommendGetters, partyGetters, legislatorGetters),
+  mutations: Object.assign({}, loginMutations, rankMutations, contentsDetailMutations, recommendMutations, partyMutations, legislatorMutations),
+  actions: Object.assign({}, loginActions, rankActions, contentsDetailActions, recommendActions, partyActions, legislatorActions),
   plugins: [
     createPersistedState({
       storage: {

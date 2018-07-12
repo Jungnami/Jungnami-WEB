@@ -225,3 +225,36 @@ export const partyActions = {
     })
   }
 }
+// 국회의원 페이지 액션
+export const legislatorActions = {
+  getLegislatorData ({ commit }, legislatorID) {
+    axios.defaults.headers['authorization'] = localStorage.getItem(tokenKey)
+    instance.get(`/legislator/page/${legislatorID}`).then(response => {
+      if (response.data.message === 'Select Data Success') {
+        commit('setLegislatorData', response.data.data)
+      }
+      console.log(response.data)
+    }).catch(error => {
+      alert(error.message)
+    })
+  },
+  legislatorSupport ({ commit }) {
+    axios.defaults.headers['authorization'] = localStorage.getItem(tokenKey)
+    instance.get('/legislator/support').then(response => {
+      if (response.data.message === 'Select Data Success') {
+        commit('setUserCoin', response.data.data)
+      }
+      console.log(response.data)
+    }).catch(error => {
+      alert(error.message)
+    })
+  },
+  postSupportComplete ({ commit }, payload) {
+    axios.defaults.headers['authorization'] = localStorage.getItem(tokenKey)
+    instance.post('/legislator/support', payload).then(response => {
+      console.log(response.data)
+    }).catch(error => {
+      alert(error.message)
+    })
+  }
+}

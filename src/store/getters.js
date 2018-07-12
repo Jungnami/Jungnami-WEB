@@ -90,3 +90,12 @@ export const partyGetters = {
     return state.regionColor
   }
 }
+
+export const legislatorGetters = {
+  getLegislatorInfo (state) {
+    return state.legislatorInfo
+  },
+  getUserCoin (state) {
+    return state.userCoin
+  }
+}
