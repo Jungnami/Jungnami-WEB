@@ -4,6 +4,8 @@
     <button class="left_btn btn" @click="indexDown"></button>
     <img v-for="(image, i) in propsapp.imageArray" :src="image.img_url" 
         alt="prview_image" :key="i" :id="checkActive(i)? 'active_img':''" class="pre_img">
+    <div class="rest_div" v-for="(item, i) in getRestArray(propsapp.imageArray)" :key="i+propsapp.listAllLength" v-if="propsapp.imageArray.length !== propsapp.listLength">
+    </div>
     <button class="right_btn btn" @click="indexUp"></button>
   </v-layout>
 </div>
@@ -46,6 +48,14 @@ export default {
       if (this.imgIndex < this.propsapp.listAllLength - 1) {
         this.$store.commit('plusActiveImgIndex')
       }
+    },
+    getRestArray (imageArray) {
+      const rest_length = this.propsapp.listLength - (this.propsapp.listAllLength % this.propsapp.listLength)
+      let array = []
+      for(var i = 0; i < rest_length; i++) {
+        array.push(imageArray[0])
+      }
+      return array
     }
   }
 }
@@ -54,6 +64,10 @@ export default {
 <style scoped>
 @media (max-width: 960px) {
   img.pre_img {
+    width: 12.53vw;
+    height: 12.53vw;
+  }
+  div.rest_div {
     width: 12.53vw;
     height: 12.53vw;
   }
@@ -84,5 +98,11 @@ export default {
 #active_img
 {
   border: 3px solid #36C5F1;
+}
+.rest_div
+{
+  width: 3.6vw;
+  height: 3.6vw;
+  background: #F2F2F2;
 }
 </style>

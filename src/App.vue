@@ -46,6 +46,10 @@ a
 {
   margin-top: 7.5vh; 
 }
+input:focus, button:focus
+{
+  outline: none;
+}
 @font-face {
   font-family: 'NanumBarunGothic';
   src: url('./assets/NanumBarunGothic.ttf') format('truetype');

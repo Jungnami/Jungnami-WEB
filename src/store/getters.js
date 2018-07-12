@@ -43,13 +43,12 @@ export const contentsDetailGetters = {
   getContentsDetail (state) {
     return state.contentsDetail
   },
-  getImageArray (state) {
-    return state.imageArray
+  getCommentList (state) {
+    return state.commentList
   }
 }
 
-
-//추천 페이지 게터
+// 추천 페이지 게터
 export const recommendGetters = {
   getRecommendTop20 (state) {
     // console.log('recommend content 값 넘겨줌')
