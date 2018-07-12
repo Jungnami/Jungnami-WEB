@@ -18,7 +18,7 @@
         <v-layout justify-space-between class="support_wrapper btn_wrapper">
           <button class="check_btn" v-if="!supportCoin">확인</button>
           <button class="check_btn active_btn" v-if="supportCoin">확인</button>
-          <button class="check_btn" @click="this.$emit('closeSupportModal')">취소</button>
+          <button class="check_btn" @click="$emit('closeSupportModal')">취소</button>
         </v-layout>
       </div>
     </div>
