@@ -128,5 +128,14 @@ export const legislatorMutations = {
 export const myPageMutations = {
   setCoinInfo (state, payload) {
     state.coinInfo = payload
+  },
+  changeOpenBuySplash (state) {
+    state.openBuySplash = !state.openBuySplash
+  },
+  buySuccess (state) {
+    state.openBuySplash = true
+  },
+  updateMyCoin (state, payload) {
+    state.myPageInfo.coin += payload
   }
 }

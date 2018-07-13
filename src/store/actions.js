@@ -368,5 +368,17 @@ export const myPageActions = {
     }).catch(error => {
       alert(error.message)
     })
+  },
+  postBuyCoin ({ commit }, payload) {
+    axios.defaults.headers['authorization'] = localStorage.getItem(tokenKey)
+    commit('updateMyCoin', payload.coin)
+    instance.post('/user/addcoin', payload).then(response => {
+      if (response.data.message === 'Update value Success') {
+        commit('buySuccess')
+        console.log(response.data)
+      }
+    }).catch(error => {
+      alert(error.message)
+    })
   }
 }
