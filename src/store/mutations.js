@@ -15,11 +15,7 @@ export const loginMutations = {
   logout (state) {
     localStorage.removeItem('JUNGNAMI_ACCESS_TOKEN');
     state.kakaoAccessToken = null
-<<<<<<< HEAD
     state.user_id = null
-=======
-    localStorage.removeItem('JUNGNAMI_ACCESS_TOKEN')
->>>>>>> dev
     state.openLoginPopUp = false
     router.push('/')
   },

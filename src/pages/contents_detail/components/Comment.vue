@@ -20,6 +20,7 @@
   <v-layout justify-space-between align-center class="comment_form">
     <input type="text" v-model="commentContents" @keyup.enter="makeComment" placeholder="댓글을 입력하세요..." class="comment_input">
     <input type="submit" @click="makeComment" value="" class="comment_submit">
+
   </v-layout>
   <div class="comment_list" v-infinite-scroll="loadMore" infinite-scroll-disabled="busy" infinite-scroll-distance="10">
     <div v-for="(comment, i) in commentList" :key="i" class="comment_wrapper">
@@ -79,7 +80,8 @@ export default {
                   description: this.contentDetail.subtitle,
                   imageUrl: this.contentDetail.thumbnail,
                     link: {
-                        webUrl: window.location.href //웹 url 들어가야함
+                        webUrl: window.location.href, //웹 url 들어가야함,
+                        mobileWebUrl: window.location.href
                     }
                 }
             });
@@ -114,9 +116,11 @@ export default {
       if(this.commentList[index].islike === 1) {
         this.$store.dispatch('postLikeCancelComment', commentID)
         this.commentList[index].islike = 0
+        this.commentList[index].commentlikeCnt--
       } else {
         this.$store.dispatch('postLikeComment', object)
         this.commentList[index].islike = 1
+        this.commentList[index].commentlikeCnt++
       }
       }
     },

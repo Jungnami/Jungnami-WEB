@@ -57,7 +57,6 @@ export default {
     getContentLink(c_id, title, thumbnail) {
       this.$store.commit('setContentsDetailTitle', title)
       this.$store.commit('setContentsDetailThumbnail', thumbnail)
-      // this.$store.commit('setContentsDetailDesc', )
 
       return `/contentsDetail/${c_id}`
     }
@@ -166,12 +165,6 @@ export default {
 
 }
 
-@media (max-width: 960px) and (min-width: 600px) {
-  img.content_image {
-    height: 14.5vw;
-  }
-}
-
 @media (max-width: 600px) {
   .component_title {
     font-size: 16px;
@@ -202,9 +195,6 @@ export default {
   .dot_box {
     margin-top: 11.21px;
     margin-bottom: 13.23px;
-  }
-  img.content_image {
-    height: 25.3vw;
   }
 }
 
