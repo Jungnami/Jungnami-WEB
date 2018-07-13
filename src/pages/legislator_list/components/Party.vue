@@ -1,5 +1,7 @@
 <template>
 <v-layout row wrap class="party_page">
+  <vote-splash v-if="this.$store.getters.getOpenVoteSplash"></vote-splash>
+  <vote-modal v-if="this.$store.getters.getOpenVotePopUp"></vote-modal>
   <v-flex xs10 md3 offset-xs1>
     <img src="../../../../static/party_main_text.png" alt="list_party_text" class="party_text">
     <v-layout row wrap justify-space-between class="btn_layout">
@@ -44,7 +46,7 @@
       <span v-on:click="getPagingNum($event)" id="1" class="dot" v-bind:class="{ on : currentPage == 1 }" ></span>
       <!-- </a> -->
       <!-- <a href="#" > -->
-      <span v-on:click="getPagingNum($event)" v-bind:id="index" v-for="index in getDotNum" v-if=" index >= 2" class="dot" v-bind:class="{ on : currentPage == index}"></span>
+      <span v-on:click="getPagingNum($event)" v-bind:id="index" v-for="index in getDotNum" :key="index" v-if=" index >= 2" class="dot" v-bind:class="{ on : currentPage == index}"></span>
         <!-- </a> -->
     </div>
   </v-flex>
@@ -53,6 +55,8 @@
 
 <script>
 import VotingList from '../../../components/Vote'
+import VoteModal from '../../../components/VoteModal'
+import VoteSplash from '../../../components/VoteSplash'
 
 export default {
   name: 'Party',
@@ -125,7 +129,7 @@ export default {
     }
   },
   components: {
-    VotingList
+    VotingList, VoteModal, VoteSplash
   },
 
   methods: {
@@ -307,6 +311,12 @@ export default {
 
 .party_img {
   width: 100%;
+  transition: 0.5s;
+}
+.party_img:hover
+{
+  transition: 0.5s;
+  transform: scale(1.2)
 }
 
 .party_tab_bar {
@@ -336,6 +346,17 @@ export default {
   font-size: 0.88vw;
   font-family: NanumBarunGothic;
   color: #B4B4B4;
+}
+.like_btn:hover
+{
+  background: #B4B4B4;
+  transition: 0.5;
+  color: rgb(255, 255, 255);
+}
+.like_btn.active_btn:hover
+{
+  background: #FAFAFA;
+  color: #36C5F1;
 }
 button.active_btn {
   border: 2px solid #36C5F1;

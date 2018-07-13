@@ -113,6 +113,6 @@ export default {
   width: 100%;
   height: 12.968vw;
   background-size: cover;
-  background-image: url('/static/bannerdesigning.jpg');
+  background-image: url('/static/bannerdesigning.png');
 }
 </style>
