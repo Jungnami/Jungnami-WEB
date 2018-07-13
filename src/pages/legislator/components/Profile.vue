@@ -155,4 +155,11 @@ export default {
   margin-bottom: 1.7vh;
   color: #36C5F1;
 }
+.button:hover
+{
+  background: #36C5F1;
+  transition: 0.5s;
+  font-size: 1.2vw;
+  color: white;
+}
 </style>
