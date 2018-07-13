@@ -1,7 +1,7 @@
 <template>
 <v-flex xs10 offset-xs1 class="my_vote">
   <v-layout row nowrap justify-center>
-    <img src="" alt="change_explain_img" class="change_img">
+    <img src="../../../../static/mypage_icon-vote.png" alt="change_explain_img" class="change_img">
   </v-layout>
   <v-layout column wrap justify-center class="vote_explain">
     <div>투표권 전환방법!</div>
