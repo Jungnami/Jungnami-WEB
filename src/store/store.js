@@ -45,6 +45,7 @@ export const store = new Vuex.Store({
     regionColor: '#157ACE',
 
     //마이페이지
+    openBuySplash: false,
     myPageInfo: [],
     coinInfo: {exchange: []},
 
