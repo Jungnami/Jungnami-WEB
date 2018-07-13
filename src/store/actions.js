@@ -171,8 +171,8 @@ export const contentsDetailActions = {
 
     instance.post(routePath, payload).then(response => {
       if(response.data.message === 'Successfully insert contentslike') {
-        console.log("isScrap ::: " + JSON.stringify(response.data))
-        alert("좋아요 성공 :: " + response.data);
+        // console.log("isScrap ::: " + JSON.stringify(response.data))
+        // alert("좋아요 성공 :: " + response.data);
       }
     }).catch(error => {
       alert(error.message)
@@ -186,7 +186,7 @@ export const contentsDetailActions = {
 
       instance.delete(routePath, payload).then(response => {
         if(response.data.message === 'Successfully cancel') {
-          alert("좋아요 삭제 성공 :: " + response.data);
+          // alert("좋아요 삭제 성공 :: " + response.data);
 
           console.log("deleteScrap ::: " + JSON.stringify(response.data))
         }
