@@ -46,7 +46,7 @@ export const store = new Vuex.Store({
 
     //마이페이지
     myPageInfo: [],
-    coinInfo: null
+    coinInfo: {exchange: []}
   },
   getters: Object.assign({}, userGetters, rankGetters, contentsDetailGetters, recommendGetters, partyGetters, legislatorGetters, myPageGetters),
   mutations: Object.assign({}, loginMutations, rankMutations, contentsDetailMutations, recommendMutations, partyMutations, legislatorMutations, myPageMutations),
