@@ -139,12 +139,11 @@ export default {
         isLike: num,
         party_name: this.party
       });
+      this.currentPage = 1;
     },
     setPartyInfo(partyName, partyColor, bannerSrc) {
 
       this.currentPage = 1;
-
-
       this.bannerImg = bannerSrc;
       this.party = partyName;
       this.partyColor = partyColor;

@@ -117,6 +117,7 @@ export default {
         isLike: num,
         region: this.region
       });
+      this.currentPage = 1;
     },
     setRegionData(regionParam, regionColor) {
       this.$store.commit('setRegion', regionParam)
