@@ -22,8 +22,8 @@
       <v-flex xs8 md10>
         <v-layout row wrap justify-space-between>
           <div>
-            <button class="like" @click="changeLike(1)">호감</button>
-            <button class="noLike" @click="changeLike(0)">비호감</button>
+            <button class="like_btn" :class="getLike === 1? 'active_btn':''" @click="changeLike(1)">호감</button>
+            <button class="like_btn" :class="getLike === 0? 'active_btn':''" @click="changeLike(0)">비호감</button>
           </div>
           <div class="member_count">국회의석 : {{ items.length }} 석</div>
         </v-layout>
@@ -264,28 +264,18 @@ export default {
     font-size: 3vw;
     padding-top: 15vw;
   }
-  .like {
-    /*background-color:white;*/
-    padding-left: 2.5vw;
-    padding-right: 2.5vw;
-    padding-top: 1vw;
-    padding-bottom: 1vw;
-    display: inline;
+  button.like_btn {
+    width: 12.07vw;
+    padding-top: 1.07vw;
+    padding-bottom: 1.07vw;
+    margin-left: 2.67vw;
+    margin-top: 13.2vw;
+    font-size: 2.13vw;
+    border-width: 1px;
   }
-
-  .unLike {
-    /*background-color:red;*/
-    padding-left: 2.5vw;
-    padding-right: 2.5vw;
-    padding-top: 1vw;
-    padding-bottom: 1vw;
-    display: inline;
+  button.active_btn.like_btn {
+    border-width: 1px;
   }
-
-  /*.like_layout{*/
-    /*padding-top: 15vw;*/
-  /*}*/
-
   div.voting_list {
     width: 83vw;
   }
@@ -325,7 +315,7 @@ export default {
 }
 
 .active_party {
-  width: 8.33vw;
+  width: 100%;
 }
 
 .member_count {
@@ -334,40 +324,23 @@ export default {
   color: #A1A1A1;
   padding-top: 5vw;
 }
-.like {
-  width: 4.668vw;
-  height: 1.95vw;
-  border-radius: 1.56vw;
-  padding-left: 1.4vw;
-  padding-right: 1.4vw;
+.like_btn {
+  width: 5.7vw;
   padding-top: 0.41vw;
   padding-bottom: 0.41vw;
-  /*left: 20%;
-  top: 60%;
-  margin-left: auto;
-  margin-right: auto;*/
-  border: 2px solid #36C5F1;
-  /*position: relative;*/
-  display: inline;
-}
+  margin-left: 1.67vw;
+  margin-top: 4.5vw;
+  border: 2px solid #B4B4B4;
+  border-radius: 30px;
 
-.noLike {
-  width: 4.668vw;
-  height: 1.95vw;
-  border-radius: 1.56vw;
-  padding-left: 1.4vw;
-  padding-right: 1.4vw;
-  padding-top: 0.41vw;
-  padding-bottom: 0.41vw;
-  /*left: 20%;
-  top: 60%;
-  margin-left: auto;
-  margin-right: auto;*/
-  border: 2px solid #36C5F1;
-  /*position: relative;*/
-  display: inline;
+  font-size: 0.88vw;
+  font-family: NanumBarunGothic;
+  color: #B4B4B4;
 }
-
+button.active_btn {
+  border: 2px solid #36C5F1;
+  color: #36C5F1;
+}
 
 hr {
   width: 100%;

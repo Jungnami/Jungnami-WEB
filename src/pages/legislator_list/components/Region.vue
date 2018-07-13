@@ -26,10 +26,18 @@
     </v-layout>
 
     <v-layout row wrap justify-space-between class="region_tab">
-      <v-flex xs4 md2 :style="{backgroundColor: regionColor}" class="region_tab_bar" >
+      <v-flex xs3 md2 :style="{backgroundColor: regionColor}" class="region_tab_bar" >
         {{ region }}
       </v-flex>
-      <div class="member_count">국회의원 수 : {{ items.length }} 명</div>
+      <v-flex xs9 md10>
+        <v-layout row wrap justify-space-between>
+          <div>
+            <button class="like_btn" :class="getLike === 1? 'active_btn':''" @click="changeLike(1)">호감</button>
+            <button class="like_btn" :class="getLike === 0? 'active_btn':''" @click="changeLike(0)">비호감</button>
+          </div>
+          <div class="member_count">국회의원 수 : {{ items.length }} 명</div>
+        </v-layout>
+      </v-flex>
       <hr :style="{background: regionColor}">
     </v-layout>
     <v-layout row wrap justify-space-between>
@@ -99,6 +107,13 @@ export default {
 
 },
   methods: {
+    changeLike(num){
+      this.$store.commit('putIsLike', num);
+      this.$store.dispatch('getLegislatorListByRegion', {
+        isLike: num,
+        region: this.region
+      });
+    },
     setRegionData(regionParam, regionColor) {
       this.$store.commit('setRegion', regionParam)
       this.$store.commit('setRegionColor', regionColor)
@@ -226,8 +241,20 @@ export default {
   div.region_tab_bar {
     font-size: 4vw;
   }
+  button.like_btn {
+    width: 12.07vw;
+    padding-top: 1.07vw;
+    padding-bottom: 1.07vw;
+    margin-left: 2.67vw;
+    margin-top: 2.2vw;
+    font-size: 2.13vw;
+    border-width: 1px;
+  }
+  button.active_btn.like_btn {
+    border-width: 1px;
+  }
   div.member_count {
-    font-size: 3.8vw;
+    font-size: 3.2vw;
   }
   div.region_tab {
     margin-top: 3vh;
@@ -300,6 +327,23 @@ export default {
   font-family: NanumBarunGothic;
   font-size: 1.8vw;
   color: white;
+}
+.like_btn {
+  width: 5.7vw;
+  padding-top: 0.41vw;
+  padding-bottom: 0.41vw;
+  margin-left: 1.67vw;
+  margin-top: 1.3vw;
+  border: 2px solid #B4B4B4;
+  border-radius: 30px;
+
+  font-size: 0.88vw;
+  font-family: NanumBarunGothic;
+  color: #B4B4B4;
+}
+button.active_btn {
+  border: 2px solid #36C5F1;
+  color: #36C5F1;
 }
 .member_count
 {
