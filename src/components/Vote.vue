@@ -46,7 +46,7 @@
         <!-- </div> -->
         <!-- </router-link> -->
 
-        <div class="emotion" :style="{backgroundImage: emotion[isLike]}" @click="vote(item.l_id)">
+        <div class="emotion" :style="{backgroundImage: emotion[isLike]}" @click="vote(item.l_id, index)">
           <!-- <img src="" style="display: block;"/> -->
 
         </div>
@@ -105,13 +105,16 @@ export default {
         return true;
       }
     },
-    vote (l_id) {
+    vote (l_id, index) {
+
       console.log("user_id::: " + this.$store.getters.getUserId)
       if(this.$store.getters.getUserId === null){
           this.$store.commit('openLoginComponent')
       } else{
         this.$store.commit('changeOpenVotePopUp')
         this.$store.commit('enrollLegislatorId', l_id)
+
+        // this.listinfo.items[index].score++;
       }
     },
     goLegislatorPage (l_id) {
