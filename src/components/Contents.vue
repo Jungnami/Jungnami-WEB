@@ -1,20 +1,22 @@
 <template>
-<div class="contents">
+<div class="contents" v-if="contentsData">
 
   <v-layout row wrap justify-space-around>
-    <v-flex xs12 class="component_title">
-      관련 콘텐츠
+    <v-flex xs12 class="component_title" v-if="title">
+      {{ title }}
     </v-flex>
-    <v-flex xs6 sm4 md3 class="content_card" v-for="item in pageItems" :key="item.id">
-      <img :src="item.image" class="content_image">
-      <div>
+    <v-flex xs6 sm4 md3 class="content_card" v-for="content in contentsData" :key="content.c_id">
+      <router-link :to="getContentLink(content.c_id)">
+        <img :src="content.thumbnail" class="content_image">
         <div>
-          <div class="content_title"> {{ item.title }}</div>
+          <div>
+            <div class="content_title"> {{ content.c_title }}</div>
+          </div>
         </div>
-      </div>
-      <div class="content_desc">
-        <!-- {{ item.desc }} -->
-      </div>
+        <div class="content_desc">
+          {{ content.text }}
+        </div>
+      </router-link>
     </v-flex>
   </v-layout>
 
@@ -41,7 +43,7 @@
 <script>
 export default {
   name: 'Contents',
-  props: ['content_info'],
+  props: ['content_info', 'contentsData', 'title'],
   methods: {
     getPagingData(event) {
       var curPageNum = event.currentTarget.id;
@@ -49,11 +51,14 @@ export default {
       var startItem = (curPageNum - 1) * this.PAGENUM;
       var endItem = this.PAGENUM * curPageNum;
       this.pageItems = startItem + ' ' + endItem;
+    },
+    getContentLink(c_id) {
+      return `contentsDetail/${c_id}`
     }
   },
   computed: {
     pageLength: function() {
-      var itemLength = this.items.length > this.PAGENUM * this.DOTNUM ? this.PAGENUM * this.DOTNUM   : this.items.length;
+      var itemLength = this.contentsData.length > this.PAGENUM * this.DOTNUM ? this.PAGENUM * this.DOTNUM   : this.contentsData.length;
       var pageLength = Math.ceil((itemLength / this.PAGENUM));
       return pageLength;
     },
@@ -77,242 +82,7 @@ export default {
       hasLink: this.content_info.linkNone, //a href 링크를 걸지 말지
       endItem: this.content_info.endItem,
       PAGENUM: this.content_info.PAGENUM, //페이징 단위
-      DOTNUM: this.content_info.DOTNUM, //버튼개수
-      items: [{
-          id: 1,
-          image: '/static/card_image1.jpeg',
-          title: '가',
-          desc: '테스트1'
-        },
-        {
-          id: 2,
-          image: '/static/card_image1.jpeg',
-          title: '나',
-          desc: '테스트2'
-        },
-        {
-          id: 3,
-          image: '/static/card_image1.jpeg',
-          title: '다',
-          desc: '테스트3'
-        },
-        {
-          id: 4,
-          image: '/static/card_image1.jpeg',
-          title: '라',
-          desc: '테스트4'
-        },
-        {
-          id: 5,
-          image: '/static/card_image1.jpeg',
-          title: '마',
-          desc: '테스트5'
-        },
-        {
-          id: 6,
-          image: '/static/card_image1.jpeg',
-          title: '바',
-          desc: '테스트6'
-        },
-        {
-          id: 7,
-          image: '/static/card_image1.jpeg',
-          title: '사',
-          desc: '테스트7'
-        },
-        {
-          id: 8,
-          image: '/static/card_image1.jpeg',
-          title: '아',
-          desc: '테스트8'
-        },
-        {
-          id: 9,
-          image: '/static/card_image1.jpeg',
-          title: '자',
-          desc: '테스트4'
-        },
-        {
-          id: 10,
-          image: '/static/card_image1.jpeg',
-          title: '차',
-          desc: '테스트4'
-        },
-        {
-          id: 11,
-          image: '/static/card_image1.jpeg',
-          title: '카',
-          desc: '테스트4'
-        },
-        {
-          id: 12,
-          image: '/static/card_image1.jpeg',
-          title: '타',
-          desc: '테스트4ㄴ'
-        },
-        {
-          id: 13,
-          image: '/static/card_image1.jpeg',
-          title: '파',
-          desc: '테스트4'
-        },
-        {
-          id: 14,
-          image: '/static/card_image1.jpeg',
-          title: '하',
-          desc: '테스트4'
-        },
-        {
-          id: 15,
-          image: '/static/card_image1.jpeg',
-          title: '문재인 대통령의 살아온 일대기와 운명',
-          desc: '테스트4'
-        },
-        {
-          id: 16,
-          image: '/static/card_image1.jpeg',
-          title: '문재인 대통령의 살아온 일대기와 운명',
-          desc: '테스트4'
-        },
-        {
-          id: 17,
-          image: '/static/card_image1.jpeg',
-          title: '문재인 대통령의 살아온 일대기와 운명',
-          desc: '테스트4'
-        },
-        {
-          id: 18,
-          image: '/static/card_image1.jpeg',
-          title: '문재인 대통령의 살아온 일대기와 운명',
-          desc: '테스트4'
-        },
-        {
-          id: 19,
-          image: '/static/card_image1.jpeg',
-          title: '문재인 대통령의 살아온 일대기와 운명',
-          desc: '테스트4'
-        },
-        {
-          id: 20,
-          image: '/static/card_image1.jpeg',
-          title: '문재인 대통령의 살아온 일대기와 운명',
-          desc: '테스트4'
-        },
-        {
-          id: 21,
-          image: '/static/card_image1.jpeg',
-          title: '문재인 대통령의 살아온 일대기와 운명',
-          desc: '테스트4'
-        },
-        {
-          id: 22,
-          image: '/static/card_image1.jpeg',
-          title: '문재인 대통령의 살아온 일대기와 운명',
-          desc: '테스트4'
-        },
-        {
-          id: 23,
-          image: '/static/card_image1.jpeg',
-          title: '문재인 대통령의 살아온 일대기와 운명',
-          desc: '테스트4'
-        },
-        {
-          id: 24,
-          image: '/static/card_image1.jpeg',
-          title: '문재인 대통령의 살아온 일대기와 운명',
-          desc: '테스트4'
-        },
-        {
-          id: 25,
-          image: '/static/card_image1.jpeg',
-          title: '문재인 대통령의 살아온 일대기와 운명',
-          desc: '테스트4'
-        },
-        {
-          id: 26,
-          image: '/static/card_image1.jpeg',
-          title: '문재인 대통령의 살아온 일대기와 운명',
-          desc: '테스트4'
-        },
-        {
-          id: 27,
-          image: '/static/card_image1.jpeg',
-          title: '문재인 대통령의 살아온 일대기와 운명',
-          desc: '테스트4'
-        },
-        {
-          id: 28,
-          image: '/static/card_image1.jpeg',
-          title: '문재인 대통령의 살아온 일대기와 운명',
-          desc: '테스트4'
-        },
-        {
-          id: 29,
-          image: '/static/card_image1.jpeg',
-          title: '문재인 대통령의 살아온 일대기와 운명',
-          desc: '테스트4'
-        },
-        {
-          id: 30,
-          image: '/static/card_image1.jpeg',
-          title: '문재인 대통령의 살아온 일대기와 운명',
-          desc: '테스트4'
-        },
-        {
-          id: 31,
-          image: '/static/card_image1.jpeg',
-          title: '문재인 대통령의 살아온 일대기와 운명',
-          desc: '테스트4'
-        },
-        {
-          id: 32,
-          image: '/static/card_image1.jpeg',
-          title: '문재인 대통령의 살아온 일대기와 운명',
-          desc: '테스트4'
-        },
-        {
-          id: 33,
-          image: '/static/card_image1.jpeg',
-          title: '문재인 대통령의 살아온 일대기와 운명',
-          desc: '테스트4'
-        },
-        {
-          id: 34,
-          image: '/static/card_image1.jpeg',
-          title: '문재인 대통령의 살아온 일대기와 운명',
-          desc: '테스트4'
-        },
-        {
-          id: 35,
-          image: '/static/card_image1.jpeg',
-          title: '문재인 대통령의 살아온 일대기와 운명',
-          desc: '테스트4'
-        },
-        {
-          id: 36,
-          image: '/static/card_image1.jpeg',
-          title: '문재인 대통령의 살아온 일대기와 운명',
-          desc: '테스트4'
-        },
-        {
-          id: 37,
-          image: '/static/card_image1.jpeg',
-          title: '문재인 대통령의 살아온 일대기와 운명',
-          desc: '테스트4'
-        },
-        {
-          id: 38,
-          image: '/static/card_image1.jpeg',
-          title: '문재인 대통령의 살아온 일대기와 운명',
-          desc: '테스트4'
-        },
-        {
-          id: 39,
-          image: '/static/card_image1.jpeg',
-          title: '문재인 대통령의 살아온 일대기와 운명',
-          desc: '테스트4'
-        }
-      ]
+      DOTNUM: this.content_info.DOTNUM //버튼개수
     }
   }
 }
@@ -457,7 +227,7 @@ export default {
   -webkit-box-orient: vertical;
   -webkit-line-clamp: 1;
   color: #C6C6C6;
-  font-family: NanumBarunGothicOTF;
+  font-family: NanumBarunGothic;
 }
 
 .dot.on {

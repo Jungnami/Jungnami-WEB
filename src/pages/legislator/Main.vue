@@ -4,11 +4,13 @@
   <v-layout row wrap>
     <profile @showSupportModal="showModal = true" :profileInfo="legislatorInfo"></profile>
     <v-flex xs10 sm8 offset-xs1 offset-sm0>
-      <contents :content_info="sendContentInfo()" :contentData="legislatorInfo.contents"></contents>
+      <contents :content_info="sendContentInfo()"
+       :contentsData="legislatorInfo.contents" title="관련 컨텐츠"></contents>
     </v-flex>
   </v-layout>
   <support-modal v-if="showModal" @openSuccessModal="showSuccessModal = true"
     @closeSupportModal="showModal = false" :legislatorID="$route.params.l_id"></support-modal>
+  <success-modal v-if="showSuccessModal" :name="legislatorInfo.l_name" @close="showSuccessModal = false"></success-modal>
 </div>
 </template>
 
@@ -16,16 +18,17 @@
 import Contents from '../../components/Contents'
 import Profile from './components/Profile'
 import SupportModal from './components/SupportModal'
+import SuccessModal from './components/SuccessModal'
 import { mapGetters } from 'vuex'
 
 
 export default {
   name: 'Legislator',
-  components: { Contents, Profile, SupportModal },
+  components: { Contents, Profile, SupportModal, SuccessModal },
   data () {
     return {
       showModal: false,
-
+      showSuccessModal: false
     }
   },
   computed: {

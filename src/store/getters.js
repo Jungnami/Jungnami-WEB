@@ -97,5 +97,8 @@ export const legislatorGetters = {
   },
   getUserCoin (state) {
     return state.userCoin
+  },
+  getSupportCoin (state) {
+    return state.supportCoin
   }
 }

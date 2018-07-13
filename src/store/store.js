@@ -37,6 +37,7 @@ export const store = new Vuex.Store({
     // 국회의원 페이지 시작
     legislatorInfo: null,
     userCoin: null,
+    supportCoin: null,
     // 정당 페이지 시작
     partyInfo: [],
     regionInfo: [],
