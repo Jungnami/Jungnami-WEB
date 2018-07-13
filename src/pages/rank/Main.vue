@@ -214,11 +214,13 @@ export default {
 {
   background-size: 100%;
   margin-right: 0.1vw;
+  box-shadow: 0px 5px 8px rgb(153, 153, 153, 0.3);
 }
 .main_legislator_right
 {
   background-size: 100%;
   margin-left: 0.1vw;
+  box-shadow: 0px 5px 8px rgb(153, 153, 153, 0.3);
 }
 .rank_tag
 {
@@ -299,12 +301,12 @@ img.rank_second_tag
 }
 .mainchart_text
 {
-  margin-top: 2.08vw;
+  margin-top: 3.08vw;
   width: 100%;
 }
 .rank_tab
 {
-  margin-top: 6.24vh;
+  margin-top: 4.24vh;
 }
 .rank_tab_bar
 {

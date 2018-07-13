@@ -250,6 +250,7 @@ export default {
     font-size: 2.13vw;
     border-width: 1px;
   }
+  
   button.active_btn.like_btn {
     border-width: 1px;
   }
@@ -340,6 +341,15 @@ export default {
   font-size: 0.88vw;
   font-family: NanumBarunGothic;
   color: #B4B4B4;
+}
+button.like_btn:hover {
+  background: #B4B4B4;
+  transition: 0.5;
+  color: #fafafa;
+}
+button.like_btn.active_btn:hover {
+  background: #FAFAFA;
+  color: #36C5F1;
 }
 button.active_btn {
   border: 2px solid #36C5F1;
