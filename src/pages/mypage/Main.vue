@@ -5,6 +5,8 @@
       <button @click="logout" class="right">
         <img src="/static/mypage_button_logout.png" alt="logout_button" class="logout_img">
       </button>
+        <div class="background_image_box">
+      
       <v-layout row wrap class="profile_box">
         <v-flex xs1></v-flex>
         <img :src="myInfo.img" alt="image_profile" class="image_profile">
@@ -17,6 +19,8 @@
           </v-flex>
         </v-layout>
       </v-layout>
+        </div>
+      
     </v-flex>
     <v-flex xs1></v-flex>
   </v-layout>
@@ -131,12 +135,20 @@ export default {
   margin-top: 1.77vw;
   margin-right: 1.77vw;
 }
+
+
 .profile_box
 {
   margin-top: 8.6vh;
   margin-bottom: 8.6vh;
   height: 22.87vh;
+  background-image: url('../../../static/mypage_bigbox.png');
+  /* z-index: 100; */
+  
+  
 }
+
+
 .image_profile
 {
   height: 100%;

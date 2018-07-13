@@ -109,8 +109,8 @@ export default {
   .dot {
     height: 13px;
     width: 13px;
-    margin-left: 7px;
-    margin-right: 7px;
+    margin-left: 10px;
+    margin-right: 10px;
     background-color: #FFF;
     border-radius: 50%;
     display: inline-block;
@@ -158,6 +158,12 @@ export default {
 
 }
 
+@media (max-width: 960px) and (min-width: 600px) {
+  img.content_image {
+    height: 14.5vw;
+  }
+}
+
 @media (max-width: 600px) {
   .component_title {
     font-size: 16px;
@@ -189,6 +195,9 @@ export default {
     margin-top: 11.21px;
     margin-bottom: 13.23px;
   }
+  img.content_image {
+    height: 25.3vw;
+  }
 }
 
 .contents {
@@ -207,6 +216,7 @@ export default {
 
 .content_image {
   width: 100%;
+  height: 10.66vw;
   border-radius: 5%;
 }
 

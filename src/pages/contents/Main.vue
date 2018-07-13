@@ -145,7 +145,7 @@ export default {
 {
   font-family: NanumBarunGothic;
   font-size: 0.94vw;
-  margin-top: 1vh;
+  margin-top: 0vh;
   margin-left: 0.78vw;
   margin-right: 0.78vw;
 }

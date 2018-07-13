@@ -147,6 +147,7 @@ export default {
     margin-bottom: 1.29vw;
     display: -webkit-box;
     overflow: hidden;
+    color: rgb(75, 75, 75);
     -webkit-box-orient: vertical;
     -webkit-line-clamp: 1;
     font-size: 1.145vw;
@@ -158,8 +159,8 @@ export default {
   }
 
   .dot {
-    height: 13px;
-    width: 13px;
+    height: 10px;
+    width: 10px;
     margin-left: 7px;
     margin-right: 7px;
     background-color: #FFF;
@@ -240,8 +241,8 @@ export default {
   }
 
   .dot {
-    height: 13px;
-    width: 13px;
+    height: 10px;
+    width: 10px;
     margin-left: 7px;
     margin-right: 7px;
     background-color: #FFF;
@@ -322,8 +323,8 @@ export default {
   }
 
   .dot {
-    height: 13px;
-    width: 13px;
+    height: 10px;
+    width: 10px;
     margin-left: 7px;
     margin-right: 7px;
     background-color: #FFF;
