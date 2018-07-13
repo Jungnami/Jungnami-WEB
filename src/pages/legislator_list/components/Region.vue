@@ -337,7 +337,7 @@ export default {
   padding-top: 0.41vw;
   padding-bottom: 0.41vw;
   margin-left: 1.67vw;
-  margin-top: 1.3vw;
+  margin-top: 1.1vw;
   border: 2px solid #B4B4B4;
   border-radius: 30px;
 

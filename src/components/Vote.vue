@@ -430,8 +430,15 @@ div.vote_list {
   color: #666666;
   top: 7%;
 }
-
-
+.emotion:hover
+{
+  transform: scale(1.1);
+  transition: 0.5s;
+}
+.emotion
+{
+  transition: 0.5s;
+}
 
 
 

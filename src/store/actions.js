@@ -48,8 +48,7 @@ export const rankActions = {
       }
       console.log(response.data)
     }).catch(error => {
-      // alert(error.message)
-      this.$router.push('/')
+      console.log(error.message)
     })
   },
   getVotingCount ({ commit }) {
