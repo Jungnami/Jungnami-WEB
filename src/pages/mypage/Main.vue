@@ -46,8 +46,6 @@
 </template>
 
 <script>
-import * as Cookies from 'js-cookie'
-
 export default {
   name: 'MyPage',
   data() {
@@ -57,8 +55,6 @@ export default {
   },
   methods: {
     logout () {
-      Cookies.remove('kakaoAccessToken')
-      Cookies.remove('openLoginPopUp')
       this.$store.commit('logout')
     },
     getMypageInfoData() {
