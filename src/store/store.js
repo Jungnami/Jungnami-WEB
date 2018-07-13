@@ -2,8 +2,8 @@ import Vue from 'vue'
 import Vuex from 'vuex'
 import createPersistedState from 'vuex-persistedstate'
 import * as Cookies from 'js-cookie'
-import { userGetters, rankGetters, contentsDetailGetters, recommendGetters, partyGetters, legislatorGetters, myPageGetters } from './getters'
-import { loginMutations, rankMutations, contentsDetailMutations, recommendMutations, partyMutations, legislatorMutations, myPageMutations } from './mutations'
+import { userGetters, rankGetters, contentsDetailGetters, recommendGetters, partyGetters, legislatorGetters, myPageGetters, contentsDetailTempGetters } from './getters'
+import { loginMutations, rankMutations, contentsDetailMutations, recommendMutations, partyMutations, legislatorMutations, myPageMutations, contentsDetailTempMutations } from './mutations'
 import { loginActions, rankActions, contentsDetailActions, recommendActions, partyActions, legislatorActions, myPageActions } from './actions'
 
 Vue.use(Vuex)
@@ -17,7 +17,7 @@ export const store = new Vuex.Store({
     openVoteSplash: false,
     voteTarget: null,
     likeRankingList: [],
-    isLike: null,
+    isLike: 1,
     voting_cnt: null,
     // 컨텐츠 상세 페이지 시작
     activeImgIndex: 0, // 컨텐츠 상세 페이지에서 큰 이미지의 인덱스
@@ -47,10 +47,12 @@ export const store = new Vuex.Store({
     //마이페이지
     openBuySplash: false,
     myPageInfo: [],
-    coinInfo: {exchange: []}
+    coinInfo: {exchange: []},
+
+
   },
-  getters: Object.assign({}, userGetters, rankGetters, contentsDetailGetters, recommendGetters, partyGetters, legislatorGetters, myPageGetters),
-  mutations: Object.assign({}, loginMutations, rankMutations, contentsDetailMutations, recommendMutations, partyMutations, legislatorMutations, myPageMutations),
+  getters: Object.assign({}, userGetters, rankGetters, contentsDetailGetters, recommendGetters, partyGetters, legislatorGetters, myPageGetters, contentsDetailTempGetters),
+  mutations: Object.assign({}, loginMutations, rankMutations, contentsDetailMutations, recommendMutations, partyMutations, legislatorMutations, myPageMutations, contentsDetailTempMutations),
   actions: Object.assign({}, loginActions, rankActions, contentsDetailActions, recommendActions, partyActions, legislatorActions, myPageActions),
   plugins: [
     createPersistedState({

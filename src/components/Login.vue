@@ -41,7 +41,7 @@ export default {
     },
     close () {
       this.$store.commit('openLoginComponent')
-      this.$router.push('/')
+      // this.$router.push('/')
     }
   }
 

@@ -106,8 +106,13 @@ export default {
       }
     },
     vote (l_id) {
-      this.$store.commit('changeOpenVotePopUp')
-      this.$store.commit('enrollLegislatorId', l_id)
+      console.log("user_id::: " + this.$store.getters.getUserId)
+      if(this.$store.getters.getUserId === null){
+          this.$store.commit('openLoginComponent')
+      } else{
+        this.$store.commit('changeOpenVotePopUp')
+        this.$store.commit('enrollLegislatorId', l_id)
+      }
     },
     goLegislatorPage (l_id) {
       location.href="/legislator/" + l_id;
