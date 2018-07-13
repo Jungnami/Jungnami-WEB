@@ -15,7 +15,7 @@
           <img src="/static/mypage_button_mycoin.png" alt="mycoin_icon" class="mycoin_icon">
           <div class="mycoin_coin_amount">정나미 {{ item.coin }}코인</div>
         </div>
-        <button class="charge_btn">{{ item.won }} &#8361;</button>
+        <button class="charge_btn" @click="setProps(item.coin)">{{ item.won }} &#8361;</button>
       </v-layout>
     </div>
   </v-layout>
@@ -26,7 +26,7 @@
           <img src="/static/mypage_button_mycoin.png" alt="mycoin_icon" class="mycoin_icon">
           <div class="mycoin_coin_amount">정나미 {{ item.coin }}코인</div>
         </div>
-        <button class="charge_btn">{{ item.won }} &#8361;</button>
+        <button class="charge_btn" @click="setProps(item.coin)">{{ item.won }} &#8361;</button>
       </v-layout>
     </div>
   </v-layout>
@@ -37,23 +37,43 @@
           <img src="/static/mypage_button_mycoin.png" alt="mycoin_icon" class="mycoin_icon">
           <div class="mycoin_coin_amount">정나미 {{ item.coin }}코인</div>
         </div>
-        <button class="charge_btn">{{ item.won }} &#8361;</button>
+        <button class="charge_btn" @click="setProps(item.coin)">{{ item.won }} &#8361;</button>
       </v-layout>
     </div>
   </v-layout>
+  <buy-modal v-if="showModal" :myCoin="myCoin" :buyCoin="activeCoin"
+      @closeModal="showModal = false"></buy-modal>
+  <buy-splash v-if="this.$store.getters.getOpenBuySplash"></buy-splash>
 </v-flex>
 </template>
 
 <script>
+import BuyModal from './BuyModal'
+import BuySplash from './BuySplash'
+
 export default {
   name: 'MyCoin',
+  components: { BuyModal, BuySplash },
   props: ['mypage_data'],
+  data () {
+    return {
+      showModal: false,
+      showCompleteModal: false,
+      activeCoin: 0
+    }
+  },
   computed: {
     myCoin: function() {
-      return this.mypage_data.coin
+      return this.$store.getters.getMypageInfo.coin
     },
     btn_info: function() {
       return this.$store.getters.getCoinInfo.exchange
+    }
+  },
+  methods: {
+    setProps(coin) {
+      this.activeCoin = coin
+      this.showModal = true
     }
   },
   created() {

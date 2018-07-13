@@ -1,10 +1,7 @@
 <template>
+<transition name="modal">
   <div class="modal_mask">
     <div class="modal_wrapper">
-      <transition 
-  name="modal"
-  enter-active-class="animated bounceIn"
-  leave-class="animated bounceOut">
       <div class="modal_container" v-if="coinData">
         
         <div class="support_title">후원하기</div>
@@ -24,10 +21,9 @@
           <button class="check_btn" @click="$emit('closeSupportModal')">취소</button>
         </v-layout>
       </div>
-      </transition>
     </div>
   </div>
-
+</transition>
 </template>
 
 <script>
@@ -218,7 +214,7 @@ export default {
 {
   background: #36C5F1;
 }
-/* .modal-enter {
+.modal-enter {
   opacity: 0;
 }
 .modal-leave-active {
@@ -228,5 +224,5 @@ export default {
 .modal-leave-active .modal-container {
   -webkit-transform: scale(1.1);
   transform: scale(1.1);
-} */
+}
 </style>
