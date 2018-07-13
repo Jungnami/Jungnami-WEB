@@ -111,8 +111,72 @@ export const contentsDetailActions = {
     }).catch(error => {
       // alert(error.message)
     })
+  },
+
+  //스크랩관련
+  //컨텐츠 스크랩하기
+  doScrapContents ({ commit }, payload) {
+    axios.defaults.headers['authorization'] = localStorage.getItem(tokenKey)
+    console.log("do scrap contents go");
+    // let contentsid = payload.contentsid
+    let routePath = '/contents/scrap'
+
+    instance.post(routePath, payload).then(response => {
+      if(response.data.message === 'Successfully scrap') {
+        console.log("isScrap ::: " + JSON.stringify(response.data))
+        // alert("스크랩 성공 :: " + response.data);
+      }
+    }).catch(error => {
+      alert(error.message)
+    })
+  },
+  deleteScrap ({ commit }, payload) {
+    axios.defaults.headers['authorization'] = localStorage.getItem(tokenKey)
+
+    let contentsid = payload.contentsid
+    let routePath = '/delete/scrap/' + contentsid
+
+    instance.delete(routePath, payload).then(response => {
+      if(response.data.message === 'Successfully delete') {
+        // alert("스크랩 삭제 성공 :: " + response.data);
+
+        console.log("deleteScrap ::: " + JSON.stringify(response.data))
+      }
+    }).catch(error => {
+      alert(error.message)
+    })
+  },
+  doLikeContents ({ commit }, payload) {
+    axios.defaults.headers['authorization'] = localStorage.getItem(tokenKey)
+    console.log("do like contents go");
+    let routePath = '/contents/like'
+
+    instance.post(routePath, payload).then(response => {
+      if(response.data.message === 'Successfully insert contentslike') {
+        console.log("isScrap ::: " + JSON.stringify(response.data))
+        alert("좋아요 성공 :: " + response.data);
+      }
+    }).catch(error => {
+      alert(error.message)
+    })
+  },
+    deleteLikeContents ({ commit }, payload) {
+      axios.defaults.headers['authorization'] = localStorage.getItem(tokenKey)
+
+      let contentsid = payload.contents_id
+      let routePath = '/delete/contentslike/' + contentsid
+
+      instance.delete(routePath, payload).then(response => {
+        if(response.data.message === 'Successfully cancel') {
+          alert("좋아요 삭제 성공 :: " + response.data);
+
+          console.log("deleteScrap ::: " + JSON.stringify(response.data))
+        }
+      }).catch(error => {
+        alert(error.message)
+      })
+    }
   }
-}
 
 // 추천페이지 액션
 export const recommendActions = {

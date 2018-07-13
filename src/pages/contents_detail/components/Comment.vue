@@ -2,17 +2,20 @@
 <div>
   <v-layout row nowrap align-center class="contents_info_wrapper">
     <img src="/static/comment_contents_heart.png" alt="contents_heart" class="contents_icon">
-    <div class="contents_info">{{ contentsInfo.likeCnt }}명이 좋아합니다</div>
+    <div class="contents_info">{{ contentsLikeCnt }}명이 좋아합니다</div>
     <img src="/static/comment_contents_comment.png" alt="contents_comment" class="contents_icon">
     <div class="contents_info">{{ contentsInfo.commentCnt }}개</div>
   </v-layout>
   <v-layout row nowrap justify-space-between align-center class="button_wrapper">
     <div class="btn_group">
-      <button class="heart btn"></button>
-      <button class="comment btn"></button>
+      <button class="heart btn" @click="clickContentsLikeBtn(contentsIsLike)" :style="{ backgroundImage: likeBtnImage[contentsIsLike] }"></button>
+      <!-- <button class="comment btn"></button> -->
       <button class="share btn"></button>
     </div>
-    <button class="scrap_btn"></button>
+
+    <!-- :style="{ contentsInfo.isScrap === 1 }" -->
+    <button class="scrap_btn" @click="clickScrapBtn(isScrap)" :style="{ backgroundImage: scrapImage[isScrap] }"></button>
+
   </v-layout>
   <v-layout justify-space-between align-center class="comment_form">
     <input type="text" v-model="commentContents" @keyup.enter="makeComment" placeholder="댓글을 입력하세요..." class="comment_input">
@@ -24,12 +27,12 @@
         <img :src="userImg(comment.user_img)" alt="user_img" class="user_img">
         <div>
           <div class="user_name">
-            {{ comment.user_nick }} 
-            <img src="/static/comment_best.png" alt="best_comment" class="best_tag">
+            {{ comment.user_nick }}
+            <img v-if="i<3" src="/static/comment_best.png" alt="best_comment" class="best_tag">
           </div>
           <v-layout row wrap justify-space-between class="comment_content_wrapper">
             <div class="comment_content">{{ comment.content }}</div>
-            <div><button class="comment_like" :style="{ backgroundImage: likeBtnImage[comment.islike] }" 
+            <div><button class="comment_like" :style="{ backgroundImage: likeBtnImage[comment.islike] }"
                     @click="likeComment(comment.commentid, i)"></button></div>
           </v-layout>
         </div>
@@ -56,7 +59,11 @@ export default {
       data: [],
       busy: false,
       likeBtnImage: ['url("/static/comment_heart_no.png")', 'url("/static/comment_heart_yes.png")'],
-      commentContents: ''
+      commentContents: '',
+      scrapImage: ['url("/static/comment_scrap.png")', 'url("/static/comment_scrap_yes.png")'],
+      isScrap: this.contentsInfo.isscrap,
+      contentsIsLike: this.contentsInfo.islike,
+      contentsLikeCnt: this.contentsInfo.likeCnt
     }
   },
   methods: {
@@ -99,6 +106,36 @@ export default {
         this.commentContents = ''
         location.reload(true)
       }
+    },
+    clickScrapBtn (isScrap) {
+      const object = {
+        contentsid: this.contentsID
+      }
+      if( isScrap === 0) {
+        this.$store.dispatch('doScrapContents', object)
+        this.isScrap = 1;
+      } else if( isScrap === 1){
+        this.$store.dispatch('deleteScrap', object);
+        this.isScrap = 0;
+      }
+    },
+    clickContentsLikeBtn (isLike) {
+      console.log("!@#!@#");
+      const object = {
+        contents_id: this.contentsID
+      }
+      if( isLike === 0) {
+        console.log("like 0");
+
+        this.$store.dispatch('doLikeContents', object)
+        this.contentsIsLike = 1;
+        this.contentsLikeCnt++;
+      } else if( isLike === 1){
+        console.log("like 1");
+        this.$store.dispatch('deleteLikeContents', object);
+        this.contentsIsLike = 0;
+        this.contentsLikeCnt--;
+      }
     }
   },
   created () {
@@ -135,7 +172,7 @@ export default {
     height: 4.8vw;
     width: 4.8vw;
   }
-  button.scrap_btn { 
+  button.scrap_btn {
     width: 3.6vw;
     height: 4.8vw;
   }
@@ -230,8 +267,8 @@ export default {
 button.heart { background-image: url('/static/comment_heart_no.png') }
 button.comment { background-image: url('/static/comment_comment.png') }
 button.share { background-image: url('/static/comment_share.png') }
-.scrap_btn 
-{ 
+.scrap_btn
+{
   background-image: url('/static/comment_scrap.png');
   width: 1.09vw;
   height: 1.46vw;
@@ -358,9 +395,9 @@ button.share { background-image: url('/static/comment_share.png') }
   width: 0.47vw;
 }
 ::-webkit-scrollbar-track {
-    background: #F1F1F1; 
+    background: #F1F1F1;
 }
 ::-webkit-scrollbar-thumb {
-    background: #E4E4E4; 
+    background: #E4E4E4;
 }
 </style>
