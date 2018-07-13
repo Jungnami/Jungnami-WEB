@@ -119,3 +119,10 @@ export const legislatorMutations = {
     state.supportCoin = payload
   }
 }
+
+
+export const myPageMutations = {
+  setCoinInfo (state, payload) {
+    state.coinInfo = payload
+  }
+}

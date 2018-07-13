@@ -2,9 +2,9 @@ import Vue from 'vue'
 import Vuex from 'vuex'
 import createPersistedState from 'vuex-persistedstate'
 import * as Cookies from 'js-cookie'
-import { userGetters, rankGetters, contentsDetailGetters, recommendGetters, partyGetters, legislatorGetters } from './getters'
-import { loginMutations, rankMutations, contentsDetailMutations, recommendMutations, partyMutations, legislatorMutations } from './mutations'
-import { loginActions, rankActions, contentsDetailActions, recommendActions, partyActions, legislatorActions } from './actions'
+import { userGetters, rankGetters, contentsDetailGetters, recommendGetters, partyGetters, legislatorGetters, myPageGetters } from './getters'
+import { loginMutations, rankMutations, contentsDetailMutations, recommendMutations, partyMutations, legislatorMutations, myPageMutations } from './mutations'
+import { loginActions, rankActions, contentsDetailActions, recommendActions, partyActions, legislatorActions, myPageActions } from './actions'
 
 Vue.use(Vuex)
 
@@ -45,11 +45,12 @@ export const store = new Vuex.Store({
     regionColor: '#157ACE',
 
     //마이페이지
-    myPageInfo: []
+    myPageInfo: [],
+    coinInfo: null
   },
-  getters: Object.assign({}, userGetters, rankGetters, contentsDetailGetters, recommendGetters, partyGetters, legislatorGetters),
-  mutations: Object.assign({}, loginMutations, rankMutations, contentsDetailMutations, recommendMutations, partyMutations, legislatorMutations),
-  actions: Object.assign({}, loginActions, rankActions, contentsDetailActions, recommendActions, partyActions, legislatorActions),
+  getters: Object.assign({}, userGetters, rankGetters, contentsDetailGetters, recommendGetters, partyGetters, legislatorGetters, myPageGetters),
+  mutations: Object.assign({}, loginMutations, rankMutations, contentsDetailMutations, recommendMutations, partyMutations, legislatorMutations, myPageMutations),
+  actions: Object.assign({}, loginActions, rankActions, contentsDetailActions, recommendActions, partyActions, legislatorActions, myPageActions),
   plugins: [
     createPersistedState({
       storage: {

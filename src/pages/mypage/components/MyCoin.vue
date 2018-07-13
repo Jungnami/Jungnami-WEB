@@ -1,13 +1,12 @@
 <template>
-<v-flex xs10 offset-xs1 class="my_coin">
+<v-flex xs10 offset-xs1 class="my_coin" v-if="btn_info">
   <v-layout row wrap justify-center align-center class="coin_amount">
     <div>나의 코인</div>
     <div class="coin">{{ myCoin }} 코인</div>
   </v-layout>
   <v-layout column wrap justify-center class="coin_explain">
     <div>정나미 코인이란?</div>
-    <div class="explain_text">국회의원의 호감, 비호감을 투표하기 위해 필요한 Point 입니다.<br>
-    결제를 통해 구매하거나 서비스 이용을 통해 무료로 얻을 수 있습니다.</div>
+    <div class="explain_text">국회의원의 호감, 비호감을 투표하기 위해 필요한 Point 입니다.<br> 결제를 통해 구매하거나 서비스 이용을 통해 무료로 얻을 수 있습니다.</div>
   </v-layout>
   <v-layout justify-space-around class="hidden-sm-and-down">
     <div v-for="item in btn_info.slice(0, 3)" :key="item.coin" class="btn_wrapper">
@@ -49,28 +48,24 @@
 export default {
   name: 'MyCoin',
   props: ['mypage_data'],
-  data () {
-    return {
-      btn_info: [
-        {coin: 10, won: 1000},
-        {coin: 33, won: 3000},
-        {coin: 57, won: 5000},
-        {coin: 79, won: 7000},
-        {coin: 115, won: 10000}
-      ],
-
+  // data() {
+  //   return {
+  //     btn_info: this.coin.exchange
+  //   }
+  // },
+  computed: {
+    myCoin: function() {
+      return this.mypage_data.coin
+    },
+    btn_info: function() {
+      return this.$store.getters.getCoinInfo.exchange
     }
   },
-  computed: {
-    myCoin: function(){
-      return this.mypage_data.coin
-    }
+  created() {
+    this.$store.dispatch('coinInfo')
+  }
 }
 
-
-
-
-}
 </script>
 
 <style scoped>
@@ -101,10 +96,10 @@ export default {
   div.btn_wrapper {
     margin-top: 4.27vw;
   }
-  div.btn_wrapper > div {
+  div.btn_wrapper>div {
     width: 75.03vw;
   }
-  div.btn_wrapper > div > div {
+  div.btn_wrapper>div>div {
     padding-top: 1vw;
   }
   img.mycoin_icon {
@@ -122,26 +117,26 @@ export default {
     font-size: 3.2vw;
   }
 }
-.my_coin
-{
+
+.my_coin {
   border: 1px solid #D3D3D3;
   border-radius: 4px;
   box-shadow: 3px 3px 8px rgba(0, 0, 0, 0.16);
 }
-.coin_amount
-{
+
+.coin_amount {
   height: 7.55vw;
   font-family: NanumBarunGothic;
   font-size: 1.67vw;
   color: #3C3C3C;
 }
-.coin_amount .coin
-{
+
+.coin_amount .coin {
   color: #36C5F1;
   margin-left: 5.42vw;
 }
-.coin_explain
-{
+
+.coin_explain {
   text-align: center;
   background: #F9F9FB;
   font-family: NanumBarunGothic;
@@ -149,43 +144,44 @@ export default {
   color: #707070;
   padding-top: 1.25vw;
   border-bottom: 1px solid #D3D3D3;
-  border-top: 1px solid #D3D3D3;;
+  border-top: 1px solid #D3D3D3;
+  ;
 }
-.coin_explain .explain_text
-{
+
+.coin_explain .explain_text {
   color: #B7B7B7;
   line-height: 2.34vw;
   margin-top: 1vw;
   margin-bottom: 1.8vw;
 }
-.btn_wrapper
-{
+
+.btn_wrapper {
   margin-top: 2.03vw;
 }
-.btn_wrapper > div
-{
+
+.btn_wrapper>div {
   width: 22.85vw;
 }
-.btn_wrapper > div > div
-{
+
+.btn_wrapper>div>div {
   padding-top: 0.6vw;
 }
-.mycoin_icon
-{
+
+.mycoin_icon {
   height: 1.35vw;
   width: 1.35vw;
   margin-right: 0.49vw;
   vertical-align: text-bottom;
 }
-.mycoin_coin_amount
-{
+
+.mycoin_coin_amount {
   display: inline-block;
   font-family: NanumBarunGothic;
   font-size: 1.15vw;
   color: #3C3C3C;
 }
-.charge_btn
-{
+
+.charge_btn {
   text-align: center;
   width: 7.08vw;
   padding-top: 0.33vw;
@@ -196,8 +192,8 @@ export default {
   border: 1px solid #36C5F1;
   border-radius: 22px;
 }
-.btns_second
-{
+
+.btns_second {
   margin-right: 27.3vw;
   margin-bottom: 2.75vw;
 }
