@@ -227,7 +227,7 @@ export default {
   created() {
     this.$store.commit('setRegion', '서울')
     this.$store.commit('putIsLike', 1);
-
+    this.$store.commit('setRegionColor', '#157ACE')
     this.$store.dispatch('getLegislatorListByRegion', {
       isLike: 1,
       region: '서울'
@@ -254,7 +254,7 @@ export default {
     font-size: 2.13vw;
     border-width: 1px;
   }
-  
+
   button.active_btn.like_btn {
     border-width: 1px;
   }
