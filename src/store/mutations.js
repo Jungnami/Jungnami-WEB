@@ -15,7 +15,11 @@ export const loginMutations = {
   logout (state) {
     localStorage.removeItem('JUNGNAMI_ACCESS_TOKEN');
     state.kakaoAccessToken = null
+<<<<<<< HEAD
     state.user_id = null
+=======
+    localStorage.removeItem('JUNGNAMI_ACCESS_TOKEN')
+>>>>>>> dev
     state.openLoginPopUp = false
     router.push('/')
   },
@@ -60,6 +64,10 @@ export const contentsDetailMutations = {
   },
   minusActiveImgIndex (state) {
     state.activeImgIndex--
+  },
+  changeImgIndex (state, payload) {
+    console.log('여기까지 들어옴')
+    state.activeImgIndex = payload
   },
   postingViewSuccess (state, payload) {
     state.contentsDetail = payload

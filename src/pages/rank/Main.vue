@@ -21,7 +21,8 @@
       <div class="name">{{ items[0].l_name }}</div>
       <div class="party">{{ items[0].party_name }}</div>
       <div class="vote_box">
-        <div class="vote_count text-align-right vote_count_left" :style="{ width: items[0].width * 28 + 'vw' }">{{ items[0].score }}표</div>
+        <div class="vote_count text-align-right vote_count_left" 
+        :style="{ width: items[0].width * 28 + 'vw', backgroundColor: getColorWithPartyName(items[0].party_name) }">{{ items[0].score }}표</div>
       </div>
     </v-flex>
     <v-flex xs5 class="main_legislator_right" :style="{backgroundImage: `url(${items[1].mainimg})`}" justify-end>
@@ -31,7 +32,8 @@
       <div class="name text-align-right">{{ items[1].l_name }}</div>
       <div class="party text-align-right">{{ items[1].party_name }}</div>
       <div class="vote_box">
-        <div class="vote_count vote_count_right" :style="{ marginLeft: (1-items[1].width + 13.66/28) * 28 + 'vw' }">{{ items[1].score }}표</div>
+        <div class="vote_count vote_count_right" 
+        :style="{ marginLeft: (1-items[1].width + 13.66/28) * 28 + 'vw', backgroundColor: getColorWithPartyName(items[1].party_name) }">{{ items[1].score }}표</div>
       </div>
     </v-flex>
   </v-layout>
@@ -89,6 +91,26 @@ export default {
     getLikeRanking (isLike) {
       this.booleanLike = !this.booleanLike
       this.$store.dispatch('getLikeRanking', isLike)
+    },
+    getColorWithPartyName(partyName){
+      switch(partyName){
+        case '더불어민주당':
+          return '#1783DC';
+        case '자유한국당':
+          return '#E1241A';
+        case '정의당':
+          return '#FCDC00';
+        case '민중당':
+          return '#EC8C0D';
+        case '대한애국당':
+          return '#123167';
+        case '바른미래당':
+          return '#14CDCC';
+        case '민주평화당':
+          return '#3FC335';
+        case '무소속':
+          return '#C6C6C6';
+      }
     }
   },
   created () {

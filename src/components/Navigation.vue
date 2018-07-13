@@ -1,5 +1,5 @@
 <template>
-<div class="nav">
+<div class="nav" :style="{ position: choosePosition() }">
   <v-layout row nowrap class="nav_bar">
     <v-icon @click="sideNav = !sideNav" class="hidden-sm-and-up menu_icon">menu</v-icon>
     <v-flex offset-sm1 class="logo_box">
@@ -11,7 +11,7 @@
     <v-btn color="text" class="hidden-xs-only nav_menu" v-bind:class="{ on : $route.path.includes(item.path)}" flat depressed v-for="item in items" :key="item.text" :to="item.path">
         {{ item.text }}
     </v-btn>
-    <router-link to="/mypage" v-if="kakaoToken">
+    <router-link to="/mypage/mycoin" v-if="kakaoToken">
       <img src="../../static/tab_icon_mypage.png" alt="mypage_logo" class="mypage_icon" :class="mypage_icon_over? 'animated rubberBand': ''" @mouseover="mypage_icon_over = true" @mouseout="mypage_icon_over = false">
     </router-link>
     <button class="mypage_icon login_icon" v-if="!kakaoToken" @click="openLogin">로그인</button>
@@ -59,6 +59,10 @@ export default {
   methods: {
     openLogin () {
       this.$store.commit('openLoginComponent')
+    },
+    choosePosition () {
+      if (this.sideNav) return 'static'
+      return 'fixed'
     }
   }
 }

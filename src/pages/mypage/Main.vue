@@ -5,9 +5,11 @@
       <button @click="logout" class="right">
         <img src="/static/mypage_button_logout.png" alt="logout_button" class="logout_img">
       </button>
+        <div class="background_image_box">
+      
       <v-layout row wrap class="profile_box">
         <v-flex xs1></v-flex>
-        <img :src="myInfo.img" alt="image_profile" class="image_profile">
+        <img :src="checkImg(myInfo.img)" alt="image_profile" class="image_profile">
         <v-layout column justify-space-between class="profile_contents">
           <v-flex class="name">{{myInfo.nickname}}</v-flex>
           <v-flex>
@@ -17,25 +19,30 @@
           </v-flex>
         </v-layout>
       </v-layout>
+        </div>
+      
     </v-flex>
     <v-flex xs1></v-flex>
   </v-layout>
   <v-layout row wrap justify-space-between class="mypage_tab_bar">
-    <router-link to="/mypage">
+    <router-link to="/mypage/mycoin">
       <div class="link_box">
-        <img src="../../../static/mypage_button_mycoin_off.png" alt="mycoin_btn" class="link_img mycoin_img">
+        <img src="/static/mypage_button_mycoin_off.png" alt="mycoin_btn" class="link_img mycoin_img" v-if="!$route.path.includes('/mycoin')">
+        <img src="/static/mypage_button_mycoin.png" alt="mycoin_btn" class="link_img mycoin_img" v-if="$route.path.includes('/mycoin')">
         <div class="mycoin link_name">나의 코인</div>
       </div>
     </router-link>
     <router-link to="/mypage/myvote">
-      <div class="link_box">
-        <img src="../../../static/mypage_button_myvote_off.png" alt="myvote_btn" class="link_img myvote_img">
+      <div class="link_box"> 
+        <img src="/static/mypage_button_myvote_off.png" alt="myvote_btn" class="link_img myvote_img" v-if="!$route.path.includes('/myvote')">
+        <img src="/static/mypage_button_myvote.png" alt="myvote_btn" class="link_img myvote_img" v-if="$route.path.includes('/myvote')">
         <div class="myvote link_name">나의 투표권</div>
       </div>
     </router-link>
     <router-link to="/mypage/scrap">
       <div class="link_box">
-        <img src="../../../static/mypage_button_scrap_off.png" alt="scrap_btn" class="link_img scrap_img">
+        <img src="/static/mypage_button_scrap_off.png" alt="scrap_btn" class="link_img scrap_img" v-if="!$route.path.includes('/scrap')">
+        <img src="/static/mypage_button_scrap.png" alt="scrap_btn" class="link_img scrap_img" v-if="$route.path.includes('/scrap')">
         <div class="scrap link_name">스크랩</div>
       </div>
     </router-link>
@@ -46,8 +53,6 @@
 </template>
 
 <script>
-import * as Cookies from 'js-cookie'
-
 export default {
   name: 'MyPage',
   data() {
@@ -57,12 +62,14 @@ export default {
   },
   methods: {
     logout () {
-      Cookies.remove('kakaoAccessToken')
-      Cookies.remove('openLoginPopUp')
       this.$store.commit('logout')
     },
     getMypageInfoData() {
       return this.myInfo;
+    },
+    checkImg (img) {
+      if (img === '0') return '/static/mypage_image_profile.png'
+      return img
     }
   },
   computed : {
@@ -131,12 +138,20 @@ export default {
   margin-top: 1.77vw;
   margin-right: 1.77vw;
 }
+
+
 .profile_box
 {
   margin-top: 8.6vh;
   margin-bottom: 8.6vh;
   height: 22.87vh;
+  background-image: url('../../../static/mypage_bigbox.png');
+  /* z-index: 100; */
+  
+  
 }
+
+
 .image_profile
 {
   height: 100%;
