@@ -128,16 +128,6 @@ export default {
     left: 46vw;
     top: 58vw;
   }
-  img.character_one {
-    height: 10.42vw;
-    left: 30vw;
-    top: 78.5vw;
-  }
-  img.character_two {
-    height: 10.42vw;
-    left: 49vw;
-    top: 78.5vw;
-  }
   div.name {
     font-size: 3.73vw;
     margin-top: 29.3vw;
@@ -161,30 +151,14 @@ export default {
 }
 @media (min-width: 600px) and (max-width: 960px) {
   img.vs_icon {
-    left: 46vw;
+    left: 44vw;
     top: 31vw;
-  }
-  img.character_one {
-    left: 30vw;
-    top: 42.5vw;
-  }
-  img.character_two {
-    left: 49vw;
-    top: 42.5vw;
   }
 }
 @media (min-width: 960px) and (max-width: 1264px) {
   img.vs_icon {
-    left: 46vw;
-    top: 28vw;
-  }
-  img.character_one {
-    left: 30vw;
-    top: 39.5vw;
-  }
-  img.character_two {
-    left: 49vw;
-    top: 39.5vw;
+    left: 44vw;
+    top: 27vw;
   }
 }
 .route_link
@@ -262,20 +236,6 @@ img.rank_second_tag
   height: 10vw;
   left: 44vw;
   top: 24vw;
-}
-.character_one
-{
-  position: absolute;
-  height: 10.42vw;
-  left: 30vw;
-  top: 37.5vw;
-}
-.character_two
-{
-  position: absolute;
-  height: 10.42vw;
-  left: 49vw;
-  top: 37.5vw;
 }
 .vote_count
 {

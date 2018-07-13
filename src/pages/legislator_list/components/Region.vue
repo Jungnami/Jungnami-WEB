@@ -1,5 +1,7 @@
 <template>
 <v-layout row wrap class="region_page">
+  <vote-splash v-if="this.$store.getters.getOpenVoteSplash"></vote-splash>
+  <vote-modal v-if="this.$store.getters.getOpenVotePopUp"></vote-modal>
   <v-flex xs7 md3 offset-xs1>
     <img src="../../../../static/region_main_text.png" alt="list_region_text" class="region_text">
     <map-component @click-map="setRegionData(region, regionColor)" class="hidden-sm-and-down map_component"></map-component>
@@ -67,12 +69,14 @@
 <script>
 import MapComponent from './Map'
 import VotingList from '../../../components/Vote'
+import VoteModal from '../../../components/VoteModal'
+import VoteSplash from '../../../components/VoteSplash'
 
 export default {
 
   name: 'Region',
   components: {
-    MapComponent, VotingList
+    MapComponent, VotingList, VoteModal, VoteSplash
   },
   data () {
     return{
@@ -334,7 +338,7 @@ export default {
   padding-top: 0.41vw;
   padding-bottom: 0.41vw;
   margin-left: 1.67vw;
-  margin-top: 1.3vw;
+  margin-top: 1.1vw;
   border: 2px solid #B4B4B4;
   border-radius: 30px;
 
