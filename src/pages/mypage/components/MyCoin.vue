@@ -159,7 +159,7 @@ export default {
 }
 
 .btn_wrapper>div>div {
-  padding-top: 0.6vw;
+  padding-top: 0.4vw;
 }
 
 .mycoin_icon {

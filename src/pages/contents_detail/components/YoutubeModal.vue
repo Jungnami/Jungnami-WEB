@@ -30,7 +30,7 @@ export default {
 }
 </script>
 
-<style scoped> 
+<style scoped>
 .modal_mask
 {
   position: fixed;

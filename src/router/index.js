@@ -61,7 +61,7 @@ export default new Router({
       name: 'MyPage',
       component: MyPage,
       children: [{
-        path: '/',
+        path: 'mycoin',
         name: 'MyCoin',
         component: MyCoin
       },

@@ -2,7 +2,7 @@
 <div>
   <v-layout row nowrap justify-space-around v-if="propsapp">
     <button class="left_btn btn" @click="indexDown"></button>
-    <img v-for="(image, i) in propsapp.imageArray" :src="image.img_url" 
+    <img v-for="(image, i) in propsapp.imageArray" :src="image.img_url" @click="changeImg(i)"
         alt="prview_image" :key="i" :id="checkActive(i)? 'active_img':''" class="pre_img">
     <div class="rest_div" v-for="(item, i) in getRestArray(propsapp.imageArray)" :key="i+propsapp.listAllLength" v-if="propsapp.imageArray.length !== propsapp.listLength">
     </div>
@@ -56,6 +56,10 @@ export default {
         array.push(imageArray[0])
       }
       return array
+    },
+    changeImg(idx) {
+      let indexChange = idx - (this.imgIndex % this.propsapp.listLength)
+      this.$store.commit('changeImgIndex', (this.imgIndex + indexChange))
     }
   }
 }
@@ -94,6 +98,7 @@ export default {
 {
   width: 3.6vw;
   height: 3.6vw;
+  cursor: pointer;
 }
 #active_img
 {
