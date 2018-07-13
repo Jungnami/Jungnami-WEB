@@ -311,6 +311,12 @@ export default {
 
 .party_img {
   width: 100%;
+  transition: 0.5s;
+}
+.party_img:hover
+{
+  transition: 0.5s;
+  transform: scale(1.2)
 }
 
 .party_tab_bar {
@@ -340,6 +346,17 @@ export default {
   font-size: 0.88vw;
   font-family: NanumBarunGothic;
   color: #B4B4B4;
+}
+.like_btn:hover
+{
+  background: #B4B4B4;
+  transition: 0.5;
+  color: rgb(255, 255, 255);
+}
+.like_btn.active_btn:hover
+{
+  background: #FAFAFA;
+  color: #36C5F1;
 }
 button.active_btn {
   border: 2px solid #36C5F1;
