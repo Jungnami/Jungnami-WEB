@@ -158,6 +158,14 @@ export default {
 
 }
 
+@media (max-width: 960px) and (min-width: 600px) {
+  img.content_image {
+    min-height: 14.5vw;
+    max-height: 14.5vw;
+    height: 14.5vw;
+  }
+}
+
 @media (max-width: 600px) {
   .component_title {
     font-size: 16px;
@@ -189,6 +197,11 @@ export default {
     margin-top: 11.21px;
     margin-bottom: 13.23px;
   }
+  img.content_img {
+    min-height: 25.3vw;
+    max-height: 25.3vw;
+    height: 25.3vw;
+  }
 }
 
 .contents {
@@ -207,6 +220,9 @@ export default {
 
 .content_image {
   width: 100%;
+  min-height: 10.66vw;
+  max-height: 10.66vw;
+  height: 10.66vw;
   border-radius: 5%;
 }
 

@@ -50,14 +50,15 @@ export default {
 }
 .modal_container
 {
-  width: 80vw;
-  height: 50vw;
+  width: 72vw;
+  height: 45vw;
   margin: 0px auto;
   text-align: center;
   transition: all .3s ease;
 }
 .close_btn
 {
+  margin-top: 8vh;
   text-align: right;
 }
 #video
