@@ -1,5 +1,5 @@
 <template>
-<div class="nav">
+<div class="nav" :style="{ position: choosePosition() }">
   <v-layout row nowrap class="nav_bar">
     <v-icon @click="sideNav = !sideNav" class="hidden-sm-and-up menu_icon">menu</v-icon>
     <v-flex offset-sm1 class="logo_box">
@@ -59,6 +59,10 @@ export default {
   methods: {
     openLogin () {
       this.$store.commit('openLoginComponent')
+    },
+    choosePosition () {
+      if (this.sideNav) return 'static'
+      return 'fixed'
     }
   }
 }
