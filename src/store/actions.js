@@ -12,8 +12,8 @@ export const loginActions = {
     instance.post('/user/kakaologin', payload).then(response => {
       if (response.data.message === 'success') {
         commit('signInSuccess', response.data.data)
-        console.log(JSON.stringify(response.data.data))
-        console.log('login success!!!')
+        // console.log(JSON.stringify(response.data.data))
+        // console.log('login success!!!')
         axios.defaults.headers['authorization'] = response.data.data.token
       }
       console.log(response.data)
@@ -26,7 +26,7 @@ export const loginActions = {
     axios.defaults.headers['authorization'] = localStorage.getItem(tokenKey)
     let routePath = '/user/mypage/' + payload.mypage_id
     instance.get(routePath).then(response => {
-      console.log("ASdfasf!@#!")
+      // console.log("ASdfasf!@#!")
       // console.log("safdasdfasdf" + JSON.stringify(response.data));
       if (response.data.message === 'Select Data Success') {
         console.log(JSON.stringify(response.data.data));
@@ -338,4 +338,21 @@ export const legislatorActions = {
       alert(error.message)
     })
   }
+}
+
+//마이페이지관련
+export const myPageActions = {
+  coinInfo ({ commit }) {
+    axios.defaults.headers['authorization'] = localStorage.getItem(tokenKey)
+    instance.get('/user/coin').then(response => {
+      console.log("coinINFO:::::::" + JSON.stringify(response.data.data));
+      if (response.data.message === 'Success') {
+        console.log("success");
+        commit('setCoinInfo', response.data.data)
+      }
+
+    }).catch(error => {
+      alert(error.message)
+    })
+  },
 }

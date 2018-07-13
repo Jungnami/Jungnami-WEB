@@ -2,7 +2,7 @@
 <v-flex xs6 sm2 offset-xs3 offset-sm1>
   <div class="legislator_img_wrapper">
     <img :src="profileInfo.profileimg" alt="legislator_image_profile"
-     class="legislator_img" :style="{ border: `2px solid ${getColorWithPartyName(profileInfo.party_name)}`}">
+     class="legislator_img" :style="{ border: `5px solid ${getColorWithPartyName(profileInfo.party_name)}`}">
     <img :src="getMedalImg(profileInfo.likerank, profileInfo.unlikerank)"
        alt="legislator_medal" class="medal" v-if="checkMedal(profileInfo.likerank, profileInfo.unlikerank)">
   </div>

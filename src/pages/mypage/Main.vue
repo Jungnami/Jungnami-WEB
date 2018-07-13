@@ -67,7 +67,7 @@ export default {
   },
   computed : {
     myInfo: function() {
-      console.log("here computed:::" + this.$store.getters.getMypageInfo)
+      // console.log("here computed:::" + this.$store.getters.getMypageInfo)
       return this.$store.getters.getMypageInfo
     }
   },

@@ -11,18 +11,35 @@
   <v-layout justify-center>
     <div>
       <input type="text" placeholder="투표권(갯수)" class="change_input">
-      <div class="my_coin">나의 보유 코인 <span>72코인</span></div>
+      <div class="my_coin">나의 보유 코인 <span>{{ myCoin }}코인</span></div>
     </div>
   </v-layout>
   <v-layout>
     <button class="change_btn">전환하기</button>
   </v-layout>
-</v-flex>  
+</v-flex>
 </template>
 
 <script>
 export default {
+  name: 'MyVote',
+  props: ['mypage_data'],
+  data () {
+    return {
+    }
+  },
+  computed: {
+    myCoin: function() {
+      return this.mypage_data.coin
+    },
+    coinInfo: function() {
+      return this.$store.getters.getCoinInfo
+    }
+  },
+  created() {
+    this.$store.dispatch('getCoinInfo')
 
+  }
 }
 </script>
 
