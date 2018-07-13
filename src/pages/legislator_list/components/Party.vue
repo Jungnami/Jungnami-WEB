@@ -374,8 +374,8 @@ hr {
 }
 
 .dot {
-  height: 7px;
-  width: 7px;
+  height: 10px;
+  width: 10px;
   margin-left: 4.15px;
   margin-right: 4.15px;
   background-color: #FFF;
@@ -385,8 +385,8 @@ hr {
 }
 
 .dot_box {
-  margin-top: 11.21px;
-  margin-bottom: 13.23px;
+  margin-top: 26.21px;
+  margin-bottom: 0.23px;
 }
 
 .dot.on {
