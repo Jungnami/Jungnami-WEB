@@ -24,7 +24,7 @@
         <!-- <div stlye="display: inline-block;"> -->
         <!-- <router-link to="home" tag="div"> -->
         <div class="thumbnail_box" @click="goLegislatorPage(item.l_id)">
-          <div class="thumbnail_border" :style="">
+          <div class="thumbnail_border">
             <img :src="item.profileimg" alt="Avatar" class="thumbnail_content" :style="{ border: '2px solid ' +  getColorWithPartyName(item.party_name) }">
           </div>
         </div>
@@ -430,8 +430,15 @@ div.vote_list {
   color: #666666;
   top: 7%;
 }
-
-
+.emotion:hover
+{
+  transform: scale(1.1);
+  transition: 0.5s;
+}
+.emotion
+{
+  transition: 0.5s;
+}
 
 
 

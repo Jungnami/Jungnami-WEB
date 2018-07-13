@@ -34,7 +34,7 @@
     <v-layout row wrap justify-space-between>
       <div class="link_item" v-for="(item, i) in button_items" :key="i">
         <router-link :to="item.path">
-          <img :src="item.src" alt="item_link" class="item_link" :class="item_link_over[i] === 1? 'animated pulse' : ''" @mouseover="item_link_over[i] = 1 " @mouseout="item_link_over[i] = 0">
+          <img :src="item.src" alt="item_link" class="item_link" :class="item_link_over === item.src? 'animated pulse' : ''" @mouseover="item_link_over = item.src" @mouseout="item_link_over = null">
         </router-link>
       </div>
     </v-layout>
@@ -65,7 +65,7 @@ export default {
         {src: 'url("../../../static/home_imagebanner_smallbox_tablet_03.png")'},
         {src: 'url("../../../static/home_imagebanner_smallbox_tablet_04.png")'},
       ],
-      item_link_over: [0, 0, 0]
+      item_link_over: null
     }
   },
   methods: {

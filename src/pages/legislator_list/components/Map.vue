@@ -325,10 +325,12 @@ export default {
 path, text, image
 {
   cursor: pointer;
+	transition: 0.5s;
 }
 svg:hover path
 {
   opacity: 0.3;
+	transition: 0.5s;
 }
 #gyeongbuk:hover path, #ulsan:hover path, #daegu:hover path, #gyeongnam:hover path, #busan:hover path,
 #sejong:hover path, #jeonbuk:hover path, #jeonnam:hover path, #gwangju:hover path, #daejeon:hover path,
