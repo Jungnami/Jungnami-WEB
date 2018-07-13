@@ -1,7 +1,7 @@
 <template>
 <div class="contents" v-if="contentsData">
 
-  <v-layout row wrap justify-space-around>
+  <v-layout row wrap>
     <v-flex xs12 class="component_title" v-if="title">
       {{ title }}
     </v-flex>

@@ -48,11 +48,6 @@
 export default {
   name: 'MyCoin',
   props: ['mypage_data'],
-  // data() {
-  //   return {
-  //     btn_info: this.coin.exchange
-  //   }
-  // },
   computed: {
     myCoin: function() {
       return this.mypage_data.coin
