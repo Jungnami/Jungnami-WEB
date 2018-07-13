@@ -221,3 +221,41 @@ export const legislatorActions = {
     })
   }
 }
+
+export const partyActions = {
+  getLegislatorListByParty ({ commit }, payload) {
+    axios.defaults.headers['authorization'] = localStorage.getItem(tokenKey)
+    let routePath ='/legislatorlist/groupbypartyforweb/' + payload.isLike + '/' + payload.party_name;
+    instance.get(routePath).then(response => {
+      // console.log("!!!");
+      // console.log("here response data::::" + response.data.message);
+      if(response.data.message === 'Success'){
+        // console.log("here responsessss" + JSON.stringify(response.data.data));
+
+        commit('setPartyData', response.data.data)
+      }
+    }).catch(error =>{
+      console.log('MYINFO partyActions error ::: ' + error.message)
+
+    })
+  },
+  getLegislatorListByRegion ({ commit }, payload){
+    axios.defaults.headers['authorization'] = localStorage.getItem(tokenKey)
+    // let routePath ='/legislatorlist/groupbyregion/1/서울';
+
+    let routePath ='/legislatorlist/groupbyregionforweb/' + payload.isLike + '/' + payload.region;
+    console.log("reoutePath :::" + routePath)
+    instance.get(routePath).then(response => {
+      // console.log("region !!!");
+      // console.log("here response data::::" + response.data.message);
+      if(response.data.message === 'Success'){
+        // console.log("here responsessss" + JSON.stringify(response.data.data));
+
+        commit('setRegionData', response.data.data)
+      }
+    }).catch(error =>{
+      console.log('MYINFO partyActions error ::: ' + error.message)
+
+    })
+  }
+}
