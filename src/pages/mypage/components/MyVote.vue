@@ -48,14 +48,6 @@ export default {
         return true
       }
     }
-  },
-  computed: {
-    myCoin: function() {
-      return this.mypage_data.coin
-    },
-    changeCoin: function() {
-      return this.$refs.coin.value
-    }
   }
 }
 </script>
