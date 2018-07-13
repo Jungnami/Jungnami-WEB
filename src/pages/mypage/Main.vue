@@ -7,7 +7,7 @@
       </button>
       <v-layout row wrap class="profile_box">
         <v-flex xs1></v-flex>
-        <img :src="myInfo.img" alt="image_profile" class="image_profile">
+        <img :src="checkImg(myInfo.img)" alt="image_profile" class="image_profile">
         <v-layout column justify-space-between class="profile_contents">
           <v-flex class="name">{{myInfo.nickname}}</v-flex>
           <v-flex>
@@ -59,6 +59,10 @@ export default {
     },
     getMypageInfoData() {
       return this.myInfo;
+    },
+    checkImg (img) {
+      if (img === '0') return '/static/mypage_image_profile.png'
+      return img
     }
   },
   computed : {

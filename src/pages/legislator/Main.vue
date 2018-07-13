@@ -1,6 +1,6 @@
 <template>
 <div v-if="legislatorInfo">
-  <img src="/static/legislator_image_banner.png" alt="legislator_image_banner" class="legislator_banner">
+  <img :src="chooseBanner(legislatorInfo.l_name)" alt="legislator_image_banner" class="legislator_banner">
   <v-layout row wrap>
     <profile @showSupportModal="showModal = true" :profileInfo="legislatorInfo"></profile>
     <v-flex xs10 sm8 offset-xs1 offset-sm0>
@@ -45,6 +45,10 @@ export default {
         PAGENUM: 12, //페이징 단위
         DOTNUM: 4, //버튼개수
       }
+    },
+    chooseBanner (l_name) {
+      if (l_name === "송희경") return '/static/legislator_image_banner.png'
+      return '/static/legislator_image_banner_basic.png'
     }
   },
   created () {
