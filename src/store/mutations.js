@@ -96,8 +96,11 @@ export const partyMutations = {
     state.regionInfo = payload
   },
   setRegion (state, payload) {
-    console.log("State region :::" + payload)
+    // console.log("State region :::" + payload)
     state.region = payload
+  },
+  setRegionColor (state, payload) {
+    state.regionColor = payload
   }
 }
 
@@ -108,5 +111,8 @@ export const legislatorMutations = {
   },
   setUserCoin (state, payload) {
     state.userCoin = payload
+  },
+  setSupportCoin (state, payload) {
+    state.supportCoin = payload
   }
 }

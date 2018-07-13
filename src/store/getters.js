@@ -85,6 +85,9 @@ export const partyGetters = {
   },
   getRegion (state) {
     return state.region
+  },
+  getRegionColor (state) {
+    return state.regionColor
   }
 }
 
@@ -94,5 +97,8 @@ export const legislatorGetters = {
   },
   getUserCoin (state) {
     return state.userCoin
+  },
+  getSupportCoin (state) {
+    return state.supportCoin
   }
 }

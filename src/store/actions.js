@@ -17,7 +17,7 @@ export const loginActions = {
       }
       console.log(response.data)
     }).catch(error => {
-      alert(error.message)
+      // alert(error.message)
     })
   }
 }
@@ -32,7 +32,7 @@ export const rankActions = {
       }
       console.log(response.data)
     }).catch(error => {
-      alert(error.message)
+      // alert(error.message)
       this.$router.push('/')
     })
   },
@@ -44,7 +44,7 @@ export const rankActions = {
       }
       console.log(response.data)
     }).catch(error => {
-      alert(error.message)
+      // alert(error.message)
     })
   },
   postVoting ({ commit }, payload) {
@@ -58,7 +58,7 @@ export const rankActions = {
       if (error.message === `I don't have enough voting_cnt`) {
         alert('투표권이 부족하여 투표를 할 수가 없습니다')
       } else {
-        alert(error.message)
+        // alert(error.message)
       }
     })
   }
@@ -73,7 +73,7 @@ export const contentsDetailActions = {
       }
       console.log(response.data)
     }).catch(error => {
-      alert(error.message)
+      // alert(error.message)
     })
   },
   getCommentList ({ commit }, contentsID) {
@@ -84,7 +84,7 @@ export const contentsDetailActions = {
       }
       console.log(response.data)
     }).catch(error => {
-      alert(error.message)
+      // alert(error.message)
     })
   },
   postMakeComment ({ commit }, payload) {
@@ -92,7 +92,7 @@ export const contentsDetailActions = {
     instance.post('/contents/makecomment', payload).then(response => {
       console.log(response.data)
     }).catch(error => {
-      alert(error.message)
+      // alert(error.message)
     })
   },
   postLikeComment ({ commit }, payload) {
@@ -101,7 +101,7 @@ export const contentsDetailActions = {
     instance.post('/contents/likecomment', payload).then(response => {
       console.log(response.data)
     }).catch(error => {
-      alert(error.message)
+      // alert(error.message)
     })
   },
   postLikeCancelComment (commentID) {
@@ -109,10 +109,74 @@ export const contentsDetailActions = {
     instance.delete(`/delete/contentscommentlike/${commentID}`).then(response => {
       console.log(response.data)
     }).catch(error => {
+      // alert(error.message)
+    })
+  },
+
+  //스크랩관련
+  //컨텐츠 스크랩하기
+  doScrapContents ({ commit }, payload) {
+    axios.defaults.headers['authorization'] = localStorage.getItem(tokenKey)
+    console.log("do scrap contents go");
+    // let contentsid = payload.contentsid
+    let routePath = '/contents/scrap'
+
+    instance.post(routePath, payload).then(response => {
+      if(response.data.message === 'Successfully scrap') {
+        console.log("isScrap ::: " + JSON.stringify(response.data))
+        // alert("스크랩 성공 :: " + response.data);
+      }
+    }).catch(error => {
       alert(error.message)
     })
+  },
+  deleteScrap ({ commit }, payload) {
+    axios.defaults.headers['authorization'] = localStorage.getItem(tokenKey)
+
+    let contentsid = payload.contentsid
+    let routePath = '/delete/scrap/' + contentsid
+
+    instance.delete(routePath, payload).then(response => {
+      if(response.data.message === 'Successfully delete') {
+        // alert("스크랩 삭제 성공 :: " + response.data);
+
+        console.log("deleteScrap ::: " + JSON.stringify(response.data))
+      }
+    }).catch(error => {
+      alert(error.message)
+    })
+  },
+  doLikeContents ({ commit }, payload) {
+    axios.defaults.headers['authorization'] = localStorage.getItem(tokenKey)
+    console.log("do like contents go");
+    let routePath = '/contents/like'
+
+    instance.post(routePath, payload).then(response => {
+      if(response.data.message === 'Successfully insert contentslike') {
+        console.log("isScrap ::: " + JSON.stringify(response.data))
+        alert("좋아요 성공 :: " + response.data);
+      }
+    }).catch(error => {
+      alert(error.message)
+    })
+  },
+    deleteLikeContents ({ commit }, payload) {
+      axios.defaults.headers['authorization'] = localStorage.getItem(tokenKey)
+
+      let contentsid = payload.contents_id
+      let routePath = '/delete/contentslike/' + contentsid
+
+      instance.delete(routePath, payload).then(response => {
+        if(response.data.message === 'Successfully cancel') {
+          alert("좋아요 삭제 성공 :: " + response.data);
+
+          console.log("deleteScrap ::: " + JSON.stringify(response.data))
+        }
+      }).catch(error => {
+        alert(error.message)
+      })
+    }
   }
-}
 
 // 추천페이지 액션
 export const recommendActions = {
@@ -188,6 +252,43 @@ export const recommendActions = {
   }
 }
 
+
+export const partyActions = {
+  getLegislatorListByParty ({ commit }, payload) {
+    axios.defaults.headers['authorization'] = localStorage.getItem(tokenKey)
+    let routePath ='/legislatorlist/groupbypartyforweb/' + payload.isLike + '/' + payload.party_name;
+    instance.get(routePath).then(response => {
+      // console.log("!!!");
+      // console.log("here response data::::" + response.data.message);
+      if(response.data.message === 'Success'){
+        // console.log("here responsessss" + JSON.stringify(response.data.data));
+
+        commit('setPartyData', response.data.data)
+      }
+    }).catch(error =>{
+      console.log('MYINFO partyActions error ::: ' + error.message)
+
+    })
+  },
+  getLegislatorListByRegion ({ commit }, payload){
+    axios.defaults.headers['authorization'] = localStorage.getItem(tokenKey)
+    // let routePath ='/legislatorlist/groupbyregion/1/서울';
+
+    let routePath ='/legislatorlist/groupbyregionforweb/' + payload.isLike + '/' + payload.region;
+    console.log("reoutePath :::" + routePath)
+    instance.get(routePath).then(response => {
+      // console.log("region !!!");
+      // console.log("here response data::::" + response.data.message);
+      if(response.data.message === 'Success'){
+        // console.log("here responsessss" + JSON.stringify(response.data.data));
+
+        commit('setRegionData', response.data.data)
+      }
+    }).catch(error =>{
+      console.log('MYINFO partyActions error ::: ' + error.message)
+    })
+  }
+}
 // 국회의원 페이지 액션
 export const legislatorActions = {
   getLegislatorData ({ commit }, legislatorID) {
@@ -214,6 +315,7 @@ export const legislatorActions = {
   },
   postSupportComplete ({ commit }, payload) {
     axios.defaults.headers['authorization'] = localStorage.getItem(tokenKey)
+    commit('setSupportCoin', payload.coin)
     instance.post('/legislator/support', payload).then(response => {
       console.log(response.data)
     }).catch(error => {

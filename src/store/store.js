@@ -37,10 +37,12 @@ export const store = new Vuex.Store({
     // 국회의원 페이지 시작
     legislatorInfo: null,
     userCoin: null,
+    supportCoin: null,
     // 정당 페이지 시작
     partyInfo: [],
     regionInfo: [],
-    region: '서울'
+    region: '서울',
+    regionColor: '#157ACE'
   },
   getters: Object.assign({}, userGetters, rankGetters, contentsDetailGetters, recommendGetters, partyGetters, legislatorGetters),
   mutations: Object.assign({}, loginMutations, rankMutations, contentsDetailMutations, recommendMutations, partyMutations, legislatorMutations),
