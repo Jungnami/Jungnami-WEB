@@ -44,6 +44,7 @@ export const rankActions = {
     instance.get(`/ranking/list/${isLike}`).then(response => {
       if (response.data.message === 'Select Data Success') {
         commit('likeRankingSuccess', response.data.data)
+        console.log("here getLikeRanking!!! likeValue :::: " + isLike);
         commit('putIsLike', isLike)
       }
       console.log(response.data)
@@ -105,8 +106,10 @@ export const contentsDetailActions = {
   postMakeComment ({ commit }, payload) {
     axios.defaults.headers['authorization'] = localStorage.getItem(tokenKey)
     instance.post('/contents/makecomment', payload).then(response => {
-      console.log(response.data)
+
+      location.reload();
     }).catch(error => {
+      console.log(error.data);
       // alert(error.message)
     })
   },

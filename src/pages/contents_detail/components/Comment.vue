@@ -10,7 +10,7 @@
     <div class="btn_group">
       <button class="heart btn" @click="clickContentsLikeBtn(contentsIsLike)" :style="{ backgroundImage: likeBtnImage[contentsIsLike] }"></button>
       <!-- <button class="comment btn"></button> -->
-      <button class="share btn"></button>
+      <button class="share btn" id="kakao-link-btn" @click="sendLink()"></button>
     </div>
 
     <!-- :style="{ contentsInfo.isScrap === 1 }" -->
@@ -54,19 +54,39 @@ export default {
   name: 'Comment',
   props: ['contentsInfo', 'commentList', 'contentsID'],
   directives: { infiniteScroll },
-  data () {
-    return {
-      data: [],
-      busy: false,
-      likeBtnImage: ['url("/static/comment_heart_no.png")', 'url("/static/comment_heart_yes.png")'],
-      commentContents: '',
-      scrapImage: ['url("/static/comment_scrap.png")', 'url("/static/comment_scrap_yes.png")'],
-      isScrap: this.contentsInfo.isscrap,
-      contentsIsLike: this.contentsInfo.islike,
-      contentsLikeCnt: this.contentsInfo.likeCnt
-    }
-  },
+    data () {
+      return {
+        data: [],
+        busy: false,
+        likeBtnImage: ['url("/static/comment_heart_no.png")', 'url("/static/comment_heart_yes.png")'],
+        commentContents: '',
+        scrapImage: ['url("/static/comment_scrap.png")', 'url("/static/comment_scrap_yes.png")'],
+        isScrap: this.contentsInfo.isscrap,
+        contentsIsLike: this.contentsInfo.islike,
+        contentsLikeCnt: this.contentsInfo.likeCnt,
+        contentDetail: this.$store.getters.getContentsDetail
+      }
+    },
+
+
   methods: {
+    sendLink() {
+      console.log(this.title)
+      Kakao.Link.sendDefault({
+                objectType: 'feed',
+                content: {
+                  title: this.contentDetail.title,
+                  description: this.contentDetail.subtitle,
+                  imageUrl: this.contentDetail.thumbnail,
+                    link: {
+                        webUrl: window.location.href //웹 url 들어가야함
+                    }
+                }
+            });
+          },
+
+
+
     loadMore: function () {
       this.busy = true;
 
@@ -85,6 +105,9 @@ export default {
       }
     },
     likeComment: function (commentID, index) {
+      if(this.$store.getters.getUserId === null){
+          this.$store.commit('openLoginComponent')
+      } else{
       const object = {
         comment_id: commentID
       }
@@ -95,8 +118,12 @@ export default {
         this.$store.dispatch('postLikeComment', object)
         this.commentList[index].islike = 1
       }
+      }
     },
     makeComment () {
+      if(this.$store.getters.getUserId === null){
+          this.$store.commit('openLoginComponent')
+      } else{
       if (this.commentContents !== '') {
         const object = {
           contents_id: this.contentsID,
@@ -104,10 +131,14 @@ export default {
         }
         this.$store.dispatch('postMakeComment', object)
         this.commentContents = ''
-        location.reload(true)
+        // location.reload(true)
+      }
       }
     },
     clickScrapBtn (isScrap) {
+      if(this.$store.getters.getUserId === null){
+          this.$store.commit('openLoginComponent')
+      } else{
       const object = {
         contentsid: this.contentsID
       }
@@ -118,14 +149,17 @@ export default {
         this.$store.dispatch('deleteScrap', object);
         this.isScrap = 0;
       }
+      }
     },
     clickContentsLikeBtn (isLike) {
-      console.log("!@#!@#");
+      if(this.$store.getters.getUserId === null){
+          this.$store.commit('openLoginComponent')
+      } else {
       const object = {
         contents_id: this.contentsID
       }
       if( isLike === 0) {
-        console.log("like 0");
+        // console.log("like 0");
 
         this.$store.dispatch('doLikeContents', object)
         this.contentsIsLike = 1;
@@ -137,6 +171,7 @@ export default {
         this.contentsLikeCnt--;
       }
     }
+  }
   },
   created () {
 

@@ -62,6 +62,7 @@ export default {
     }
   },
   methods: {
+
     showPageInfo: function() {
       this.$emit('rankPageInfo', { num: this.currentPage })
     },
@@ -88,6 +89,10 @@ export default {
 
   },
   computed:{
+    isLike: function() {
+      console.log("!!!!");
+      return this.$store.getters.getIsLike
+    },
     getListBoxUnit: function(){
         return this.PC_LIST_BOX_UNIT;
     },
@@ -103,12 +108,20 @@ export default {
     },
     items: function () {
         return this.$store.getters.getLikeRankingList
-    }
-  }
-
-
-
+    },
+    // watch :{
+    //   isLike : function() {
+    //     console.log("watch here")
+    //     this.currentPage = 1
+    //
+    // }
+  // }
 }
+}
+
+
+
+
 
 </script>
 
