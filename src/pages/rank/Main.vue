@@ -16,7 +16,7 @@
   <v-layout row wrap class="main_legislator_wrapper" v-if="items.length > 0">
     <v-flex xs5 offset-xs1 class="main_legislator_left" :style="{backgroundImage: `url(${items[0].mainimg})`}" justify-end>
       <div class="rank_tag_box">
-        <img src="/static/rank_first_tag.png" alt="first_tag" class="rank_tag">
+        <img src="/static/rank_first_tag.png" alt="first_tag" class="rank_tag animated fadeInDown">
       </div>
       <div class="name">{{ items[0].l_name }}</div>
       <div class="party">{{ items[0].party_name }}</div>
@@ -26,7 +26,7 @@
     </v-flex>
     <v-flex xs5 class="main_legislator_right" :style="{backgroundImage: `url(${items[1].mainimg})`}" justify-end>
       <div class="rank_tag_box text-align-right">
-        <img src="/static/rank_second_tag.png" alt="second_tag" class="rank_tag rank_second_tag">
+        <img src="/static/rank_second_tag.png" alt="second_tag" class="rank_tag rank_second_tag animated fadeInDown">
       </div>
       <div class="name text-align-right">{{ items[1].l_name }}</div>
       <div class="party text-align-right">{{ items[1].party_name }}</div>
@@ -36,12 +36,13 @@
     </v-flex>
   </v-layout>
   <img src="/static/rank_vs_icon.png" alt="vs_icon" class="vs_icon">
-  <img src="/static/rank_1_character.png" alt="1_character" class="character_one">
-  <img src="/static/rank_2_character.png" alt="2_character" class="character_two">
   
   <v-layout row wrap justify-center>
     <v-flex xs6 md4>
-      <img src="/static/rank_mainchart_text.png" alt="mainchart_text" class="mainchart_text">
+      <transition
+        enter-active-class="animated fadeInDown">
+        <img src="/static/rank_mainchart_text.png" alt="mainchart_text" class="mainchart_text">
+      </transition>
     </v-flex>
   </v-layout>
 
@@ -94,8 +95,6 @@ export default {
     this.$store.dispatch('getLikeRanking', 1)
   }
 }
-//그림 3개 position fixed 한 다음 위치잡아서 해결
-//글씨 오른쪽에 붙어있거나 하는 것은 text-align right로 해결
 </script>
 
 <style scoped>
@@ -257,10 +256,10 @@ img.rank_second_tag
 .vs_icon
 {
   position: absolute;
-  width: 6.7vw;
-  height: 6.7vw;
-  left: 46vw;
-  top: 25vw;
+  width: 10vw;
+  height: 10vw;
+  left: 44vw;
+  top: 24vw;
 }
 .character_one
 {
@@ -289,10 +288,14 @@ img.rank_second_tag
 .vote_count_left
 {
   border-radius: 0px 200px 200px 0;
+  animation: load 1.2s ease;
+  transition: all 1s ease-in-out 0s;
 }
 .vote_count_right
 {
   border-radius: 200px 0 0 200px;
+  animation: load_right 1.2s ease;
+  transition: all 1s ease-in-out 0s;
 }
 .mainchart_text
 {
@@ -325,5 +328,26 @@ hr.tab
 {
   border-bottom: 0.46vh solid #36C5F1;
   color: #36C5F1;
+}
+
+@keyframes load{
+  0%{
+    width: 0px;
+    display:none;
+  };
+  100%{
+    width: 100%;
+    display:block;
+  };
+}
+@keyframes load_right{
+  from {
+    margin-left: 100%;
+    width: 0%;
+  };
+  to {
+    margin-left: 0%;
+    width: 100%;
+  };
 }
 </style>
