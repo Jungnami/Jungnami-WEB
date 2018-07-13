@@ -21,14 +21,14 @@
           </div>
         </div>
         <div class="thumbnail_box">
-          <div class="thumbnail_border">
-            <img :src="item.profileimg" alt="Avatar" class="thumbnail_content" style="display: block;">
+          <div class="thumbnail_border" :style="">
+            <img :src="item.profileimg" alt="Avatar" class="thumbnail_content" :style="{ border: '2px solid ' +  getColorWithPartyName(item.party_name) }">
           </div>
         </div>
 
         <div class="progress_box">
           <div class="progress_border">
-            <div class="progress_percent" :style="{ backgroundColor: getPartyColor, width: (item.width * 100) + '%' }">
+            <div class="progress_percent" :style="{ backgroundColor: getColorWithPartyName(item.party_name), width: (item.width * 100) + '%' }">
             </div>
             <div class="progress_info">
               <div>
@@ -58,6 +58,26 @@ export default {
   name: 'Vote',
   props: ['list_info'],
   methods: {
+    getColorWithPartyName(partyName){
+      switch(partyName){
+        case '더불어민주당':
+          return '#1783DC';
+        case '자유한국당':
+          return '#E1241A';
+        case '정의당':
+          return '#FCDC00';
+        case '민중당':
+          return '#EC8C0D';
+        case '대한애국당':
+          return '#123167';
+        case '바른미래당':
+          return '#14CDCC';
+        case '민주평화당':
+          return '#3FC335';
+        case '무소속':
+          return '#C6C6C6';
+      }
+    },
     checkGold(index){
       if(this.list_info.listNum == 1 && this.list_info.pageNum == 1 && index == 0){
         return true;
@@ -345,6 +365,7 @@ div.vote_list {
   width: 80%;
   height: auto;
   border: 1px solid #000;
+  display: block;
 
   /*height: 10px*/
   border-radius: 50%;

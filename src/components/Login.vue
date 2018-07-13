@@ -35,7 +35,7 @@ export default {
           console.log(authObj.access_token)
         },
         fail: function(err) {
-          alert(JSON.stringify(err));
+          // alert(JSON.stringify(err));
         }
       });
     },

@@ -96,8 +96,11 @@ export const partyMutations = {
     state.regionInfo = payload
   },
   setRegion (state, payload) {
-    console.log("State region :::" + payload)
+    // console.log("State region :::" + payload)
     state.region = payload
+  },
+  setRegionColor (state, payload) {
+    state.regionColor = payload
   }
 }
 
