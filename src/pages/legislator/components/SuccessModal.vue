@@ -27,6 +27,31 @@ export default {
 </script>
 
 <style scoped>
+@media (max-width: 960px) {
+  div.modal_container {
+    width: 240px;
+    height: 225px;
+  }
+  div.complete_text {
+    font-size: 14px;
+    padding-top: 86px;
+    margin-bottom: 2px;
+  }
+  div.complete_explain {
+    font-size: 12px;
+    margin-bottom: 5px;
+    line-height: 22px;
+  }
+  div.complete_explain .coin_amount {
+    font-size: 16px;
+  }
+  button.ok_btn {
+    width: 95px;
+    padding-top: 4px;
+    padding-bottom: 5px;
+    font-size: 8px;
+  }
+}
 .modal_mask
 {
   position: fixed;
@@ -47,7 +72,7 @@ export default {
 .modal_container 
 {
   width: 640px;
-  height: 580px;
+  height: 590px;
   margin: 0px auto;
   background-image: url('/static/popup_manycoin.png');
   background-size: 100% 100%;
@@ -59,15 +84,15 @@ export default {
   font-family: NanumBarunGothic;
   font-size: 38px;
   color: #36C5F1;
-  margin-top: 240px;
-  margin-bottom: 22px;
+  padding-top: 240px;
+  margin-bottom: 16px;
 }
 .complete_explain
 {
   font-family: NanumBarunGothicLight;
   font-size: 30px;
   color: #6B6B6B;
-  margin-bottom: 26px;
+  margin-bottom: 20px;
   line-height: 50px;
 }
 .complete_explain span
@@ -81,9 +106,10 @@ export default {
 .ok_btn
 {
   width: 255px;
-  padding-left: 11px;
-  padding-right: 16px;
-
+  padding-top: 12px;
+  padding-bottom: 12px;
+  border-radius: 29px;
+  background: #36C5F1;
   font-family: NanumBarunGothic;
   font-size: 23px;
   color: white;
