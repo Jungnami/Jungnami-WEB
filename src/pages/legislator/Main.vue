@@ -6,6 +6,7 @@
     <v-flex xs10 sm8 offset-xs1 offset-sm0>
       <contents :content_info="sendContentInfo()"
        :contentsData="legislatorInfo.contents" title="관련 컨텐츠"></contents>
+       
     </v-flex>
   </v-layout>
   <support-modal v-if="showModal" @openSuccessModal="showSuccessModal = true"

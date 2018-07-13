@@ -2,7 +2,7 @@ import axios from 'axios'
 
 const instance = axios.create({
   baseURL: 'https://jungnami.ml/',
-  timeout: 3000
+  timeout: 30000
 })
 
 const tokenKey = 'JUNGNAMI_ACCESS_TOKEN'
