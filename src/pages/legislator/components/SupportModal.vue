@@ -70,7 +70,48 @@ export default {
 
 <style scoped>
 @media (max-width: 960px) {
-  
+  div.modal_container {
+    width: 240px;
+    height: 207px;
+  }
+  div.support_title {
+    padding-top: 78px;
+    font-size: 14px;
+  }
+  div.my_coin {
+    margin-top: 10px;
+    margin-left: 20px;
+    margin-right: 20px; 
+    padding-bottom: 8px;
+    font-size: 9px;
+  }
+  div.support_wrapper {
+    margin-left: 20px;
+    margin-right: 20px;
+    padding-top: 10px;
+  }
+  div.support_coin {
+    font-size: 10px;
+  }
+  input.coin_input {
+    width: 40px;
+    height: 18px;
+    border-radius: 1px;
+    padding-left: 12px;
+    padding-bottom: 3.2px;
+    font-size: 9px;
+  }
+  div.support_wrapper.btn_wrapper {
+    padding-top: 12px;
+    margin-bottom: 14px;
+  }
+  button.check_btn {
+    width: 95px;
+    height: 22px;
+    padding-top: 6px;
+    padding-bottom: 6px;
+    font-size: 8px;
+  }
 }
 .modal_mask
 {
@@ -108,7 +149,6 @@ export default {
 }
 .my_coin
 {
-  height: 55px;
   margin-top: 31.5px;
   margin-left: 57px;
   margin-right: 57px; 
