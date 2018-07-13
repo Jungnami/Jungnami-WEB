@@ -4,8 +4,8 @@
     <div class="modal_wrapper">
       <div class="modal_container">
         <div class="complete_text">후원완료!</div>
-        <div class="complete_explain">김병관 님께<br><span class="coin_amount">50 </span><span>코인</span>을<br>후원하셨습니다.</div>
-        <button class="ok_btn">확인</button>
+        <div class="complete_explain">{{ name }} 님께<br><span class="coin_amount">{{ supportCoin }} </span><span>코인</span>을<br>후원하셨습니다.</div>
+        <button class="ok_btn" @click="$emit('close')">확인</button>
       </div>
     </div>
   </div>
@@ -13,8 +13,16 @@
 </template>
 
 <script>
+import { mapGetters } from 'vuex'
+
 export default {
-  name: 'SuccessModal'
+  name: 'SuccessModal',
+  props: ['name'],
+  computed: {
+    ...mapGetters({
+      supportCoin: 'getSupportCoin'
+    })
+  }
 }
 </script>
 
