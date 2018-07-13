@@ -315,6 +315,7 @@ export const legislatorActions = {
   },
   postSupportComplete ({ commit }, payload) {
     axios.defaults.headers['authorization'] = localStorage.getItem(tokenKey)
+    commit('setSupportCoin', payload.coin)
     instance.post('/legislator/support', payload).then(response => {
       console.log(response.data)
     }).catch(error => {

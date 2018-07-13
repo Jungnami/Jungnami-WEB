@@ -111,5 +111,8 @@ export const legislatorMutations = {
   },
   setUserCoin (state, payload) {
     state.userCoin = payload
+  },
+  setSupportCoin (state, payload) {
+    state.supportCoin = payload
   }
 }
