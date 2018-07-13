@@ -85,6 +85,9 @@ export const partyGetters = {
   },
   getRegion (state) {
     return state.region
+  },
+  getRegionColor (state) {
+    return state.regionColor
   }
 }
 

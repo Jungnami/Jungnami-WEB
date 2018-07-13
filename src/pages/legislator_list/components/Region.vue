@@ -2,20 +2,20 @@
 <v-layout row wrap class="region_page">
   <v-flex xs7 md3 offset-xs1>
     <img src="../../../../static/region_main_text.png" alt="list_region_text" class="region_text">
-    <map-component @click-map="setRegionData(region)" class="hidden-sm-and-down map_component"></map-component>
+    <map-component @click-map="setRegionData(region, regionColor)" class="hidden-sm-and-down map_component"></map-component>
   </v-flex>
   <v-flex xs10 md7 offset-xs1 offset-md0>
     <v-layout row wrap justify-space-between class="hidden-md-and-up">
-      <button @click="setRegionData(regionName)" v-for="(regionName, i) in regions1" :key="i" class="region_btn">{{ regionName }}</button>
+      <button @click="setRegionData(regionName.name, regionName.color)" v-for="(regionName, i) in regions1" :key="i" class="region_btn">{{ regionName.name }}</button>
     </v-layout>
     <v-layout row wrap justify-space-between class="hidden-md-and-up btns">
-      <button @click="setRegionData(regionName)" v-for="(regionName, i) in regions2" :key="i" class="region_btn">{{ regionName }}</button>
+      <button @click="setRegionData(regionName.name, regionName.color)" v-for="(regionName, i) in regions2" :key="i" class="region_btn">{{ regionName.name }}</button>
     </v-layout>
     <v-layout row wrap justify-space-between class="hidden-md-and-up btns">
-      <button @click="setRegionData(regionName)" v-for="(regionName, i) in regions3" :key="i" class="region_btn">{{ regionName }}</button>
+      <button @click="setRegionData(regionName.name, regionName.color)" v-for="(regionName, i) in regions3" :key="i" class="region_btn">{{ regionName.name }}</button>
     </v-layout>
     <v-layout row wrap class="hidden-md-and-up btns">
-      <button @click="setRegionData(regionName)" v-for="(regionName, i) in regions4" :key="i" class="region_btn btns_last">{{ regionName }}</button>
+      <button @click="setRegionData(regionName.name, regionName.color)" v-for="(regionName, i) in regions4" :key="i" class="region_btn btns_last">{{ regionName.name }}</button>
     </v-layout>
 
     <v-layout row nowrap justify-space-between class="hidden-sm-and-down">
@@ -26,11 +26,11 @@
     </v-layout>
 
     <v-layout row wrap justify-space-between class="region_tab">
-      <v-flex xs4 md2 :style="{backgroundColor: active_region.color}" class="region_tab_bar">
+      <v-flex xs4 md2 :style="{backgroundColor: regionColor}" class="region_tab_bar" >
         {{ region }}
       </v-flex>
-      <div class="member_count">국회의원 수 : 49명</div>
-      <hr>
+      <div class="member_count">국회의원 수 : {{ items.length }} 명</div>
+      <hr :style="{background: regionColor}">
     </v-layout>
     <v-layout row wrap justify-space-between>
       <div class="voting_list">
@@ -78,10 +78,10 @@ export default {
       DOTNUM: 1,
       startIndex: 0,
       windowWidth: window.innerWidth,
-      regions1: ["서울", "인천", "경기", "강원", "경북"],
-      regions2: ["충남", "세종", "대전", "경남", "울산"],
-      regions3: ["전남", "전북", "대구", "부산", "충북"],
-      regions4: ["제주", "광주"],
+      regions1: [{name: "서울", color: '#157ACE' }, {name: "인천", color: '#69B3E4' }, {name: "경기", color: '#69B3E4' }, {name: "강원", color: '#E1241A' }, {name: "경북", color: '#E1241A'}],
+      regions2: [{name: "충남", color: '#F37B7C' }, {name: "세종", color: '#F37B7C' }, {name: "대전", color: '#F37B7C' }, {name: "경남", color: '#E1241A' }, {name: "울산", color: '#F37B7C'}],
+      regions3: [{name: "전남", color: '#00B6B5' }, {name: "전북", color: '#14CDCC' }, {name: "대구", color: '#F37B7C' }, {name: "부산", color: '#E1241A' }, {name: "충북", color: '#F37B7C'}],
+      regions4: [{name: "제주", color: '#1783DC' }, {name: "광주", color: '#14CDCC' }],
       partys: [
         {color: "#1783DC", name: "더불어민주당"},
         {color: "#E1241A", name: "자유한국당"},
@@ -99,8 +99,9 @@ export default {
 
 },
   methods: {
-    setRegionData(regionParam) {
+    setRegionData(regionParam, regionColor) {
       this.$store.commit('setRegion', regionParam)
+      this.$store.commit('setRegionColor', regionColor)
 
       this.currentPage = 1;
       this.$store.dispatch('getLegislatorListByRegion', {
@@ -140,6 +141,9 @@ export default {
 
   },
   computed:{
+    regionColor: function() {
+      return this.$store.getters.getRegionColor
+    },
     region: function() {
       return this.$store.getters.getRegion
     },
@@ -147,7 +151,6 @@ export default {
       return this.$store.getters.getIsLike
     },
     items: function() {
-
         return this.$store.getters.getRegionContents;
     },
     getListBoxUnit: function(){
