@@ -31,7 +31,7 @@ export default {
   div.success_text {
     font-size: 21px;
     line-height: 33px;
-    padding-top: 60px;
+    padding-top: 55px;
     margin-bottom: 10px;
   }
   button.yes_btn {
@@ -63,7 +63,7 @@ export default {
   width: 640px;
   height: 375px;
   margin: 0px auto;
-  background-image: url('/static/popup_coin_people.png');
+  background-image: url('/static/mypage_popup_vote_fin.png');
   background-size: 100% 100%;
   transition: all .3s ease;
   text-align: center;
