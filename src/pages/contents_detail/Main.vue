@@ -8,7 +8,7 @@
   <image-preview :listInfo="sendArrayInfo(PC_LIST_LENGTH)" class="hidden-sm-and-down"></image-preview>
   <image-preview :listInfo="sendArrayInfo(MOBILE_LIST_LENGTH)" class="hidden-md-and-up"></image-preview>
   <v-layout row wrap class="img_and_comment">
-    <v-flex xs12 md7>
+    <v-flex xs12 md7 v-if="contents.imagearray.length > 0">
       <v-layout align-center class="active_img" :style="{ backgroundImage: `url(${ contents.imagearray[imgIndex].img_url })`}">
         <v-layout row nowrap justify-space-between>
           <button class="left_btn btn" @click="indexDown()"></button>
@@ -20,17 +20,19 @@
       <comment :contentsInfo="contents" :commentList="comments" :contentsID="$route.params.id" class="comment_box"></comment>
     </v-flex>
   </v-layout>
+  <youtube-modal :contentsInfo="contents" v-if="contents.type === 1"></youtube-modal>
 </v-flex>
 </template>
 
 <script>
 import ImagePreview from './components/ImagePreview'
+import YoutubeModal from './components/YoutubeModal'
 import Comment from './components/Comment'
 import { mapGetters } from 'vuex'
 
 export default {
   name: 'ContentsDetail',
-  components: { ImagePreview, Comment },
+  components: { ImagePreview, Comment, YoutubeModal },
   data () {
     return {
       MOBILE_LIST_LENGTH: 5,

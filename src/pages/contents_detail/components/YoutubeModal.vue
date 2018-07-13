@@ -2,8 +2,9 @@
 <transition name="modal">
   <div class="modal_mask">
     <div class="modal_wrapper">
-      <div class="modal_container" v-if="contentsInfo">
-        <iframe :src="contentsInfo.youtube" frameBorder="0" id="video"></iframe>
+      <div class="modal_container">
+        <div class="close_btn"><v-icon large @click="close">close</v-icon></div>
+        <iframe :src="url" frameBorder="0" id="video"></iframe>
       </div>
     </div>
   </div>
@@ -14,10 +15,16 @@
 import { mapGetters } from 'vuex'
 export default {
   name: 'Youtube',
+  props: ['contentsInfo'],
   computed: {
-    ...mapGetters({
-      contentsInfo: 'getContentsDetail'
-    })
+    url () {
+      return `https://www.youtube.com/embed/${this.contentsInfo.youtube}`
+    }
+  },
+  methods: {
+    close () {
+      this.$router.go(-1)
+    }
   }
 
 }
@@ -43,17 +50,19 @@ export default {
 }
 .modal_container
 {
-  width: 100%;
-  height: 100%;
+  width: 80vw;
+  height: 50vw;
   margin: 0px auto;
   text-align: center;
   transition: all .3s ease;
-  border-radius: 8px;
-  box-shadow: 3px 3px 6px rgba(0, 0, 0, 0.41);
+}
+.close_btn
+{
+  text-align: right;
 }
 #video
 {
   width: 100%;
-  height: 100%;
+  height: 90%;
 }
 </style>

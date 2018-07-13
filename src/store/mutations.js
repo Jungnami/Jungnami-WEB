@@ -61,9 +61,6 @@ export const contentsDetailMutations = {
   },
   postingViewSuccess (state, payload) {
     state.contentsDetail = payload
-    if (state.contentsDetail.type === 1) {
-      router.push('/youtube')
-    }
   },
   commentListSuccess (state, payload) {
     state.commentList = payload
