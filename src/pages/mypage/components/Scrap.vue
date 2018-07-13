@@ -3,7 +3,7 @@
   <v-flex xs10 offset-xs1>
     <!-- <contents v-bind:contentsData="mypage_data.scrap", content_info="sendContentInfo()" ></contents> -->
     <contents :content_info="sendContentInfo()"
-     :contentsData="mypage_data.scrap" title="관련 컨텐츠"></contents>
+     :contentsData="mypage_data.scrap" title="스크랩"></contents>
     <!-- {{ mypage_data.scrap }} -->
   </v-flex>
 </v-layout>

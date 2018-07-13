@@ -11,7 +11,7 @@
     <v-btn color="text" class="hidden-xs-only nav_menu" v-bind:class="{ on : $route.path.includes(item.path)}" flat depressed v-for="item in items" :key="item.text" :to="item.path">
         {{ item.text }}
     </v-btn>
-    <router-link to="/mypage" v-if="kakaoToken">
+    <router-link to="/mypage/mycoin" v-if="kakaoToken">
       <img src="../../static/tab_icon_mypage.png" alt="mypage_logo" class="mypage_icon" :class="mypage_icon_over? 'animated rubberBand': ''" @mouseover="mypage_icon_over = true" @mouseout="mypage_icon_over = false">
     </router-link>
     <button class="mypage_icon login_icon" v-if="!kakaoToken" @click="openLogin">로그인</button>
