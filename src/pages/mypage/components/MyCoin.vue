@@ -2,7 +2,7 @@
 <v-flex xs10 offset-xs1 class="my_coin">
   <v-layout row wrap justify-center align-center class="coin_amount">
     <div>나의 코인</div>
-    <div class="coin">72 코인</div>
+    <div class="coin">{{ myCoin }} 코인</div>
   </v-layout>
   <v-layout column wrap justify-center class="coin_explain">
     <div>정나미 코인이란?</div>
@@ -48,6 +48,7 @@
 <script>
 export default {
   name: 'MyCoin',
+  props: ['mypage_data'],
   data () {
     return {
       btn_info: [
@@ -56,9 +57,19 @@ export default {
         {coin: 57, won: 5000},
         {coin: 79, won: 7000},
         {coin: 115, won: 10000}
-      ]
+      ],
+
     }
-  }
+  },
+  computed: {
+    myCoin: function(){
+      return this.mypage_data.coin
+    }
+}
+
+
+
+
 }
 </script>
 
@@ -92,7 +103,7 @@ export default {
   }
   div.btn_wrapper > div {
     width: 75.03vw;
-  }  
+  }
   div.btn_wrapper > div > div {
     padding-top: 1vw;
   }

@@ -42,7 +42,10 @@ export const store = new Vuex.Store({
     partyInfo: [],
     regionInfo: [],
     region: '서울',
-    regionColor: '#157ACE'
+    regionColor: '#157ACE',
+
+    //마이페이지
+    myPageInfo: []
   },
   getters: Object.assign({}, userGetters, rankGetters, contentsDetailGetters, recommendGetters, partyGetters, legislatorGetters),
   mutations: Object.assign({}, loginMutations, rankMutations, contentsDetailMutations, recommendMutations, partyMutations, legislatorMutations),
