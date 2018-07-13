@@ -15,6 +15,7 @@ import MyCoin from '@/pages/mypage/components/MyCoin'
 import MyVote from '@/pages/mypage/components/MyVote'
 import Scrap from '@/pages/mypage/components/Scrap'
 import ContentsDetail from '@/pages/contents_detail/Main'
+import Youtube from '@/pages/youtube/Main'
 
 Vue.use(Router)
 
@@ -95,6 +96,11 @@ export default new Router({
       path: '/contentsDetail/:id',
       name: 'ContentsDetail',
       component: ContentsDetail
+    },
+    {
+      path: '/youtube',
+      name: 'Youtube',
+      component: Youtube
     }
   ]
 })
