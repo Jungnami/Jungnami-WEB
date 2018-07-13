@@ -12,10 +12,26 @@ export const loginActions = {
     instance.post('/user/kakaologin', payload).then(response => {
       if (response.data.message === 'success') {
         commit('signInSuccess', response.data.data)
+        console.log(JSON.stringify(response.data.data))
         console.log('login success!!!')
         axios.defaults.headers['authorization'] = response.data.data.token
       }
       console.log(response.data)
+    }).catch(error => {
+      // alert(error.message)
+    })
+  },
+  getMyLoginInfo ({ commit }, payload) {
+    console.log("actions :::" + JSON.stringify(payload));
+    axios.defaults.headers['authorization'] = localStorage.getItem(tokenKey)
+    let routePath = '/user/mypage/' + payload.mypage_id
+    instance.get(routePath).then(response => {
+      console.log("ASdfasf!@#!")
+      // console.log("safdasdfasdf" + JSON.stringify(response.data));
+      if (response.data.message === 'Select Data Success') {
+        console.log(JSON.stringify(response.data.data));
+        commit('setMypageInfo', response.data.data );
+      }
     }).catch(error => {
       // alert(error.message)
     })
@@ -231,7 +247,7 @@ export const recommendActions = {
         // console.log("myinfo data ::::: " + JSON.stringify(response.data));
         let scrapData = []
         let infoData = response.data.data.scrap
-        // console.log("infoData :::" + JSON.stringify(infoData));
+        console.log("infoData :::" + JSON.stringify(infoData));
         // console.log(infoData.length);
         for (var i = 0;i<infoData.length;i++) {
           var obj = {}

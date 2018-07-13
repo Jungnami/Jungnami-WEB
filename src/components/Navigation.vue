@@ -4,7 +4,7 @@
     <v-icon @click="sideNav = !sideNav" class="hidden-sm-and-up menu_icon">menu</v-icon>
     <v-flex offset-sm1 class="logo_box">
       <router-link to="/" class="logo">
-        <img src="../../static/tab_image_title.png" alt="logo_title">
+        <img src="../../static/tab_image_title.png" alt="logo_title" class="logo_icon" :class="logo_icon_over? 'animated pulse': ''" @mouseover="logo_icon_over = true"  @mouseout="logo_icon_over = false">
       </router-link>
     </v-flex>
     <v-spacer></v-spacer>
@@ -12,7 +12,7 @@
         {{ item.text }}
     </v-btn>
     <router-link to="/mypage" v-if="kakaoToken">
-      <img src="../../static/tab_icon_mypage.png" alt="mypage_logo" class="mypage_icon">
+      <img src="../../static/tab_icon_mypage.png" alt="mypage_logo" class="mypage_icon" :class="mypage_icon_over? 'animated rubberBand': ''" @mouseover="mypage_icon_over = true" @mouseout="mypage_icon_over = false">
     </router-link>
     <button class="mypage_icon login_icon" v-if="!kakaoToken" @click="openLogin">로그인</button>
     <v-flex xs1 class="mypage_margin">
@@ -39,14 +39,16 @@ export default {
       sideNav: false,
       textColor: 'text',
       items: [
-        {icon: 'supervisor_account', text: '순위', path: '/contentsDetail/20'},
+        {icon: 'supervisor_account', text: '순위', path: '/rank'},
         {icon: 'room', text: '의원목록', path: '/list'},
         {icon: 'room', text: '컨텐츠', path: '/contents'}
       ],
       search_items: [
         {img: '/static/tab_search_icon_legislator.png', text: '국회의원 검색'},
         {img: '/static/tab_search_icon_content.png', text: '컨텐츠 검색'}
-      ]
+      ],
+      mypage_icon_over: false,
+      logo_icon_over: false
     }
   },
   computed: {

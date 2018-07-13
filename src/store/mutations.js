@@ -16,6 +16,9 @@ export const loginMutations = {
     state.kakaoAccessToken = null
     state.openLoginPopUp = false
     router.push('/')
+  },
+  setMypageInfo(state, payload) {
+    state.myPageInfo = payload
   }
 }
 

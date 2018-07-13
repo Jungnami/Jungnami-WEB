@@ -13,7 +13,9 @@
     </v-layout>
 
     <v-layout row wrap >
+
       <v-flex xs6 sm4 md3 v-for="item in pageItems" :key="item.contentsid">
+        <router-link :to="getContentLink(item.contentsid)">
       <div class="content_card">
         <img :src="item.thumbnail" class="content_image">
         <div>
@@ -25,7 +27,9 @@
           {{ item.text }}
         </div>
       </div>
+      </router-link>
       </v-flex>
+
     </v-layout>
 
   <!-- </v-layout> -->
@@ -49,6 +53,9 @@ export default {
       var startItem = (curPageNum - 1) * this.PAGENUM;
       var endItem = this.PAGENUM * curPageNum;
       this.pageItems = startItem + ' ' + endItem;
+    },
+    getContentLink(c_id) {
+      return `/contentsDetail/${c_id}`
     }
   },
   computed: {

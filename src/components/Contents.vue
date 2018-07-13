@@ -53,7 +53,7 @@ export default {
       this.pageItems = startItem + ' ' + endItem;
     },
     getContentLink(c_id) {
-      return `contentsDetail/${c_id}`
+      return `/contentsDetail/${c_id}`
     }
   },
   computed: {
