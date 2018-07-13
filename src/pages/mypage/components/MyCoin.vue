@@ -58,7 +58,6 @@ export default {
   data () {
     return {
       showModal: false,
-      showCompleteModal: false,
       activeCoin: 0
     }
   },

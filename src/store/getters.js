@@ -116,5 +116,8 @@ export const myPageGetters = {
   },
   getOpenBuySplash (state) {
     return state.openBuySplash
+  },
+  getOpenExchangePopUp (state) {
+    return state.openExchangePopUp
   }
 }

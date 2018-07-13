@@ -138,5 +138,8 @@ export const myPageMutations = {
   },
   updateMyCoin (state, payload) {
     state.myPageInfo.coin += payload
+  },
+  exchangeSuccess (state) {
+    state.openExchangePopUp = true
   }
 }

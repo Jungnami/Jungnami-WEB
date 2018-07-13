@@ -15,16 +15,18 @@
   </v-layout>
   <v-layout>
     <button v-if="mypage_data.coin - exCoin >= 0 && exCoin != 0" class="change_btn" @click="exchangeCoinToVote()">전환하기</button>
-
     <button v-if="mypage_data.coin - exCoin < 0 || exCoin == 0" class="change_btn" :style="{background: '#EBEBEB'}">전환하기</button>
   </v-layout>
+  <exchange-success-modal v-if="this.$store.getters.getOpenExchangePopUp"></exchange-success-modal>
 </v-flex>
 </template>
 
 <script>
+import ExchangeSuccessModal from './ExchangeSuccessModal'
 export default {
   name: 'MyVote',
   props: ['mypage_data'],
+  components: { ExchangeSuccessModal },
   data() {
     return {
       exCoin: null
@@ -35,7 +37,6 @@ export default {
       const object = {
         coin: this.exCoin
       }
-      //alert 된후에 이하 메소드 적용해야함. 알러트 확인누른후에는 reload
       this.$store.dispatch('exchangeCoin', object)
 
     },

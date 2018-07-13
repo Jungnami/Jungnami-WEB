@@ -359,14 +359,9 @@ export const myPageActions = {
   },
   exchangeCoin ({ commit }, payload) {
     axios.defaults.headers['authorization'] = localStorage.getItem(tokenKey)
-    console.log("do exchangeCoin");
-    // let contentsid = payload.contentsid
-    let routePath = '/user/addvote'
-
-    instance.post(routePath, payload).then(response => {
-      if(response.data.message === 'Update value Success') {
-        console.log("exchangedCoin ::: " + JSON.stringify(response.data))
-        // alert("스크랩 성공 :: " + response.data);
+    instance.post('/user/addvote', payload).then(response => {
+      if (response.data.message === 'Update value Success') {
+        commit('exchangeSuccess')
       }
     }).catch(error => {
       alert(error.message)
