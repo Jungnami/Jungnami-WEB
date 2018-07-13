@@ -19,7 +19,7 @@
 
 
 
-<g id="gyeonggi">
+<g id="gyeonggi" v-on:click="clickMap('경기', '#69B3E4')">
 	<path class="gyeonggi" fill="#69B3E4" stroke="#FFFFFF" stroke-width="1.5" stroke-miterlimit="10" d="M75,156.9
 		c-4-7.8-10.3-9.4-15.4-4.6c-7.7,7.3-11.7-10.3-11.7-10.3c-1.9-7.9-1.3-15.6-0.9-19c0.1-0.9,1-1.6,1.9-1.4
 		c3.8,0.7,13.1,2.1,17.4,0.4c5.5-2.2,8.3-6,6.9-14.3c-1.3-8.3,5.9-5.3,11.1-6.6c5.2-1.3,13.4-10.7,9.5-23.3
@@ -35,7 +35,7 @@
 	<text class="gyeonggi" v-on:click="clickMap('경기', '#69B3E4')" transform="matrix(1 0 0 1 138.7926 195.4841)" fill="#6B6B6B" font-family="'NanumBarunGothic'" font-size="17.243px">경기</text>
 </g>
 
-<g id="incheon">
+<g id="incheon" v-on:click="clickMap('인천', '#69B3E4')">
 	<path class="incheon" fill="#69B3E4" stroke="#FFFFFF" stroke-width="1.5" stroke-miterlimit="10" d="M47.9,142
 		c0,0,4,17.6,11.7,10.3c7.7-7.3,18.4,0.1,19.1,21.8c0,0,0.4,7.2-4.8,13.7c-1,1.3-2.4,2.1-4,2.4c-1.8,0.3-3.8-0.2-3.9-3.7
 		c-0.2-6.4-3.3-12.5-10.1-14.5c-6.8-2-11.8-3.1-16.5,1.2s-8.3,1.8-11.6-4.3c-3.4-6.1-3.8-15.2-13.4-20.8c-9.6-5.5-8-9.3,3-21
@@ -48,7 +48,7 @@
 	<text class="incheon" v-on:click="clickMap('인천', '#69B3E4')" transform="matrix(1 0 0 1 30.7926 122.4841)" fill="#6B6B6B" font-family="'NanumBarunGothic'" font-size="17.243px">인천</text>
 </g>
 
-<g id="gangwon">
+<g id="gangwon" v-on:click="clickMap('강원', '#E1241A')">
 	<path class="gangwon" fill="#E1241A" stroke="#FFFFFF" stroke-width="1.5" stroke-miterlimit="10" d="M190,226.1
 		c6-16.6,0.2-22.4,4.2-38.6c4-16.2,9.9-19.6-8.8-27.6c-18.7-8-13.8-26.2-12.5-32.8s10.2-16.9-1.7-32.4c-8.4-11-27.3-21.3-37.7-26.4
 		c-2.3-1.1-4.6-2-7-2.6c0,0,4.3-8,21.6-7.3c17.2,0.7,26.7,5.2,33.5,4.7s12.2-1.5,21.2,2.2c9,3.6,22.2,4.6,29.4,0
@@ -65,7 +65,7 @@
 </g>
 <rect id="XMLID_299_" x="124.3" y="282.5" fill="none" width="30.8" height="16.9"/>
 <rect id="XMLID_284_" x="145" y="329.9" fill="none" width="30.8" height="16.9"/>
-<g id="chungnam">
+<g id="chungnam" v-on:click="clickMap('충남', '#F37B7C')">
 	<path class="chungnam" fill="#F37B7C" stroke="#FFFFFF" stroke-width="1.5" stroke-miterlimit="10" d="M161.8,371.3
 		c-6-1.9-11.6-0.6-14.6,1.2c-2,1.2-5,1.1-6.7,1c-1.2-0.1-2.4-0.1-3.6,0.1c-7.5,1.6-10.9,7.6-10.9,7.6c-7.8-3.8-10.2,1.7-19.4,5.2
 		c-9.3,3.5-9.4-3.8-11.5-8.3s-6.4-5-6.4-5c-8.7-1.1-15.8,15.8-29.3,16.6s-6.3-15.8-15.1-21.5s-8.9-7.8-5.8-16.9s1.8-12.2-7.1-18.6
@@ -81,7 +81,7 @@
 		C81.5,263.1,79.7,261.2,77.4,261.2z"/>
 	<text class="chungnam" v-on:click="clickMap('충남', '#F37B7C')" transform="matrix(1 0 0 1 38.1308 281.416)" fill="#6B6B6B" font-family="'NanumBarunGothic'" font-size="17.243px">충남</text>
 </g>
-<g id="chungbuk">
+<g id="chungbuk" v-on:click="clickMap('충북', '#F37B7C')">
 	<path class="chungbuk" fill="#F37B7C" stroke="#FFFFFF" stroke-width="1.5" stroke-miterlimit="10" d="M193.7,402.6
 		c0.3-2.7,1.2-5.5,3.4-7.3c5.6-4.5,9.8-12.6,10.1-18.4c0.2-5.8,0.6-15.2-4.3-18s-8.9-10.5-5.9-22.3s-8.4-25.5,2.8-36.9
 		c11.2-11.4,21.8-14.4,27.7-18.2c5.9-3.9,13-14.3,26.9-10c13.9,4.3,14.5-3.1,13-8.7c-0.9-3.3,4.3-8.9,8.7-13.1
@@ -97,7 +97,7 @@
 		C236.5,243.3,234.7,241.4,232.4,241.4z"/>
 	<text class="chungbuk" v-on:click="clickMap('충북', '#F37B7C')" transform="matrix(1 0 0 1 193.3808 261.416)" fill="#6B6B6B" font-family="'NanumBarunGothic'" font-size="17.243px">충북</text>
 </g>
-<g id="daejeon">
+<g id="daejeon" v-on:click="clickMap('대전', '#F37B7C')">
 	<path class="daejeon" fill="#F37B7C" stroke="#FFFFFF" stroke-width="1.5" stroke-miterlimit="10" d="M121,337.7c0,0-3,11.8-3.7,14
 		s-0.7,6.9,2.6,11s8.2,11,16.9,11s8.2,0,12.4-2.1s13.2,0,13.2,0s-3.5-1.7-3.5-6.1s0.3-13.1-0.7-19.1s-7.5-15.9-13.7-20.5
 		c0,0-5.6-0.1-10,3.7S131.9,336.6,121,337.7z"/>
@@ -110,7 +110,7 @@
 </g>
 <rect id="XMLID_271_" x="98.2" y="418.6" fill="none" width="30.8" height="16.9"/>
 
-<g id="jeonbuk">
+<g id="jeonbuk" v-on:click="clickMap('전북', '#14CDCC')">
 	<path class="jeonbuk" fill="#14CDCC" stroke="#FFFFFF" stroke-width="1.5" stroke-miterlimit="10" d="M161.7,371.3
 		c-6-1.9-11.6-0.6-14.6,1.2c-2,1.2-5,1.1-6.7,1c-1.2-0.1-2.4-0.1-3.6,0.1c-7.5,1.6-10.9,7.6-10.9,7.6c-7.8-3.8-10.2,1.7-19.4,5.2
 		c-9.3,3.5-9.4-3.8-11.5-8.3s-6.4-5-6.4-5c-8.7-1.1-15.8,15.8-29.3,16.6c-3.4,0.2-5.6-0.7-6.9-2.3c-1.2-1.4-3-1.9-4.8-1.4
@@ -131,7 +131,7 @@
 <rect id="XMLID_257_" x="63.1" y="490.6" fill="none" width="30.8" height="16.9"/>
 <rect id="XMLID_240_" x="209.6" y="490.6" fill="none" width="30.8" height="16.9"/>
 
-<g id="gyeongnam">
+<g id="gyeongnam" v-on:click="clickMap('경남', '#E1241A')">
 	<path class="gyeongnam" fill="#E1241A" stroke="#FFFFFF" stroke-width="1.5" stroke-miterlimit="10" d="M381.2,459.3
 		c-1.2-0.1-2.8-0.6-4.8-1.8c-9.4-5.6-30.4-7.3-38-2c-7.6,5.4-11.7-0.4-15.9,0.5c-4.3,0.9-8.8,6.6-14.8,10.3
 		c-6.1,3.7-6.3,0.4-11.9-2.4s-18.1-10-26.7-9.9c-8.5,0-20.9,4.9-31.7-0.2c0,0-5.5-2.6-6.3-13.7s-6.2-15.1-9.9-17
@@ -150,7 +150,7 @@
 </g>
 <rect id="XMLID_227_" x="300.1" y="503.6" fill="none" width="30.8" height="16.9"/>
 
-<g id="busan">
+<g id="busan" v-on:click="clickMap('부산', '#E1241A')">
 	<path class="busan" fill="#E1241A" stroke="#FFFFFF" stroke-width="1.5" stroke-miterlimit="10" d="M355.6,517.5
 		c0.7,5.9-0.5,12.2-5.2,12.1c-4.7-0.1-13.7,1.9-20.5,11.5c-6.8,9.6-13-1.5-18.2,1.2s-4.1,8.3-9.4,9.1c-5.3,0.8-11.2,8-11.7,15.6
 		c0,0-10-0.6-3.2-20.9c6.8-20.3,9.9-20.9,17.2-30.6c7.4-9.6,36.5-11.3,38.6-18.5s7.8-7,7.8-7s1.7,1.6,2.1,4.4
@@ -169,7 +169,7 @@
 
 <rect id="XMLID_26_" x="308.8" y="304.7" fill="none" width="30.8" height="16.9"/>
 
-<g id="gyeongbuk">
+<g id="gyeongbuk" v-on:click="clickMap('경북', '#E1241A')">
 	<path class="gyeongbuk" fill="#E1241A" stroke="#FFFFFF" stroke-width="1.5" stroke-miterlimit="10" d="M276,249.7
 		c3.2-3,7.4-4.9,11.8-5.4c1.9-0.2,4.4-0.5,7.6-0.8c13.5-1.1,17.4,0,29.6,2.9s14.6-3.6,24.9-2.4c10.2,1.2,17.8-0.3,19.8-6.6
 		c0.7-2.1,1.6-3.7,2.6-4.9c0.1-0.2,0.2-0.3,0.4-0.5c1-1.4,3.2-0.8,3.5,0.9c0.5,2.7,1.6,5.9,4.1,9c6.4,7.7,8.8,13.2,5.4,25.8
@@ -186,7 +186,7 @@
 		C351.2,299.3,349.4,297.4,347.1,297.4z"/>
 	<text class="gyeongbuk" v-on:click="clickMap('경북', '#E1241A')" transform="matrix(1 0 0 1 308.7841 318.0577)" fill="#6B6B6B" font-family="'NanumBarunGothic'" font-size="17.243px">경북</text>
 </g>
-<g id="daegu">
+<g id="daegu" v-on:click="clickMap('대구', '#F37B7C')">
 	<path class="daegu" fill="#F37B7C" stroke="#FFFFFF" stroke-width="1.5" stroke-miterlimit="10" d="M274.6,454.8
 		c-1.9-0.5-3.8-0.8-5.5-0.7c-6.3,0-14.7,2.7-23,2c0,0-2.6-4,1.2-8.9c3.8-4.9,7-9.3,6.5-16.6c-0.5-7.2,2.3-16.3,17.2-20
 		c14.9-3.6,25.6-7.6,28.2-0.5s4.4,15.9-2,22.4s-9.4,7.3-12,12.4S274.6,454.8,274.6,454.8z"/>
@@ -197,7 +197,7 @@
 		C318.2,385.3,316.4,383.4,314.1,383.4z"/>
 	<text class="daegu" v-on:click="clickMap('대구', '#F37B7C')" transform="matrix(1 0 0 1 276.1457 404.273)" fill="#6B6B6B" font-family="'NanumBarunGothic'" font-size="17.243px">대구</text>
 </g>
-<g id="ulsan">
+<g id="ulsan" v-on:click="clickMap('울산', '#F37B7C')">
 	<path class="ulsan" fill="#F37B7C" stroke="#FFFFFF" stroke-width="1.5" stroke-miterlimit="10" d="M360.6,503.8
 		c1.5-1.5,3.3-2.8,5.4-3.8c7.6-3.5,5.5-10.1,6.9-13.6c1.4-3.6,8.7-1.6,8.9-23.5l0.1-3.6h-0.5c-1.2-0.1-2.8-0.6-4.8-1.8
 		c-9.4-5.6-30.4-7.3-38-2c0,0-6.2,5.1-7.3,8.7s-4.8,11.1,2.6,16s14.3,5.7,16.6,8.3c1.8,2.1,2.7,5.2,2.6,6.9c0,0.7,0.2,1.5,0.8,2
@@ -211,7 +211,7 @@
 </g>
 <rect id="XMLID_25_" x="33.5" y="573.8" fill="none" width="30.8" height="16.9"/>
 
-<g id="jeonnam">
+<g id="jeonnam" v-on:click="clickMap('전남', '#00B6B5')">
 	<path class="jeonnam" fill="#00B6B5" stroke="#FFFFFF" stroke-width="1.5" stroke-miterlimit="10" d="M156.1,501
 		c-1.6-1.1-6.2-2.7-6.2-2.7c-5.6-2.6-11.8-1.4-18.3,1.3s-17.5-4-21.7-4.5c-4.2-0.6-2.5,4.2-6.3,4.6s-10-3.8-12.3-8.7
 		c-2.3-4.9-11.3-13.1-24.5-12.2s-18.9,8.6-28.6,12.5s-13.5-4.4-15.2-8.5c-0.5-1.1-1-2.1-1.6-2.9c-1.1-1.6-3.6-1.3-4.3,0.5
@@ -230,7 +230,7 @@
 		C77,568.6,75.2,566.7,72.9,566.7z"/>
 	<text class="jeonnam" v-on:click="clickMap('전남', '#00B6B5')" transform="matrix(1 0 0 1 33.5116 587.1738)" fill="#6B6B6B" font-family="'NanumBarunGothic'" font-size="17.243px">전남</text>
 </g>
-<g id="gwangju">
+<g id="gwangju" v-on:click="clickMap('광주', '#14CDCC')">
 	<path class="gwangju" fill="#14CDCC" stroke="#FFFFFF" stroke-width="1.5" stroke-miterlimit="10" d="M55.8,507.3
 		c-0.3-0.2-5.8-1-9.3-3c-3.6-2.1-7.2,8.6-7.2,8.6s-4,8.3,2,11.3s7.3,3,9.4,9.6c2.1,6.6,11.5,2.2,15.7-0.2c4.1-2.5,5.1-4.6,11.2-5.5
 		c6.1-0.9,7.9-4.5,6.1-9.2c-1.9-4.7-5.5-9.7-5.5-9.7s-1.3-2.9-3.8-2.6s-10.7,1.7-16.3,1.1L55.8,507.3z"/>
@@ -243,7 +243,7 @@
 </g>
 <rect id="XMLID_111_" x="1.5" y="741.3" fill="none" width="30.8" height="16.9"/>
 
-<g id="jeju">
+<g id="jeju" v-on:click="clickMap('제주', '#1783DC')">
 	<path class="jeju" fill="#1783DC" stroke="#FFFFFF" stroke-width="1.5" stroke-miterlimit="10" d="M0.7,755.1
 		c0,0-21.7,4.2-33.9,9c-12.3,4.8-36.8,18.2-25.9,30.9s31.2,3.8,46.8,3.1s31.1-4,39.6-16.4s5.6-23.3-5.3-25.9S0.7,755.1,0.7,755.1z"
 		/>
@@ -256,7 +256,7 @@
 </g>
 <rect id="XMLID_23_" x="34.7" y="108.6" fill="none" width="30.8" height="13.5"/>
 
-<g id="seoul">
+<g id="seoul" v-on:click="clickMap('서울', '#157ACE')">
 	<path class="seoul" fill="#157ACE" stroke="#FFFFFF" stroke-width="1.5" stroke-miterlimit="10" d="M92.2,171.1
 		c9.3,1.1,13.2,2.8,14.6,4.9s3.6,0.9,7.3-2.6s9.4-5.1,9.8-10.5c0.4-5.5,0-10.3-3.6-12.9c-3.5-2.6-3.9-7.2-5.2-8.9
 		c-1.3-1.7-19-8.5-26.1,0.7s-10,11-14.8,12.5c0,0,4.5,8.5,4.1,15.7C78.4,170,88.3,170.6,92.2,171.1z"/>
@@ -270,7 +270,7 @@
 
 
 
-<g id="sejong">
+<g id="sejong" v-on:click="clickMap('세종', '#F37B7C')">
 	<path class="sejong" fill="#F37B7C" stroke="#FFFFFF" stroke-width="1.5" stroke-miterlimit="10" d="M133.6,304.8
 		c6.4,9.9,6.6,16.9,11.1,20.6c0,0-8.9,1.3-10.5,4.8s-11.5,10.5-16.8,6.6s-8.6-11.5-7.4-22.4s-1.2-14.8-2.5-16.4
 		c-1.2-1.6-2.1-11.9,6.6-8.8c8.6,3.1,10.3,6.6,14,3.5s5.7-4.3,5.7-4.3s-4,7.4-2.9,10.6C132,302.1,133.6,304.8,133.6,304.8z"/>
@@ -307,7 +307,7 @@ export default {
 			this.$emit('click-map');
 		}
 	},
-	
+
 	created() {
 		this.img_src = map_data.img_src
 		console.log(this.img_src)

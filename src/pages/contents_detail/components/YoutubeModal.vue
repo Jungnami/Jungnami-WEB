@@ -30,7 +30,7 @@ export default {
 }
 </script>
 
-<style>
+<style scoped> 
 .modal_mask
 {
   position: fixed;
@@ -43,21 +43,22 @@ export default {
   display: table;
   transition: opacity .3s ease;
 }
-.modal_wrapper 
+.modal_wrapper
 {
   display: table-cell;
   vertical-align: middle;
 }
 .modal_container
 {
-  width: 80vw;
-  height: 50vw;
+  width: 72vw;
+  height: 45vw;
   margin: 0px auto;
   text-align: center;
   transition: all .3s ease;
 }
 .close_btn
 {
+  margin-top: 8vh;
   text-align: right;
 }
 #video

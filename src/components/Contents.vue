@@ -1,11 +1,10 @@
 <template>
 <div class="contents" v-if="contentsData">
-
   <v-layout row wrap>
     <v-flex xs12 class="component_title" v-if="title">
       {{ title }}
     </v-flex>
-    <v-flex xs6 sm4 md3 class="content_card" v-for="content in contentsData" :key="content.c_id">
+    <v-flex xs6 sm4 md3 class="content_card" v-for="content in pageItems" :key="content.c_id">
       <router-link :to="getContentLink(content.c_id)">
         <img :src="content.thumbnail" class="content_image">
         <div>
@@ -46,9 +45,12 @@ export default {
   props: ['content_info', 'contentsData', 'title'],
   methods: {
     getPagingData(event) {
+      // console.log("start ::::" + startItem);
       var curPageNum = event.currentTarget.id;
+      console.log(curPageNum);
       this.currentPage = curPageNum;
       var startItem = (curPageNum - 1) * this.PAGENUM;
+
       var endItem = this.PAGENUM * curPageNum;
       this.pageItems = startItem + ' ' + endItem;
     },
@@ -76,13 +78,15 @@ export default {
   },
   data() {
     return {
+
       //고정된 데이터 받는거 전용.. PAGENUM * DOTNUM 만큼의 데이터를 불러옴
       currentPage: 1,
       startItem: 0,
       hasLink: this.content_info.linkNone, //a href 링크를 걸지 말지
       endItem: this.content_info.endItem,
       PAGENUM: this.content_info.PAGENUM, //페이징 단위
-      DOTNUM: this.content_info.DOTNUM //버튼개수
+      DOTNUM: this.content_info.DOTNUM, //버튼개수,
+      items: this.contentsData
     }
   }
 }
@@ -216,7 +220,7 @@ export default {
 
 .content_image {
   width: 100%;
-  height: 10.66vw;
+  height: 75%;
   border-radius: 5%;
 }
 

@@ -110,6 +110,7 @@ export default {
 
   .content_image {
     width: 16.04vw;
+    height: 12.66vw;
     border-radius: 5%;
     margin-bottom: 1.318vw;
   }
@@ -194,6 +195,7 @@ export default {
 
   .content_image {
     width: 27vw;
+    height: 21.6vw;
     border-radius: 5%;
     margin-bottom: 3.73vw;
   }
@@ -277,6 +279,7 @@ export default {
 
   .content_image {
     width: 40vw;
+    height: 31.9vw;
     border-radius: 5%;
     margin-bottom: 1.318vw;
   }
