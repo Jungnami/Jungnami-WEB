@@ -113,5 +113,8 @@ export const legislatorGetters = {
 export const myPageGetters = {
   getCoinInfo (state) {
     return state.coinInfo
+  },
+  getOpenBuySplash (state) {
+    return state.openBuySplash
   }
 }
