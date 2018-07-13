@@ -60,6 +60,10 @@ export const contentsDetailMutations = {
   minusActiveImgIndex (state) {
     state.activeImgIndex--
   },
+  changeImgIndex (state, payload) {
+    console.log('여기까지 들어옴')
+    state.activeImgIndex = payload
+  },
   postingViewSuccess (state, payload) {
     state.contentsDetail = payload
   },
