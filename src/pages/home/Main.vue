@@ -34,7 +34,7 @@
     <v-layout row wrap justify-space-between>
       <div class="link_item" v-for="(item, i) in button_items" :key="i">
         <router-link :to="item.path">
-          <img :src="item.src" alt="item_link" class="item_link">
+          <img :src="item.src" alt="item_link" class="item_link" :class="item_link_over[i] === 1? 'animated pulse' : ''" @mouseover="item_link_over[i] = 1 " @mouseout="item_link_over[i] = 0">
         </router-link>
       </div>
     </v-layout>
@@ -64,8 +64,12 @@ export default {
         {src: 'url("../../../static/home_imagebanner_smallbox_tablet_02.png")'},
         {src: 'url("../../../static/home_imagebanner_smallbox_tablet_03.png")'},
         {src: 'url("../../../static/home_imagebanner_smallbox_tablet_04.png")'},
-      ]
+      ],
+      item_link_over: [0, 0, 0]
     }
+  },
+  methods: {
+
   }
 }
 </script>
@@ -94,7 +98,7 @@ export default {
 #carousel
 {
   height: 33.8vw;
-  box-shadow: 0px 10px 10px rgba(153, 153, 153, 0.3);
+  box-shadow: 0px 5px 8px rgba(153, 153, 153, 0.3);
 }
 .carousel_item
 {
