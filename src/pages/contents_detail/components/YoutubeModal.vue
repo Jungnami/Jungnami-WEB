@@ -30,7 +30,7 @@ export default {
 }
 </script>
 
-<style>
+<style scoped> 
 .modal_mask
 {
   position: fixed;
@@ -43,7 +43,7 @@ export default {
   display: table;
   transition: opacity .3s ease;
 }
-.modal_wrapper 
+.modal_wrapper
 {
   display: table-cell;
   vertical-align: middle;
