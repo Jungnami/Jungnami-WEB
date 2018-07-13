@@ -7,13 +7,13 @@
       </button>
       <v-layout row wrap class="profile_box">
         <v-flex xs1></v-flex>
-        <img src="../../../static/mapage_image_profile.png" alt="image_profile" class="image_profile">
+        <img :src="myInfo.img" alt="image_profile" class="image_profile">
         <v-layout column justify-space-between class="profile_contents">
-          <v-flex class="name">jonnacute_sungchan</v-flex>
+          <v-flex class="name">{{myInfo.nickname}}</v-flex>
           <v-flex>
             <button class="setting_btn">
               <!-- <img src="../../../static/mypage_button_setting.png" alt="setting_button" class="setting_img"> -->
-            </button>  
+            </button>
           </v-flex>
         </v-layout>
       </v-layout>
@@ -41,8 +41,8 @@
     </router-link>
   </v-layout>
   <hr>
-  <router-view></router-view>
-</div> 
+  <router-view v-bind:mypage_data="myInfo"></router-view>
+</div>
 </template>
 
 <script>
@@ -50,12 +50,32 @@ import * as Cookies from 'js-cookie'
 
 export default {
   name: 'MyPage',
+  data() {
+    return {
+
+    }
+  },
   methods: {
     logout () {
       Cookies.remove('kakaoAccessToken')
       Cookies.remove('openLoginPopUp')
       this.$store.commit('logout')
+    },
+    getMypageInfoData() {
+      return this.myInfo;
     }
+  },
+  computed : {
+    myInfo: function() {
+      console.log("here computed:::" + this.$store.getters.getMypageInfo)
+      return this.$store.getters.getMypageInfo
+    }
+  },
+  created () {
+    const object = {
+      mypage_id: this.$store.getters.getUserId,
+    }
+    this.$store.dispatch('getMyLoginInfo', object);
   }
 }
 </script>
@@ -121,6 +141,7 @@ export default {
 {
   height: 100%;
   margin-right: 2.15vw;
+  border-radius: 50%;
 }
 .profile_contents
 {

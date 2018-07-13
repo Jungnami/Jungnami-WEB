@@ -22,10 +22,14 @@
           <img src="../../../static/contents_scrap_icon.png" alt="contents_scrap_icon" class="scrap_icon">
         </div>
         <div v-for="item in recent_items" :key="item.c_id" class="scrap_card">
+          <router-link :to="'/contentsDetail/' + item.c_id">
+
           <img :src="item.thumbnail" alt="scrap_card_img" class="card_img">
           <div class="card_title">{{ item.c_title }}</div>
           <div class="card_info">{{ item.text }}</div>
+          </router-link>
         </div>
+
         <router-link to="/mypage/scrap">
           <button class="view_more"></button>
         </router-link>
@@ -54,7 +58,8 @@ export default {
   created() {
     console.log("main created!!!");
     this.$store.dispatch('getMyInfoData', {
-      userId: '407144669799202'// userId가 들어가야함 현재 임시값 넣어줌.
+      userId: this.$store.getters.getUserId
+      // userId: '407144669799202'// userId가 들어가야함 현재 임시값 넣어줌.
     });
     console.log("computed test " + JSON.stringify(this.$store.getters.getMyInfo));
 
