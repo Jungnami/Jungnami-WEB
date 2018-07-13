@@ -109,3 +109,9 @@ export const legislatorGetters = {
     return state.supportCoin
   }
 }
+
+export const myPageGetters = {
+  getCoinInfo (state) {
+    return state.coinInfo
+  }
+}
