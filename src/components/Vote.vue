@@ -20,13 +20,15 @@
             </div>
           </div>
         </div>
-        <div class="thumbnail_box">
+        <!-- <router-link :to="'/legislator/' + item.l_id"> -->
+        <!-- <div stlye="display: inline-block;"> -->
+        <!-- <router-link to="home" tag="div"> -->
+        <div class="thumbnail_box" @click="goLegislatorPage(item.l_id)">
           <div class="thumbnail_border" :style="">
             <img :src="item.profileimg" alt="Avatar" class="thumbnail_content" :style="{ border: '2px solid ' +  getColorWithPartyName(item.party_name) }">
           </div>
         </div>
-
-        <div class="progress_box">
+        <div class="progress_box" @click="goLegislatorPage(item.l_id)">
           <div class="progress_border">
             <div class="progress_percent" :style="{ backgroundColor: getColorWithPartyName(item.party_name), width: (item.width * 100) + '%' }">
             </div>
@@ -39,6 +41,10 @@
 
           </div>
         </div>
+      <!-- </router-link> -->
+
+        <!-- </div> -->
+        <!-- </router-link> -->
 
         <div class="emotion" :style="{backgroundImage: emotion[isLike]}" @click="vote(item.l_id)">
           <!-- <img src="" style="display: block;"/> -->
@@ -59,6 +65,12 @@ export default {
   props: ['list_info'],
   methods: {
     getColorWithPartyName(partyName){
+      // if($route.path.includes('/rank')){
+      //   return '#36C5F1';
+      // }
+      if(location.href.includes("rank")){
+        return '#36C5F1';
+      }
       switch(partyName){
         case '더불어민주당':
           return '#1783DC';
@@ -96,6 +108,9 @@ export default {
     vote (l_id) {
       this.$store.commit('changeOpenVotePopUp')
       this.$store.commit('enrollLegislatorId', l_id)
+    },
+    goLegislatorPage (l_id) {
+      location.href="/legislator/" + l_id;
     }
 
     // 페이징 관련 끝
@@ -351,6 +366,7 @@ div.vote_list {
   height: 100%;
   display: table-cell;
   vertical-align: top;
+  cursor: pointer;
 
 }
 
@@ -383,6 +399,7 @@ div.vote_list {
   /*position: relative;*/
   /*right: +13px;*/
   z-index: 0;
+  cursor: pointer;
 }
 
 .progress_border {
@@ -391,6 +408,7 @@ div.vote_list {
   width: 100%;
   padding-top: 10%;
   left: -10%;
+
 
   /*padding-top: 10%;
   padding-bottom: 10%;*/
