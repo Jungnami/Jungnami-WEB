@@ -15,19 +15,19 @@
   </v-flex>
 
   <v-flex xs10 md7 offset-xs1 offset-md0 >
-    <v-layout row wrap class="party_tab" justify-space-between>
-      <v-layout class="party_tab_bar" justify-space-between>
+    <v-layout row wrap class="party_tab">
+      <v-flex xs4 md2 class="party_tab_bar">
         <img :src="bannerImg" alt="active_party" class="active_party">
-        <!-- <v-flex xs4 class="like_layout"> -->
+      </v-flex>
+      <v-flex xs8 md10>
+        <v-layout row wrap justify-space-between>
+          <div>
             <button class="like" @click="changeLike(1)">호감</button>
-        <!-- </v-flex> -->
-        <!-- <v-flex xs4 class="like_layout"> -->
             <button class="noLike" @click="changeLike(0)">비호감</button>
-        <!-- </v-flex> -->
-      </v-layout>
-
-
-      <div class="member_count">국회의석 : {{ items.length }} 석</div>
+          </div>
+          <div class="member_count">국회의석 : {{ items.length }} 석</div>
+        </v-layout>
+      </v-flex>
       <hr :style="{background: partyColor}">
     </v-layout>
 
@@ -320,7 +320,7 @@ export default {
 }
 
 .party_tab_bar {
-  /*height: 7.4vw;*/
+  height: 7.4vw;
   width: 22vw;
 }
 
