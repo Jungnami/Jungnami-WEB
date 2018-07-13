@@ -17,7 +17,7 @@ export const loginMutations = {
     state.openLoginPopUp = false
     router.push('/')
   },
-  setMypageInfo(state, payload) {
+  setMypageInfo (state, payload) {
     state.myPageInfo = payload
   }
 }
@@ -61,6 +61,9 @@ export const contentsDetailMutations = {
   },
   postingViewSuccess (state, payload) {
     state.contentsDetail = payload
+    if (state.contentsDetail.type === 1) {
+      router.push('/youtube')
+    }
   },
   commentListSuccess (state, payload) {
     state.commentList = payload
@@ -119,7 +122,6 @@ export const legislatorMutations = {
     state.supportCoin = payload
   }
 }
-
 
 export const myPageMutations = {
   setCoinInfo (state, payload) {
