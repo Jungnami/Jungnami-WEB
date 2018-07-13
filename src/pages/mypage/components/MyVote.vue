@@ -1,7 +1,7 @@
 <template>
 <v-flex xs10 offset-xs1 class="my_vote">
   <v-layout row nowrap justify-center>
-    <img src="" alt="change_explain_img" class="change_img">
+    <img src="/static/mypage_coin_vote.png" alt="change_explain_img" class="change_img">
   </v-layout>
   <v-layout column wrap justify-center class="vote_explain">
     <div>투표권 전환방법!</div>
@@ -68,7 +68,7 @@ export default {
     width: 78.8vw;
     margin-top: 2.27vw;
     padding-top: 1.47vw;
-    padding-bottom: 1.47vw;
+    padding-bottom: 1vw;
     font-size: 4vw;
   }
   div.my_coin {
@@ -90,7 +90,7 @@ export default {
 }
 .change_img
 {
-  width: 15.73vw;
+  width: 15.3vw;
   height: 6vw;
   margin-top: 2.6vw;
   margin-bottom: 1.25vw;
@@ -119,7 +119,7 @@ export default {
   border-bottom: 1.2px solid #36C5F1;
   margin-top: 0.94vw;
   padding-top: 1.23vw;
-  padding-bottom: 1.23vw;
+  padding-bottom: 0.23vw;
   font-family: NanumBarunGothic;
   font-size: 1.82vw;
   color: #707070;
@@ -147,12 +147,20 @@ export default {
 .change_btn
 {
   width: 100%;
-  background: #36C5F1;
+  background: rgb(192, 192, 192);
   text-align: center;
   padding-top: 1.46vw;
   padding-bottom: 1.46vw;
   font-family: NanumBarunGothicBold;
   font-size: 1.56vw;
   color: white;
+  transition: 0.5s;
+}
+.change_btn:hover
+{
+  background: #36C5F1;
+  transition: 0.5s;
+  font-size: 2vw;
+  color: rgb(255, 255, 255);
 }
 </style>
