@@ -46,6 +46,12 @@ export const rankMutations = {
   },
   voteSuccess (state) {
     console.log('vote success')
+    for (var i = 0; i < state.likeRankingList.length; i++) {
+      if (state.likeRankingList[i].l_id === state.voteTarget) {
+        state.likeRankingList[i].score++
+        break
+      }
+    }
     state.openVotePopUp = false
     state.openVoteSplash = true
   },

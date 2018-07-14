@@ -8,16 +8,20 @@
   </v-flex>
   <v-flex xs10 md7 offset-xs1 offset-md0>
     <v-layout row wrap justify-space-between class="hidden-md-and-up">
-      <button @click="setRegionData(regionName.name, regionName.color)" v-for="(regionName, i) in regions1" :key="i" class="region_btn">{{ regionName.name }}</button>
+      <button @click="setRegionData(regionName.name, regionName.color)" :style="{borderColor: checkActive(regionName.name), color: checkActive(regionName.name)}"
+       v-for="(regionName, i) in regions1" :key="i" class="region_btn">{{ regionName.name }}</button>
     </v-layout>
     <v-layout row wrap justify-space-between class="hidden-md-and-up btns">
-      <button @click="setRegionData(regionName.name, regionName.color)" v-for="(regionName, i) in regions2" :key="i" class="region_btn">{{ regionName.name }}</button>
+      <button @click="setRegionData(regionName.name, regionName.color)" :style="{borderColor: checkActive(regionName.name), color: checkActive(regionName.name)}"
+       v-for="(regionName, i) in regions2" :key="i" class="region_btn">{{ regionName.name }}</button>
     </v-layout>
     <v-layout row wrap justify-space-between class="hidden-md-and-up btns">
-      <button @click="setRegionData(regionName.name, regionName.color)" v-for="(regionName, i) in regions3" :key="i" class="region_btn">{{ regionName.name }}</button>
+      <button @click="setRegionData(regionName.name, regionName.color)" :style="{borderColor: checkActive(regionName.name), color: checkActive(regionName.name)}"
+       v-for="(regionName, i) in regions3" :key="i" class="region_btn">{{ regionName.name }}</button>
     </v-layout>
     <v-layout row wrap class="hidden-md-and-up btns">
-      <button @click="setRegionData(regionName.name, regionName.color)" v-for="(regionName, i) in regions4" :key="i" class="region_btn btns_last">{{ regionName.name }}</button>
+      <button @click="setRegionData(regionName.name, regionName.color)" :style="{borderColor: checkActive(regionName.name), color: checkActive(regionName.name)}"
+      v-for="(regionName, i) in regions4" :key="i" class="region_btn btns_last">{{ regionName.name }}</button>
     </v-layout>
 
     <v-layout row nowrap justify-space-between class="hidden-sm-and-down">
@@ -111,6 +115,12 @@ export default {
 
 },
   methods: {
+    checkActive(name) {
+      if (name === this.active_region.name) {
+        return '#36C5F1'
+      }
+      return '#B0B0B0'
+    },
     changeLike(num){
       this.$store.commit('putIsLike', num);
       this.$store.dispatch('getLegislatorListByRegion', {
@@ -120,6 +130,7 @@ export default {
       this.currentPage = 1;
     },
     setRegionData(regionParam, regionColor) {
+      this.active_region.name = regionParam
       this.$store.commit('setRegion', regionParam)
       this.$store.commit('setRegionColor', regionColor)
 
