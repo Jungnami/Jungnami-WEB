@@ -1,6 +1,6 @@
 <template>
 <v-flex xs10 md8 offset-xs1 offset-md2 v-if="contents">
-  <div class="contents_title">{{ contents.subtitle }}</div>
+  <div class="contents_title">{{ contents.subtitle? contents.subtitle:contents.title }}</div>
   <v-layout row nowrap justify-space-between class="contents_info">
     <div class="detail_info">{{ contents.text }}</div>
     <div class="img_info"><span class="active_idx">{{ imgIndex + 1}}</span>/{{ contents.imagearray.length }}</div>

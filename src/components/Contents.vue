@@ -5,7 +5,7 @@
       {{ title }}
     </v-flex>
     <v-flex xs6 sm4 md3 class="content_card" v-for="content in pageItems" :key="content.c_id">
-      <router-link :to="getContentLink(content.c_id, content.c_title, content.thumbnail)">
+      <router-link :to="getContentLink(content.c_id)">
         <img :src="content.thumbnail" class="content_image">
         <div>
           <div>
@@ -54,10 +54,7 @@ export default {
       var endItem = this.PAGENUM * curPageNum;
       this.pageItems = startItem + ' ' + endItem;
     },
-    getContentLink(c_id, title, thumbnail) {
-      this.$store.commit('setContentsDetailTitle', title)
-      this.$store.commit('setContentsDetailThumbnail', thumbnail)
-
+    getContentLink(c_id) {
       return `/contentsDetail/${c_id}`
     }
   },

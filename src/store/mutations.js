@@ -13,7 +13,7 @@ export const loginMutations = {
     localStorage.setItem('JUNGNAMI_ACCESS_TOKEN', JUNGNAMI_ACCESS_TOKEN)
   },
   logout (state) {
-    localStorage.removeItem('JUNGNAMI_ACCESS_TOKEN');
+    localStorage.removeItem('JUNGNAMI_ACCESS_TOKEN')
     state.kakaoAccessToken = null
     state.user_id = null
     state.openLoginPopUp = false
@@ -73,6 +73,9 @@ export const contentsDetailMutations = {
   },
   postingViewSuccess (state, payload) {
     state.contentsDetail = payload
+  },
+  makeCommentSuccess () {
+    location.reload()
   },
   commentListSuccess (state, payload) {
     state.commentList = payload
