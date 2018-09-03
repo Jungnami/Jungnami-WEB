@@ -238,17 +238,14 @@ export default {
     window.removeEventListener('resize', this.handleWindowResize)
   },
   mounted() {
-    window.addEventListener('resize', this.handleWindowResize);
+    window.addEventListener('resize', this.handleWindowResize)
   },
   created() {
     this.$store.commit('putIsLike', 1);
     this.$store.dispatch('getLegislatorListByParty', {
       isLike: 1,
       party_name: '더불어민주당'
-    });
-    this.$store.dispatch('getPostingView', this.$route.params.id);
-
-
+    })
   }
 }
 </script>
