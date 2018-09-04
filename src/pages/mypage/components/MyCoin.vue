@@ -63,7 +63,7 @@ export default {
   },
   computed: {
     myCoin: function() {
-      return this.$store.getters.getMypageInfo.coin
+      return this.$store.getters.getCoinInfo.point
     },
     btn_info: function() {
       return this.$store.getters.getCoinInfo.exchange
@@ -72,7 +72,8 @@ export default {
   methods: {
     setProps(coin) {
       this.activeCoin = coin
-      this.showModal = true
+      // this.showModal = true
+      alert('현재 코인 구매 서비스는 준비중입니다.')
     }
   },
   created() {

@@ -61,6 +61,9 @@ export default {
       let indexChange = idx - (this.imgIndex % this.propsapp.listLength)
       this.$store.commit('changeImgIndex', (this.imgIndex + indexChange))
     }
+  },
+  destroyed () {
+    this.$store.commit('changeImgIndex', 0)
   }
 }
 </script>
