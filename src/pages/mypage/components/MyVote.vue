@@ -9,13 +9,13 @@
   </v-layout>
   <v-layout justify-center>
     <div>
-      <input type="text" placeholder="투표권(갯수)" class="change_input" v-model="exCoin" @keypress="isNumber($event)">
-      <div class="my_coin">나의 보유 코인 <span>{{ mypage_data.coin - (exCoin ? exCoin : 0)}}코인</span></div>
+      <input id="voting_input" type="text" placeholder="투표권(갯수)" class="change_input" v-model="exCoin" @keypress="isNumber($event)">
+      <div class="my_coin">나의 보유 코인 <span>{{ mypage_data.point - (exCoin ? exCoin : 0)}}코인</span></div>
     </div>
   </v-layout>
   <v-layout>
-    <button v-if="mypage_data.coin - exCoin >= 0 && exCoin != 0" class="change_btn" @click="exchangeCoinToVote()">전환하기</button>
-    <button v-if="mypage_data.coin - exCoin < 0 || exCoin == 0" class="change_btn" :style="{background: '#EBEBEB'}">전환하기</button>
+    <button v-if="mypage_data.point - exCoin >= 0 && exCoin !== 0" class="change_btn" @click="exchangeCoinToVote()">전환하기</button>
+    <button v-if="mypage_data.point - exCoin < 0 || exCoin === 0" class="change_btn" :style="{background: '#EBEBEB'}">전환하기</button>
   </v-layout>
   <exchange-success-modal v-if="this.$store.getters.getOpenExchangePopUp"></exchange-success-modal>
 </v-flex>
@@ -35,18 +35,19 @@ export default {
   methods: {
     exchangeCoinToVote() {
       const object = {
-        coin: this.exCoin
+        point: this.exCoin
       }
-      this.$store.dispatch('exchangeCoin', object)
-
+      // this.$store.dispatch('exchangeCoin', object)
+      alert('투표권 전환 서비스는 준비중입니다.')
     },
-    isNumber: function(evt) {
-      evt = (evt) ? evt : window.event
-      var charCode = (evt.which) ? evt.which : evt.keyCode
-      if ((charCode > 31 && (charCode < 48 || charCode > 57)) && charCode !== 46) {
-        evt.preventDefault()
+    isNumber: function(event) {
+      event = event || window.event
+      var keyID = (event.which) ? event.which : event.keyCode
+      // console.log('keycode ::: ' + keyID)
+			if( ( keyID >=48 && keyID <= 57 ) ) {
+        return
       } else {
-        return true
+        event.preventDefault()
       }
     }
   }

@@ -24,7 +24,8 @@ export default {
   },
   methods: {
     show: function () {
-      this.$emit('showSupportModal')
+      // this.$emit('showSupportModal')
+      alert('후원하기 서비스는 준비중입니다.')
     },
     getMedalImg: function (likerank, unlikerank) {
       if(likerank == '1')

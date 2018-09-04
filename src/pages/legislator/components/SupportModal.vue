@@ -7,7 +7,7 @@
         <div class="support_title">후원하기</div>
         <div class="my_coin_wrapper">
           <div class="my_coin">나의 코인
-            <span class="coin_amount">{{ coinData.user_coin - (supportCoin? supportCoin:0) }}코인</span>
+            <span class="coin_amount">{{ coinData.user_point - (supportCoin? supportCoin:0) }}코인</span>
           </div>
         </div>
         <v-layout row wrap justify-space-between class="support_wrapper">
@@ -16,8 +16,8 @@
         </v-layout>
 
         <v-layout justify-space-between class="support_wrapper btn_wrapper">
-          <button class="check_btn" v-if="!supportCoin || supportCoin > coinData.user_coin">확인</button>
-          <button class="check_btn active_btn" @click="supportLegislator" v-if="supportCoin && supportCoin <= coinData.user_coin">확인</button>
+          <button class="check_btn" v-if="!supportCoin || supportCoin > coinData.user_point">확인</button>
+          <button class="check_btn active_btn" @click="supportLegislator" v-if="supportCoin && supportCoin <= coinData.user_point">확인</button>
           <button class="check_btn" @click="$emit('closeSupportModal')">취소</button>
         </v-layout>
       </div>
@@ -43,13 +43,14 @@ export default {
     })
   },
   methods: {
-    isNumber: function(evt) {
-      evt = (evt) ? evt : window.event
-      var charCode = (evt.which) ? evt.which : evt.keyCode
-      if ((charCode > 31 && (charCode < 48 || charCode > 57)) && charCode !== 46) {
-        evt.preventDefault()
+    isNumber: function(event) {
+      event = event || window.event
+      var keyID = (event.which) ? event.which : event.keyCode
+      // console.log('keycode ::: ' + keyID)
+			if( ( keyID >=48 && keyID <= 57 ) ) {
+        return
       } else {
-        return true
+        event.preventDefault()
       }
     },
     supportLegislator () {

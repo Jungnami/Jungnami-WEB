@@ -25,7 +25,7 @@ export default {
   methods: {
     checkBuying () {
       const object = {
-        coin: this.buyCoin
+        point: this.buyCoin
       }
       this.$store.dispatch('postBuyCoin', object)
       this.$emit('closeModal')

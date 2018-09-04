@@ -297,7 +297,7 @@ export const legislatorActions = {
 export const myPageActions = {
   coinInfo ({ commit }) {
     axios.defaults.headers['authorization'] = localStorage.getItem(tokenKey)
-    instance.get('/user/coin').then(response => {
+    instance.get('/user/point').then(response => {
       if (response.data.message === 'Success') {
         commit('setCoinInfo', response.data.data)
       }
@@ -317,8 +317,8 @@ export const myPageActions = {
   },
   postBuyCoin ({ commit }, payload) {
     axios.defaults.headers['authorization'] = localStorage.getItem(tokenKey)
-    commit('updateMyCoin', payload.coin)
-    instance.post('/user/addcoin', payload).then(response => {
+    commit('updateMyCoin', payload.point)
+    instance.post('/user/addpoint', payload).then(response => {
       if (response.data.message === 'Success') {
         commit('buySuccess')
       }
