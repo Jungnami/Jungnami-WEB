@@ -6,11 +6,12 @@ const instance = axios.create({
 })
 
 const tokenKey = 'JUNGNAMI_ACCESS_TOKEN'
+const MESSAGE_200 = 'Success'
 
 export const loginActions = {
   postAccessToken ({ commit }, payload) {
     instance.post('/user/kakaologin', payload).then(response => {
-      if (response.data.message === 'Success') {
+      if (response.data.message === MESSAGE_200) {
         commit('signInSuccess', response.data.data)
         axios.defaults.headers['authorization'] = response.data.data.token
       }
@@ -22,7 +23,7 @@ export const loginActions = {
     axios.defaults.headers['authorization'] = localStorage.getItem(tokenKey)
     let routePath = '/user/mypage/' + payload.mypage_id
     instance.get(routePath).then(response => {
-      if (response.data.message === 'Success') {
+      if (response.data.message === MESSAGE_200) {
         commit('setMypageInfo', response.data.data)
       }
     }).catch(error => {
@@ -35,7 +36,7 @@ export const rankActions = {
   getLikeRanking ({ commit }, isLike) {
     axios.defaults.headers['authorization'] = localStorage.getItem(tokenKey)
     instance.get(`/ranking/list/${isLike}`).then(response => {
-      if (response.data.message === 'Success') {
+      if (response.data.message === MESSAGE_200) {
         commit('likeRankingSuccess', response.data.data)
         commit('putIsLike', isLike)
       }
@@ -46,7 +47,7 @@ export const rankActions = {
   getVotingCount ({ commit }) {
     axios.defaults.headers['authorization'] = localStorage.getItem(tokenKey)
     instance.get('/legislator/voting').then(response => {
-      if (response.data.message === 'Success') {
+      if (response.data.message === MESSAGE_200) {
         commit('votingCountSuccess', response.data.data)
       }
     }).catch(error => {
@@ -56,7 +57,7 @@ export const rankActions = {
   postVoting ({ commit }, payload) {
     axios.defaults.headers['authorization'] = localStorage.getItem(tokenKey)
     instance.post('/legislator/voting', payload).then(response => {
-      if (response.data.message === 'Success') {
+      if (response.data.message === MESSAGE_200) {
         commit('voteSuccess')
       }
     }).catch(error => {
@@ -73,7 +74,7 @@ export const contentsDetailActions = {
   getPostingView ({ commit }, contentsID) {
     axios.defaults.headers['authorization'] = localStorage.getItem(tokenKey)
     instance.get(`/contents/cardnews/${contentsID}`).then(response => {
-      if (response.data.message === 'Success') {
+      if (response.data.message === MESSAGE_200) {
         commit('postingViewSuccess', response.data.data)
       }
     }).catch(error => {
@@ -83,7 +84,7 @@ export const contentsDetailActions = {
   getCommentList ({ commit }, contentsID) {
     axios.defaults.headers['authorization'] = localStorage.getItem(tokenKey)
     instance.get(`/contents/commentlist/${contentsID}`).then(response => {
-      if (response.data.message === 'Success') {
+      if (response.data.message === MESSAGE_200) {
         commit('commentListSuccess', response.data.data)
       }
     }).catch(error => {
@@ -93,7 +94,7 @@ export const contentsDetailActions = {
   postMakeComment ({ commit }, payload) {
     axios.defaults.headers['authorization'] = localStorage.getItem(tokenKey)
     instance.post('/contents/makecomment', payload).then(response => {
-      if (response.data.message === 'Success') {
+      if (response.data.message === MESSAGE_200) {
         commit('makeCommentSuccess')
       }
     }).catch(error => {
@@ -122,7 +123,7 @@ export const contentsDetailActions = {
   doScrapContents ({ commit }, payload) {
     axios.defaults.headers['authorization'] = localStorage.getItem(tokenKey)
     instance.post('/contents/scrap', payload).then(response => {
-      if (response.data.message === 'Success') {
+      if (response.data.message === MESSAGE_200) {
         console.log('스크랩 성공')
       }
     }).catch(error => {
@@ -136,7 +137,7 @@ export const contentsDetailActions = {
     let routePath = '/delete/scrap/' + contentsid
 
     instance.delete(routePath, payload).then(response => {
-      if (response.data.message === 'Success') {
+      if (response.data.message === MESSAGE_200) {
         console.log('스크랩 취소 성공')
       }
     }).catch(error => {
@@ -147,7 +148,7 @@ export const contentsDetailActions = {
     axios.defaults.headers['authorization'] = localStorage.getItem(tokenKey)
     let routePath = '/contents/like'
     instance.post(routePath, payload).then(response => {
-      if (response.data.message === 'Success') {
+      if (response.data.message === MESSAGE_200) {
         console.log('글 좋아요 성공')
       }
     }).catch(error => {
@@ -161,7 +162,7 @@ export const contentsDetailActions = {
     let routePath = '/delete/contentslike/' + contentsid
 
     instance.delete(routePath, payload).then(response => {
-      if (response.data.message === 'Success') {
+      if (response.data.message === MESSAGE_200) {
         console.log('좋아요 취소 성공')
       }
     }).catch(error => {
@@ -175,7 +176,7 @@ export const recommendActions = {
   getRecommendContents ({ commit }) {
     axios.defaults.headers['authorization'] = localStorage.getItem(tokenKey)
     instance.get('/contents/recommendforweb').then(response => {
-      if (response.data.message === 'Success') {
+      if (response.data.message === MESSAGE_200) {
         commit('setRecommendContentList', response.data.data)
       }
     }).catch(error => {
@@ -186,7 +187,7 @@ export const recommendActions = {
     axios.defaults.headers['authorization'] = localStorage.getItem(tokenKey)
     let routeName = '/contents/main/' + payload.name
     instance.get(routeName).then(response => {
-      if (response.data.message === 'Success') {
+      if (response.data.message === MESSAGE_200) {
         if (payload.name === 'TMI') {
           commit('setTMIContentsData', response.data.data.content)
         } else if (payload.name === '스토리') {
@@ -202,7 +203,7 @@ export const recommendActions = {
   getRecommendData ({ commit }) {
     axios.defaults.headers['authorization'] = localStorage.getItem(tokenKey)
     instance.get('/contents/recommend').then(response => {
-      if (response.data.message === 'Success') {
+      if (response.data.message === MESSAGE_200) {
         commit('setRecommendContentsData', response.data.data.content)
       }
     }).catch(error => {
@@ -213,7 +214,7 @@ export const recommendActions = {
     axios.defaults.headers['authorization'] = localStorage.getItem(tokenKey)
     let routeNames = '/user/mypage/' + payload.userId
     instance.get(routeNames).then(response => {
-      if (response.data.message === 'Success') {
+      if (response.data.message === MESSAGE_200) {
         let scrapData = []
         let infoData = response.data.data.scrap
         for (var i = 0; i < infoData.length; i++) {
@@ -240,7 +241,7 @@ export const partyActions = {
     axios.defaults.headers['authorization'] = localStorage.getItem(tokenKey)
     let routePath = '/legislatorlist/groupbypartyforweb/' + payload.isLike + '/' + payload.party_name
     instance.get(routePath).then(response => {
-      if (response.data.message === 'Success') {
+      if (response.data.message === MESSAGE_200) {
         commit('setPartyData', response.data.data)
       }
     }).catch(error => {
@@ -251,7 +252,7 @@ export const partyActions = {
     axios.defaults.headers['authorization'] = localStorage.getItem(tokenKey)
     let routePath = '/legislatorlist/groupbyregionforweb/' + payload.isLike + '/' + payload.region
     instance.get(routePath).then(response => {
-      if (response.data.message === 'Success') {
+      if (response.data.message === MESSAGE_200) {
         commit('setRegionData', response.data.data)
       }
     }).catch(error => {
@@ -265,7 +266,7 @@ export const legislatorActions = {
   getLegislatorData ({ commit }, legislatorID) {
     axios.defaults.headers['authorization'] = localStorage.getItem(tokenKey)
     instance.get(`/legislator/page/${legislatorID}`).then(response => {
-      if (response.data.message === 'Success') {
+      if (response.data.message === MESSAGE_200) {
         commit('setLegislatorData', response.data.data)
       }
     }).catch(error => {
@@ -275,7 +276,7 @@ export const legislatorActions = {
   legislatorSupport ({ commit }) {
     axios.defaults.headers['authorization'] = localStorage.getItem(tokenKey)
     instance.get('/legislator/support').then(response => {
-      if (response.data.message === 'Success') {
+      if (response.data.message === MESSAGE_200) {
         commit('setUserCoin', response.data.data)
       }
     }).catch(error => {
@@ -298,7 +299,7 @@ export const myPageActions = {
   coinInfo ({ commit }) {
     axios.defaults.headers['authorization'] = localStorage.getItem(tokenKey)
     instance.get('/user/point').then(response => {
-      if (response.data.message === 'Success') {
+      if (response.data.message === MESSAGE_200) {
         commit('setCoinInfo', response.data.data)
       }
     }).catch(error => {
@@ -308,7 +309,7 @@ export const myPageActions = {
   exchangeCoin ({ commit }, payload) {
     axios.defaults.headers['authorization'] = localStorage.getItem(tokenKey)
     instance.post('/user/addvote', payload).then(response => {
-      if (response.data.message === 'Success') {
+      if (response.data.message === MESSAGE_200) {
         commit('exchangeSuccess')
       }
     }).catch(error => {
@@ -319,7 +320,7 @@ export const myPageActions = {
     axios.defaults.headers['authorization'] = localStorage.getItem(tokenKey)
     commit('updateMyCoin', payload.point)
     instance.post('/user/addpoint', payload).then(response => {
-      if (response.data.message === 'Success') {
+      if (response.data.message === MESSAGE_200) {
         commit('buySuccess')
       }
     }).catch(error => {
