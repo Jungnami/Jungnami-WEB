@@ -7,7 +7,7 @@
         <div class="support_title">후원하기</div>
         <div class="my_coin_wrapper">
           <div class="my_coin">나의 코인
-            <span class="coin_amount">{{ coinData.user_point - (supportCoin? supportCoin:0) }}코인</span>
+            <span class="coin_amount">{{ coinData.point - (supportCoin? supportCoin:0) }}코인</span>
           </div>
         </div>
         <v-layout row wrap justify-space-between class="support_wrapper">
@@ -16,8 +16,8 @@
         </v-layout>
 
         <v-layout justify-space-between class="support_wrapper btn_wrapper">
-          <button class="check_btn" v-if="!supportCoin || supportCoin > coinData.user_point">확인</button>
-          <button class="check_btn active_btn" @click="supportLegislator" v-if="supportCoin && supportCoin <= coinData.user_point">확인</button>
+          <button class="check_btn" v-if="!supportCoin || supportCoin > coinData.point">확인</button>
+          <button class="check_btn active_btn" @click="supportLegislator" v-if="supportCoin && supportCoin <= coinData.point">확인</button>
           <button class="check_btn" @click="$emit('closeSupportModal')">취소</button>
         </v-layout>
       </div>
