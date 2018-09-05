@@ -8,7 +8,6 @@ export const userGetters = {
     return state.openLoginPopUp
   },
   getUserId (state) {
-    console.log('userId ::' + state.user_id)
     return state.user_id
   },
   getMypageInfo (state) {
