@@ -242,7 +242,7 @@ export const partyActions = {
     let routePath = '/web/ranking/party/' + payload.party_name + '/' + payload.isLike
     instance.get(routePath).then(response => {
       if (response.data.message === MESSAGE_200) {
-        commit('setPartyData', response.data.data)
+        commit('likeRankingSuccess', response.data.data)
       }
     }).catch(error => {
       console.log('MYINFO partyActions error ::: ' + error.message)
@@ -253,7 +253,7 @@ export const partyActions = {
     let routePath = '/web/ranking/city/' + payload.region + '/' + payload.isLike
     instance.get(routePath).then(response => {
       if (response.data.message === MESSAGE_200) {
-        commit('setRegionData', response.data.data)
+        commit('likeRankingSuccess', response.data.data)
       }
     }).catch(error => {
       console.log('MYINFO partyActions error ::: ' + error.message)

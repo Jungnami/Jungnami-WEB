@@ -182,7 +182,7 @@ export default {
       return this.$store.getters.getIsLike
     },
     items: function() {
-        return this.$store.getters.getRegionContents;
+        return this.$store.getters.getLikeRankingList;
     },
     getListBoxUnit: function(){
       if(this.isMobile()){

@@ -217,7 +217,7 @@ export default {
     },
     items: function() {
       this.DOTNUM = 1;
-      return this.$store.getters.getPartyContents;
+      return this.$store.getters.getLikeRankingList;
     }
   },
   watch: {

@@ -39,8 +39,6 @@ export const store = new Vuex.Store({
     userCoin: null,
     supportCoin: null,
     // 정당 페이지 시작
-    partyInfo: [],
-    regionInfo: [],
     region: '서울',
     regionColor: '#157ACE',
 

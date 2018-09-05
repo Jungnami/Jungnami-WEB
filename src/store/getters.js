@@ -83,12 +83,6 @@ export const recommendGetters = {
 }
 
 export const partyGetters = {
-  getPartyContents (state) {
-    return state.partyInfo
-  },
-  getRegionContents (state) {
-    return state.regionInfo
-  },
   getRegion (state) {
     return state.region
   },
