@@ -35,7 +35,7 @@ export const rankMutations = {
     console.log('put IsLike success')
   },
   votingCountSuccess (state, payload) {
-    state.voting_cnt = payload.data
+    state.voting_cnt = payload
     console.log('get voting count success')
   },
   changeOpenVotePopUp (state) {
