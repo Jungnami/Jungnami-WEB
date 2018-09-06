@@ -113,6 +113,7 @@ export default {
   updated () {
     if(this.like !== this.$store.getters.getIsLike) {
       this.currentPage = 1
+      this.$emit('rankPageInfo', { num: this.currentPage })
       this.like = this.$store.getters.getIsLike
     }
   }
