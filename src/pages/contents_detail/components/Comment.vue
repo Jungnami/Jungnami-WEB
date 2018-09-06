@@ -257,6 +257,8 @@ export default {
   div.comment_content {
     font-size: 2.67vw;
     padding-top: 0.4vw;
+    max-width: 52vw;
+    max-height: 6vw;
   }
   button.comment_like {
     width: 3.73vw;
@@ -406,6 +408,9 @@ button.share { background-image: url('/static/comment_share.png') }
   font-size: 0.73vw;
   color: #707070;
   padding-top: 0.1vw;
+  max-width: 19vw;
+  max-height: 1.5vw;
+  overflow: auto;
 }
 .comment_like
 {
