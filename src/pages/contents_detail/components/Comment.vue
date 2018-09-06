@@ -50,44 +50,44 @@
 
 <script>
 import infiniteScroll from 'vue-infinite-scroll'
+import { mapGetters } from 'vuex'
 
 export default {
   name: 'Comment',
   props: ['contentsInfo', 'commentList', 'contentsID'],
   directives: { infiniteScroll },
-    data () {
-      return {
-        data: [],
-        busy: false,
-        likeBtnImage: ['url("/static/comment_heart_no.png")', 'url("/static/comment_heart_yes.png")'],
-        commentContents: '',
-        scrapImage: ['url("/static/comment_scrap.png")', 'url("/static/comment_scrap_yes.png")'],
-        isScrap: this.contentsInfo.isscrap,
-        contentsIsLike: this.contentsInfo.islike,
-        contentsLikeCnt: this.contentsInfo.likeCnt,
-        contentDetail: this.$store.getters.getContentsDetail
-      }
-    },
-
-
+  data () {
+    return {
+      data: [],
+      busy: false,
+      likeBtnImage: ['url("/static/comment_heart_no.png")', 'url("/static/comment_heart_yes.png")'],
+      commentContents: '',
+      scrapImage: ['url("/static/comment_scrap.png")', 'url("/static/comment_scrap_yes.png")'],
+      isScrap: this.contentsInfo.isscrap,
+      contentsIsLike: this.contentsInfo.islike,
+      contentsLikeCnt: this.contentsInfo.likeCnt
+    }
+  },
+  computed: {
+    ...mapGetters({
+      contentDetail: 'getContentsDetail'
+    })
+  },
   methods: {
     sendLink() {
-      console.log(this.title)
       Kakao.Link.sendDefault({
                 objectType: 'feed',
                 content: {
                   title: this.contentDetail.title,
                   description: this.contentDetail.subtitle,
                   imageUrl: this.contentDetail.thumbnail,
-                    link: {
-                        webUrl: window.location.href, //웹 url 들어가야함,
-                        mobileWebUrl: window.location.href
-                    }
+                  link: {
+                      webUrl: window.location.href, //웹 url 들어가야함,
+                      mobileWebUrl: window.location.href
+                  }
                 }
             });
           },
-
-
 
     loadMore: function () {
       this.busy = true;
@@ -176,9 +176,6 @@ export default {
       }
     }
   }
-  },
-  created () {
-
   }
 }
 </script>
