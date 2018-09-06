@@ -57,13 +57,24 @@ export default {
       }
       return array
     },
-    changeImg(idx) {
+    changeImg (idx) {
       let indexChange = idx - (this.imgIndex % this.propsapp.listLength)
       this.$store.commit('changeImgIndex', (this.imgIndex + indexChange))
+    },
+    checkKey (e) {
+      e = e || window.event
+      if (e.keyCode == '37') {
+        this.indexDown ()
+      } else if (e.keyCode == '39') {
+        this.indexUp ()
+      }
     }
   },
   destroyed () {
     this.$store.commit('changeImgIndex', 0)
+  },
+  created () {
+    document.onkeydown = this.checkKey
   }
 }
 </script>

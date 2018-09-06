@@ -185,7 +185,7 @@ export const recommendActions = {
   },
   getContentsData ({ commit }, payload) {
     axios.defaults.headers['authorization'] = localStorage.getItem(tokenKey)
-    let routeName = '/web/contents/' + payload.name
+    let routeName = '/web/contents/category/' + payload.name
     instance.get(routeName).then(response => {
       if (response.data.message === MESSAGE_200) {
         if (payload.name === 'TMI') {
