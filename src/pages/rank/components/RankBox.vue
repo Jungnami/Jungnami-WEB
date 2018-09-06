@@ -41,6 +41,7 @@ export default {
       PC_LIST_BOX_UNIT: 3,
       mobileCheck: this.windowWidth < 960 ? true : false,
       currentPage: 1,
+      like: 1,
       MOBILE_PAGE_UNIT: 10, //한 리스트에 보여줄 데이터 수 - 닷 버튼 개수를 구하기위해 사용
       PC_PAGE_UNIT: 30,
       LIST_DATA_UNIT: 10, //하나의 리스트에 솨줄 데이터 갯수 단위
@@ -62,7 +63,6 @@ export default {
     }
   },
   methods: {
-
     showPageInfo: function() {
       this.$emit('rankPageInfo', { num: this.currentPage })
     },
@@ -108,15 +108,14 @@ export default {
     },
     items: function () {
         return this.$store.getters.getLikeRankingList
-    },
-    // watch :{
-    //   isLike : function() {
-    //     console.log("watch here")
-    //     this.currentPage = 1
-    //
-    // }
-  // }
-}
+    }
+  },
+  updated () {
+    if(this.like !== this.$store.getters.getIsLike) {
+      this.currentPage = 1
+      this.like = this.$store.getters.getIsLike
+    }
+  }
 }
 
 
