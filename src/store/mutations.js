@@ -1,5 +1,7 @@
 import router from '../router/index'
 
+const tokenKey = 'JUNGNAMI_ACCESS_TOKEN'
+
 export const loginMutations = {
   openLoginComponent (state) {
     console.log('login component opened')
@@ -9,11 +11,10 @@ export const loginMutations = {
     state.kakaoAccessToken = payload.token
     state.user_id = payload.id
     state.openLoginPopUp = !state.openLoginPopUp
-    const JUNGNAMI_ACCESS_TOKEN = payload.token
-    localStorage.setItem('JUNGNAMI_ACCESS_TOKEN', JUNGNAMI_ACCESS_TOKEN)
+    localStorage.setItem(tokenKey, state.kakaoAccessToken)
   },
   logout (state) {
-    localStorage.removeItem('JUNGNAMI_ACCESS_TOKEN')
+    localStorage.removeItem(tokenKey)
     state.kakaoAccessToken = null
     state.user_id = null
     state.openLoginPopUp = false
@@ -34,7 +35,7 @@ export const rankMutations = {
     console.log('put IsLike success')
   },
   votingCountSuccess (state, payload) {
-    state.voting_cnt = payload.data
+    state.voting_cnt = payload
     console.log('get voting count success')
   },
   changeOpenVotePopUp (state) {
@@ -107,12 +108,6 @@ export const recommendMutations = {
 }
 
 export const partyMutations = {
-  setPartyData (state, payload) {
-    state.partyInfo = payload
-  },
-  setRegionData (state, payload) {
-    state.regionInfo = payload
-  },
   setRegion (state, payload) {
     // console.log("State region :::" + payload)
     state.region = payload

@@ -185,7 +185,7 @@ export const recommendActions = {
   },
   getContentsData ({ commit }, payload) {
     axios.defaults.headers['authorization'] = localStorage.getItem(tokenKey)
-    let routeName = '/web/contents/' + payload.name
+    let routeName = '/web/contents/category/' + payload.name
     instance.get(routeName).then(response => {
       if (response.data.message === MESSAGE_200) {
         if (payload.name === 'TMI') {
@@ -242,7 +242,7 @@ export const partyActions = {
     let routePath = '/web/ranking/party/' + payload.party_name + '/' + payload.isLike
     instance.get(routePath).then(response => {
       if (response.data.message === MESSAGE_200) {
-        commit('setPartyData', response.data.data)
+        commit('likeRankingSuccess', response.data.data)
       }
     }).catch(error => {
       console.log('MYINFO partyActions error ::: ' + error.message)
@@ -253,7 +253,7 @@ export const partyActions = {
     let routePath = '/web/ranking/city/' + payload.region + '/' + payload.isLike
     instance.get(routePath).then(response => {
       if (response.data.message === MESSAGE_200) {
-        commit('setRegionData', response.data.data)
+        commit('likeRankingSuccess', response.data.data)
       }
     }).catch(error => {
       console.log('MYINFO partyActions error ::: ' + error.message)

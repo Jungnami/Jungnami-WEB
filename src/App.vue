@@ -50,6 +50,10 @@ input:focus, button:focus
 {
   outline: none;
 }
+span.dot
+{
+  cursor: pointer;
+}
 @font-face {
   font-family: 'NanumBarunGothic';
   src: url('./assets/NanumBarunGothic.ttf') format('truetype');

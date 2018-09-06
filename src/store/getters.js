@@ -8,7 +8,6 @@ export const userGetters = {
     return state.openLoginPopUp
   },
   getUserId (state) {
-    console.log('userId ::' + state.user_id)
     return state.user_id
   },
   getMypageInfo (state) {
@@ -84,12 +83,6 @@ export const recommendGetters = {
 }
 
 export const partyGetters = {
-  getPartyContents (state) {
-    return state.partyInfo
-  },
-  getRegionContents (state) {
-    return state.regionInfo
-  },
   getRegion (state) {
     return state.region
   },

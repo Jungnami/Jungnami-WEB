@@ -26,17 +26,17 @@ export default {
   },
   methods: {
     loginWithKakao() {
-      Kakao.Auth.login({
+      Kakao.Auth.loginForm({
         success: function(authObj) {
           const object = {
             accessToken: authObj.access_token
           }
           store.dispatch('postAccessToken', object)
-          console.log(authObj.access_token)
         },
         fail: function(err) {
           // alert(JSON.stringify(err));
-        }
+        },
+        persistAccessToken: false
       });
     },
     close () {

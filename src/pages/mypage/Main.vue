@@ -55,13 +55,9 @@
 <script>
 export default {
   name: 'MyPage',
-  data() {
-    return {
-
-    }
-  },
   methods: {
     logout () {
+      Kakao.Auth.logout()
       this.$store.commit('logout')
     },
     getMypageInfoData() {
