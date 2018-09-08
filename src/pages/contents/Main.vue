@@ -30,8 +30,9 @@
           </router-link>
         </div>
 
+        <button class="view_more" v-if="this.$store.getters.getUserId === null" @click="$store.commit('openLoginComponent')"></button>
         <router-link to="/mypage/scrap">
-          <button class="view_more"></button>
+          <button class="view_more" v-if="this.$store.getters.getUserId !== null"></button>
         </router-link>
       </div>
     </v-flex>
@@ -43,6 +44,8 @@
 </template>
 
 <script>
+import router from '../../router/index'
+
 export default {
   name: 'Contents',
   data () {
@@ -56,13 +59,9 @@ export default {
     }
   },
   created() {
-    console.log("main created!!!");
     this.$store.dispatch('getMyInfoData', {
       userId: this.$store.getters.getUserId
-      // userId: '407144669799202'// userId가 들어가야함 현재 임시값 넣어줌.
-    });
-    console.log("computed test " + JSON.stringify(this.$store.getters.getMyInfo));
-
+    })
   },
   computed : {
     recent_items: function() {
@@ -145,9 +144,14 @@ export default {
 {
   font-family: NanumBarunGothic;
   font-size: 0.94vw;
+  color: rgb(75, 75, 75);
   margin-top: 0vh;
   margin-left: 0.78vw;
   margin-right: 0.78vw;
+  display: -webkit-box;
+  overflow: hidden;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 1;
 }
 .card_info
 {
