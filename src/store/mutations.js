@@ -25,6 +25,7 @@ export const loginMutations = {
     localStorage.removeItem(tokenKey)
     state.kakaoAccessToken = null
     state.user_id = null
+    state.myInfomation = []
     state.openLoginPopUp = false
     router.push('/')
   },

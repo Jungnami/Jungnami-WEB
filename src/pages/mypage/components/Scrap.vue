@@ -1,6 +1,6 @@
 <template>
 <v-layout>
-  <v-flex xs10 offset-xs1>
+  <v-flex xs10 offset-xs1 v-if="mypage_data.scrap">
     <!-- <contents v-bind:contentsData="mypage_data.scrap", content_info="sendContentInfo()" ></contents> -->
     <contents :content_info="sendContentInfo()"
      :contentsData="mypage_data.scrap" title="스크랩"></contents>
