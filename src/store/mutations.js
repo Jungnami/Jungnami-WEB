@@ -1,4 +1,5 @@
 import router from '../router/index'
+import { store } from '../store/store'
 
 const tokenKey = 'JUNGNAMI_ACCESS_TOKEN'
 
@@ -12,6 +13,13 @@ export const loginMutations = {
     state.user_id = payload.id
     state.openLoginPopUp = !state.openLoginPopUp
     localStorage.setItem(tokenKey, state.kakaoAccessToken)
+    if (router.currentRoute.name === 'Recommend' ||
+    router.currentRoute.name === 'TMI' ||
+    router.currentRoute.name === 'Story') {
+      store.dispatch('getMyInfoData', {
+        userId: payload.id
+      })
+    }
   },
   logout (state) {
     localStorage.removeItem(tokenKey)

@@ -179,7 +179,7 @@ export default {
   .dot.on {
     background-color: #36C5F1;
   }
-  a{
+  a {
       color: #BDBDBD;
     }
   a:hover{
@@ -197,7 +197,7 @@ export default {
     width: 27vw;
     height: 21.6vw;
     border-radius: 5%;
-    margin-bottom: 3.73vw;
+    margin-bottom: 1.5vw;
   }
 
   .content_category{
