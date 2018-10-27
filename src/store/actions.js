@@ -1,7 +1,7 @@
 import axios from 'axios'
 
 const instance = axios.create({
-  baseURL: 'https://jungnami.ml/',
+  baseURL: 'https://jungnami.tk/',
   timeout: 30000
 })
 
