@@ -1,6 +1,34 @@
-# jungnami-web
+# 정나미 웹서비스(Jungnami Web)
+> SOPT 22nd Appjam 정치가 나의 미래다 프로젝트 웹 개발 repository (우수상 수상)
 
-> AppJam Project
+정나미는 국회의원 인기투표 서비스이다. 사용자는 호감/비호감을 느끼는 국회의원에게 투표를 하여 민심을 표출할 수 있고, 국회의원들은 이를 보고 민심을 즉각적으로 확인할 수 있다.
+<http://jungnami.com>
+![정나미 아이콘](./static/tab_image_title.png)
+
+
+## 페이지 구성
+### main
+* 정나미가 무엇인지 간단한 카드설명을 볼 수 있고 제공하는 서비스에는 무엇이 있는지 확인할 수 있다.
+
+### chart
+* 국회의원 전체에 대한 순위를 보여주고 호감/비호감 투표를 할 수 있다.
+* 국회의원 상세 페이지에 들어가서 관련 컨텐츠들을 확인할 수 있다.
+
+### party/region
+* 국회의원을 정당/지역별로 볼 수 있, 호감/비호감 순위를 확인하고 투표할 수 있다.
+
+### contents
+* 국회의원과 관련한 컨텐츠를 제공하며 추천/TMI/스토리 3가지 탭 메뉴를 제공한다.
+* 컨텐츠 상세 페이지에서는 카드뉴스 형식으로 컨텐츠를 제공하며 컨텐츠에 대하여 댓글을 달고 확인할 수 있다.
+
+### my page
+* 개인 사용자 페이지로서 개인 활동 내역에 대해 구체적으로 확인할 수 있다.
+* 코인을 충전하고 코인으로 투표권을 교환할 수 있다.
+
+
+## Development Environment
+* npm - **v 6.4.1**
+* vue - **v 2.5.17**
 
 ## Build Setup
 
@@ -21,41 +49,12 @@ npm run build --report
 For a detailed explanation on how things work, check out the [guide](http://vuejs-templates.github.io/webpack/) and [docs for vue-loader](http://vuejs.github.io/vue-loader).
 
 
----
-## 페이지/컴포넌트 트리
+## Tech/framework
+- [vuex](https://vuex.vuejs.org/kr/) : 컴포넌트 간의 통신을 쉽게 하기 위해 활용
+- [axios](https://www.npmjs.com/package/vue-axios) : 서버와의 원활한 통신을 위해 활용
+- [vuetify](https://vuetifyjs.com/ko/) : 반응형 웹사이트 제작을 위해 활용
+- [vuex-persistedstate](https://www.npmjs.com/package/vuex-persistedstate) : cookie를 통해 기본 정보를 저장하기 위해 활용
+- [js-cookie](https://github.com/js-cookie/js-cookie) : cookie를 통해 기본 정보를 저장하기 위해 활용
 
-A. App.vue 전역페이지
-  a. 네비게이션 컴포넌트
-  b. 상단 바 컴포넌트
-
-B. 로그인 페이지
-  a. 로그인 컴포넌트 ( 이벤트 리스너 포함, 해당 이벤트는 데이터 통신이 포함될 것 , state를 통해 상태저장,  로그인 컴포넌트의 경우 로그인이 필요한 컨텐츠 클릭시 state에 해당 값이 존재하는지 아닌지를 통해 확인(즉 해당 페이지에는 로그인 컴포넌트가 v-if로 생성될지 말지를 결정) )
-
-C. 순위 페이지
-  a. 카드뷰형식의 데이터 통신이들어간 2개의 이미지 컴포넌트
-  b. 호감/비호감 리스트 하나 li(한사람)에 대한 컴포넌트
-  c. 호감/비호감 리스트 전체에 대한 컴포넌트
-
-D. 정당/지역별 페이지
-  a. 정당별 리스트 한 사람에 대한 컴포넌트 ( C-b 와 동일 컴포넌트 사용)
-  b. 정당별 리스트 전체에 대한 컴포넌트 ( C-c 와 동일 컴포넌트 사용)
-
-E. 커뮤니티 페이지
-
-F. 컨텐츠 페이지
-
-G. 검색 결과 페이지
-
-H. 마이 페이지
-
-K. 국회의원 페이지
-  a. 상단 배너 이미지 포함된 컴포넌트 ( 데이터 통신 필요 )
-  b. 스크랩, 작성글, 팔로워, 팔로잉( 데이터 통신 필요 ) 값 리스팅 컴포넌트
-  c. 해당 국회의원 관련 description 컴포넌트 ( 데이터 통신 필요 )
-  d. 카드뉴스 컴포넌트 ( for each 사용하여 리스팅됨, 데이터 통신 필요 )
-  e. 후원하기 팝업상자 컴포넌트 (edited)
-
-
-  ----
-
-  테스트
+##Web WorkFlow
+![정나미 워크플로우](./static/jungnami_workflow.jpg)
