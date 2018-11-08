@@ -2,11 +2,14 @@
 > SOPT 22nd Appjam 정치가 나의 미래다 프로젝트 웹 개발 repository (우수상 수상)
 
 정나미는 국회의원 인기투표 서비스이다. 사용자는 호감/비호감을 느끼는 국회의원에게 투표를 하여 민심을 표출할 수 있고, 국회의원들은 이를 보고 민심을 즉각적으로 확인할 수 있다.
+
 <http://jungnami.com>
+
 ![정나미 아이콘](./static/tab_image_title.png)
 
 
-## 페이지 구성
+## 페이지 구성
+
 ### main
 * 정나미가 무엇인지 간단한 카드설명을 볼 수 있고 제공하는 서비스에는 무엇이 있는지 확인할 수 있다.
 
@@ -56,5 +59,5 @@ For a detailed explanation on how things work, check out the [guide](http://vuej
 - [vuex-persistedstate](https://www.npmjs.com/package/vuex-persistedstate) : cookie를 통해 기본 정보를 저장하기 위해 활용
 - [js-cookie](https://github.com/js-cookie/js-cookie) : cookie를 통해 기본 정보를 저장하기 위해 활용
 
-##Web WorkFlow
+## Web WorkFlow
 ![정나미 워크플로우](./static/jungnami_workflow.jpg)
