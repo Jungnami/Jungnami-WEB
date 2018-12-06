@@ -15,6 +15,8 @@ import MyCoin from '@/pages/mypage/components/MyCoin'
 import MyVote from '@/pages/mypage/components/MyVote'
 import Scrap from '@/pages/mypage/components/Scrap'
 import ContentsDetail from '@/pages/contents_detail/Main'
+import TermUse from '@/pages/terms/use/Main'
+import TermPrivacy from '@/pages/terms/privacy/Main'
 
 Vue.use(Router)
 
@@ -95,6 +97,16 @@ export default new Router({
       path: '/contentsDetail/:id',
       name: 'ContentsDetail',
       component: ContentsDetail
-    }
+    },
+    {
+      path: '/terms/use',
+      name: 'TermUse',
+      component: TermUse
+    },
+    {
+      path: '/terms/privacy',
+      name: 'TermPrivacy',
+      component: TermPrivacy
+    },
   ]
 })
