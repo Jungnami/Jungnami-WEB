@@ -141,7 +141,7 @@ export default {
     -webkit-box-orient: vertical;
     -webkit-line-clamp: 1;
     color: #C6C6C6;
-    font-family: NanumBarunGothicOTF;
+    font-family: NanumBarunGothic;
   }
 
   .content_title{
@@ -226,7 +226,7 @@ export default {
     margin-bottom: 2.05vw;
     -webkit-line-clamp: 1;
     color: #C6C6C6;
-    font-family: NanumBarunGothicOTF;
+    font-family: NanumBarunGothic;
   }
 
   .content_title{
@@ -309,7 +309,7 @@ export default {
     -webkit-box-orient: vertical;
     -webkit-line-clamp: 1;
     color: #C6C6C6;
-    font-family: NanumBarunGothicOTF;
+    font-family: NanumBarunGothic;
   }
 
   .content_title{
@@ -442,7 +442,7 @@ export default {
   -webkit-box-orient: vertical;
   -webkit-line-clamp: 2;
   color: #000000;
-  font-family: NanumBarunGothicOTF;
+  font-family: NanumBarunGothic;
 }
 */
 /*dot*/

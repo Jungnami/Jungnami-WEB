@@ -164,8 +164,8 @@
 </div>
 </template>
 
-<style>
+<style scoped>
 .content {
-  font-family: NanumBarunGothicOTF;
+  font-family: NanumBarunGothic;
 }
 </style>
