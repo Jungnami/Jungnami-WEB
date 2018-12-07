@@ -73,7 +73,7 @@ export const rankActions = {
 export const contentsDetailActions = {
   getPostingView ({ commit }, contentsID) {
     axios.defaults.headers['authorization'] = localStorage.getItem(tokenKey)
-    instance.get(`/contents/detail/${contentsID}`).then(response => {
+    instance.get(`/contents/${contentsID}/detail`).then(response => {
       if (response.data.message === MESSAGE_200) {
         commit('postingViewSuccess', response.data.data)
       }
